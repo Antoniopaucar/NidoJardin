@@ -1,0 +1,94 @@
+﻿using clsEntidades;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace clsBL
+{
+    public class clsBLAlumno
+    {
+        public List<clsEntidades.clsAlumno> listar_alumnos()
+        {
+            clsDAC.clsDacAlumno xal = new clsDAC.clsDacAlumno();
+            List<clsEntidades.clsAlumno> xlistaAl = xal.listarAlumnos();
+            return xlistaAl;
+        }
+
+        public clsArchivoBase Retornar_Archivo_Alumno(int id,string tipoArchivo)
+        {
+            try
+            {
+                clsDAC.clsDacArchivoBase xAb = new clsDAC.clsDacArchivoBase();
+
+                switch (tipoArchivo)
+                {
+                    case "Fotos":
+                        return xAb.RetornarArchivo("Retornar_Fotos_Alumno", "FoNombre", "FoTamanioBytes", "Fotos", id);
+
+                    case "CopiaDni":
+                        return xAb.RetornarArchivo("Retornar_CopiaDni_Alumno", "CDNombre", "CDTamanioBytes", "CopiaDni", id);
+
+                    case "Permiso":
+                        return xAb.RetornarArchivo("Retornar_PermisoPublicidad_Alumno", "PPNombre", "PPTamanioBytes", "PermisoPublicidad", id);
+
+                    case "Carnet":
+                        return xAb.RetornarArchivo("Retornar_CarnetSeguro_Alumno", "CSNombre", "CSTamanioBytes", "CarnetSeguro", id);
+
+                    default:
+                        // opcional: acción por defecto
+                        return null;
+                }
+            }
+            catch (SqlException ex)
+            {
+                clsBLError dacError = new clsBLError();
+                dacError.Control_Sql_Error(ex);
+                return null;
+            }
+        }
+
+        public void eliminar_alumno(int xcodigo)
+        {
+            try
+            {
+                clsDAC.clsDacAlumno xAl = new clsDAC.clsDacAlumno();
+                xAl.EliminarAlumno(xcodigo);
+            }
+            catch (SqlException ex)
+            {
+                clsBLError dacError = new clsBLError();
+                dacError.Control_Sql_Error(ex);
+            }
+        }
+        public void insertar_alumno(clsEntidades.clsAlumno xal)
+        {
+            try
+            {
+                clsDAC.clsDacAlumno db = new clsDAC.clsDacAlumno();
+                db.InsertarAlumno(xal);
+            }
+            catch (SqlException ex)
+            {
+                clsBLError dacError = new clsBLError();
+                dacError.Control_Sql_Error(ex);
+            }
+        }
+
+        public void modificar_alumno(clsEntidades.clsAlumno xal)
+        {
+            try
+            {
+                clsDAC.clsDacAlumno db = new clsDAC.clsDacAlumno();
+                db.ModificarAlumno(xal);
+            }
+            catch (SqlException ex)
+            {
+                clsBLError dacError = new clsBLError();
+                dacError.Control_Sql_Error(ex);
+            }
+        }
+    }
+}

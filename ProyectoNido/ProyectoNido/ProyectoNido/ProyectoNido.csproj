@@ -1,0 +1,411 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55518104-E3A6-4B75-AA49-1D19D2813807}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProyectoNido</RootNamespace>
+    <AssemblyName>ProyectoNido</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsUsuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsLogin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsComunicado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsDistrito.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsNivel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsSalon.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsRol.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsPermiso.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsUsuarioRol.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.GrupoAnualDetalle.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsRolPermiso.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsUsuarioPermiso.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsApoderado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsTipoDocumento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsArchivoBase.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsAlumno.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsProfesor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\wcfNido\Service1.disco" />
+    <None Include="Connected Services\wcfNido\configuration91.svcinfo" />
+    <None Include="Connected Services\wcfNido\configuration.svcinfo" />
+    <None Include="Connected Services\wcfNido\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="CSS\EstiloLogin.css" />
+    <Content Include="CSS\Estilos.css" />
+    <Content Include="frm_Alumno.aspx" />
+    <Content Include="frm_Apoderado.aspx" />
+    <Content Include="frm_Comunicado.aspx" />
+    <Content Include="frm_Distrito.aspx" />
+    <Content Include="frm_Docente_Comunicado.aspx" />
+    <Content Include="frm_Docente_Datos.aspx" />
+    <Content Include="frm_Docente_GrupoAnual.aspx" />
+    <Content Include="frm_Inicio.aspx" />
+    <Content Include="frm_Login.aspx" />
+    <Content Include="frm_Nivel.aspx" />
+    <Content Include="frm_Permiso.aspx" />
+    <Content Include="frm_Permiso_Usuario.aspx" />
+    <Content Include="frm_Profesor.aspx" />
+    <Content Include="frm_Rol.aspx" />
+    <Content Include="frm_Rol_Permiso.aspx" />
+    <Content Include="frm_Salon.aspx" />
+    <Content Include="frm_Tipo_Documento.aspx" />
+    <Content Include="frm_Usuario.aspx" />
+    <Content Include="frm_Usuario_Rol.aspx" />
+    <Content Include="Img\ALUMNO.png" />
+    <Content Include="Img\APODERADO.png" />
+    <Content Include="Img\COMUNICADO.png" />
+    <Content Include="Img\CUOTA.png" />
+    <Content Include="Img\DISTRITO.png" />
+    <Content Include="Img\GRUPO ANUAL 1.png" />
+    <Content Include="Img\GRUPO ANUAL.png" />
+    <Content Include="Img\GRUPO SERVICIO.png" />
+    <Content Include="Img\LogoChico.jpg" />
+    <Content Include="Img\LogoGrande.jpg" />
+    <Content Include="Img\LogoGrande2.jpg" />
+    <Content Include="Img\matricula.png" />
+    <Content Include="Img\NIVEL.png" />
+    <Content Include="Img\PERMISO USUARIO.png" />
+    <Content Include="Img\PERMISO.png" />
+    <Content Include="Img\profesor.png" />
+    <Content Include="Img\reporte.png" />
+    <Content Include="Img\REPORTES.png" />
+    <Content Include="Img\ROL PERMISO.png" />
+    <Content Include="Img\ROL.png" />
+    <Content Include="Img\SALIR_2.png" />
+    <Content Include="Img\SALON.png" />
+    <Content Include="Img\SERVICIO ADICIONAL.png" />
+    <Content Include="Img\SERVICIO ALUMNO.png" />
+    <Content Include="Img\TARIFARIO.png" />
+    <Content Include="Img\TIPO DE DOCUMENTO.png" />
+    <Content Include="Img\USUARIO ROL.png" />
+    <Content Include="Img\usuario.png" />
+    <Content Include="Img\usuario2.png" />
+    <Content Include="Js\docente_comunicado.js" />
+    <Content Include="Js\Funciones.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Auxiliar\clsValidacion.cs" />
+    <Compile Include="Connected Services\wcfNido\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Alumno.aspx.cs">
+      <DependentUpon>frm_Alumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Alumno.aspx.designer.cs">
+      <DependentUpon>frm_Alumno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Apoderado.aspx.cs">
+      <DependentUpon>frm_Apoderado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Apoderado.aspx.designer.cs">
+      <DependentUpon>frm_Apoderado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Comunicado.aspx.cs">
+      <DependentUpon>frm_Comunicado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Comunicado.aspx.designer.cs">
+      <DependentUpon>frm_Comunicado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Distrito.aspx.cs">
+      <DependentUpon>frm_Distrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Distrito.aspx.designer.cs">
+      <DependentUpon>frm_Distrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Docente_Comunicado.aspx.cs">
+      <DependentUpon>frm_Docente_Comunicado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Docente_Comunicado.aspx.designer.cs">
+      <DependentUpon>frm_Docente_Comunicado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Docente_Datos.aspx.cs">
+      <DependentUpon>frm_Docente_Datos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Docente_Datos.aspx.designer.cs">
+      <DependentUpon>frm_Docente_Datos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Docente_GrupoAnual.aspx.cs">
+      <DependentUpon>frm_Docente_GrupoAnual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Docente_GrupoAnual.aspx.designer.cs">
+      <DependentUpon>frm_Docente_GrupoAnual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Inicio.aspx.cs">
+      <DependentUpon>frm_Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Inicio.aspx.designer.cs">
+      <DependentUpon>frm_Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Login.aspx.cs">
+      <DependentUpon>frm_Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Login.aspx.designer.cs">
+      <DependentUpon>frm_Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Nivel.aspx.cs">
+      <DependentUpon>frm_Nivel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Nivel.aspx.designer.cs">
+      <DependentUpon>frm_Nivel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Permiso.aspx.cs">
+      <DependentUpon>frm_Permiso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Permiso.aspx.designer.cs">
+      <DependentUpon>frm_Permiso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Permiso_Usuario.aspx.cs">
+      <DependentUpon>frm_Permiso_Usuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Permiso_Usuario.aspx.designer.cs">
+      <DependentUpon>frm_Permiso_Usuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Profesor.aspx.cs">
+      <DependentUpon>frm_Profesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Profesor.aspx.designer.cs">
+      <DependentUpon>frm_Profesor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Rol.aspx.cs">
+      <DependentUpon>frm_Rol.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Rol.aspx.designer.cs">
+      <DependentUpon>frm_Rol.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Rol_Permiso.aspx.cs">
+      <DependentUpon>frm_Rol_Permiso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Rol_Permiso.aspx.designer.cs">
+      <DependentUpon>frm_Rol_Permiso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Salon.aspx.cs">
+      <DependentUpon>frm_Salon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Salon.aspx.designer.cs">
+      <DependentUpon>frm_Salon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Tipo_Documento.aspx.cs">
+      <DependentUpon>frm_Tipo_Documento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Tipo_Documento.aspx.designer.cs">
+      <DependentUpon>frm_Tipo_Documento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Usuario.aspx.cs">
+      <DependentUpon>frm_Usuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Usuario.aspx.designer.cs">
+      <DependentUpon>frm_Usuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Usuario_Rol.aspx.cs">
+      <DependentUpon>frm_Usuario_Rol.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Usuario_Rol.aspx.designer.cs">
+      <DependentUpon>frm_Usuario_Rol.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TemplatePrincipal.Master.cs">
+      <DependentUpon>TemplatePrincipal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TemplatePrincipal.Master.designer.cs">
+      <DependentUpon>TemplatePrincipal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario_secundario.Master.cs">
+      <DependentUpon>Usuario_secundario.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario_secundario.Master.designer.cs">
+      <DependentUpon>Usuario_secundario.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wcfNido\Service1.wsdl" />
+    <None Include="Connected Services\wcfNido\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wcfNido\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wcfNido\Service12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wcfNido\Service13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <Content Include="TemplatePrincipal.Master" />
+    <Content Include="Usuario_secundario.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\wcfNido\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52060</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52060/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

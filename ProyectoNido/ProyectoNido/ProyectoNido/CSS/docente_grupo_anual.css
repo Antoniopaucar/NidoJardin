@@ -1,0 +1,103 @@
+/* Estilos específicos SOLO para el contenido de Grupo Anual (ContentPlaceHolder3) */
+
+.grupo-container {
+    padding: 20px;
+    width: 100%;
+}
+
+.grupo-titulo-pagina {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.grupo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.grupo-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 5px solid #007bff;
+}
+
+.grupo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.grupo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.grupo-nivel {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.grupo-periodo {
+    background-color: #e9ecef;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: #666;
+}
+
+.grupo-body {
+    margin-bottom: 15px;
+}
+
+.grupo-info-item {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    color: #555;
+}
+
+.grupo-info-item i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+    color: #666;
+}
+
+.grupo-footer {
+    text-align: right;
+}
+
+.btn-ver-alumnos {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    display: inline-block;
+}
+
+.btn-ver-alumnos:hover {
+    background-color: #218838;
+}
+
+.sin-grupos {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px dashed #ccc;
+}

@@ -1,0 +1,88 @@
+/* Estilos para la vista de comunicados del docente */
+
+.comunicado-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.comunicado-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #87CEEB;
+    /* SkyBlue - Azul más oscuro */
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.comunicado-item:hover {
+    background-color: #00BFFF;
+    /* DeepSkyBlue */
+}
+
+.comunicado-item.expanded {
+    background-color: #4682B4;
+    /* SteelBlue */
+    color: #fff;
+    /* Texto blanco para mejor contraste */
+    font-weight: bold;
+}
+
+.comunicado-titulo {
+    font-weight: bold;
+    flex: 2;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.comunicado-remitente {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+}
+
+.comunicado-fecha {
+    flex: 1;
+    text-align: right;
+    font-weight: bold;
+}
+
+.comunicado-estado {
+    width: 60px;
+    text-align: right;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.estado-abrir {
+    color: #FF0000;
+    /* Rojo */
+}
+
+.estado-visto {
+    color: #008000;
+    /* Verde */
+}
+
+.comunicado-detalle {
+    display: none;
+    /* Oculto por defecto */
+    background-color: #dcdcdc;
+    padding: 20px;
+    margin-top: -10px;
+    /* Para que parezca unido al item superior */
+    margin-bottom: 15px;
+    border-radius: 0 0 5px 5px;
+    border-top: 1px solid #ccc;
+}
+
+.comunicado-detalle p {
+    margin: 0;
+    font-weight: bold;
+}

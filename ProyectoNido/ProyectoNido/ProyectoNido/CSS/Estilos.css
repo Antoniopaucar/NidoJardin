@@ -1,0 +1,471 @@
+﻿html, body, form {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+
+.full-width-textbox {
+    box-sizing: border-box; /* Asegura que el padding no desborde el 100% */
+    width: 100%;
+}
+/* Estilo base */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    color: white;
+}
+
+/* Botón primario (azul) */
+.btn-primario {
+    background-color: #007BFF;
+}
+
+.btn-primario:hover {
+    background-color: #0056b3;
+}
+
+/* Botón éxito (verde) */
+.btn-exito {
+    background-color: #28a745;
+}
+
+.btn-exito:hover {
+    background-color: #1e7e34;
+}
+
+/* Botón advertencia (naranja) */
+.btn-advertencia {
+    background-color: #199ECE;
+}
+
+.btn-advertencia:hover {
+    background-color: #136087;
+}
+
+/* Botón peligro (rojo) */
+.btn-peligro {
+    background-color: #dc3545;
+}
+
+.btn-peligro:hover {
+    background-color: #a71d2a;
+}
+
+/* Botón informativo (gris oscuro) */
+.btn-info {
+    background-color: #6c757d;
+}
+
+.btn-info:hover {
+    background-color: #5a6268;
+}
+
+.boton-reporte {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    width: 250px;
+    min-height: 50px;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+    display: block; /* para que cada botón esté en su propia línea */
+    margin: 10px auto; /* espacio entre botones y centrado */
+    transition: all 0.3s ease;
+}
+
+.boton-reporte:hover {
+    background-color: black;
+    color: white;
+}
+
+.gridview-style {
+    background-color: white;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.gridview-style th {
+    background-color: #007BFF; /* Azul */
+    color: white;
+    padding: 8px;
+    text-align: left;
+}
+
+.gridview-style td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/*-----------EXTRA PARA LA GRILLA-------------*/
+.gridview-style tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.gridview-style tr:hover {
+    background-color: #e0e0e0;
+}
+
+.gridview-style .btn-sm {
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+/*--------------------------------------------*/
+
+.titulo {
+    font-weight: bold;
+    font-size: 35px;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.tablaForm {
+    width: 40%;
+    height: 30%;
+    margin:0 auto;
+}
+
+
+/* Encabezado */
+.Encabezado {
+    background-color: #432906;
+    color: white;
+    font-size: 44px;
+    font-weight: bold;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.auto-style1 {
+    width: 98px;
+    height: 55px;
+}
+
+/*----menu----*/
+/*.menu {
+    display: flex;
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    background-color: #F2D552;
+    justify-content: center;
+}
+
+.menu li {
+margin: 0 15px;
+text-align: center;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.menu img {
+    width: 70px;
+    height: 70px;
+    display: block;
+    margin: 0 auto 5px;
+}*/
+
+.menu {
+    display: flex;
+    list-style: none;
+    padding: 3%;
+    margin: 0px;
+    background-color: #F2D552;
+    justify-content: center;
+    flex-wrap: wrap; /* permite que los grupos bajen en pantallas pequeñas */
+}
+
+    .menu li {
+        margin: 0 15px;
+        text-align: center;
+        position: relative;
+    }
+
+/* Títulos de los grupos */
+.grupo-titulo {
+    display: block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+/* Submenus */
+.submenu {
+    list-style: none;
+    padding-left: 0;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 180px;
+    z-index: 100;
+}
+
+/* Mostrar submenu al hover */
+.grupo:hover .submenu {
+    display: block;
+}
+
+/* Links dentro del submenu */
+.submenu li a {
+    display: flex;
+    flex-direction: column; /* icono arriba, texto abajo */
+    align-items: center;
+    padding: 0px;/* 5px 10px; */
+    text-decoration: none;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+    .submenu li a:hover {
+        background-color: #F2D552;
+        color: #000;
+    }
+
+/* Imagenes de los botones */
+.submenu li img {
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin: 0 auto 5px;
+}
+
+/* Hover sobre título del grupo */
+.grupo-titulo:hover {
+    background-color: #555;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 900px) {
+    .menu {
+        flex-direction: column; /* grupos en vertical en pantallas pequeñas */
+        align-items: center;
+    }
+
+        .menu li {
+            margin: 5px 0;
+        }
+
+    .submenu {
+        position: relative; /* submenu se ajusta al flujo vertical */
+        top: 0;
+        left: 0;
+        border: none;
+        width: 100%;
+    }
+
+        .submenu li a {
+            flex-direction: row; /* icono a la izquierda, texto a la derecha */
+            justify-content: flex-start;
+            padding: 10px;
+        }
+
+        .submenu li img {
+            margin: 0 10px 0 0;
+        }
+}
+
+/* ==== FORMULARIO DOCENTE ==== */
+
+/* Panel izquierdo (avatar + menú) */
+.docente-left {
+    /* el <td> del master ya define ancho y fondo */
+    width: 100%;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.docente-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #000000;
+    margin: 0 auto 15px auto;
+}
+
+.docente-nombre {
+    text-align: center;
+    margin-bottom: 25px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Botones / enlaces del menú lateral */
+.docente-menu button,
+.docente-menu a {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    text-decoration: none;
+    color: #000;
+}
+
+    .docente-menu button.activo,
+    .docente-menu a.activo {
+        background-color: #ffeb3b; /* amarillo */
+        color: #000;
+    }
+
+/* Panel derecho (formulario) */
+.docente-right {
+    /* el <td> del master ya define ancho y fondo */
+    width: 100%;
+    min-height: 400px;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+.docente-form-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .docente-form-table td {
+        padding: 5px 10px;
+        vertical-align: middle;
+    }
+
+/* Etiquetas y cajas de texto */
+.docente-label {
+    width: 180px;
+    font-family: Arial, sans-serif;
+}
+
+.docente-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+/* Campos de solo lectura (deshabilitados) */
+.docente-input[readonly],
+.docente-input-readonly {
+    background-color: #f5f5f5;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Contenedor del botón guardar */
+.docente-guardar {
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Botón guardar: junto con .btn y .btn-exito del CSS general */
+.btn-guardar-docente {
+    font-weight: bold;
+    padding: 10px 30px;
+}
+
+/* Estilos para FileUpload y archivos guardados */
+.file-upload-custom {
+    margin-bottom: 5px;
+}
+
+/* Ocultar el texto "Sin archivos seleccionados" del FileUpload */
+.file-upload-custom input[type="file"] {
+    color: transparent;
+    width: 100%;
+}
+
+.file-upload-custom input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.file-upload-custom input[type="file"]::file-selector-button {
+    visibility: hidden;
+}
+
+.file-upload-custom input[type="file"]::before {
+    content: 'Seleccionar archivo';
+    display: inline-block;
+    background: #007BFF;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.file-upload-custom input[type="file"]:hover::before {
+    background: #0056b3;
+}
+
+/* Ocultar el texto después del botón */
+.file-upload-custom span {
+    display: none !important;
+}
+
+/* Contenedor de información del archivo */
+.archivo-info {
+    margin-top: 5px;
+    min-height: 20px;
+}
+
+/* Enlace de archivo existente */
+.archivo-existente {
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 13px;
+    display: inline-block;
+    margin-top: 3px;
+}
+
+.archivo-existente:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Label de sin archivo */
+.sin-archivo {
+    color: #6c757d;
+    font-size: 13px;
+    font-style: italic;
+    display: inline-block;
+    margin-top: 3px;
+}
