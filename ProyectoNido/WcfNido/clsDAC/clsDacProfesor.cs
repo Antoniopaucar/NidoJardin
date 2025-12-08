@@ -214,8 +214,8 @@ namespace clsDAC
                         cmd.Parameters.Add("@Fotos", SqlDbType.VarBinary).Value = (object)xPro.Fotos.Archivo ?? DBNull.Value;
 
                         cmd.Parameters.AddWithValue("@VDTamanioBytes", xPro.VerificacionDomiciliaria.TamanioBytes);
-                        cmd.Parameters.AddWithValue("@VDNombre", xPro.EvaluacionPsicologica.NombreArchivo);
-                        cmd.Parameters.Add("@VerificacionDomiciliaria", SqlDbType.VarBinary).Value = (object)xPro.EvaluacionPsicologica.Archivo ?? DBNull.Value;
+                        cmd.Parameters.AddWithValue("@VDNombre", xPro.VerificacionDomiciliaria.NombreArchivo);
+                        cmd.Parameters.Add("@VerificacionDomiciliaria", SqlDbType.VarBinary).Value = (object)xPro.VerificacionDomiciliaria.Archivo ?? DBNull.Value;
 
                         cmd.ExecuteNonQuery();
                     }

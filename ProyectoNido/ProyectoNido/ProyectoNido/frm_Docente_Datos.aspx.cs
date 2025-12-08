@@ -1,433 +1,346 @@
-﻿using System;
+﻿using ProyectoNido.Auxiliar;
+using ProyectoNido.wcfNido;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.IO;
-using System.ServiceModel;
-using System.Configuration;
 
 namespace ProyectoNido
 {
     public partial class frm_Docente_Datos : System.Web.UI.Page
     {
+        // Propiedad para mantener el estado Activo del usuario
+        bool Activo
+        {
+            get => (bool?)ViewState["Activo"] ?? false;
+            set => ViewState["Activo"] = value;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    // Verificar que el usuario esté logueado
-            //    if (Session["IdUsuario"] == null)
-            //    {
-            //        Response.Redirect("frm_Login.aspx");
-            //        return;
-            //    }
+            if (!IsPostBack)
+            {
+                // Verificar si hay sesión de usuario
+                if (Session["IdUsuario"] == null)
+                {
+                    Response.Redirect("frm_Login.aspx");
+                    return;
+                }
 
-            //    // Cargar datos del docente
-            //    CargarDatosDocente();
-            //}
+                CargarCombos();
+                CargarDatosDocente();
+            }
+        }
+
+        private void CargarCombos()
+        {
+            wcfNido.Service1Client xdb = new wcfNido.Service1Client();
+
+            // Cargar Tipo Documento
+            List<clsTipoDocumento> listatd = xdb.GetTipoDocumento().ToList();
+            Ddl_Tipo_Documento.DataSource = listatd;
+            Ddl_Tipo_Documento.DataTextField = "Nombre";
+            Ddl_Tipo_Documento.DataValueField = "Id";
+            Ddl_Tipo_Documento.DataBind();
+            Ddl_Tipo_Documento.Items.Insert(0, new ListItem("-- Seleccione un Documento --", ""));
+
+            // Cargar Distritos
+            List<clsDistrito> lista = xdb.GetDistrito().ToList();
+            Ddl_Distrito.DataSource = lista;
+            Ddl_Distrito.DataTextField = "Nombre";
+            Ddl_Distrito.DataValueField = "Id";
+            Ddl_Distrito.DataBind();
+            Ddl_Distrito.Items.Insert(0, new ListItem("-- Seleccione un Distrito --", ""));
+
+            // Cargar Sexo
+            Ddl_Sexo.Items.Clear();
+            Ddl_Sexo.Items.Add(new ListItem("-- Seleccione un Sexo --", ""));
+            Ddl_Sexo.Items.Add(new ListItem("Masculino", "M"));
+            Ddl_Sexo.Items.Add(new ListItem("Femenino", "F"));
         }
 
         private void CargarDatosDocente()
         {
-            //try
-            //{
-            //    int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
+            try
+            {
+                int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
+                wcfNido.Service1Client xdb = new wcfNido.Service1Client();
                 
-            //    wcfNido.Service1Client servicio = new wcfNido.Service1Client();
-            //    wcfNido.clsUsuario docente = servicio.ObtenerDatosDocente(idUsuario);
+                // Obtenemos la lista completa y filtramos (o usamos un método específico si existiera)
+                var lista = xdb.GetProfesor(); 
+                var Profe = lista.FirstOrDefault(u => u.Id == idUsuario);
 
-            //    if (docente != null)
-            //    {
-            //        // Cargar datos personales
-            //        txtNombres.Text = docente.Nombres ?? string.Empty;
-            //        txtApellidoPaterno.Text = docente.ApellidoPaterno ?? string.Empty;
-            //        txtApellidoMaterno.Text = docente.ApellidoMaterno ?? string.Empty;
-            //        txtDNI.Text = docente.Dni ?? string.Empty;
-            //        txtDireccion.Text = docente.Direccion ?? string.Empty;
-            //        txtEmail.Text = docente.Email ?? string.Empty;
+                if (Profe != null)
+                {
+                    // Llenar campos
+                    txt_IdProfesor.Text = Profe.Id.ToString();
+                    txt_Usuario.Text = Profe.NombreUsuario; // Usuario suele ser read-only
+                    
+                    txt_Nombres.Text = Profe.Nombres;
+                    txt_ApellidoPaterno.Text = Profe.ApellidoPaterno;
+                    txt_ApellidoMaterno.Text = Profe.ApellidoMaterno;
+                    
+                    if (Profe.TipoDocumento != null)
+                        Ddl_Tipo_Documento.SelectedValue = Profe.TipoDocumento.Id.ToString();
+                    
+                    txt_Documento.Text = Profe.Documento;
+                    
+                    txt_Fecha_Nacimiento.Text = Profe.FechaNacimiento.HasValue ? Profe.FechaNacimiento.Value.ToString("yyyy-MM-dd") : string.Empty;
+                    
+                    Ddl_Sexo.SelectedValue = Profe.Sexo;
+                    
+                    if (Profe.Distrito != null && Profe.Distrito.Id.ToString() != "0")
+                    {
+                        Ddl_Distrito.SelectedValue = Profe.Distrito.Id.ToString();
+                    }
+                    else
+                    {
+                        Ddl_Distrito.SelectedIndex = 0;
+                    }
 
-            //        // Cargar fecha de nacimiento
-            //        if (docente.FechaNacimiento.HasValue)
-            //        {
-            //            txtFechaNacimiento.Text = docente.FechaNacimiento.Value.ToString("yyyy-MM-dd");
-            //        }
+                    txt_Direccion.Text = Profe.Direccion;
+                    txt_Telefono.Text = Profe.Telefono;
+                    txt_Email.Text = Profe.Email;
+                    
+                    txt_Fecha_Ingreso.Text = Profe.FechaIngreso.HasValue ? Profe.FechaIngreso.Value.ToString("yyyy-MM-dd") : string.Empty;
+                    // Fecha ingreso normalmente no editable por el propio docente, pero se muestra
 
-            //        // Cargar sexo
-            //        if (!string.IsNullOrEmpty(docente.Sexo))
-            //        {
-            //            ddlSexo.SelectedValue = docente.Sexo;
-            //        }
+                    // Guardar estado activo
+                    Activo = Profe.Activo;
+                    
+                    // Actualizar Label del nombre en la barra lateral si existe
+                    if (lblNombreDocente != null)
+                        lblNombreDocente.Text = $"{Profe.Nombres} {Profe.ApellidoPaterno}";
 
-            //        // Cargar fecha de ingreso
-            //        if (docente.FechaIngreso.HasValue)
-            //        {
-            //            txt_FechaIngreso.Text = docente.FechaIngreso.Value.ToString("yyyy-MM-dd");
-            //        }
-
-            //        // Verificación domiciliaria ahora es un archivo, se maneja en MostrarArchivoGuardado
-
-            //        // Mostrar archivos guardados
-            //        MostrarArchivoGuardado(docente.TituloProfesional, lnkTituloProfesional, lblTituloProfesional, "Título Profesional");
-            //        MostrarArchivoGuardado(docente.Cv, lnkCV, lblCV, "CV");
-            //        MostrarArchivoGuardado(docente.EvaluacionPsicologica, lnkEvaluacionPsicologica, lblEvaluacionPsicologica, "Evaluación Psicológica");
-            //        MostrarArchivoGuardado(docente.Fotos, lnkFoto, lblFoto, "Foto");
-            //        MostrarArchivoGuardado(docente.VerificacionDomiciliaria, lnkVerificacionDomiciliaria, lblVerificacionDomiciliaria, "Verificación Domiciliaria");
-
-            //        // Actualizar nombre del docente en el panel izquierdo
-            //        lblNombreDocente.Text = $"{docente.Nombres} {docente.ApellidoPaterno} {docente.ApellidoMaterno}";
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    // Si hay error al cargar, mostrar mensaje pero no bloquear el formulario
-            //    string script = $"console.error('Error al cargar datos del docente: {ex.Message}');";
-            //    ClientScript.RegisterStartupScript(this.GetType(), "error", script, true);
-            //}
+                    // Controlar visibilidad de botones de descarga vs mensaje de carga
+                    // Verificar directamente si cada documento existe en la BD
+                    ActualizarEstadoDocumentos(idUsuario);
+                }
+            }
+            catch (Exception ex)
+            {
+                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alertErrorCarga", $"alert('Error al cargar datos: {ex.Message}');", true);
+            }
         }
 
-        protected void btnGuardarDocente_Click(object sender, EventArgs e)
+        protected void btn_Modificar_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    // Verificar que el usuario esté logueado
-            //    if (Session["IdUsuario"] == null)
-            //    {
-            //        ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Debe iniciar sesión para continuar.');", true);
-            //        Response.Redirect("frm_Login.aspx");
-            //        return;
-            //    }
-
-            //    int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
-
-            //    // Obtener datos actuales primero (para DNI y Fecha de ingreso que no se pueden modificar)
-            //    wcfNido.Service1Client servicio = new wcfNido.Service1Client();
-            //    wcfNido.clsUsuario datosActuales = servicio.ObtenerDatosDocente(idUsuario);
-
-            //    if (datosActuales == null)
-            //    {
-            //        string script = "alert('No se pudieron obtener los datos del docente.');";
-            //        ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
-            //        return;
-            //    }
-
-            //    // Obtener valores del formulario
-            //    string nombres = txtNombres.Text.Trim();
-            //    string apPaterno = txtApellidoPaterno.Text.Trim();
-            //    string apMaterno = txtApellidoMaterno.Text.Trim();
-            //    // DNI no se puede modificar, usar el valor de la base de datos
-            //    string dni = datosActuales.Dni ?? string.Empty;
-            //    string direccion = txtDireccion.Text.Trim();
-            //    string email = txtEmail.Text.Trim();
-            //    string sexo = ddlSexo.SelectedValue;
-
-            //    // Validar que el sexo sea válido (M o F)
-            //    if (string.IsNullOrEmpty(sexo) || (sexo != "M" && sexo != "F"))
-            //    {
-            //        string script = "alert('Por favor seleccione un sexo válido (Masculino o Femenino).');";
-            //        ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
-            //        return;
-            //    }
-
-            //    // Convertir fechas
-            //    DateTime? fechaNacimiento = null;
-            //    if (!string.IsNullOrEmpty(txtFechaNacimiento.Text))
-            //    {
-            //        if (DateTime.TryParse(txtFechaNacimiento.Text, out DateTime fechaNac))
-            //        {
-            //            fechaNacimiento = fechaNac;
-            //        }
-            //    }
-
-            //    // Fecha de ingreso no se puede modificar, usar el valor de la base de datos
-            //    DateTime? fechaIngreso = datosActuales.FechaIngreso;
-
-            //    // Manejar archivos subidos
-            //    // Si hay archivo nuevo, guardarlo y eliminar el anterior si existe
-            //    // Si no hay archivo nuevo, pasar null para que el procedimiento almacenado mantenga el valor existente
-            //    string tituloProfesional = null;
-            //    if (fuTituloProfesional.HasFile && fuTituloProfesional.PostedFile != null && fuTituloProfesional.PostedFile.ContentLength > 0)
-            //    {
-            //        tituloProfesional = GuardarArchivo(fuTituloProfesional, "TituloProfesional", idUsuario, datosActuales?.TituloProfesional);
-            //    }
-            //    // Si no hay archivo nuevo, dejar null para que el procedimiento almacenado mantenga el valor existente
-
-            //    string cv = null;
-            //    if (fuCV.HasFile && fuCV.PostedFile != null && fuCV.PostedFile.ContentLength > 0)
-            //    {
-            //        cv = GuardarArchivo(fuCV, "CV", idUsuario, datosActuales?.Cv);
-            //    }
-            //    // Si no hay archivo nuevo, dejar null para que el procedimiento almacenado mantenga el valor existente
-
-            //    string evaluacionPsicologica = null;
-            //    if (fuEvaluacionPsicologica.HasFile && fuEvaluacionPsicologica.PostedFile != null && fuEvaluacionPsicologica.PostedFile.ContentLength > 0)
-            //    {
-            //        evaluacionPsicologica = GuardarArchivo(fuEvaluacionPsicologica, "EvaluacionPsicologica", idUsuario, datosActuales?.EvaluacionPsicologica);
-            //    }
-            //    // Si no hay archivo nuevo, dejar null para que el procedimiento almacenado mantenga el valor existente
-
-            //    string fotos = null;
-            //    if (fuFoto.HasFile && fuFoto.PostedFile != null && fuFoto.PostedFile.ContentLength > 0)
-            //    {
-            //        fotos = GuardarArchivo(fuFoto, "Foto", idUsuario, datosActuales?.Fotos);
-            //    }
-            //    // Si no hay archivo nuevo, dejar null para que el procedimiento almacenado mantenga el valor existente
-
-            //    string verificacionDomiciliaria = null;
-            //    if (fuVerificacionDomiciliaria.HasFile && fuVerificacionDomiciliaria.PostedFile != null && fuVerificacionDomiciliaria.PostedFile.ContentLength > 0)
-            //    {
-            //        verificacionDomiciliaria = GuardarArchivo(fuVerificacionDomiciliaria, "VerificacionDomiciliaria", idUsuario, datosActuales?.VerificacionDomiciliaria);
-            //    }
-            //    // Si no hay archivo nuevo, dejar null para que el procedimiento almacenado mantenga el valor existente
-
-            //    // Llamar al servicio WCF
-            //    servicio.ActualizarDatosDocente(
-            //        idUsuario,
-            //        nombres,
-            //        apPaterno,
-            //        apMaterno,
-            //        dni,
-            //        fechaNacimiento,
-            //        sexo,
-            //        direccion,
-            //        email,
-            //        fechaIngreso,
-            //        tituloProfesional,
-            //        cv,
-            //        evaluacionPsicologica,
-            //        fotos,
-            //        verificacionDomiciliaria
-            //    );
-
-            //    // Mostrar mensaje de éxito
-            //    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Datos del docente actualizados correctamente.');", true);
-
-            //    // Actualizar el nombre del docente en el panel izquierdo
-            //    lblNombreDocente.Text = $"{nombres} {apPaterno} {apMaterno}";
-
-            //    // Recargar los archivos guardados para mostrar los nuevos
-            //    RecargarArchivosGuardados();
-            //}
-            //catch (FaultException fex)
-            //{
-            //    // Capturar errores específicos del servicio WCF
-            //    string mensajeError = "Error al guardar los datos del docente.";
+            try
+            {
+                wcfNido.Service1Client xdb = new wcfNido.Service1Client();
+                clsProfesor xProfe = new clsProfesor();
                 
-            //    if (fex.Message.Contains("CHECK constraint") && fex.Message.Contains("Sexo"))
-            //    {
-            //        mensajeError = "Error: El valor del campo Sexo no es válido. Por favor seleccione Masculino o Femenino.";
-            //    }
-            //    else if (fex.Message.Contains("CHECK constraint"))
-            //    {
-            //        mensajeError = "Error: Uno de los valores ingresados no cumple con las restricciones de la base de datos. Verifique los datos e intente nuevamente.";
-            //    }
-            //    else if (fex.Message.Contains("FOREIGN KEY"))
-            //    {
-            //        mensajeError = "Error: Los datos ingresados hacen referencia a información que no existe en el sistema.";
-            //    }
-            //    else if (fex.Message.Contains("UNIQUE"))
-            //    {
-            //        mensajeError = "Error: El DNI ingresado ya existe en el sistema. Por favor verifique el número de documento.";
-            //    }
-            //    else
-            //    {
-            //        mensajeError = $"Error al guardar los datos: {fex.Message}";
-            //    }
+                // Inicializar objetos de archivos
+                xProfe.TituloProfesional = new clsArchivoBase();
+                xProfe.Cv = new clsArchivoBase();
+                xProfe.EvaluacionPsicologica = new clsArchivoBase();
+                xProfe.Fotos = new clsArchivoBase();
+                xProfe.VerificacionDomiciliaria = new clsArchivoBase();
+
+                clsUsuario xusuario = new clsUsuario();
+                xusuario.Distrito = new clsDistrito();
+                xusuario.TipoDocumento = new clsTipoDocumento();
+
+                // IDs
+                xProfe.Id = Convert.ToInt32(this.txt_IdProfesor.Text.Trim());
+                xusuario.Id = Convert.ToInt32(this.txt_IdProfesor.Text.Trim());
                 
-            //    string scriptError = $"alert('{mensajeError.Replace("'", "\\'")}');";
-            //    ClientScript.RegisterStartupScript(this.GetType(), "alert", scriptError, true);
-            //}
-            //catch (Exception ex)
-            //{
-            //    string mensajeError = "Error inesperado al guardar los datos del docente.";
+                // Datos
+                xusuario.TipoDocumento.Id = Convert.ToInt32(Ddl_Tipo_Documento.SelectedValue);
+                xusuario.NombreUsuario = txt_Usuario.Text.Trim();
+                xusuario.Nombres = txt_Nombres.Text.Trim();
+                xusuario.ApellidoPaterno = txt_ApellidoPaterno.Text.Trim();
+                xusuario.ApellidoMaterno = txt_ApellidoMaterno.Text.Trim();
+                xusuario.Documento = txt_Documento.Text.Trim();
                 
-            //    if (ex.Message.Contains("CHECK constraint") && ex.Message.Contains("Sexo"))
-            //    {
-            //        mensajeError = "Error: El valor del campo Sexo no es válido. Por favor seleccione Masculino o Femenino.";
-            //    }
-            //    else if (ex.InnerException != null && ex.InnerException.Message.Contains("CHECK constraint"))
-            //    {
-            //        mensajeError = "Error: Uno de los valores ingresados no cumple con las restricciones de la base de datos. Verifique los datos e intente nuevamente.";
-            //    }
-            //    else
-            //    {
-            //        mensajeError = $"Error: {ex.Message}";
-            //    }
+                xusuario.FechaNacimiento = DateTime.TryParse(txt_Fecha_Nacimiento.Text.Trim(), out DateTime f) ? f : (DateTime?)null;
                 
-            //    string scriptError = $"alert('{mensajeError.Replace("'", "\\'")}');";
-            //    ClientScript.RegisterStartupScript(this.GetType(), "alert", scriptError, true);
-            //}
+                xusuario.Sexo = string.IsNullOrEmpty(Ddl_Sexo.SelectedValue) ? null : Ddl_Sexo.SelectedValue;
+                
+                if (string.IsNullOrEmpty(Ddl_Distrito.SelectedValue))
+                    xusuario.Distrito = null; 
+                else
+                    xusuario.Distrito.Id = Convert.ToInt32(Ddl_Distrito.SelectedValue);
+
+                xusuario.Direccion = txt_Direccion.Text.Trim();
+                xusuario.Telefono = txt_Telefono.Text.Trim();
+                xusuario.Email = txt_Email.Text.Trim();
+                xusuario.Activo = Activo; // Mantener el estado activo original
+                
+                // Fecha Ingreso (se mantiene la del formulario o null)
+                xProfe.FechaIngreso = DateTime.TryParse(txt_Fecha_Ingreso.Text.Trim(), out DateTime fi) ? fi : (DateTime?)null;
+
+                // VALIDACIÓN Y CARGA DE ARCHIVOS
+                if (!ProcesarArchivo(fup_Titulo_Profesional, xProfe.TituloProfesional, "TITULO PROFESIONAL")) return;
+                if (!ProcesarArchivo(fup_Cv, xProfe.Cv, "CURRICULUM VITAE")) return;
+                if (!ProcesarArchivo(fup_Evaluacion_Psicologica, xProfe.EvaluacionPsicologica, "EVALUACION PSICOLOGICA")) return;
+                if (!ProcesarArchivo(fup_Fotos, xProfe.Fotos, "FOTOS")) return;
+                if (!ProcesarArchivo(fup_Verificacion_Domiciliaria, xProfe.VerificacionDomiciliaria, "VERIFICACION DOMICILIARIA")) return;
+
+                // Guardar cambios
+                xdb.ModUsuario(xusuario);
+                xdb.ModProfesor(xProfe);
+
+                // Recargar para ver cambios
+                CargarDatosDocente();
+
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Sus datos han sido modificados correctamente.');", true);
+            }
+            catch (System.ServiceModel.FaultException fex)
+            {
+                string mensaje = fex.Message.Replace("'", "\\'").Replace(Environment.NewLine, " ");
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertError", $"alert('Error: {mensaje}');", true);
+            }
+            catch (Exception ex)
+            {
+                string mensaje = ex.Message.Replace("'", "\\'").Replace(Environment.NewLine, " ");
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertErrorGeneral", $"alert('Error inesperado: {mensaje}');", true);
+            }
         }
 
-        //private string GuardarArchivo(FileUpload fileUpload, string tipoArchivo, int idUsuario, string archivoAnterior = null)
-        //{
-            // Si no hay archivo seleccionado, retornar null para mantener el valor existente
-            //if (!fileUpload.HasFile)
-            //{
-            //    return null; // El procedimiento almacenado no actualizará este campo si es null
-            //}
+        private bool ProcesarArchivo(FileUpload fileUpload, clsArchivoBase archivoBase, string nombreMostrar)
+        {
+            if (fileUpload.HasFile)
+            {
+                int maxBytes = 5 * 1024 * 1024; // 5 MB
+                if (fileUpload.PostedFile.ContentLength > maxBytes)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertSize", $"alert('El archivo ({nombreMostrar}) supera el límite máximo permitido de 5 MB.');", true);
+                    return false;
+                }
 
-            //// Validar que el archivo no esté vacío
-            //if (fileUpload.PostedFile == null || fileUpload.PostedFile.ContentLength == 0)
-            //{
-            //    return null; // Archivo vacío, mantener el existente
-            //}
+                archivoBase.NombreArchivo = fileUpload.FileName;
+                archivoBase.TamanioBytes = fileUpload.FileBytes.Length;
+                archivoBase.Archivo = fileUpload.FileBytes;
+            }
+            return true;
+        }
 
-            //try
-            //{
-            //    // Validar tamaño del archivo
-            //    int tamañoMaximoMB = 10; // Por defecto 10MB
-            //    if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["TamañoMaximoArchivoMB"]))
-            //    {
-            //        tamañoMaximoMB = Convert.ToInt32(ConfigurationManager.AppSettings["TamañoMaximoArchivoMB"]);
-            //    }
+        protected void btn_Limpiar_Click(object sender, EventArgs e)
+        {
+            // En este formulario, "Limpiar" podría significar "Restablecer a valores guardados"
+            CargarDatosDocente();
+        }
 
-            //    long tamañoMaximoBytes = tamañoMaximoMB * 1024 * 1024; // Convertir a bytes
-            //    if (fileUpload.PostedFile.ContentLength > tamañoMaximoBytes)
-            //    {
-            //        throw new Exception($"El archivo excede el tamaño máximo permitido de {tamañoMaximoMB} MB.");
-            //    }
+        protected void Ddl_Tipo_Documento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            clsValidacion.AplicarMaxLengthPorTipoDocumento(Ddl_Tipo_Documento, txt_Documento);
+        }
 
-            //    // Validar extensión del archivo
-            //    string extension = Path.GetExtension(fileUpload.FileName).ToLower();
-            //    string extensionesPermitidas = ConfigurationManager.AppSettings["ExtensionesPermitidas"] ?? ".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif";
-            //    string[] extensionesArray = extensionesPermitidas.Split(',');
+        public void DescargarArchivo_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            string tipoArchivo = btn.CommandArgument;
+            int id = Convert.ToInt32(Session["IdUsuario"]);
 
-            //    if (!extensionesArray.Contains(extension))
-            //    {
-            //        throw new Exception($"Tipo de archivo no permitido. Extensiones permitidas: {extensionesPermitidas}");
-            //    }
+            wcfNido.Service1Client xdb = new wcfNido.Service1Client();
 
-            //    // Obtener ruta de documentos desde configuración
-            //    string rutaRelativa = ConfigurationManager.AppSettings["RutaDocumentos"] ?? "~/Documentos";
-            //    string carpetaDocumentos = Server.MapPath(rutaRelativa);
+            try
+            {
+                // Enviar el archivo al navegador
+                clsArchivoBase xAb = xdb.RetArchivoProfesor(id, tipoArchivo);
 
-            //    // Crear carpeta base si no existe
-            //    if (!Directory.Exists(carpetaDocumentos))
-            //    {
-            //        Directory.CreateDirectory(carpetaDocumentos);
-            //    }
+                if (xAb.TamanioBytes > 0)
+                {
+                    Response.Clear();
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"; // Default, o detectar por extensión
+                    
+                    // Ajustar ContentType según la extensión si es posible, o dejar genérico
+                    // Si el nombre tiene extensión conocida, mejor
+                    string extension = System.IO.Path.GetExtension(xAb.NombreArchivo).ToLower();
+                    if (extension == ".pdf") Response.ContentType = "application/pdf";
+                    else if (extension == ".jpg" || extension == ".jpeg") Response.ContentType = "image/jpeg";
+                    else if (extension == ".png") Response.ContentType = "image/png";
 
-            //    // Crear carpeta por tipo de documento
-            //    string carpetaTipo = Path.Combine(carpetaDocumentos, tipoArchivo);
-            //    if (!Directory.Exists(carpetaTipo))
-            //    {
-            //        Directory.CreateDirectory(carpetaTipo);
-            //    }
+                    string headerFileName = HttpUtility.UrlPathEncode(xAb.NombreArchivo);
+                    Response.AddHeader("Content-Disposition", "attachment; filename=" + headerFileName);
+                    Response.AddHeader("Content-Length", xAb.Archivo.Length.ToString());
+                    Response.BinaryWrite(xAb.Archivo);
+                    Response.Flush();
+                    Response.End();
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('El archivo no se encontró o está vacío.');", true);
+                }
+            }
+            catch (System.ServiceModel.FaultException fex)
+            {
+                string mensaje = fex.Message.Replace("'", "\\'").Replace(Environment.NewLine, " ");
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertError", $"alert('Error al descargar: {mensaje}');", true);
+            }
+            catch (Exception ex)
+            {
+                // Response.End() lanza ThreadAbortException, es normal
+                if (!(ex is System.Threading.ThreadAbortException))
+                {
+                    string mensaje = ex.Message.Replace("'", "\\'").Replace(Environment.NewLine, " ");
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertErrorDescarga", $"alert('Error inesperado: {mensaje}');", true);
+                }
+            }
+        }
 
-            //    // Crear carpeta por usuario para evitar colisiones manteniendo el nombre original
-            //    string carpetaUsuario = Path.Combine(carpetaTipo, $"Usuario_{idUsuario}");
-            //    if (!Directory.Exists(carpetaUsuario))
-            //    {
-            //        Directory.CreateDirectory(carpetaUsuario);
-            //    }
-
-            //    // Eliminar archivo anterior si existe
-            //    if (!string.IsNullOrEmpty(archivoAnterior))
-            //    {
-            //        string rutaArchivoAnterior = Path.Combine(carpetaDocumentos, archivoAnterior.Replace("/", "\\"));
-            //        if (File.Exists(rutaArchivoAnterior))
-            //        {
-            //            try
-            //            {
-            //                File.Delete(rutaArchivoAnterior);
-            //            }
-            //            catch
-            //            {
-            //                // Si no se puede eliminar, continuar de todas formas (puede estar en uso)
-            //            }
-            //        }
-            //    }
-
-            //    // Mantener el nombre original del archivo
-            //    string nombreArchivo = Path.GetFileName(fileUpload.FileName);
-            //    if (string.IsNullOrEmpty(nombreArchivo))
-            //    {
-            //        nombreArchivo = $"{tipoArchivo}_{DateTime.Now:yyyyMMddHHmmss}{extension}";
-            //    }
+        /// <summary>
+        /// Verifica si un documento existe en la BD consultando directamente el archivo
+        /// </summary>
+        private bool VerificarDocumentoExisteEnBD(int idProfesor, string tipoArchivo)
+        {
+            try
+            {
+                wcfNido.Service1Client xdb = new wcfNido.Service1Client();
+                clsArchivoBase archivo = xdb.RetArchivoProfesor(idProfesor, tipoArchivo);
                 
-            //    // Ruta completa del archivo
-            //    string rutaCompleta = Path.Combine(carpetaUsuario, nombreArchivo);
-                
-            //    // Si existe un archivo previo con el mismo nombre, eliminarlo para reemplazarlo
-            //    if (File.Exists(rutaCompleta))
-            //    {
-            //        File.Delete(rutaCompleta);
-            //    }
-                
-            //    // Guardar archivo
-            //    fileUpload.SaveAs(rutaCompleta);
-                
-            //    // Retornar la ruta relativa dentro de Documentos (ej. "CV/Usuario_1/miArchivo.pdf")
-            //    string rutaRelativaArchivo = Path.Combine(tipoArchivo, $"Usuario_{idUsuario}", nombreArchivo).Replace("\\", "/");
-            //    return rutaRelativaArchivo;
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw new Exception($"Error al guardar el archivo {tipoArchivo}: {ex.Message}");
-            //}
-        //}
+                // El documento existe si tiene tamaño mayor a 0
+                return archivo != null && archivo.TamanioBytes > 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
-        //private void MostrarArchivoGuardado(string nombreArchivo, HyperLink lnkArchivo, Label lblArchivo, string tipoArchivo)
-        //{
-        //    // Siempre ocultar ambos inicialmente
-        //    lnkArchivo.Visible = false;
-        //    lblArchivo.Visible = false;
+        /// <summary>
+        /// Actualiza la visibilidad de los controles de documentos según si existen en la BD
+        /// Muestra "Descargar" si existe, "Cargar documento" si no existe
+        /// </summary>
+        private void ActualizarEstadoDocumentos(int idProfesor)
+        {
+            // Título Profesional
+            bool existeTitulo = VerificarDocumentoExisteEnBD(idProfesor, "TituloProfesional");
+            lnk_Titulo_Profesional.Visible = existeTitulo;
+            lnk_Titulo_Profesional.Text = "Descargar";
+            lbl_Titulo_Profesional_Msg.Visible = !existeTitulo;
+            lbl_Titulo_Profesional_Msg.Text = "Cargar documento";
 
-        //    if (!string.IsNullOrEmpty(nombreArchivo))
-        //    {
-        //        // Verificar que el archivo existe físicamente
-        //        string rutaRelativa = ConfigurationManager.AppSettings["RutaDocumentos"] ?? "~/Documentos";
-        //        string segmentoRelativo = nombreArchivo.Replace("\\", "/");
-        //        string rutaBase = rutaRelativa.EndsWith("/") ? rutaRelativa : rutaRelativa + "/";
-        //        string rutaVirtual = VirtualPathUtility.Combine(rutaBase, segmentoRelativo);
-        //        string rutaCompleta = Server.MapPath(rutaVirtual);
+            // Curriculum Vitae
+            bool existeCv = VerificarDocumentoExisteEnBD(idProfesor, "Cv");
+            lnk_Cv.Visible = existeCv;
+            lnk_Cv.Text = "Descargar";
+            lbl_Cv_Msg.Visible = !existeCv;
+            lbl_Cv_Msg.Text = "Cargar documento";
 
-        //        if (File.Exists(rutaCompleta))
-        //        {
-        //            // Mostrar enlace para descargar
-        //            lnkArchivo.Visible = true;
-        //            string nombreParaMostrar = Path.GetFileName(segmentoRelativo);
-        //            lnkArchivo.Text = $"📄 {nombreParaMostrar}";
-        //            lnkArchivo.NavigateUrl = ResolveUrl(rutaVirtual);
-        //            lnkArchivo.ToolTip = $"Hacer clic para descargar {tipoArchivo}";
-        //        }
-        //        else
-        //        {
-        //            // Archivo en BD pero no existe físicamente
-        //            lblArchivo.Visible = true;
-        //            lblArchivo.Text = $"⚠ Archivo registrado pero no encontrado: {Path.GetFileName(segmentoRelativo)}";
-        //        }
-        //    }
-        //    else
-        //    {
-        //        // No hay archivo guardado - mostrar mensaje
-        //        lblArchivo.Visible = true;
-        //        lblArchivo.Text = "Sin archivo guardado";
-        //    }
-        //}
+            // Evaluación Psicológica
+            bool existeEval = VerificarDocumentoExisteEnBD(idProfesor, "EvaluacionPsicologica");
+            lnk_Evaluacion_Psicologica.Visible = existeEval;
+            lnk_Evaluacion_Psicologica.Text = "Descargar";
+            lbl_Evaluacion_Psicologica_Msg.Visible = !existeEval;
+            lbl_Evaluacion_Psicologica_Msg.Text = "Cargar documento";
 
-        //private void RecargarArchivosGuardados()
-        //{
-        //    try
-        //    {
-        //        int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
-        //        wcfNido.Service1Client servicio = new wcfNido.Service1Client();
-        //        wcfNido.clsUsuario docente = servicio.ObtenerDatosDocente(idUsuario);
+            // Fotos
+            bool existeFotos = VerificarDocumentoExisteEnBD(idProfesor, "Fotos");
+            lnk_Fotos.Visible = existeFotos;
+            lnk_Fotos.Text = "Descargar";
+            lbl_Fotos_Msg.Visible = !existeFotos;
+            lbl_Fotos_Msg.Text = "Cargar documento";
 
-        //        if (docente != null)
-        //        {
-        //            MostrarArchivoGuardado(docente.TituloProfesional, lnkTituloProfesional, lblTituloProfesional, "Título Profesional");
-        //            MostrarArchivoGuardado(docente.Cv, lnkCV, lblCV, "CV");
-        //            MostrarArchivoGuardado(docente.EvaluacionPsicologica, lnkEvaluacionPsicologica, lblEvaluacionPsicologica, "Evaluación Psicológica");
-        //            MostrarArchivoGuardado(docente.Fotos, lnkFoto, lblFoto, "Foto");
-        //            MostrarArchivoGuardado(docente.VerificacionDomiciliaria, lnkVerificacionDomiciliaria, lblVerificacionDomiciliaria, "Verificación Domiciliaria");
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        // Silenciar errores al recargar
-        //    }
-        //}
+            // Verificación Domiciliaria
+            bool existeVerif = VerificarDocumentoExisteEnBD(idProfesor, "VerificacionDomiciliaria");
+            lnk_Verificacion_Domiciliaria.Visible = existeVerif;
+            lnk_Verificacion_Domiciliaria.Text = "Descargar";
+            lbl_Verificacion_Domiciliaria_Msg.Visible = !existeVerif;
+            lbl_Verificacion_Domiciliaria_Msg.Text = "Cargar documento";
+        }
     }
 }
