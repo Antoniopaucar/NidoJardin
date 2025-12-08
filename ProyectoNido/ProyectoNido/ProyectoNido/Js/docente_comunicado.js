@@ -27,13 +27,22 @@ function toggleDetalle(element) {
             estado.classList.remove("estado-abrir");
             estado.classList.add("estado-visto");
 
-            // Llamada AJAX al WebMethod
+            // Llamada AJAX al WebMethod para marcar como visto en la BD
             if (typeof PageMethods !== 'undefined') {
-                PageMethods.MarcarComoVisto(id, function () {
-                    console.log("Marcado como visto");
-                }, function (err) {
-                    console.error("Error: " + err.get_message());
-                });
+                PageMethods.MarcarComoVisto(parseInt(id), 
+                    function (resultado) {
+                        if (resultado === "OK") {
+                            console.log("Comunicado " + id + " marcado como visto");
+                        } else {
+                            console.warn("Respuesta del servidor: " + resultado);
+                        }
+                    }, 
+                    function (err) {
+                        console.error("Error al marcar como visto: " + err.get_message());
+                    }
+                );
+            } else {
+                console.warn("PageMethods no disponible");
             }
         }
     }

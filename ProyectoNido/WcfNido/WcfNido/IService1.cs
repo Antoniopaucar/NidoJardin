@@ -51,6 +51,9 @@ namespace WcfNido
         [OperationContract]
         void ModComunicado(clsEntidades.clsComunicado User);
 
+        [OperationContract]
+        List<clsEntidades.clsComunicado> GetComunicadoPorRolUsuario(int idUsuario);
+
         //------------------------ DISTRITO ----------------------------------------------
 
         [OperationContract]

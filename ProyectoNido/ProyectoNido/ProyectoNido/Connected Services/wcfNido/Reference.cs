@@ -2313,6 +2313,12 @@ namespace ProyectoNido.wcfNido {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModComunicado", ReplyAction="http://tempuri.org/IService1/ModComunicadoResponse")]
         System.Threading.Tasks.Task ModComunicadoAsync(ProyectoNido.wcfNido.clsComunicado User);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuario", ReplyAction="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioResponse")]
+        ProyectoNido.wcfNido.clsComunicado[] GetComunicadoPorRolUsuario(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuario", ReplyAction="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsComunicado[]> GetComunicadoPorRolUsuarioAsync(int idUsuario);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDistrito", ReplyAction="http://tempuri.org/IService1/GetDistritoResponse")]
         ProyectoNido.wcfNido.clsDistrito[] GetDistrito();
         
@@ -2729,6 +2735,14 @@ namespace ProyectoNido.wcfNido {
         
         public System.Threading.Tasks.Task ModComunicadoAsync(ProyectoNido.wcfNido.clsComunicado User) {
             return base.Channel.ModComunicadoAsync(User);
+        }
+        
+        public ProyectoNido.wcfNido.clsComunicado[] GetComunicadoPorRolUsuario(int idUsuario) {
+            return base.Channel.GetComunicadoPorRolUsuario(idUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsComunicado[]> GetComunicadoPorRolUsuarioAsync(int idUsuario) {
+            return base.Channel.GetComunicadoPorRolUsuarioAsync(idUsuario);
         }
         
         public ProyectoNido.wcfNido.clsDistrito[] GetDistrito() {

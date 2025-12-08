@@ -71,5 +71,15 @@ namespace clsBL
                 dacError.Control_Sql_Error(ex);
             }
         }
+
+        /// <summary>
+        /// Lista comunicados dirigidos a los roles del usuario (para vista de docente/apoderado)
+        /// </summary>
+        public List<clsEntidades.clsComunicado> listar_comunicados_por_rol_usuario(int idUsuario)
+        {
+            clsDAC.clsDacComunicado xcomunicados = new clsDAC.clsDacComunicado();
+            List<clsEntidades.clsComunicado> xlistacomunicados = xcomunicados.ListarComunicadosPorRolUsuario(idUsuario);
+            return xlistacomunicados;
+        }
     }
 }

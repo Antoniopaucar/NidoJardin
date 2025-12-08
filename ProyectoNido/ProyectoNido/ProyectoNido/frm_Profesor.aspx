@@ -273,15 +273,15 @@
                     <ItemTemplate>
                         <asp:Button ID="btnConsultar" runat="server" Text="Consultar" CommandName="Consultar"
                             CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-info btn-sm" />
-                        <asp:Button ID="btnVerCopiaDni" runat="server" Text="Ver Titulo" CommandName="TituloProfesional"
+                        <asp:Button ID="btnVerTituloProfesional" runat="server" Text="Ver Titulo" CommandName="TituloProfesional"
                             CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-exito btn-sm" />
-                        <asp:Button ID="btnVerPermisoPublicidad" runat="server" Text="Ver Curriculum" CommandName="Cv"
+                        <asp:Button ID="btnVerCv" runat="server" Text="Ver Curriculum" CommandName="Cv"
                             CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-exito btn-sm" />
-                        <asp:Button ID="btnVerCarnetSeguro" runat="server" Text="Ver Evaluacion" CommandName="EvaluacionPsicologica"
+                        <asp:Button ID="btnVerEvaluacionPsicologica" runat="server" Text="Ver Evaluacion" CommandName="EvaluacionPsicologica"
                             CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-exito btn-sm" />
                         <asp:Button ID="btnVerFotos" runat="server" Text="Ver Fotos" CommandName="Fotos"
                             CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-exito btn-sm" />
-                        <asp:Button ID="Button1" runat="server" Text="Ver Verificacion" CommandName="VerificacionDomiciliaria"
+                        <asp:Button ID="VerificacionDomiciliaria" runat="server" Text="Ver Verificacion" CommandName="VerificacionDomiciliaria"
                             CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-exito btn-sm" />
                     </ItemTemplate>
                 </asp:TemplateField>

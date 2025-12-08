@@ -143,5 +143,51 @@ namespace clsDAC
                 throw;
             }
         }
+
+        /// <summary>
+        /// Lista comunicados dirigidos a los roles que tiene asignado un usuario
+        /// Requiere el SP: listar_comunicados_por_rol_usuario
+        /// </summary>
+        public List<clsEntidades.clsComunicado> ListarComunicadosPorRolUsuario(int idUsuario)
+        {
+            List<clsEntidades.clsComunicado> lista = new List<clsEntidades.clsComunicado>();
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand("listar_comunicados_por_rol_usuario", cn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id_Usuario", idUsuario);
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            clsEntidades.clsComunicado c = new clsEntidades.clsComunicado();
+                            c.Usuario = new clsEntidades.clsUsuario();
+                            c.Rol = new clsEntidades.clsRol();
+
+                            c.Id = Convert.ToInt32(dr["Id_Comunicado"]);
+                            c.Usuario.Id = Convert.ToInt32(dr["Id_Usuario"]);
+                            c.Usuario.NombreUsuario = dr["NombreUsuario"].ToString();
+                            c.Usuario.Nombres = dr["Nombres"].ToString();
+                            c.Usuario.ApellidoPaterno = dr["ApPaterno"].ToString();
+                            c.Rol.Id = Convert.ToInt32(dr["Id_Rol"]);
+                            c.Rol.NombreRol = dr["NombreRol"].ToString();
+                            c.Nombre = dr["Nombre"].ToString();
+                            c.Descripcion = dr["Descripcion"].ToString();
+                            c.FechaCreacion = dr.GetDateTime(dr.GetOrdinal("FechaCreacion"));
+                            c.FechaFinal = dr.IsDBNull(dr.GetOrdinal("FechaFinal")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaFinal"));
+                            c.Visto = Convert.ToBoolean(dr["Visto"]);
+
+                            lista.Add(c);
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
     }
 }

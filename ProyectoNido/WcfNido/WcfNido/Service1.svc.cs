@@ -148,6 +148,12 @@ namespace WcfNido
             }
         }
 
+        public List<clsComunicado> GetComunicadoPorRolUsuario(int idUsuario)
+        {
+            clsBL.clsBLComunicado xbl = new clsBL.clsBLComunicado();
+            return xbl.listar_comunicados_por_rol_usuario(idUsuario);
+        }
+
         //----------------------------- DISTRITO ---------------------------------------
 
         public List<clsDistrito> GetDistrito()

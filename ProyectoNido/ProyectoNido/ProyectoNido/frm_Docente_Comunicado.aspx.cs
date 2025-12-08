@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Services;
+using ProyectoNido.wcfNido;
 
 namespace ProyectoNido
 {
@@ -12,57 +13,92 @@ namespace ProyectoNido
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    CargarComunicados();
-            //    CargarDatosDocente();
-            //}
+            if (!IsPostBack)
+            {
+                // Verificar si hay sesión de usuario
+                if (Session["IdUsuario"] == null)
+                {
+                    Response.Redirect("frm_Login.aspx");
+                    return;
+                }
+
+                CargarNombreDocente();
+                CargarListaComunicados();
+            }
         }
 
-        private void CargarDatosDocente()
+        /// <summary>
+        /// Carga el nombre del docente en el panel lateral
+        /// </summary>
+        private void CargarNombreDocente()
         {
-            //if (Session["IdUsuario"] != null)
-            //{
-            //    try
-            //    {
-            //        int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
-            //        wcfNido.Service1Client servicio = new wcfNido.Service1Client();
-            //        wcfNido.clsUsuario docente = servicio.ObtenerDatosDocente(idUsuario);
+            try
+            {
+                int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
+                wcfNido.Service1Client servicio = new wcfNido.Service1Client();
+                
+                // Obtener datos del profesor
+                var listaProfesores = servicio.GetProfesor();
+                var profesor = listaProfesores.FirstOrDefault(p => p.Id == idUsuario);
 
-            //        if (docente != null)
-            //        {
-            //            lblNombreDocente.Text = $"{docente.Nombres} {docente.ApellidoPaterno} {docente.ApellidoMaterno}";
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        string script = $"console.error('Error al cargar datos del docente: {ex.Message}');";
-            //        ClientScript.RegisterStartupScript(this.GetType(), "error", script, true);
-            //    }
-            //}
+                if (profesor != null)
+                {
+                    lblNombreDocente.Text = $"{profesor.Nombres} {profesor.ApellidoPaterno}";
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error al cargar nombre docente: {ex.Message}");
+            }
         }
 
-        private void CargarComunicados()
+        /// <summary>
+        /// Carga la lista de comunicados dirigidos a los roles del usuario
+        /// </summary>
+        private void CargarListaComunicados()
         {
-            //if (Session["IdUsuario"] != null)
-            //{
-            //    int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
-            //    wcfNido.Service1Client client = new wcfNido.Service1Client();
-            //    var lista = client.GetComunicado(idUsuario);
-            //    rptComunicados.DataSource = lista;
-            //    rptComunicados.DataBind();
-            //}
+            try
+            {
+                int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
+                wcfNido.Service1Client servicio = new wcfNido.Service1Client();
+                
+                // Usar el nuevo método que filtra por rol del usuario
+                var listaComunicados = servicio.GetComunicadoPorRolUsuario(idUsuario);
+                
+                if (listaComunicados != null && listaComunicados.Length > 0)
+                {
+                    rptComunicados.DataSource = listaComunicados;
+                    rptComunicados.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "errorComunicados", 
+                    $"alert('Error al cargar comunicados: {ex.Message.Replace("'", "\\'")}');", true);
+            }
         }
 
-        [WebMethod]
-        public static void MarcarComoVisto(int idComunicado)
+        /// <summary>
+        /// WebMethod llamado desde JavaScript para marcar un comunicado como visto
+        /// </summary>
+        [WebMethod(EnableSession = true)]
+        public static string MarcarComoVisto(int idComunicado)
         {
-            //if (HttpContext.Current.Session["IdUsuario"] != null)
-            //{
-            //    int idUsuario = Convert.ToInt32(HttpContext.Current.Session["IdUsuario"]);
-            //    wcfNido.Service1Client client = new wcfNido.Service1Client();
-            //    client.MarcarComunicadoVisto(idComunicado, idUsuario);
-            //}
+            try
+            {
+                if (HttpContext.Current.Session["IdUsuario"] != null)
+                {
+                    int idUsuario = Convert.ToInt32(HttpContext.Current.Session["IdUsuario"]);
+                    wcfNido.Service1Client servicio = new wcfNido.Service1Client();
+                    servicio.MarcarComunicadoVisto(idComunicado, idUsuario);
+                    return "OK";
+                }
+                return "SIN_SESION";
+            }
+            catch (Exception ex)
+            {
+                return $"ERROR: {ex.Message}";
+            }
         }
     }
 }
