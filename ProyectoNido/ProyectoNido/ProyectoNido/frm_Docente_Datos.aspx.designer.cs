@@ -24,354 +24,497 @@ namespace ProyectoNido
         protected global::System.Web.UI.WebControls.Label lblNombreDocente;
 
         /// <summary>
-        /// Control LabelNombres.
+        /// Control Label2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelNombres;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Control txtNombres.
+        /// Control Label3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombres;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Control LabelTitulo.
+        /// Control txt_IdProfesor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelTitulo;
+        protected global::System.Web.UI.WebControls.TextBox txt_IdProfesor;
 
         /// <summary>
-        /// Control fuTituloProfesional.
+        /// Control Label9.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuTituloProfesional;
+        protected global::System.Web.UI.WebControls.Label Label9;
 
         /// <summary>
-        /// Control lnkTituloProfesional.
+        /// Control txt_Usuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkTituloProfesional;
+        protected global::System.Web.UI.WebControls.TextBox txt_Usuario;
 
         /// <summary>
-        /// Control lblTituloProfesional.
+        /// Control Label5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTituloProfesional;
+        protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// Control LabelApePat.
+        /// Control txt_Nombres.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelApePat;
+        protected global::System.Web.UI.WebControls.TextBox txt_Nombres;
 
         /// <summary>
-        /// Control txtApellidoPaterno.
+        /// Control Label6.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellidoPaterno;
+        protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// Control LabelCV.
+        /// Control txt_ApellidoPaterno.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelCV;
+        protected global::System.Web.UI.WebControls.TextBox txt_ApellidoPaterno;
 
         /// <summary>
-        /// Control fuCV.
+        /// Control Label7.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuCV;
+        protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
-        /// Control lnkCV.
+        /// Control txt_ApellidoMaterno.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkCV;
+        protected global::System.Web.UI.WebControls.TextBox txt_ApellidoMaterno;
 
         /// <summary>
-        /// Control lblCV.
+        /// Control Label16.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCV;
+        protected global::System.Web.UI.WebControls.Label Label16;
 
         /// <summary>
-        /// Control LabelApeMat.
+        /// Control Ddl_Tipo_Documento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelApeMat;
+        protected global::System.Web.UI.WebControls.DropDownList Ddl_Tipo_Documento;
 
         /// <summary>
-        /// Control txtApellidoMaterno.
+        /// Control Label8.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellidoMaterno;
+        protected global::System.Web.UI.WebControls.Label Label8;
 
         /// <summary>
-        /// Control LabelEvalPsi.
+        /// Control txt_Documento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelEvalPsi;
+        protected global::System.Web.UI.WebControls.TextBox txt_Documento;
 
         /// <summary>
-        /// Control fuEvaluacionPsicologica.
+        /// Control Label15.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuEvaluacionPsicologica;
+        protected global::System.Web.UI.WebControls.Label Label15;
 
         /// <summary>
-        /// Control lnkEvaluacionPsicologica.
+        /// Control txt_Fecha_Nacimiento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkEvaluacionPsicologica;
+        protected global::System.Web.UI.WebControls.TextBox txt_Fecha_Nacimiento;
 
         /// <summary>
-        /// Control lblEvaluacionPsicologica.
+        /// Control Label10.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEvaluacionPsicologica;
+        protected global::System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
-        /// Control LabelDNI.
+        /// Control Ddl_Sexo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelDNI;
+        protected global::System.Web.UI.WebControls.DropDownList Ddl_Sexo;
 
         /// <summary>
-        /// Control txtDNI.
+        /// Control Label14.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDNI;
+        protected global::System.Web.UI.WebControls.Label Label14;
 
         /// <summary>
-        /// Control LabelFoto.
+        /// Control Ddl_Distrito.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelFoto;
+        protected global::System.Web.UI.WebControls.DropDownList Ddl_Distrito;
 
         /// <summary>
-        /// Control fuFoto.
+        /// Control Label17.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuFoto;
+        protected global::System.Web.UI.WebControls.Label Label17;
 
         /// <summary>
-        /// Control lnkFoto.
+        /// Control txt_Fecha_Ingreso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkFoto;
+        protected global::System.Web.UI.WebControls.TextBox txt_Fecha_Ingreso;
 
         /// <summary>
-        /// Control lblFoto.
+        /// Control Label11.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFoto;
+        protected global::System.Web.UI.WebControls.Label Label11;
 
         /// <summary>
-        /// Control LabelFechaNac.
+        /// Control txt_Direccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelFechaNac;
+        protected global::System.Web.UI.WebControls.TextBox txt_Direccion;
 
         /// <summary>
-        /// Control txtFechaNacimiento.
+        /// Control Label13.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaNacimiento;
+        protected global::System.Web.UI.WebControls.Label Label13;
 
         /// <summary>
-        /// Control LabelVerifDom.
+        /// Control txt_Telefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelVerifDom;
+        protected global::System.Web.UI.WebControls.TextBox txt_Telefono;
 
         /// <summary>
-        /// Control fuVerificacionDomiciliaria.
+        /// Control Label12.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuVerificacionDomiciliaria;
+        protected global::System.Web.UI.WebControls.Label Label12;
 
         /// <summary>
-        /// Control lnkVerificacionDomiciliaria.
+        /// Control txt_Email.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkVerificacionDomiciliaria;
+        protected global::System.Web.UI.WebControls.TextBox txt_Email;
 
         /// <summary>
-        /// Control lblVerificacionDomiciliaria.
+        /// Control Label4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVerificacionDomiciliaria;
+        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// Control LabelSexo.
+        /// Control fup_Titulo_Profesional.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelSexo;
+        protected global::System.Web.UI.WebControls.FileUpload fup_Titulo_Profesional;
 
         /// <summary>
-        /// Control ddlSexo.
+        /// Control lnk_Titulo_Profesional.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado manualmente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
+        protected global::System.Web.UI.WebControls.LinkButton lnk_Titulo_Profesional;
 
         /// <summary>
-        /// Control LabelDireccion.
+        /// Control lbl_Titulo_Profesional_Msg.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado manualmente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelDireccion;
+        protected global::System.Web.UI.WebControls.Label lbl_Titulo_Profesional_Msg;
 
         /// <summary>
-        /// Control txtDireccion.
+        /// Control Label1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDireccion;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Control LabelEmail.
+        /// Control Label18.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelEmail;
+        protected global::System.Web.UI.WebControls.Label Label18;
 
         /// <summary>
-        /// Control txtEmail.
+        /// Control fup_Cv.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.FileUpload fup_Cv;
 
         /// <summary>
-        /// Control LabelFechaIngreso.
+        /// Control lnk_Cv.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado manualmente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelFechaIngreso;
+        protected global::System.Web.UI.WebControls.LinkButton lnk_Cv;
 
         /// <summary>
-        /// Control txt_FechaIngreso.
+        /// Control lbl_Cv_Msg.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado manualmente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_FechaIngreso;
+        protected global::System.Web.UI.WebControls.Label lbl_Cv_Msg;
 
         /// <summary>
-        /// Control btnGuardarDocente.
+        /// Control Label19.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardarDocente;
+        protected global::System.Web.UI.WebControls.Label Label19;
+
+        /// <summary>
+        /// Control Label20.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label20;
+
+        /// <summary>
+        /// Control fup_Evaluacion_Psicologica.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fup_Evaluacion_Psicologica;
+
+        /// <summary>
+        /// Control lnk_Evaluacion_Psicologica.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado manualmente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_Evaluacion_Psicologica;
+
+        /// <summary>
+        /// Control lbl_Evaluacion_Psicologica_Msg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado manualmente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Evaluacion_Psicologica_Msg;
+
+        /// <summary>
+        /// Control Label21.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label21;
+
+        /// <summary>
+        /// Control Label22.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label22;
+
+        /// <summary>
+        /// Control fup_Fotos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fup_Fotos;
+
+        /// <summary>
+        /// Control lnk_Fotos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado manualmente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_Fotos;
+
+        /// <summary>
+        /// Control lbl_Fotos_Msg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado manualmente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Fotos_Msg;
+
+        /// <summary>
+        /// Control Label23.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label23;
+
+        /// <summary>
+        /// Control Label24.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label24;
+
+        /// <summary>
+        /// Control fup_Verificacion_Domiciliaria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fup_Verificacion_Domiciliaria;
+
+        /// <summary>
+        /// Control lnk_Verificacion_Domiciliaria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado manualmente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_Verificacion_Domiciliaria;
+
+        /// <summary>
+        /// Control lbl_Verificacion_Domiciliaria_Msg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado manualmente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Verificacion_Domiciliaria_Msg;
+
+        /// <summary>
+        /// Control Label25.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label25;
+
+        /// <summary>
+        /// Control btn_Modificar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Modificar;
+
+        /// <summary>
+        /// Control btn_Limpiar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Limpiar;
     }
 }

@@ -23,168 +23,274 @@
 
 
     <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
-        <div class="docente-right">
-            <table class="docente-form-table">
-                <tr>
-                    <td class="docente-label">
-                        <asp:Label ID="LabelNombres" runat="server" Text="NOMBRES"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txtNombres" runat="server" CssClass="docente-input"></asp:TextBox>
-                    </td>
 
-                    <td class="docente-label">
-                        <asp:Label ID="LabelTitulo" runat="server" Text="Título Profesional"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:FileUpload ID="fuTituloProfesional" runat="server" CssClass="file-upload-custom" />
-                        <div class="archivo-info">
-                            <asp:HyperLink ID="lnkTituloProfesional" runat="server" Target="_blank" Visible="false"
-                                CssClass="archivo-existente"></asp:HyperLink>
-                            <asp:Label ID="lblTituloProfesional" runat="server" Text="Sin archivo guardado"
-                                CssClass="sin-archivo"></asp:Label>
-                        </div>
-                    </td>
-                </tr>
+        <table id="tablaProfesor" class="tablaForm">
+            <tr class="titulo">
+                <td colspan="4">
+                    <asp:Label ID="Label2" runat="server" Text="Profesor"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label3" runat="server" Text="Id:"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txt_IdProfesor" runat="server" Enabled="false"></asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label9" runat="server" Text="Usuario:"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txt_Usuario" runat="server" Enabled="false"></asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label5" runat="server" Text="Nombres:"></asp:Label>
+                </td>
+                <td colspan="3">
+                    <asp:TextBox ID="txt_Nombres" runat="server" onkeypress="return SoloTexto(event);"
+                        CssClass="full-width-textbox"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label6" runat="server" Text="Apellido Paterno:"></asp:Label>
+                </td>
+                <td colspan="3">
+                    <asp:TextBox ID="txt_ApellidoPaterno" runat="server" onkeypress="return SoloTexto(event);"
+                        CssClass="full-width-textbox"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label7" runat="server" Text="Apellido Materno:"></asp:Label>
+                </td>
+                <td colspan="3">
+                    <asp:TextBox ID="txt_ApellidoMaterno" runat="server" onkeypress="return SoloTexto(event);"
+                        CssClass="full-width-textbox"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label16" runat="server" Text="Tipo Documento:"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="Ddl_Tipo_Documento" runat="server" AutoPostBack="true"
+                        OnSelectedIndexChanged="Ddl_Tipo_Documento_SelectedIndexChanged"></asp:DropDownList>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label8" runat="server" Text="Documento:"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txt_Documento" runat="server" onkeypress="return SinEspacios(event);">
+                    </asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label15" runat="server" Text="Fecha Nacimiento:"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txt_Fecha_Nacimiento" runat="server" CssClass="full-width-textbox" TextMode="Date">
+                    </asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label10" runat="server" Text="Sexo:"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="Ddl_Sexo" runat="server"></asp:DropDownList>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label14" runat="server" Text="Distrito:"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="Ddl_Distrito" runat="server"></asp:DropDownList>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label17" runat="server" Text="Fecha Ingreso:"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txt_Fecha_Ingreso" runat="server" CssClass="full-width-textbox" TextMode="Date">
+                    </asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label11" runat="server" Text="Direccion:"></asp:Label>
+                </td>
+                <td colspan="3">
+                    <asp:TextBox ID="txt_Direccion" runat="server" CssClass="full-width-textbox"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label13" runat="server" Text="Telefono:"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txt_Telefono" runat="server" onkeypress="return SoloNumeros(event);"
+                        CssClass="full-width-textbox" MaxLength="9"></asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label12" runat="server" Text="Email:"></asp:Label>
+                </td>
+                <td colspan="3">
+                    <asp:TextBox ID="txt_Email" runat="server" onkeypress="return SinEspacios(event);"
+                        CssClass="full-width-textbox"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label4" runat="server" Text="Titulo Profesional:"></asp:Label>
+                </td>
+                <td colspan="3">
+                    <asp:FileUpload ID="fup_Titulo_Profesional" runat="server" CssClass="file-upload-custom" />
+                    <asp:LinkButton ID="lnk_Titulo_Profesional" runat="server" Text="Descargar"
+                        OnClick="DescargarArchivo_Click" CommandArgument="TituloProfesional" Visible="false"
+                        CssClass="btn btn-link" ForeColor="Green" Font-Bold="true" />
+                    <asp:Label ID="lbl_Titulo_Profesional_Msg" runat="server" Text="Cargar documento" ForeColor="Red"
+                        Visible="false" Font-Bold="true" />
+                </td>
+            </tr>
+            <tr>
+                <td>
 
-                <tr>
-                    <td class="docente-label">
-                        <asp:Label ID="LabelApePat" runat="server" Text="APELLIDO PATERNO"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txtApellidoPaterno" runat="server" CssClass="docente-input"></asp:TextBox>
-                    </td>
+                </td>
+                <td colspan="3">
+                    <asp:Label ID="Label1" runat="server" ForeColor="Black" Font-Size="12px"
+                        Text="El archivo no debe superar los 5 MB." />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label18" runat="server" Text="Curriculum Vitae:"></asp:Label>
+                </td>
+                <td colspan="3">
+                    <asp:FileUpload ID="fup_Cv" runat="server" CssClass="file-upload-custom" />
+                    <asp:LinkButton ID="lnk_Cv" runat="server" Text="Descargar"
+                        OnClick="DescargarArchivo_Click" CommandArgument="Cv" Visible="false" CssClass="btn btn-link"
+                        ForeColor="Green" Font-Bold="true" />
+                    <asp:Label ID="lbl_Cv_Msg" runat="server" Text="Cargar documento" ForeColor="Red" Visible="false"
+                        Font-Bold="true" />
+                </td>
+            </tr>
+            <tr>
+                <td>
 
-                    <td class="docente-label">
-                        <asp:Label ID="LabelCV" runat="server" Text="CV"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:FileUpload ID="fuCV" runat="server" CssClass="file-upload-custom" />
-                        <div class="archivo-info">
-                            <asp:HyperLink ID="lnkCV" runat="server" Target="_blank" Visible="false"
-                                CssClass="archivo-existente"></asp:HyperLink>
-                            <asp:Label ID="lblCV" runat="server" Text="Sin archivo guardado" CssClass="sin-archivo">
-                            </asp:Label>
-                        </div>
-                    </td>
-                </tr>
+                </td>
+                <td colspan="3">
+                    <asp:Label ID="Label19" runat="server" ForeColor="Black" Font-Size="12px"
+                        Text="El archivo no debe superar los 5 MB." />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label20" runat="server" Text="Evaluacion Psicologica:"></asp:Label>
+                </td>
+                <td colspan="3">
+                    <asp:FileUpload ID="fup_Evaluacion_Psicologica" runat="server" CssClass="file-upload-custom" />
+                    <asp:LinkButton ID="lnk_Evaluacion_Psicologica" runat="server" Text="Descargar"
+                        OnClick="DescargarArchivo_Click" CommandArgument="EvaluacionPsicologica" Visible="false"
+                        CssClass="btn btn-link" ForeColor="Green" Font-Bold="true" />
+                    <asp:Label ID="lbl_Evaluacion_Psicologica_Msg" runat="server" Text="Cargar documento"
+                        ForeColor="Red" Visible="false" Font-Bold="true" />
+                </td>
+            </tr>
+            <tr>
+                <td>
 
-                <tr>
-                    <td class="docente-label">
-                        <asp:Label ID="LabelApeMat" runat="server" Text="APELLIDO MATERNO"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txtApellidoMaterno" runat="server" CssClass="docente-input"></asp:TextBox>
-                    </td>
+                </td>
+                <td colspan="3">
+                    <asp:Label ID="Label21" runat="server" ForeColor="Black" Font-Size="12px"
+                        Text="El archivo no debe superar los 5 MB." />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label22" runat="server" Text="Fotos:"></asp:Label>
+                </td>
+                <td colspan="3">
+                    <asp:FileUpload ID="fup_Fotos" runat="server" CssClass="file-upload-custom" />
+                    <asp:LinkButton ID="lnk_Fotos" runat="server" Text="Descargar"
+                        OnClick="DescargarArchivo_Click" CommandArgument="Fotos" Visible="false" CssClass="btn btn-link"
+                        ForeColor="Green" Font-Bold="true" />
+                    <asp:Label ID="lbl_Fotos_Msg" runat="server" Text="Cargar documento" ForeColor="Red" Visible="false"
+                        Font-Bold="true" />
+                </td>
+            </tr>
+            <tr>
+                <td>
 
-                    <td class="docente-label">
-                        <asp:Label ID="LabelEvalPsi" runat="server" Text="Evaluación Psicológica"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:FileUpload ID="fuEvaluacionPsicologica" runat="server" CssClass="file-upload-custom" />
-                        <div class="archivo-info">
-                            <asp:HyperLink ID="lnkEvaluacionPsicologica" runat="server" Target="_blank" Visible="false"
-                                CssClass="archivo-existente"></asp:HyperLink>
-                            <asp:Label ID="lblEvaluacionPsicologica" runat="server" Text="Sin archivo guardado"
-                                CssClass="sin-archivo" Height="16px"></asp:Label>
-                        </div>
-                    </td>
-                </tr>
+                </td>
+                <td colspan="3">
+                    <asp:Label ID="Label23" runat="server" ForeColor="Black" Font-Size="12px"
+                        Text="El archivo no debe superar los 5 MB." />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label24" runat="server" Text="Verificacion Domiciliaria:"></asp:Label>
+                </td>
+                <td colspan="3">
+                    <asp:FileUpload ID="fup_Verificacion_Domiciliaria" runat="server" CssClass="file-upload-custom" />
+                    <asp:LinkButton ID="lnk_Verificacion_Domiciliaria" runat="server" Text="Descargar"
+                        OnClick="DescargarArchivo_Click" CommandArgument="VerificacionDomiciliaria" Visible="false"
+                        CssClass="btn btn-link" ForeColor="Green" Font-Bold="true" />
+                    <asp:Label ID="lbl_Verificacion_Domiciliaria_Msg" runat="server" Text="Cargar documento"
+                        ForeColor="Red" Visible="false" Font-Bold="true" />
+                </td>
+            </tr>
+            <tr>
+                <td>
 
-                <tr>
-                    <td class="docente-label">
-                        <asp:Label ID="LabelDNI" runat="server" Text="DNI"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txtDNI" runat="server" CssClass="docente-input docente-input-readonly"
-                            ReadOnly="true"></asp:TextBox>
-                    </td>
+                </td>
+                <td colspan="3">
+                    <asp:Label ID="Label25" runat="server" ForeColor="Black" Font-Size="12px"
+                        Text="El archivo no debe superar los 5 MB." />
+                </td>
+            </tr>
+            <tr>
+                <td>
 
-                    <td class="docente-label">
-                        <asp:Label ID="LabelFoto" runat="server" Text="Foto"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:FileUpload ID="fuFoto" runat="server" CssClass="file-upload-custom" />
-                        <div class="archivo-info">
-                            <asp:HyperLink ID="lnkFoto" runat="server" Target="_blank" Visible="false"
-                                CssClass="archivo-existente"></asp:HyperLink>
-                            <asp:Label ID="lblFoto" runat="server" Text="Sin archivo guardado" CssClass="sin-archivo">
-                            </asp:Label>
-                        </div>
-                    </td>
+                </td>
+                <td colspan="2">
+                    <asp:Button ID="btn_Modificar" runat="server" Text="Guardar"
+                        OnClientClick="return confirm('¿Deseas guardar los cambios?') && validarCamposTabla('tablaProfesor','txt_Nombres,txt_ApellidoPaterno,txt_ApellidoMaterno,txt_Fecha_Nacimiento,Ddl_Sexo,Ddl_Distrito,txt_Direccion,txt_Telefono,txt_Email,fup_Titulo_Profesional,fup_Cv,fup_Evaluacion_Psicologica,fup_Fotos,fup_Verificacion_Domiciliaria') ;"
+                        OnClick="btn_Modificar_Click" class="btn btn-primario" />
+                </td>
+                <td>
 
-                </tr>
-
-                <tr>
-                    <td class="docente-label">
-                        <asp:Label ID="LabelFechaNac" runat="server" Text="FECHA DE NACIMIENTO"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="docente-input" TextMode="Date">
-                        </asp:TextBox>
-                    </td>
-                    <td class="docente-label">
-                        <asp:Label ID="LabelVerifDom" runat="server" Text="Verificación Domiciliaria"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:FileUpload ID="fuVerificacionDomiciliaria" runat="server" CssClass="file-upload-custom" />
-                        <div class="archivo-info">
-                            <asp:HyperLink ID="lnkVerificacionDomiciliaria" runat="server" Target="_blank"
-                                Visible="false" CssClass="archivo-existente"></asp:HyperLink>
-                            <asp:Label ID="lblVerificacionDomiciliaria" runat="server" Text="Sin archivo guardado"
-                                CssClass="sin-archivo"></asp:Label>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="docente-label">
-                        <asp:Label ID="LabelSexo" runat="server" Text="Sexo"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:DropDownList ID="ddlSexo" runat="server" CssClass="docente-input">
-                            <asp:ListItem Text="Seleccionar" Value=""></asp:ListItem>
-                            <asp:ListItem Text="Masculino" Value="M"></asp:ListItem>
-                            <asp:ListItem Text="Femenino" Value="F"></asp:ListItem>
-                        </asp:DropDownList>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="docente-label">
-                        <asp:Label ID="LabelDireccion" runat="server" Text="Dirección"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txtDireccion" runat="server" CssClass="docente-input"></asp:TextBox>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="docente-label">
-                        <asp:Label ID="LabelEmail" runat="server" Text="Email"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txtEmail" runat="server" CssClass="docente-input"></asp:TextBox>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="docente-label">
-                        <asp:Label ID="LabelFechaIngreso" runat="server" Text="Fecha de ingreso"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txt_FechaIngreso" runat="server"
-                            CssClass="docente-input docente-input-readonly" TextMode="Date" ReadOnly="true">
-                        </asp:TextBox>
-                    </td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
-
-            <asp:Button ID="btnGuardarDocente" runat="server" Text="GUARDAR"
-                CssClass="btn btn-exito btn-guardar-docente" OnClick="btnGuardarDocente_Click" />
-        </div>
-
-        </div>
+                </td>
+            </tr>
+        </table>
     </asp:Content>
