@@ -438,7 +438,7 @@ create proc [dbo].[listar_usuarios]
 as
 select  * from Usuario
 
-ALTER proc [dbo].[listar_comunicados]
+create proc [dbo].[listar_comunicados]
 as
 select  c.Id_Comunicado,
 		c.Id_Usuario,
@@ -866,7 +866,7 @@ BEGIN
     LEFT JOIN Profesor p ON u.Id = p.Id_Usuario
     WHERE u.Id = @Id_Usuario;
 END
-alter PROCEDURE [dbo].[actualizar_datos_docente]
+create PROCEDURE [dbo].[actualizar_datos_docente]
     @Id_Usuario              INT,           -- docente logueado
     @Nombres                 VARCHAR(100),
     @ApPaterno               VARCHAR(50),
@@ -929,7 +929,7 @@ END;
 GO
 
 
-CREATE PROCEDURE [dbo].[modificar_profesor]
+alter PROCEDURE [dbo].[modificar_profesor]
     @Id_Usuario INT,
     @FechaIngreso DATE,
     @TituloProfesional VARCHAR(100),
@@ -951,3 +951,61 @@ END
 GO
 
 
+----------------------------------------------------------------------------------------------------------
+
+
+---actualizacion matriculas
+
+ALTER TABLE Matricula
+ADD 
+    SubTotal       DECIMAL(10,2) NULL,
+    DescuentoTotal DECIMAL(10,2) NULL,
+    Total          DECIMAL(10,2) NULL,
+    Estado         CHAR(1) NOT NULL DEFAULT('A'), -- A=Activa, C=Cancelada/Anulada
+    Observacion    VARCHAR(250) NULL;
+GO
+
+-- 🔹 Ajusta el nombre de la FK al que tengas en tu BD
+ALTER TABLE Cuota
+DROP CONSTRAINT FK__Cuota__Id_Matric__05D8E0BE;
+GO
+
+ALTER TABLE Cuota
+DROP COLUMN Id_Matricula;
+GO
+
+ALTER TABLE Cuota
+DROP COLUMN FechaPago;
+GO
+
+ALTER TABLE Matricula
+DROP COLUMN FechaPago;
+GO
+
+ALTER TABLE Cuota
+ADD NombreCuota VARCHAR(100) NULL;  -- Ej: 'Pensión Marzo', 'Matrícula', etc.
+GO
+
+CREATE TABLE MatriculaDetalle
+(
+    Id_MatriculaDetalle INT IDENTITY(1,1) PRIMARY KEY,
+    Id_Matricula        INT        NOT NULL,
+    Id_Cuota            INT        NULL, -- para saber de qué plantilla vino
+    NroCuota            INT        NULL,
+    NombreCuota         VARCHAR(100) NULL,
+    FechaVencimiento    DATE       NULL,   -- copia de FechaPagoSugerida
+    Cantidad            INT        NOT NULL DEFAULT(1),
+    Monto               DECIMAL(10,2) NOT NULL, -- precio unitario
+    Descuento           DECIMAL(10,2) NOT NULL DEFAULT(0),
+    Adicional           DECIMAL(10,2) NOT NULL DEFAULT(0),
+    TotalLinea          DECIMAL(10,2) NOT NULL, -- Cantidad*Monto - Descuento + Adicional
+    FechaPago           DATE       NULL,
+    EstadoPago          CHAR(1)    NOT NULL DEFAULT('P'), -- P=Pendiente, C=Cancelado, V=Vencido
+    Observacion         VARCHAR(200) NULL,
+    CONSTRAINT FK_MatriculaDetalle_Matricula 
+        FOREIGN KEY (Id_Matricula) REFERENCES Matricula(Id_Matricula),
+    CONSTRAINT FK_MatriculaDetalle_Cuota
+        FOREIGN KEY (Id_Cuota) REFERENCES Cuota(Id_Cuota)
+);
+GO
+select * from MatriculaDetalle
