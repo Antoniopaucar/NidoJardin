@@ -57,6 +57,7 @@
     <Compile Include="clsBLRol.cs" />
     <Compile Include="clsBLRolPermiso.cs" />
     <Compile Include="clsBLSalon.cs" />
+    <Compile Include="clsBLServicioAdicional.cs" />
     <Compile Include="clsBLTarifario.cs" />
     <Compile Include="clsBLTipoDocumento.cs" />
     <Compile Include="clsBLUsuario.cs" />

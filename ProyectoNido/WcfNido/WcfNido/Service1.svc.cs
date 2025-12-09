@@ -862,6 +862,55 @@ namespace WcfNido
             return bl.listar_tarifario_combo();
         }
 
+        //-------------------------------- SERVICIO ADICIONAL ---------------------------------------
+
+        public List<clsServicioAdicional> GetServicioAdicional()
+        {
+            clsBL.clsBLServicioAdicional xbl = new clsBL.clsBLServicioAdicional();
+            return xbl.listar_servicioAdicional();
+        }
+
+        public void DelServicioAdicional(int Codigo)
+        {
+            try
+            {
+                clsBL.clsBLServicioAdicional xbl = new clsBL.clsBLServicioAdicional();
+                xbl.eliminar_servicioAdicional(Codigo);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public void InsServicioAdicional(clsServicioAdicional servicio)
+        {
+            try
+            {
+                clsBL.clsBLServicioAdicional xbl = new clsBL.clsBLServicioAdicional();
+                xbl.insertar_servicioAdicional(servicio);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public void ModServicioAdicional(clsServicioAdicional servicio)
+        {
+            try
+            {
+                clsBL.clsBLServicioAdicional xbl = new clsBL.clsBLServicioAdicional();
+                xbl.modificar_servicioAdicional(servicio);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+
+
         public List<clsComunicado> GetComunicadoPorRolUsuario(int idUsuario)
         {
             throw new NotImplementedException();

@@ -494,6 +494,30 @@
   <wsdl:message name="IService1_listar_tarifario_combo_OutputMessage">
     <wsdl:part name="parameters" element="tns:listar_tarifario_comboResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetServicioAdicional_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicioAdicional" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetServicioAdicional_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicioAdicionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DelServicioAdicional_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelServicioAdicional" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DelServicioAdicional_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelServicioAdicionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsServicioAdicional_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsServicioAdicional" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsServicioAdicional_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsServicioAdicionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ModServicioAdicional_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModServicioAdicional" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ModServicioAdicional_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModServicioAdicionalResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -818,6 +842,22 @@
     <wsdl:operation name="listar_tarifario_combo">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/listar_tarifario_combo" message="tns:IService1_listar_tarifario_combo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/listar_tarifario_comboResponse" message="tns:IService1_listar_tarifario_combo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServicioAdicional">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetServicioAdicional" message="tns:IService1_GetServicioAdicional_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetServicioAdicionalResponse" message="tns:IService1_GetServicioAdicional_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelServicioAdicional">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DelServicioAdicional" message="tns:IService1_DelServicioAdicional_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DelServicioAdicionalResponse" message="tns:IService1_DelServicioAdicional_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsServicioAdicional">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsServicioAdicional" message="tns:IService1_InsServicioAdicional_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsServicioAdicionalResponse" message="tns:IService1_InsServicioAdicional_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModServicioAdicional">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ModServicioAdicional" message="tns:IService1_ModServicioAdicional_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ModServicioAdicionalResponse" message="tns:IService1_ModServicioAdicional_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -1544,6 +1584,42 @@
     </wsdl:operation>
     <wsdl:operation name="listar_tarifario_combo">
       <soap:operation soapAction="http://tempuri.org/IService1/listar_tarifario_combo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicioAdicional">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetServicioAdicional" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelServicioAdicional">
+      <soap:operation soapAction="http://tempuri.org/IService1/DelServicioAdicional" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsServicioAdicional">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsServicioAdicional" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModServicioAdicional">
+      <soap:operation soapAction="http://tempuri.org/IService1/ModServicioAdicional" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

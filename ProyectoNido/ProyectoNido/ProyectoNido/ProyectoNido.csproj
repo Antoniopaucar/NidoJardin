@@ -138,6 +138,9 @@
     <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsGrupoServicioDetalle1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsServicioAdicional.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\wcfNido\Service1.disco" />
     <None Include="Connected Services\wcfNido\configuration91.svcinfo" />
     <None Include="Connected Services\wcfNido\configuration.svcinfo" />
@@ -165,6 +168,7 @@
     <Content Include="frm_Rol.aspx" />
     <Content Include="frm_Rol_Permiso.aspx" />
     <Content Include="frm_Salon.aspx" />
+    <Content Include="frm_ServicioAdicional.aspx" />
     <Content Include="frm_Tipo_Documento.aspx" />
     <Content Include="frm_Usuario.aspx" />
     <Content Include="frm_Usuario_Rol.aspx" />
@@ -333,6 +337,13 @@
     </Compile>
     <Compile Include="frm_Salon.aspx.designer.cs">
       <DependentUpon>frm_Salon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ServicioAdicional.aspx.cs">
+      <DependentUpon>frm_ServicioAdicional.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_ServicioAdicional.aspx.designer.cs">
+      <DependentUpon>frm_ServicioAdicional.aspx</DependentUpon>
     </Compile>
     <Compile Include="frm_Tipo_Documento.aspx.cs">
       <DependentUpon>frm_Tipo_Documento.aspx</DependentUpon>

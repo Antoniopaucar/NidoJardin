@@ -1024,4 +1024,52 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetServicioAdicional">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServicioAdicionalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="GetServicioAdicionalResult" nillable="true" type="q66:ArrayOfclsServicioAdicional" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelServicioAdicional">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Codigo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelServicioAdicionalResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsServicioAdicional">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="servicio" nillable="true" type="q67:clsServicioAdicional" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsServicioAdicionalResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModServicioAdicional">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="servicio" nillable="true" type="q68:clsServicioAdicional" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModServicioAdicionalResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

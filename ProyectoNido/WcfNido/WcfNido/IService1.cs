@@ -280,6 +280,20 @@ namespace WcfNido
         [OperationContract]
         List<clsEntidades.clsTarifario> listar_tarifario_combo();
 
+        //------------------------ SERVICIO ADICIONAL ----------------------------------------------
+
+        [OperationContract]
+        List<clsEntidades.clsServicioAdicional> GetServicioAdicional();
+
+        [OperationContract]
+        void DelServicioAdicional(int Codigo);
+
+        [OperationContract]
+        void InsServicioAdicional(clsEntidades.clsServicioAdicional servicio);
+
+        [OperationContract]
+        void ModServicioAdicional(clsEntidades.clsServicioAdicional servicio);
+
 
 
     }

@@ -59,6 +59,7 @@
     <Compile Include="clsDacRol.cs" />
     <Compile Include="clsDacRolPermiso.cs" />
     <Compile Include="clsDacSalon.cs" />
+    <Compile Include="clsDacServicioAdicional.cs" />
     <Compile Include="clsDacTarifario.cs" />
     <Compile Include="clsDacTipoDocumento.cs" />
     <Compile Include="clsDacUsuario.cs" />
