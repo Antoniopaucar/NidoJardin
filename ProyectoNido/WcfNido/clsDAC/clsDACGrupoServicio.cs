@@ -9,16 +9,16 @@ using clsEntidades;
 
 namespace clsDAC
 {
-    public class clsDACGrupoAnual
+    public class clsDACGrupoServicio
     {
-        public List<clsGrupoAnualDetalle> ListarGruposPorDocente(int idUsuario)
+        public List<clsGrupoServicioDetalle> ListarGruposServicioPorDocente(int idUsuario)
         {
-            List<clsGrupoAnualDetalle> lista = new List<clsGrupoAnualDetalle>();
+            List<clsGrupoServicioDetalle> lista = new List<clsGrupoServicioDetalle>();
 
             using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
             {
                 cn.Open();
-                using (SqlCommand cmd = new SqlCommand("sp_ListarGruposPorDocente", cn))
+                using (SqlCommand cmd = new SqlCommand("sp_ListarGruposServicioPorDocente", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
@@ -27,10 +27,11 @@ namespace clsDAC
                     {
                         while (dr.Read())
                         {
-                            clsGrupoAnualDetalle grupo = new clsGrupoAnualDetalle
+                            clsGrupoServicioDetalle grupo = new clsGrupoServicioDetalle
                             {
-                                Id_GrupoAnual = Convert.ToInt32(dr["Id_GrupoAnual"]),
-                                Nivel = dr["Nivel"].ToString(),
+                                Id_GrupoServicio = Convert.ToInt32(dr["Id_GrupoServicio"]),
+                                Servicio = dr["Servicio"].ToString(),
+                                Tipo = dr["Tipo"].ToString(),
                                 Salon = dr["Salon"].ToString(),
                                 Aforo = Convert.ToInt32(dr["Aforo"]),
                                 Periodo = Convert.ToInt32(dr["Periodo"]),
@@ -45,3 +46,4 @@ namespace clsDAC
         }
     }
 }
+

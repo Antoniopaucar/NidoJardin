@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace clsEntidades
 {
-    public class GrupoAnualDetalle
+    public class clsGrupoAnualDetalle
     {
         public int Id_GrupoAnual { get; set; }
         public string Nivel { get; set; }

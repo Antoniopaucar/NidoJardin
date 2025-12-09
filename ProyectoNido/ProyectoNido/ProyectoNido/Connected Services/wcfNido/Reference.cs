@@ -2237,6 +2237,147 @@ namespace ProyectoNido.wcfNido {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsGrupoServicioDetalle", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsGrupoServicioDetalle : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AforoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_GrupoServicioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PeriodoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SalonField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ServicioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalAlumnosField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Aforo {
+            get {
+                return this.AforoField;
+            }
+            set {
+                if ((this.AforoField.Equals(value) != true)) {
+                    this.AforoField = value;
+                    this.RaisePropertyChanged("Aforo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_GrupoServicio {
+            get {
+                return this.Id_GrupoServicioField;
+            }
+            set {
+                if ((this.Id_GrupoServicioField.Equals(value) != true)) {
+                    this.Id_GrupoServicioField = value;
+                    this.RaisePropertyChanged("Id_GrupoServicio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Periodo {
+            get {
+                return this.PeriodoField;
+            }
+            set {
+                if ((this.PeriodoField.Equals(value) != true)) {
+                    this.PeriodoField = value;
+                    this.RaisePropertyChanged("Periodo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Salon {
+            get {
+                return this.SalonField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SalonField, value) != true)) {
+                    this.SalonField = value;
+                    this.RaisePropertyChanged("Salon");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Servicio {
+            get {
+                return this.ServicioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ServicioField, value) != true)) {
+                    this.ServicioField = value;
+                    this.RaisePropertyChanged("Servicio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tipo {
+            get {
+                return this.TipoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoField, value) != true)) {
+                    this.TipoField = value;
+                    this.RaisePropertyChanged("Tipo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalAlumnos {
+            get {
+                return this.TotalAlumnosField;
+            }
+            set {
+                if ((this.TotalAlumnosField.Equals(value) != true)) {
+                    this.TotalAlumnosField = value;
+                    this.RaisePropertyChanged("TotalAlumnos");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wcfNido.IService1")]
     public interface IService1 {
@@ -2612,6 +2753,12 @@ namespace ProyectoNido.wcfNido {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarGruposPorDocente", ReplyAction="http://tempuri.org/IService1/ListarGruposPorDocenteResponse")]
         System.Threading.Tasks.Task<ProyectoNido.wcfNido.GrupoAnualDetalle[]> ListarGruposPorDocenteAsync(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarGruposServicioPorDocente", ReplyAction="http://tempuri.org/IService1/ListarGruposServicioPorDocenteResponse")]
+        ProyectoNido.wcfNido.clsGrupoServicioDetalle[] ListarGruposServicioPorDocente(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarGruposServicioPorDocente", ReplyAction="http://tempuri.org/IService1/ListarGruposServicioPorDocenteResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsGrupoServicioDetalle[]> ListarGruposServicioPorDocenteAsync(int idUsuario);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -3135,6 +3282,14 @@ namespace ProyectoNido.wcfNido {
         
         public System.Threading.Tasks.Task<ProyectoNido.wcfNido.GrupoAnualDetalle[]> ListarGruposPorDocenteAsync(int idUsuario) {
             return base.Channel.ListarGruposPorDocenteAsync(idUsuario);
+        }
+        
+        public ProyectoNido.wcfNido.clsGrupoServicioDetalle[] ListarGruposServicioPorDocente(int idUsuario) {
+            return base.Channel.ListarGruposServicioPorDocente(idUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsGrupoServicioDetalle[]> ListarGruposServicioPorDocenteAsync(int idUsuario) {
+            return base.Channel.ListarGruposServicioPorDocenteAsync(idUsuario);
         }
     }
 }

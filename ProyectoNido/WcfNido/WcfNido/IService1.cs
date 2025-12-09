@@ -202,7 +202,11 @@ namespace WcfNido
 
         //------------------------ GRUPO ANUAL ----------------------------------------------
         [OperationContract]
-        List<clsEntidades.GrupoAnualDetalle> ListarGruposPorDocente(int idUsuario);
+        List<clsEntidades.clsGrupoAnualDetalle> ListarGruposPorDocente(int idUsuario);
+
+        //------------------------ GRUPO SERVICIO ----------------------------------------------
+        [OperationContract]
+        List<clsEntidades.clsGrupoServicioDetalle> ListarGruposServicioPorDocente(int idUsuario);
 
         // TODO: agregue aquí sus operaciones de servicio
     }

@@ -10,7 +10,7 @@ namespace clsBL
 {
     public class clsBLGrupoAnual
     {
-        public List<GrupoAnualDetalle> ListarGruposPorDocente(int idUsuario)
+        public List<clsGrupoAnualDetalle> ListarGruposPorDocente(int idUsuario)
         {
             clsDACGrupoAnual dac = new clsDACGrupoAnual();
             return dac.ListarGruposPorDocente(idUsuario);

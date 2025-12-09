@@ -8,7 +8,7 @@ using ProyectoNido.wcfNido;
 
 namespace ProyectoNido
 {
-    public partial class frm_Docente_GrupoAnual : System.Web.UI.Page
+    public partial class frm_Docente_GrupoServicio : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,7 +22,7 @@ namespace ProyectoNido
                 }
 
                 CargarNombreDocente();
-                CargarGrupos();
+                CargarGruposServicio();
             }
         }
 
@@ -52,34 +52,34 @@ namespace ProyectoNido
         }
 
         /// <summary>
-        /// Carga los grupos anuales asignados al docente
+        /// Carga los grupos de servicio asignados al docente
         /// </summary>
-        private void CargarGrupos()
+        private void CargarGruposServicio()
         {
             try
             {
                 int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
                 wcfNido.Service1Client servicio = new wcfNido.Service1Client();
                 
-                var grupos = servicio.ListarGruposPorDocente(idUsuario);
+                var grupos = servicio.ListarGruposServicioPorDocente(idUsuario);
 
                 if (grupos != null && grupos.Length > 0)
                 {
-                    rptGrupos.DataSource = grupos;
-                    rptGrupos.DataBind();
-                    rptGrupos.Visible = true;
+                    rptGruposServicio.DataSource = grupos;
+                    rptGruposServicio.DataBind();
+                    rptGruposServicio.Visible = true;
                     pnlSinGrupos.Visible = false;
                 }
                 else
                 {
-                    rptGrupos.Visible = false;
+                    rptGruposServicio.Visible = false;
                     pnlSinGrupos.Visible = true;
                 }
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "errorGrupos", 
-                    $"alert('Error al cargar grupos: {ex.Message.Replace("'", "\\'")}');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "errorGruposServicio", 
+                    $"alert('Error al cargar grupos de servicio: {ex.Message.Replace("'", "\\'")}');", true);
             }
         }
     }

@@ -729,12 +729,26 @@ namespace WcfNido
         //}
 
         //---------------------------- GRUPO ANUAL ---------------------------------
-        public List<GrupoAnualDetalle> ListarGruposPorDocente(int idUsuario)
+        public List<clsGrupoAnualDetalle> ListarGruposPorDocente(int idUsuario)
         {
             try
             {
                 clsBL.clsBLGrupoAnual xbl = new clsBL.clsBLGrupoAnual();
                 return xbl.ListarGruposPorDocente(idUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        //---------------------------- GRUPO SERVICIO ---------------------------------
+        public List<clsGrupoServicioDetalle> ListarGruposServicioPorDocente(int idUsuario)
+        {
+            try
+            {
+                clsBL.clsBLGrupoServicio xbl = new clsBL.clsBLGrupoServicio();
+                return xbl.listar_grupos_servicio_por_docente(idUsuario);
             }
             catch (Exception ex)
             {

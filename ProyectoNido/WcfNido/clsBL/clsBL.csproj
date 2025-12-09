@@ -47,6 +47,7 @@
     <Compile Include="clsBLComunicado.cs" />
     <Compile Include="clsBLDistrito.cs" />
     <Compile Include="clsBLError.cs" />
+    <Compile Include="clsBLGrupoServicio.cs" />
     <Compile Include="clsBLLogin.cs" />
     <Compile Include="clsBLNivel.cs" />
     <Compile Include="clsBLPermiso.cs" />

@@ -49,6 +49,7 @@
     <Compile Include="clsDacComunicado.cs" />
     <Compile Include="clsDacDistrito.cs" />
     <Compile Include="clsDacError.cs" />
+    <Compile Include="clsDACGrupoServicio.cs" />
     <Compile Include="clsDacLogin.cs" />
     <Compile Include="clsDacNivel.cs" />
     <Compile Include="clsDacPermiso.cs" />
