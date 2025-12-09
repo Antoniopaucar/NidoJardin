@@ -80,12 +80,6 @@
   <wsdl:message name="IService1_ModComunicado_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModComunicadoResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetComunicadoPorRolUsuario_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetComunicadoPorRolUsuario" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetComunicadoPorRolUsuario_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetComunicadoPorRolUsuarioResponse" />
-  </wsdl:message>
   <wsdl:message name="IService1_GetDistrito_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDistrito" />
   </wsdl:message>
@@ -350,6 +344,12 @@
   <wsdl:message name="IService1_RetArchivoAlumno_OutputMessage">
     <wsdl:part name="parameters" element="tns:RetArchivoAlumnoResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_listarAlumnos_Combo_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarAlumnos_Combo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listarAlumnos_Combo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarAlumnos_ComboResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetTipoDocumento_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTipoDocumento" />
   </wsdl:message>
@@ -380,11 +380,107 @@
   <wsdl:message name="IService1_ListarGruposPorDocente_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListarGruposPorDocenteResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_ListarGruposServicioPorDocente_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListarGruposServicioPorDocente" />
+  <wsdl:message name="IService1_GetGrupoAnual_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGrupoAnual" />
   </wsdl:message>
-  <wsdl:message name="IService1_ListarGruposServicioPorDocente_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListarGruposServicioPorDocenteResponse" />
+  <wsdl:message name="IService1_GetGrupoAnual_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGrupoAnualResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listarGrupoAnual_Combo_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarGrupoAnual_Combo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listarGrupoAnual_Combo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarGrupoAnual_ComboResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Nido_Matricula_Listar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Nido_Matricula_Listar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Nido_Matricula_Listar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Nido_Matricula_ListarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Matricula_Listar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Matricula_Listar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Matricula_Listar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Matricula_ListarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Matricula_Obtener_InputMessage">
+    <wsdl:part name="parameters" element="tns:Matricula_Obtener" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Matricula_Obtener_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Matricula_ObtenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Matricula_Insertar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Matricula_Insertar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Matricula_Insertar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Matricula_InsertarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Matricula_Actualizar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Matricula_Actualizar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Matricula_Actualizar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Matricula_ActualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Matricula_CambiarEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:Matricula_CambiarEstado" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Matricula_CambiarEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Matricula_CambiarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_ListarPorMatricula_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ListarPorMatricula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_ListarPorMatricula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ListarPorMatriculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Obtener_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Obtener" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Obtener_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ObtenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Insertar_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Insertar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Insertar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_InsertarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Actualizar_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Actualizar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Actualizar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ActualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Eliminar_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Eliminar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Eliminar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_EliminarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Anular_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Anular" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Anular_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_AnularResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Reactivar_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Reactivar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Reactivar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ReactivarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listar_tarifario_InputMessage">
+    <wsdl:part name="parameters" element="tns:listar_tarifario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listar_tarifario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listar_tarifarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listar_tarifario_combo_InputMessage">
+    <wsdl:part name="parameters" element="tns:listar_tarifario_combo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listar_tarifario_combo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listar_tarifario_comboResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
@@ -434,10 +530,6 @@
     <wsdl:operation name="ModComunicado">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ModComunicado" message="tns:IService1_ModComunicado_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ModComunicadoResponse" message="tns:IService1_ModComunicado_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetComunicadoPorRolUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuario" message="tns:IService1_GetComunicadoPorRolUsuario_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioResponse" message="tns:IService1_GetComunicadoPorRolUsuario_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDistrito">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDistrito" message="tns:IService1_GetDistrito_InputMessage" />
@@ -615,6 +707,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RetArchivoAlumno" message="tns:IService1_RetArchivoAlumno_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/RetArchivoAlumnoResponse" message="tns:IService1_RetArchivoAlumno_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="listarAlumnos_Combo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/listarAlumnos_Combo" message="tns:IService1_listarAlumnos_Combo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/listarAlumnos_ComboResponse" message="tns:IService1_listarAlumnos_Combo_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetTipoDocumento">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTipoDocumento" message="tns:IService1_GetTipoDocumento_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTipoDocumentoResponse" message="tns:IService1_GetTipoDocumento_OutputMessage" />
@@ -635,9 +731,73 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarGruposPorDocente" message="tns:IService1_ListarGruposPorDocente_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarGruposPorDocenteResponse" message="tns:IService1_ListarGruposPorDocente_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ListarGruposServicioPorDocente">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarGruposServicioPorDocente" message="tns:IService1_ListarGruposServicioPorDocente_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarGruposServicioPorDocenteResponse" message="tns:IService1_ListarGruposServicioPorDocente_OutputMessage" />
+    <wsdl:operation name="GetGrupoAnual">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGrupoAnual" message="tns:IService1_GetGrupoAnual_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGrupoAnualResponse" message="tns:IService1_GetGrupoAnual_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarGrupoAnual_Combo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/listarGrupoAnual_Combo" message="tns:IService1_listarGrupoAnual_Combo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/listarGrupoAnual_ComboResponse" message="tns:IService1_listarGrupoAnual_Combo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Nido_Matricula_Listar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Nido_Matricula_Listar" message="tns:IService1_Nido_Matricula_Listar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Nido_Matricula_ListarResponse" message="tns:IService1_Nido_Matricula_Listar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Matricula_Listar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Matricula_Listar" message="tns:IService1_Matricula_Listar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Matricula_ListarResponse" message="tns:IService1_Matricula_Listar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Matricula_Obtener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Matricula_Obtener" message="tns:IService1_Matricula_Obtener_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Matricula_ObtenerResponse" message="tns:IService1_Matricula_Obtener_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Matricula_Insertar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Matricula_Insertar" message="tns:IService1_Matricula_Insertar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Matricula_InsertarResponse" message="tns:IService1_Matricula_Insertar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Matricula_Actualizar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Matricula_Actualizar" message="tns:IService1_Matricula_Actualizar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Matricula_ActualizarResponse" message="tns:IService1_Matricula_Actualizar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Matricula_CambiarEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Matricula_CambiarEstado" message="tns:IService1_Matricula_CambiarEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Matricula_CambiarEstadoResponse" message="tns:IService1_Matricula_CambiarEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_ListarPorMatricula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatricula" message="tns:IService1_MatriculaDetalle_ListarPorMatricula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatriculaResponse" message="tns:IService1_MatriculaDetalle_ListarPorMatricula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Obtener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Obtener" message="tns:IService1_MatriculaDetalle_Obtener_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ObtenerResponse" message="tns:IService1_MatriculaDetalle_Obtener_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Insertar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Insertar" message="tns:IService1_MatriculaDetalle_Insertar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_InsertarResponse" message="tns:IService1_MatriculaDetalle_Insertar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Actualizar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Actualizar" message="tns:IService1_MatriculaDetalle_Actualizar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ActualizarResponse" message="tns:IService1_MatriculaDetalle_Actualizar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Eliminar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Eliminar" message="tns:IService1_MatriculaDetalle_Eliminar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_EliminarResponse" message="tns:IService1_MatriculaDetalle_Eliminar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Anular">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Anular" message="tns:IService1_MatriculaDetalle_Anular_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_AnularResponse" message="tns:IService1_MatriculaDetalle_Anular_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Reactivar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Reactivar" message="tns:IService1_MatriculaDetalle_Reactivar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ReactivarResponse" message="tns:IService1_MatriculaDetalle_Reactivar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listar_tarifario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/listar_tarifario" message="tns:IService1_listar_tarifario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/listar_tarifarioResponse" message="tns:IService1_listar_tarifario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listar_tarifario_combo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/listar_tarifario_combo" message="tns:IService1_listar_tarifario_combo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/listar_tarifario_comboResponse" message="tns:IService1_listar_tarifario_combo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -743,15 +903,6 @@
     </wsdl:operation>
     <wsdl:operation name="ModComunicado">
       <soap:operation soapAction="http://tempuri.org/IService1/ModComunicado" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetComunicadoPorRolUsuario">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetComunicadoPorRolUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1155,6 +1306,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="listarAlumnos_Combo">
+      <soap:operation soapAction="http://tempuri.org/IService1/listarAlumnos_Combo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetTipoDocumento">
       <soap:operation soapAction="http://tempuri.org/IService1/GetTipoDocumento" style="document" />
       <wsdl:input>
@@ -1200,8 +1360,152 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ListarGruposServicioPorDocente">
-      <soap:operation soapAction="http://tempuri.org/IService1/ListarGruposServicioPorDocente" style="document" />
+    <wsdl:operation name="GetGrupoAnual">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetGrupoAnual" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarGrupoAnual_Combo">
+      <soap:operation soapAction="http://tempuri.org/IService1/listarGrupoAnual_Combo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Nido_Matricula_Listar">
+      <soap:operation soapAction="http://tempuri.org/IService1/Nido_Matricula_Listar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Matricula_Listar">
+      <soap:operation soapAction="http://tempuri.org/IService1/Matricula_Listar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Matricula_Obtener">
+      <soap:operation soapAction="http://tempuri.org/IService1/Matricula_Obtener" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Matricula_Insertar">
+      <soap:operation soapAction="http://tempuri.org/IService1/Matricula_Insertar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Matricula_Actualizar">
+      <soap:operation soapAction="http://tempuri.org/IService1/Matricula_Actualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Matricula_CambiarEstado">
+      <soap:operation soapAction="http://tempuri.org/IService1/Matricula_CambiarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_ListarPorMatricula">
+      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatricula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Obtener">
+      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Obtener" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Insertar">
+      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Insertar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Actualizar">
+      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Actualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Eliminar">
+      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Eliminar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Anular">
+      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Anular" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Reactivar">
+      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Reactivar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_tarifario">
+      <soap:operation soapAction="http://tempuri.org/IService1/listar_tarifario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar_tarifario_combo">
+      <soap:operation soapAction="http://tempuri.org/IService1/listar_tarifario_combo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

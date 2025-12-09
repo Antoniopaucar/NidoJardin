@@ -1,4 +1,5 @@
-﻿using clsEntidades;
+﻿using clsDAC;
+using clsEntidades;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -89,6 +90,13 @@ namespace clsBL
                 clsBLError dacError = new clsBLError();
                 dacError.Control_Sql_Error(ex);
             }
+        }
+
+        private clsDacAlumno oDac = new clsDacAlumno();
+
+        public List<clsAlumno> listar_alumnos_Combo()
+        {
+            return oDac.listar_alumnos_Combo();
         }
     }
 }

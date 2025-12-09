@@ -14,5 +14,8 @@ namespace clsEntidades
         public int Aforo { get; set; }
         public int Periodo { get; set; }
         public int TotalAlumnos { get; set; }
+
+        // Nuevas propiedades
+        public string NombreGrupo { get; set; }
     }
 }

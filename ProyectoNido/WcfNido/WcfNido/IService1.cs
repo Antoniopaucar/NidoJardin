@@ -179,6 +179,10 @@ namespace WcfNido
         void ModAlumno(clsEntidades.clsAlumno alu);
         [OperationContract]
         clsArchivoBase RetArchivoAlumno(int Codigo,string tipoArch);
+
+        [OperationContract]
+        List<clsAlumno> listarAlumnos_Combo();
+
         //------------------------ TIPO DOCUMENTO ----------------------------------------------
 
         [OperationContract]
@@ -208,7 +212,76 @@ namespace WcfNido
         [OperationContract]
         List<clsEntidades.clsGrupoServicioDetalle> ListarGruposServicioPorDocente(int idUsuario);
 
+        [OperationContract]
+        List<clsEntidades.clsGrupoAnual> GetGrupoAnual();
+
+        [OperationContract]
+        List<clsGrupoAnual> listarGrupoAnual_Combo();
+
         // TODO: agregue aquí sus operaciones de servicio
+
+
+        //------------------------ MATRICULA ----------------------------------------------
+        // Listado para grilla
+        [OperationContract]
+        List<clsEntidades.clsMatricula> Nido_Matricula_Listar(string estado);
+
+        // Listar con filtros
+        [OperationContract]
+        List<clsEntidades.clsMatricula> Matricula_Listar(
+            int? idMatricula,
+            int? idAlumno,
+            int? idGrupoAnual,
+            string estado);
+
+        // Obtener una matrícula
+        [OperationContract]
+        clsEntidades.clsMatricula Matricula_Obtener(int idMatricula);
+
+        // Insertar
+        [OperationContract]
+        int Matricula_Insertar(clsEntidades.clsMatricula mat);
+
+        // Actualizar
+        [OperationContract]
+        bool Matricula_Actualizar(clsEntidades.clsMatricula mat);
+
+        // Cambiar estado (anular / reactivar)
+        [OperationContract]
+        bool Matricula_CambiarEstado(int idMatricula, string estado);
+
+        //------------------------ MATRICULA DETALLE ----------------------------------------------
+        [OperationContract]
+        List<clsEntidades.clsMatriculaDetalle> MatriculaDetalle_ListarPorMatricula(int idMatricula);
+
+        [OperationContract]
+        clsEntidades.clsMatriculaDetalle MatriculaDetalle_Obtener(int idMatriculaDetalle);
+
+        [OperationContract]
+        int MatriculaDetalle_Insertar(clsEntidades.clsMatriculaDetalle det);
+
+        [OperationContract]
+        void MatriculaDetalle_Actualizar(clsEntidades.clsMatriculaDetalle det);
+
+        [OperationContract]
+        void MatriculaDetalle_Eliminar(int idMatriculaDetalle);
+
+        [OperationContract]
+        void MatriculaDetalle_Anular(int idMatriculaDetalle);
+
+        [OperationContract]
+        void MatriculaDetalle_Reactivar(int idMatriculaDetalle);
+
+
+        //------------------------ TARIFARIO ----------------------------------------------
+        [OperationContract]
+        List<clsEntidades.clsTarifario> listar_tarifario();
+
+        [OperationContract]
+        List<clsEntidades.clsTarifario> listar_tarifario_combo();
+
+
+
     }
 
 

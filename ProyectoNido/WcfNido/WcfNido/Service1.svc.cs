@@ -148,12 +148,6 @@ namespace WcfNido
             }
         }
 
-        public List<clsComunicado> GetComunicadoPorRolUsuario(int idUsuario)
-        {
-            clsBL.clsBLComunicado xbl = new clsBL.clsBLComunicado();
-            return xbl.listar_comunicados_por_rol_usuario(idUsuario);
-        }
-
         //----------------------------- DISTRITO ---------------------------------------
 
         public List<clsDistrito> GetDistrito()
@@ -696,6 +690,13 @@ namespace WcfNido
             }
         }
 
+        clsBLAlumno oBLAlumno = new clsBLAlumno();
+
+        public List<clsAlumno> listarAlumnos_Combo()
+        {
+            return oBLAlumno.listar_alumnos_Combo();
+        }
+
         //---------------------------- ACTUALIZAR DATOS DOCENTE ---------------------------------
         //public void ActualizarDatosDocente(int idUsuario, string nombres, string apPaterno, string apMaterno,
         //    string dni, DateTime? fechaNacimiento, string sexo, string direccion, string email,
@@ -729,7 +730,7 @@ namespace WcfNido
         //}
 
         //---------------------------- GRUPO ANUAL ---------------------------------
-        public List<clsGrupoAnualDetalle> ListarGruposPorDocente(int idUsuario)
+        public List<GrupoAnualDetalle> ListarGruposPorDocente(int idUsuario)
         {
             try
             {
@@ -742,19 +743,123 @@ namespace WcfNido
             }
         }
 
-        //---------------------------- GRUPO SERVICIO ---------------------------------
-        public List<clsGrupoServicioDetalle> ListarGruposServicioPorDocente(int idUsuario)
+        public List<clsEntidades.clsGrupoAnual> GetGrupoAnual()
         {
-            try
-            {
-                clsBL.clsBLGrupoServicio xbl = new clsBL.clsBLGrupoServicio();
-                return xbl.listar_grupos_servicio_por_docente(idUsuario);
-            }
-            catch (Exception ex)
-            {
-                throw new FaultException(ex.Message);
-            }
+            clsBL.clsBLGrupoAnual bl = new clsBL.clsBLGrupoAnual();
+            return bl.listar_grupoanual();
         }
 
+        clsBLGrupoAnual oBLGrupoAnual = new clsBLGrupoAnual();
+
+        public List<clsGrupoAnual> listarGrupoAnual_Combo()
+        {
+            return oBLGrupoAnual.listar_grupo_anual_combo();
+        }
+
+        //---------------------------- MATRICULA ---------------------------------
+        public List<clsEntidades.clsMatricula> Nido_Matricula_Listar(string estado)
+        {
+            var bl = new clsBL.clsBLMatricula();
+            char? cEstado = null;
+            if (!string.IsNullOrEmpty(estado))
+                cEstado = estado[0];
+
+            return bl.Nido_Matricula_Listar(cEstado);
+        }
+
+        public List<clsEntidades.clsMatricula> Matricula_Listar(
+            int? idMatricula,
+            int? idAlumno,
+            int? idGrupoAnual,
+            string estado)
+        {
+            var bl = new clsBL.clsBLMatricula();
+            char? cEstado = null;
+            if (!string.IsNullOrEmpty(estado))
+                cEstado = estado[0];
+
+            return bl.Matricula_Listar(idMatricula, idAlumno, idGrupoAnual, cEstado);
+        }
+
+        public clsEntidades.clsMatricula Matricula_Obtener(int idMatricula)
+        {
+            var bl = new clsBL.clsBLMatricula();
+            return bl.Matricula_Obtener(idMatricula);
+        }
+
+        public int Matricula_Insertar(clsEntidades.clsMatricula mat)
+        {
+            var bl = new clsBL.clsBLMatricula();
+            return bl.Matricula_Insertar(mat);
+        }
+
+        public bool Matricula_Actualizar(clsEntidades.clsMatricula mat)
+        {
+            var bl = new clsBL.clsBLMatricula();
+            return bl.Matricula_Actualizar(mat);
+        }
+
+        public bool Matricula_CambiarEstado(int idMatricula, string estado)
+        {
+            var bl = new clsBL.clsBLMatricula();
+            char cEstado = string.IsNullOrEmpty(estado) ? 'A' : estado[0];
+            return bl.Matricula_CambiarEstado(idMatricula, cEstado);
+        }
+
+        //---------------------------- DETALLE MATRICULA ---------------------------------
+        public List<clsEntidades.clsMatriculaDetalle> MatriculaDetalle_ListarPorMatricula(int idMatricula)
+        {
+            var bl = new clsBL.clsBLMatriculaDetalle();
+            return bl.listar_por_matricula(idMatricula);
+        }
+
+        public clsEntidades.clsMatriculaDetalle MatriculaDetalle_Obtener(int idMatriculaDetalle)
+        {
+            var bl = new clsBL.clsBLMatriculaDetalle();
+            return bl.obtener(idMatriculaDetalle);
+        }
+
+        public int MatriculaDetalle_Insertar(clsEntidades.clsMatriculaDetalle det)
+        {
+            var bl = new clsBL.clsBLMatriculaDetalle();
+            return bl.insertar(det);
+        }
+
+        public void MatriculaDetalle_Actualizar(clsEntidades.clsMatriculaDetalle det)
+        {
+            var bl = new clsBL.clsBLMatriculaDetalle();
+            bl.actualizar(det);
+        }
+
+        public void MatriculaDetalle_Eliminar(int idMatriculaDetalle)
+        {
+            var bl = new clsBL.clsBLMatriculaDetalle();
+            bl.eliminar(idMatriculaDetalle);
+        }
+
+        public void MatriculaDetalle_Anular(int idMatriculaDetalle)
+        {
+            var bl = new clsBL.clsBLMatriculaDetalle();
+            bl.anular(idMatriculaDetalle);
+        }
+
+        public void MatriculaDetalle_Reactivar(int idMatriculaDetalle)
+        {
+            var bl = new clsBL.clsBLMatriculaDetalle();
+            bl.reactivar(idMatriculaDetalle);
+        }
+
+
+        //---------------------------- TARIFARIO ---------------------------------
+        public List<clsEntidades.clsTarifario> listar_tarifario()
+        {
+            clsBL.clsBLTarifario bl = new clsBL.clsBLTarifario();
+            return bl.listar_tarifario();
+        }
+        public List<clsEntidades.clsTarifario> listar_tarifario_combo()
+        {
+            clsBL.clsBLTarifario bl = new clsBL.clsBLTarifario();
+            return bl.listar_tarifario_combo();
+        }
     }
 }

@@ -123,7 +123,16 @@
     <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsProfesor.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsGrupoServicioDetalle.datasource">
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsMatricula.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsGrupoAnual.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsTarifario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsMatriculaDetalle.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\wcfNido\Service1.disco" />
@@ -142,9 +151,10 @@
     <Content Include="frm_Docente_Comunicado.aspx" />
     <Content Include="frm_Docente_Datos.aspx" />
     <Content Include="frm_Docente_GrupoAnual.aspx" />
-    <Content Include="frm_Docente_GrupoServicio.aspx" />
     <Content Include="frm_Inicio.aspx" />
     <Content Include="frm_Login.aspx" />
+    <Content Include="frm_Matricula.aspx" />
+    <Content Include="frm_MatriculaDetalle.aspx" />
     <Content Include="frm_Nivel.aspx" />
     <Content Include="frm_Permiso.aspx" />
     <Content Include="frm_Permiso_Usuario.aspx" />
@@ -244,13 +254,6 @@
     <Compile Include="frm_Docente_GrupoAnual.aspx.designer.cs">
       <DependentUpon>frm_Docente_GrupoAnual.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frm_Docente_GrupoServicio.aspx.cs">
-      <DependentUpon>frm_Docente_GrupoServicio.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frm_Docente_GrupoServicio.aspx.designer.cs">
-      <DependentUpon>frm_Docente_GrupoServicio.aspx</DependentUpon>
-    </Compile>
     <Compile Include="frm_Inicio.aspx.cs">
       <DependentUpon>frm_Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -264,6 +267,20 @@
     </Compile>
     <Compile Include="frm_Login.aspx.designer.cs">
       <DependentUpon>frm_Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Matricula.aspx.cs">
+      <DependentUpon>frm_Matricula.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Matricula.aspx.designer.cs">
+      <DependentUpon>frm_Matricula.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_MatriculaDetalle.aspx.cs">
+      <DependentUpon>frm_MatriculaDetalle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_MatriculaDetalle.aspx.designer.cs">
+      <DependentUpon>frm_MatriculaDetalle.aspx</DependentUpon>
     </Compile>
     <Compile Include="frm_Nivel.aspx.cs">
       <DependentUpon>frm_Nivel.aspx</DependentUpon>

@@ -982,6 +982,14 @@ ALTER TABLE Matricula
 DROP COLUMN FechaPago;
 GO
 
+ALTER TABLE Tarifario
+ALTER COLUMN Periodo SMALLINT NOT NULL;
+GO
+
+ALTER TABLE GrupoAnual
+ALTER COLUMN Periodo SMALLINT NOT NULL;
+GO
+
 ALTER TABLE Cuota
 ADD NombreCuota VARCHAR(100) NULL;  -- Ej: 'Pensión Marzo', 'Matrícula', etc.
 GO
@@ -1008,4 +1016,307 @@ CREATE TABLE MatriculaDetalle
         FOREIGN KEY (Id_Cuota) REFERENCES Cuota(Id_Cuota)
 );
 GO
+CREATE OR ALTER PROC Nido_Matricula_Listar
+AS
+BEGIN
+    SELECT 
+        m.Id_Matricula,
+        m.Codigo,
+        m.Id_Alumno,
+        a.Nombres + ' ' + a.ApPaterno + ' ' + a.ApMaterno AS AlumnoNombre,
+        m.Id_GrupoAnual,
+        CONCAT(n.Nombre, ' - ', g.Periodo) AS GrupoNombre,
+        t.Nombre AS NombreTarifario,
+        m.Total,
+        m.Estado
+    FROM Matricula m
+    JOIN Alumno a ON a.Id_Alumno = m.Id_Alumno
+    JOIN GrupoAnual g ON g.Id_GrupoAnual = m.Id_GrupoAnual
+    JOIN Nivel n ON n.Id_Nivel = g.Id_Nivel
+    JOIN Tarifario t ON t.Id_Tarifario = m.Id_Tarifario
+    ORDER BY m.Id_Matricula DESC;
+END
+
+
+CREATE OR ALTER PROC DelMatricula
+    @Id_Matricula INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    BEGIN TRY
+        BEGIN TRAN;
+
+        -- Marcar detalle como anulado (opcional)
+        UPDATE MatriculaDetalle
+        SET EstadoPago = 'X'
+        WHERE Id_Matricula = @Id_Matricula;
+
+        -- Marcar cabecera como anulada
+        UPDATE Matricula
+        SET Estado = 'X'
+        WHERE Id_Matricula = @Id_Matricula;
+
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0 ROLLBACK TRAN;
+        THROW;
+    END CATCH
+END
+GO
+
+GO
+CREATE OR ALTER PROC Nido_GrupoAnual_Listar
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        g.Id_GrupoAnual,
+        g.Id_Salon,
+        g.Id_Profesor,
+        g.Id_Nivel,
+        g.Periodo,
+        Descripcion = CONCAT(n.Nombre, ' - ', g.Periodo, ' - ', s.Nombre)
+    FROM GrupoAnual g
+    INNER JOIN Nivel  n ON n.Id_Nivel  = g.Id_Nivel
+    INNER JOIN Salon  s ON s.Id_Salon  = g.Id_Salon
+    ORDER BY g.Periodo DESC, n.Nombre, s.Nombre;
+END
+GO
+
+CREATE OR ALTER PROC listar_alumnos_Matricula
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        a.Id_Alumno,
+        a.Nombres,
+        a.ApPaterno,
+        a.ApMaterno,
+        a.Dni,
+        a.FechaNacimiento,
+        a.Sexo,
+        -- Campo calculado para usar en combos / grillas
+        NombreCompleto = RTRIM(a.Nombres + ' ' + a.ApPaterno + ' ' + a.ApMaterno)
+    FROM Alumno a
+    ORDER BY a.Nombres, a.ApPaterno, a.ApMaterno;
+END
+GO
+-------------------------------tarifario-------------------------------
+CREATE OR ALTER PROC listar_tarifario
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT 
+        Id_Tarifario,
+        Tipo,
+        Nombre,
+        Descripcion,
+        Periodo,
+        Valor
+    FROM Tarifario
+    ORDER BY Nombre;
+END
+GO
+
+
+
+exec Nido_Matricula_Listar
+
+
+CREATE INDEX IX_Matricula_Id_Tarifario ON Matricula(Id_Tarifario);
+CREATE INDEX IX_MatriculaDetalle_Id_Matricula ON MatriculaDetalle(Id_Matricula);
+CREATE INDEX IX_MatriculaDetalle_Id_Cuota ON MatriculaDetalle(Id_Cuota);
+
+
 select * from MatriculaDetalle
+select * from Alumno
+
+-- Borrar datos de detalle de cuotas
+DELETE FROM Cuota;
+-- Borrar datos de tarifarios
+DELETE FROM Tarifario;
+-- Reiniciar IDENTITY (para que vuelvan a 1)
+DBCC CHECKIDENT ('Tarifario', RESEED, 0);
+DBCC CHECKIDENT ('Cuota', RESEED, 0);
+go
+-------------------------------------------------------------------------------
+INSERT INTO Tarifario (Tipo, Nombre, Descripcion, Periodo, Valor)
+VALUES ('P', 'Tarifario 2025 Regular', 'Matrícula + pensiones 2025', 2025, 300.00);
+
+DECLARE @IdTarifario2025 INT = SCOPE_IDENTITY();
+INSERT INTO Cuota
+    (Id_Tarifario, NroCuota, FechaPagoSugerido, Monto, Descuento, Adicional, NombreCuota)
+VALUES
+    -- Matrícula 2025
+    (@IdTarifario2025, 0, '2025-03-01', 150.00, 0.00, 0.00, 'Matrícula 2025'),
+
+    -- Pensiones (ejemplo: 3 meses, tú puedes seguir hasta 10, 12, etc.)
+    (@IdTarifario2025, 1, '2025-03-05', 300.00, 0.00, 0.00, 'Pensión Marzo 2025'),
+    (@IdTarifario2025, 2, '2025-04-05', 300.00, 0.00, 0.00, 'Pensión Abril 2025'),
+    (@IdTarifario2025, 3, '2025-05-05', 300.00, 0.00, 0.00, 'Pensión Mayo 2025');
+    -- Agrega aquí las demás pensiones: junio, julio, etc.
+go
+-------------------------------------------------------------------------------
+INSERT INTO Tarifario (Tipo, Nombre, Descripcion, Periodo, Valor)
+VALUES ('P', 'Tarifario 2024 Regular', 'Matrícula + pensiones 2024', 2024, 300.00);
+
+DECLARE @IdTarifario2024 INT = SCOPE_IDENTITY();
+INSERT INTO Cuota
+    (Id_Tarifario, NroCuota, FechaPagoSugerido, Monto, Descuento, Adicional, NombreCuota)
+VALUES
+    -- Matrícula 2024
+    (@IdTarifario2024, 0, '2024-03-01', 150.00, 0.00, 0.00, 'Matrícula 2024'),
+
+    -- Pensiones
+    (@IdTarifario2024, 1, '2024-03-05', 300.00, 0.00, 0.00, 'Pensión Marzo 2024'),
+    (@IdTarifario2024, 2, '2024-04-05', 300.00, 0.00, 0.00, 'Pensión Abril 2024'),
+    (@IdTarifario2024, 3, '2024-05-05', 300.00, 0.00, 0.00, 'Pensión Mayo 2024'),
+    (@IdTarifario2024, 4, '2024-06-05', 300.00, 0.00, 0.00, 'Pensión Junio 2024'),
+    (@IdTarifario2024, 5, '2024-07-05', 300.00, 0.00, 0.00, 'Pensión Julio 2024'),
+    (@IdTarifario2024, 6, '2024-08-05', 300.00, 0.00, 0.00, 'Pensión Agosto 2024'),
+    (@IdTarifario2024, 7, '2024-09-05', 300.00, 0.00, 0.00, 'Pensión Septiembre 2024'),
+    (@IdTarifario2024, 8, '2024-10-05', 300.00, 0.00, 0.00, 'Pensión Octubre 2024'),
+    (@IdTarifario2024, 9, '2024-11-05', 300.00, 0.00, 0.00, 'Pensión Noviembre 2024'),
+    (@IdTarifario2024, 10, '2024-12-05', 300.00, 0.00, 0.00, 'Pensión Diciembre 2024');
+    go
+-------------------------------------------------------------------------------
+INSERT INTO Tarifario (Tipo, Nombre, Descripcion, Periodo, Valor)
+VALUES 
+(
+    'A',                                 -- Tipo A = Anual
+    'Tarifario 2025 – Pago Anual',
+    'Pago total del año (matrícula + pensiones) con descuento',
+    2025,
+    300.00   -- Valor referencial mensual (opcional)
+);
+DECLARE @IdTarifarioAnual2025 INT = SCOPE_IDENTITY();
+INSERT INTO Cuota
+    (Id_Tarifario, NroCuota, FechaPagoSugerido, Monto, Descuento, Adicional, NombreCuota)
+VALUES
+(
+    @IdTarifarioAnual2025,
+    0,                          -- Una sola cuota
+    '2025-03-01',               -- Fecha límite sugerida
+    2835.00,                    -- Monto total del año con descuento
+    0.00,                       -- Descuento ya incluido en el cálculo
+    0.00,                       -- No hay cargos adicionales
+    'Pago Anual 2025 (Matrícula + Pensiones)'
+);
+go
+
+CREATE OR ALTER PROC Nido_Matricula_Registrar
+(
+    @Id_Alumno     INT,
+    @Id_GrupoAnual INT,
+    @Id_Tarifario  INT,
+    @Codigo        VARCHAR(20)
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SET XACT_ABORT ON;
+
+    DECLARE @FechaMatricula DATE = CAST(GETDATE() AS DATE);
+    DECLARE @Id_Matricula INT;
+
+    BEGIN TRAN;
+
+    -- 1) Insertar CABECERA
+    INSERT INTO Matricula
+    (Id_Alumno, Id_GrupoAnual, Id_Tarifario, Codigo, FechaMatricula,
+     SubTotal, DescuentoTotal, Total, Estado, Observacion)
+    VALUES
+    (@Id_Alumno, @Id_GrupoAnual, @Id_Tarifario, @Codigo, @FechaMatricula,
+     0, 0, 0, 'A', NULL);
+
+    SET @Id_Matricula = SCOPE_IDENTITY();
+
+    -- 2) Generar DETALLE copiando de la plantilla CUOTA
+    INSERT INTO MatriculaDetalle
+    (
+        Id_Matricula,
+        Id_Cuota,
+        NroCuota,
+        NombreCuota,
+        FechaVencimiento,
+        Cantidad,
+        Monto,
+        Descuento,
+        Adicional,
+        TotalLinea,
+        FechaPago,
+        EstadoPago,
+        Observacion
+    )
+    SELECT
+        @Id_Matricula,
+        c.Id_Cuota,
+        c.NroCuota,
+        c.NombreCuota,
+        c.FechaPagoSugerido,
+        1,
+        c.Monto,
+        c.Descuento,
+        c.Adicional,
+        (1 * c.Monto) - c.Descuento + c.Adicional,
+        NULL,
+        'P',
+        NULL
+    FROM Cuota c
+    WHERE c.Id_Tarifario = @Id_Tarifario;
+
+    -- 3) Actualizar TOTALES en Matricula (CORREGIDO)
+    UPDATE m
+    SET 
+        m.SubTotal       = t.SubTotal,
+        m.DescuentoTotal = t.DescuentoTotal,
+        m.Total          = t.Total
+    FROM Matricula m
+    JOIN (
+        SELECT 
+            Id_Matricula,
+            SUM(Monto)      AS SubTotal,
+            SUM(Descuento)  AS DescuentoTotal,
+            SUM(TotalLinea) AS Total
+        FROM MatriculaDetalle
+        WHERE Id_Matricula = @Id_Matricula
+        GROUP BY Id_Matricula
+    ) t
+        ON m.Id_Matricula = t.Id_Matricula;
+
+    COMMIT TRAN;
+
+    -- Devolver Id de la nueva matrícula
+    SELECT @Id_Matricula AS Id_Matricula;
+END;
+GO
+
+---------------------------------------------------
+DECLARE @NuevaMatricula INT;
+EXEC @NuevaMatricula = Nido_Matricula_Registrar
+     @Id_Alumno     = 1,
+     @Id_GrupoAnual = 1,
+     @Id_Tarifario  = 1,
+     @Codigo        = 'MAT-PRUEBA-0001';
+
+SELECT @NuevaMatricula AS Id_Matricula_Creada;
+--------------------------------------------------
+
+
+select * from Salon
+select  *from Tarifario
+select * from Cuota
+select * from Profesor
+select * from Alumno
+select * from Salon
+select * from Nivel
+select * from GrupoAnual
+select * from Matricula --where Id_Alumno=1
+select * from MatriculaDetalle --where Id_Matricula=1
+
+
+

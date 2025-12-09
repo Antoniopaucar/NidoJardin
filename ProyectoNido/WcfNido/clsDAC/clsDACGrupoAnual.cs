@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,6 +42,95 @@ namespace clsDAC
                 }
             }
             return lista;
+        }
+
+        //----------------------------clsGrupoAnual------------------------------------
+        public List<clsEntidades.clsGrupoAnual> ListarGrupoAnual()
+        {
+            List<clsEntidades.clsGrupoAnual> lista = new List<clsEntidades.clsGrupoAnual>();
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            using (SqlCommand cmd = new SqlCommand("Nido_GrupoAnual_Listar", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        var x = new clsEntidades.clsGrupoAnual
+                        {
+                            Id_GrupoAnual = Convert.ToInt32(dr["Id_GrupoAnual"]),
+                            Id_Salon = Convert.ToInt32(dr["Id_Salon"]),
+                            Id_Profesor = Convert.ToInt32(dr["Id_Profesor"]),
+                            Id_Nivel = Convert.ToInt32(dr["Id_Nivel"]),
+                            Periodo = Convert.ToInt32(dr["Periodo"]),
+                            Descripcion = dr["Descripcion"].ToString()
+                        };
+                        lista.Add(x);
+                    }
+                }
+            }
+
+            return lista;
+        }
+        public List<clsGrupoAnual> listar_grupo_anual_combo()
+        {
+            List<clsGrupoAnual> lista = new List<clsGrupoAnual>();
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            {
+                using (SqlCommand cmd = new SqlCommand("listar_grupo_anual_combo", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cn.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            clsGrupoAnual obj = new clsGrupoAnual();
+
+                            obj.Id_GrupoAnual = Convert.ToInt32(dr["Id_GrupoAnual"]);
+                            obj.NombreGrupo = dr["NombreGrupo"].ToString();
+
+                            // 👇 Solo si más adelante tu SP devuelve estas columnas:
+                            if (HasColumn(dr, "Id_Salon") && !dr.IsDBNull(dr.GetOrdinal("Id_Salon")))
+                                obj.Id_Salon = Convert.ToInt32(dr["Id_Salon"]);
+
+                            if (HasColumn(dr, "Id_Profesor") && !dr.IsDBNull(dr.GetOrdinal("Id_Profesor")))
+                                obj.Id_Profesor = Convert.ToInt32(dr["Id_Profesor"]);
+
+                            if (HasColumn(dr, "Id_Nivel") && !dr.IsDBNull(dr.GetOrdinal("Id_Nivel")))
+                                obj.Id_Nivel = Convert.ToInt32(dr["Id_Nivel"]);
+
+                            if (HasColumn(dr, "Periodo") && !dr.IsDBNull(dr.GetOrdinal("Periodo")))
+                                obj.Periodo = Convert.ToInt32(dr["Periodo"]);
+
+                            if (HasColumn(dr, "Descripcion") && !dr.IsDBNull(dr.GetOrdinal("Descripcion")))
+                                obj.Descripcion = dr["Descripcion"].ToString();
+
+                            lista.Add(obj);
+                        }
+                    }
+                }
+            }
+
+            return lista;
+
+        }
+
+        // Utilidad para evitar errores si luego agregas/quitas columnas del SP
+        private bool HasColumn(IDataRecord dr, string columnName)
+        {
+            for (int i = 0; i < dr.FieldCount; i++)
+            {
+                if (dr.GetName(i).Equals(columnName, StringComparison.OrdinalIgnoreCase))
+                    return true;
+            }
+            return false;
         }
     }
 }

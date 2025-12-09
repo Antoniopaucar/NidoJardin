@@ -26,6 +26,9 @@ namespace clsEntidades
         public clsArchivoBase CopiaDni { get; set; }
         public clsArchivoBase PermisoPublicidad { get; set; }
         public clsArchivoBase CarnetSeguro { get; set; }
+
+        public string NombreCompleto { get; set; }
+
         public clsAlumno() { }
         public clsAlumno(int id, clsApoderado apoderado, string nombres, string apellidoPaterno, string apellidoMaterno, 
             clsTipoDocumento tipoDocumento, string documento, DateTime? fechaNacimiento, string sexo, 

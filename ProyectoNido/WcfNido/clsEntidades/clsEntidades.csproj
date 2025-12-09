@@ -47,21 +47,24 @@
     <Compile Include="clsComunicado.cs" />
     <Compile Include="clsDistrito.cs" />
     <Compile Include="clsError.cs" />
-    <Compile Include="clsGrupoServicioDetalle.cs" />
+    <Compile Include="clsGrupoAnual.cs" />
     <Compile Include="clsLogin.cs" />
+    <Compile Include="clsMatricula.cs" />
+    <Compile Include="clsMatriculaDetalle.cs" />
     <Compile Include="clsNivel.cs" />
     <Compile Include="clsPermiso.cs" />
     <Compile Include="clsProfesor.cs" />
     <Compile Include="clsRol.cs" />
     <Compile Include="clsRolPermiso.cs" />
     <Compile Include="clsSalon.cs" />
+    <Compile Include="clsTarifario.cs" />
     <Compile Include="clsTipoDocumento.cs" />
     <Compile Include="clsUsuario.cs" />
     <Compile Include="clsUsuarioPermiso.cs" />
     <Compile Include="clsUsuarioRol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Prueba_A.cs" />
-    <Compile Include="clsGrupoAnualDetalle.cs" />
+    <Compile Include="GrupoAnualDetalle.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
