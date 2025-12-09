@@ -730,7 +730,7 @@ namespace WcfNido
         //}
 
         //---------------------------- GRUPO ANUAL ---------------------------------
-        public List<GrupoAnualDetalle> ListarGruposPorDocente(int idUsuario)
+        public List<clsGrupoAnualDetalle> ListarGruposPorDocente(int idUsuario)
         {
             try
             {
@@ -860,6 +860,21 @@ namespace WcfNido
         {
             clsBL.clsBLTarifario bl = new clsBL.clsBLTarifario();
             return bl.listar_tarifario_combo();
+        }
+
+        public List<clsComunicado> GetComunicadoPorRolUsuario(int idUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<clsGrupoAnualDetalle> IService1.ListarGruposPorDocente(int idUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<clsGrupoServicioDetalle> ListarGruposServicioPorDocente(int idUsuario)
+        {
+            throw new NotImplementedException();
         }
     }
 }

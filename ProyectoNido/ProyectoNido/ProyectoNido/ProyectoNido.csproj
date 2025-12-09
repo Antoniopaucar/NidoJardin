@@ -99,9 +99,6 @@
     <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsUsuarioRol.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.GrupoAnualDetalle.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsRolPermiso.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -133,6 +130,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsMatriculaDetalle.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsGrupoAnualDetalle.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsGrupoServicioDetalle1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\wcfNido\Service1.disco" />

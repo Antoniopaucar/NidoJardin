@@ -280,13 +280,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfclsTipoDocumento" nillable="true" type="tns:ArrayOfclsTipoDocumento" />
-  <xs:complexType name="ArrayOfGrupoAnualDetalle">
+  <xs:complexType name="ArrayOfclsGrupoAnualDetalle">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="GrupoAnualDetalle" nillable="true" type="tns:GrupoAnualDetalle" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsGrupoAnualDetalle" nillable="true" type="tns:clsGrupoAnualDetalle" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfGrupoAnualDetalle" nillable="true" type="tns:ArrayOfGrupoAnualDetalle" />
-  <xs:complexType name="GrupoAnualDetalle">
+  <xs:element name="ArrayOfclsGrupoAnualDetalle" nillable="true" type="tns:ArrayOfclsGrupoAnualDetalle" />
+  <xs:complexType name="clsGrupoAnualDetalle">
     <xs:sequence>
       <xs:element minOccurs="0" name="Aforo" type="xs:int" />
       <xs:element minOccurs="0" name="Id_GrupoAnual" type="xs:int" />
@@ -297,7 +297,25 @@
       <xs:element minOccurs="0" name="TotalAlumnos" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="GrupoAnualDetalle" nillable="true" type="tns:GrupoAnualDetalle" />
+  <xs:element name="clsGrupoAnualDetalle" nillable="true" type="tns:clsGrupoAnualDetalle" />
+  <xs:complexType name="ArrayOfclsGrupoServicioDetalle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsGrupoServicioDetalle" nillable="true" type="tns:clsGrupoServicioDetalle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsGrupoServicioDetalle" nillable="true" type="tns:ArrayOfclsGrupoServicioDetalle" />
+  <xs:complexType name="clsGrupoServicioDetalle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aforo" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_GrupoServicio" type="xs:int" />
+      <xs:element minOccurs="0" name="Periodo" type="xs:int" />
+      <xs:element minOccurs="0" name="Salon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Servicio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalAlumnos" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsGrupoServicioDetalle" nillable="true" type="tns:clsGrupoServicioDetalle" />
   <xs:complexType name="ArrayOfclsGrupoAnual">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="clsGrupoAnual" nillable="true" type="tns:clsGrupoAnual" />
