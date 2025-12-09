@@ -48,6 +48,7 @@
     <Compile Include="clsBLDistrito.cs" />
     <Compile Include="clsBLError.cs" />
     <Compile Include="clsBLGrupoServicio.cs" />
+    <Compile Include="clsBLGrupoServicio_v.cs" />
     <Compile Include="clsBLLogin.cs" />
     <Compile Include="clsBLMatricula.cs" />
     <Compile Include="clsBLMatriculaDetalle.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="clsBLRolPermiso.cs" />
     <Compile Include="clsBLSalon.cs" />
     <Compile Include="clsBLServicioAdicional.cs" />
+    <Compile Include="clsBLServicioAlumno.cs" />
     <Compile Include="clsBLTarifario.cs" />
     <Compile Include="clsBLTipoDocumento.cs" />
     <Compile Include="clsBLUsuario.cs" />

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using clsEntidades;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -92,6 +94,33 @@ namespace clsDAC
                     cmd.ExecuteNonQuery();
                 }
             }
+        }
+
+        public List<clsServicioAdicional> BuscarServicioAdicional(string texto)
+        {
+            List<clsServicioAdicional> lista = new List<clsServicioAdicional>();
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            using (SqlCommand cmd = new SqlCommand("buscar_servicio_adicional_nombre", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Texto", texto ?? "");
+
+                cn.Open();
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        lista.Add(new clsServicioAdicional
+                        {
+                            Id_ServicioAdicional = Convert.ToInt32(dr["Id_ServicioAdicional"]),
+                            Nombre = dr["Nombre"].ToString()
+                        });
+                    }
+                }
+            }
+
+            return lista;
         }
     }
 }

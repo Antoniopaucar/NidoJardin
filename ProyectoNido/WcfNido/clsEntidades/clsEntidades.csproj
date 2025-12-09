@@ -49,6 +49,7 @@
     <Compile Include="clsError.cs" />
     <Compile Include="clsGrupoAnual.cs" />
     <Compile Include="clsGrupoAnualDetalle.cs" />
+    <Compile Include="clsGrupoServicio.cs" />
     <Compile Include="clsGrupoServicioDetalle.cs" />
     <Compile Include="clsLogin.cs" />
     <Compile Include="clsMatricula.cs" />
@@ -56,10 +57,13 @@
     <Compile Include="clsNivel.cs" />
     <Compile Include="clsPermiso.cs" />
     <Compile Include="clsProfesor.cs" />
+    <Compile Include="clsProfesorCombo.cs" />
     <Compile Include="clsRol.cs" />
     <Compile Include="clsRolPermiso.cs" />
     <Compile Include="clsSalon.cs" />
+    <Compile Include="clsSalonCombo.cs" />
     <Compile Include="clsServicioAdicional.cs" />
+    <Compile Include="clsServicioAlumno.cs" />
     <Compile Include="clsTarifario.cs" />
     <Compile Include="clsTipoDocumento.cs" />
     <Compile Include="clsUsuario.cs" />

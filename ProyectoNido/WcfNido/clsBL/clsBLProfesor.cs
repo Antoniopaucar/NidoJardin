@@ -127,5 +127,11 @@ namespace clsBL
                 dacError.Control_Sql_Error(ex);
             }
         }
+
+        public List<clsProfesorCombo> buscarProfesor(string texto)
+        {
+            clsDAC.clsDacProfesor dac = new clsDAC.clsDacProfesor();
+            return dac.buscarProfesor(texto);
+        }
     }
 }

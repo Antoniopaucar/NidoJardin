@@ -87,6 +87,11 @@ namespace WcfNido
         void InsSalon(clsEntidades.clsSalon salon);
         [OperationContract]
         void ModSalon(clsEntidades.clsSalon salon);
+        //----listar salon por nombre 
+        [OperationContract]
+        List<clsSalonCombo> BuscarSalon(string texto);
+
+
         //------------------------ ROL ----------------------------------------------
 
         [OperationContract]
@@ -166,6 +171,11 @@ namespace WcfNido
         void ModProfesor(clsEntidades.clsProfesor profe);
         [OperationContract]
         clsArchivoBase RetArchivoProfesor(int Codigo,string archivo);
+        //---metodo para el buscarporfesor
+        [OperationContract]
+        List<clsProfesorCombo> buscarProfesor(string texto);
+
+
         //------------------------ ALUMNO ----------------------------------------------
 
         [OperationContract]
@@ -293,8 +303,38 @@ namespace WcfNido
 
         [OperationContract]
         void ModServicioAdicional(clsEntidades.clsServicioAdicional servicio);
+        //----listar servicio adicional por nombre
+        [OperationContract]
+        List<clsServicioAdicional> BuscarServicioAdicional(string texto);
 
 
+
+        //-------------------------------- Servicio_Alumno --------------------------------
+        [OperationContract]
+        List<clsServicioAlumno> GetServicioAlumno();
+
+        [OperationContract]
+        void DelServicioAlumno(int Codigo);
+
+        [OperationContract]
+        void InsServicioAlumno(clsServicioAlumno servicioAlumno);
+
+        [OperationContract]
+        void ModServicioAlumno(clsServicioAlumno servicioAlumno);
+
+        //------------------------ GRUPO SERVICIO_V -------------------------------------
+
+        [OperationContract]
+        List<clsGrupoServicio> GetGrupoServicio();
+
+        [OperationContract]
+        string InsertarGrupoServicio(clsGrupoServicio obj);
+
+        [OperationContract]
+        string ModificarGrupoServicio(clsGrupoServicio obj);
+
+        [OperationContract]
+        string EliminarGrupoServicio(int id);
 
     }
 

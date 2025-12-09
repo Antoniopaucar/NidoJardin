@@ -1,4 +1,6 @@
-﻿using System;
+﻿using clsDAC;
+using clsEntidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,6 +57,11 @@ namespace clsBL
                 //throw new ApplicationException(ex.Message);
                 throw;
             }
+        }
+
+        public List<clsServicioAdicional> BuscarServicioAdicional(string texto)
+        {
+            return new clsDacServicioAdicional().BuscarServicioAdicional(texto);
         }
     }
 }

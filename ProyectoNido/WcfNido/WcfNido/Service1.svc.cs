@@ -304,6 +304,11 @@ namespace WcfNido
             }
         }
 
+        public List<clsSalonCombo> BuscarSalon(string texto)
+        {
+            return new clsBLSalon().BuscarSalon(texto);
+        }
+
         public void InsSalon(clsSalon salon)
         {
             try
@@ -631,6 +636,14 @@ namespace WcfNido
                 throw new FaultException(ex.Message);
             }
         }
+        //----servicio para buscar a porfesor por nombre
+        public List<clsProfesorCombo> buscarProfesor(string texto)
+        {
+            clsBLProfesor bl = new clsBLProfesor();
+            return bl.buscarProfesor(texto);
+        }
+
+
         //----------------------------- ALUMNO ---------------------------------------------------
         public List<clsAlumno> GetAlumno()
         {
@@ -882,6 +895,11 @@ namespace WcfNido
                 throw new FaultException(ex.Message);
             }
         }
+        public List<clsServicioAdicional> BuscarServicioAdicional(string texto)
+        {
+            return new clsBLServicioAdicional().BuscarServicioAdicional(texto);
+        }
+
 
         public void InsServicioAdicional(clsServicioAdicional servicio)
         {
@@ -909,6 +927,81 @@ namespace WcfNido
             }
         }
 
+        //----------------------------- SERVICIO ALUMNO ---------------------------------------
+
+        public List<clsServicioAlumno> GetServicioAlumno()
+        {
+            clsBLServicioAlumno bl = new clsBLServicioAlumno();
+            return bl.listar_ServicioAlumno();
+        }
+
+        public void DelServicioAlumno(int Codigo)
+        {
+            clsBLServicioAlumno bl = new clsBLServicioAlumno();
+            bl.eliminar_ServicioAlumno(Codigo);
+        }
+
+        public void InsServicioAlumno(clsServicioAlumno servicioAlumno)
+        {
+            clsBLServicioAlumno bl = new clsBLServicioAlumno();
+            bl.insertar_ServicioAlumno(servicioAlumno);
+        }
+
+        public void ModServicioAlumno(clsServicioAlumno servicioAlumno)
+        {
+            clsBLServicioAlumno bl = new clsBLServicioAlumno();
+            bl.modificar_ServicioAlumno(servicioAlumno);
+        }
+
+        //----------------------------- GRUPO SERVICIO ---------------------------------------
+        public List<clsGrupoServicio> GetGrupoServicio()
+        {
+            clsBL.clsBLGrupoServicio_v xbl = new clsBL.clsBLGrupoServicio_v();
+            return xbl.listar_grupoServicio();
+        }
+
+        public string InsertarGrupoServicio(clsGrupoServicio obj)
+        {
+            try
+            {
+                clsBL.clsBLGrupoServicio_v bl = new clsBL.clsBLGrupoServicio_v();
+                bl.insertar_grupoServicio(obj);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public string ModificarGrupoServicio(clsGrupoServicio obj)
+        {
+            try
+            {
+                clsBL.clsBLGrupoServicio_v bl = new clsBL.clsBLGrupoServicio_v();
+                bl.modificar_grupoServicio(obj);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public string EliminarGrupoServicio(int id)
+        {
+            try
+            {
+                clsBL.clsBLGrupoServicio_v bl = new clsBL.clsBLGrupoServicio_v();
+                bl.eliminar_grupoServicio(id);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
 
 
         public List<clsComunicado> GetComunicadoPorRolUsuario(int idUsuario)
@@ -925,5 +1018,7 @@ namespace WcfNido
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

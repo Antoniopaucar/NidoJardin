@@ -226,5 +226,33 @@ namespace clsDAC
                 throw;
             }
         }
+
+        public List<clsProfesorCombo> buscarProfesor(string texto)
+        {
+            List<clsProfesorCombo> lista = new List<clsProfesorCombo>();
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            using (SqlCommand cmd = new SqlCommand("buscar_profesor", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Texto", texto ?? string.Empty);
+
+                cn.Open();
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        lista.Add(new clsProfesorCombo
+                        {
+                            Id_Profesor = Convert.ToInt32(dr["Id_Profesor"]),
+                            NombreCompleto = dr["NombreCompleto"].ToString()
+                        });
+                    }
+                }
+            }
+
+            return lista;
+        }
+
     }
 }

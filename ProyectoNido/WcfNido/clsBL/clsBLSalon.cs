@@ -1,4 +1,6 @@
-﻿using System;
+﻿using clsDAC;
+using clsEntidades;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -56,5 +58,11 @@ namespace clsBL
                 dacError.Control_Sql_Error(ex);
             }
         }
+
+        public List<clsSalonCombo> BuscarSalon(string texto)
+        {
+            return new clsDacSalon().BuscarSalon(texto);
+        }
+
     }
 }

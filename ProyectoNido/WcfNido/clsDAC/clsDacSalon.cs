@@ -1,5 +1,7 @@
-﻿using System;
+﻿using clsEntidades;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -92,5 +94,33 @@ namespace clsDAC
                 }
             }
         }
+
+        public List<clsSalonCombo> BuscarSalon(string texto)
+        {
+            List<clsSalonCombo> lista = new List<clsSalonCombo>();
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            using (SqlCommand cmd = new SqlCommand("buscar_salon_nombre", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Texto", texto ?? "");
+
+                cn.Open();
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        lista.Add(new clsSalonCombo
+                        {
+                            Id_Salon = Convert.ToInt32(dr["Id_Salon"]),
+                            Nombre = dr["Nombre"].ToString()
+                        });
+                    }
+                }
+            }
+
+            return lista;
+        }
+
     }
 }
