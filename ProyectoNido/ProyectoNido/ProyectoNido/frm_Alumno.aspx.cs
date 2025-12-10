@@ -90,9 +90,9 @@ namespace ProyectoNido
                         return; // Detiene el proceso para no guardar
                     }
 
-                    xAlu.Fotos.NombreArchivo = fup_Copia_Dni.FileName;
-                    xAlu.Fotos.TamanioBytes = fup_Copia_Dni.FileBytes.Length;
-                    xAlu.Fotos.Archivo = fup_Copia_Dni.FileBytes;
+                    xAlu.Fotos.NombreArchivo = fup_Fotos.FileName;
+                    xAlu.Fotos.TamanioBytes = fup_Fotos.FileBytes.Length;
+                    xAlu.Fotos.Archivo = fup_Fotos.FileBytes;
                 }
 
                 if (fup_Copia_Dni.HasFile)
@@ -132,9 +132,9 @@ namespace ProyectoNido
                         return; // Detiene el proceso para no guardar
                     }
 
-                    xAlu.PermisoPublicidad.NombreArchivo = fup_Copia_Dni.FileName;
-                    xAlu.PermisoPublicidad.TamanioBytes = fup_Copia_Dni.FileBytes.Length;
-                    xAlu.PermisoPublicidad.Archivo = fup_Copia_Dni.FileBytes;
+                    xAlu.PermisoPublicidad.NombreArchivo = fup_Permiso_Publicidad.FileName;
+                    xAlu.PermisoPublicidad.TamanioBytes = fup_Permiso_Publicidad.FileBytes.Length;
+                    xAlu.PermisoPublicidad.Archivo = fup_Permiso_Publicidad.FileBytes;
                 }
 
                 if (fup_Carnet_Seguro.HasFile)
@@ -153,9 +153,9 @@ namespace ProyectoNido
                         return; // Detiene el proceso para no guardar
                     }
 
-                    xAlu.CarnetSeguro.NombreArchivo = fup_Copia_Dni.FileName;
-                    xAlu.CarnetSeguro.TamanioBytes = fup_Copia_Dni.FileBytes.Length;
-                    xAlu.CarnetSeguro.Archivo = fup_Copia_Dni.FileBytes;
+                    xAlu.CarnetSeguro.NombreArchivo = fup_Carnet_Seguro.FileName;
+                    xAlu.CarnetSeguro.TamanioBytes = fup_Carnet_Seguro.FileBytes.Length;
+                    xAlu.CarnetSeguro.Archivo = fup_Carnet_Seguro.FileBytes;
                 }
 
                 xdb.InsAlumno(xAlu);
@@ -231,9 +231,9 @@ namespace ProyectoNido
                         return; // Detiene el proceso para no guardar
                     }
 
-                    xAlu.Fotos.NombreArchivo = fup_Copia_Dni.FileName;
-                    xAlu.Fotos.TamanioBytes = fup_Copia_Dni.FileBytes.Length;
-                    xAlu.Fotos.Archivo = fup_Copia_Dni.FileBytes;
+                    xAlu.Fotos.NombreArchivo = fup_Fotos.FileName;
+                    xAlu.Fotos.TamanioBytes = fup_Fotos.FileBytes.Length;
+                    xAlu.Fotos.Archivo = fup_Fotos.FileBytes;
                 }
 
                 if (fup_Copia_Dni.HasFile)
@@ -273,9 +273,9 @@ namespace ProyectoNido
                         return; // Detiene el proceso para no guardar
                     }
 
-                    xAlu.PermisoPublicidad.NombreArchivo = fup_Copia_Dni.FileName;
-                    xAlu.PermisoPublicidad.TamanioBytes = fup_Copia_Dni.FileBytes.Length;
-                    xAlu.PermisoPublicidad.Archivo = fup_Copia_Dni.FileBytes;
+                    xAlu.PermisoPublicidad.NombreArchivo = fup_Permiso_Publicidad.FileName;
+                    xAlu.PermisoPublicidad.TamanioBytes = fup_Permiso_Publicidad.FileBytes.Length;
+                    xAlu.PermisoPublicidad.Archivo = fup_Permiso_Publicidad.FileBytes;
                 }
 
                 if (fup_Carnet_Seguro.HasFile)
@@ -294,9 +294,9 @@ namespace ProyectoNido
                         return; // Detiene el proceso para no guardar
                     }
 
-                    xAlu.CarnetSeguro.NombreArchivo = fup_Copia_Dni.FileName;
-                    xAlu.CarnetSeguro.TamanioBytes = fup_Copia_Dni.FileBytes.Length;
-                    xAlu.CarnetSeguro.Archivo = fup_Copia_Dni.FileBytes;
+                    xAlu.CarnetSeguro.NombreArchivo = fup_Carnet_Seguro.FileName;
+                    xAlu.CarnetSeguro.TamanioBytes = fup_Carnet_Seguro.FileBytes.Length;
+                    xAlu.CarnetSeguro.Archivo = fup_Carnet_Seguro.FileBytes;
                 }
 
                 xdb.ModAlumno(xAlu);
