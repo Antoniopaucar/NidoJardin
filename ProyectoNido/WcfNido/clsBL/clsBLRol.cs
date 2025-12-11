@@ -56,5 +56,21 @@ namespace clsBL
                 dacError.Control_Sql_Error(ex);
             }
         }
+
+        // Nuevo método: Obtener roles por lista de IDs
+        public List<clsEntidades.clsRol> obtener_roles_por_ids(int[] idsRoles)
+        {
+            try
+            {
+                clsDAC.clsDacRol xRol = new clsDAC.clsDacRol();
+                return xRol.ObtenerRolesPorIds(idsRoles);
+            }
+            catch (SqlException ex)
+            {
+                clsBLError dacError = new clsBLError();
+                dacError.Control_Sql_Error(ex);
+                return new List<clsEntidades.clsRol>();
+            }
+        }
     }
 }

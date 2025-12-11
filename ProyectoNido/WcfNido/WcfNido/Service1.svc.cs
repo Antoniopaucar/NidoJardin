@@ -566,6 +566,45 @@ namespace WcfNido
             }
         }
 
+        public void ModUsuarioSinClave(clsUsuario User)
+        {
+            try
+            {
+                clsBL.clsBLUsuario xbl = new clsBL.clsBLUsuario();
+                xbl.modificar_usuario_sin_clave(User);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public void ModApoderadoOpcionalArchivo(clsApoderado apo)
+        {
+            try
+            {
+                clsBL.clsBLApoderado xbl = new clsBL.clsBLApoderado();
+                xbl.modificar_apoderado_opcional_archivo(apo);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public void ModApoderadoFormulario(clsUsuario usuario, clsApoderado apo)
+        {
+            try
+            {
+                clsBL.clsBLApoderado xbl = new clsBL.clsBLApoderado();
+                xbl.modificar_apoderado_formulario(usuario, apo);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
         public clsArchivoBase RetArchivoApoderado(int Codigo)
         {
             try
@@ -1102,6 +1141,20 @@ namespace WcfNido
                 clsBL.clsBLApoderado xbl = new clsBL.clsBLApoderado();
                 var lista = xbl.listar_apoderados();
                 return lista.FirstOrDefault(a => a.Id == idApoderado);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        //------------------------ OBTENER ROLES POR IDs -------------------------------------
+        public List<clsRol> ObtenerRolesPorIds(int[] idsRoles)
+        {
+            try
+            {
+                clsBL.clsBLRol xbl = new clsBL.clsBLRol();
+                return xbl.obtener_roles_por_ids(idsRoles);
             }
             catch (Exception ex)
             {

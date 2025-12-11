@@ -469,3 +469,39 @@ text-align: center;
     display: inline-block;
     margin-top: 3px;
 }
+
+/* ==== SELECTOR DE ROLES ==== */
+.rol-selector-menu-item {
+    margin-left: auto !important; /* Empuja el selector a la derecha */
+    margin-right: 15px !important;
+    display: flex;
+    align-items: center;
+}
+
+.rol-selector-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.rol-selector-label {
+    font-weight: bold;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.rol-selector-dropdown {
+    padding: 6px 10px;
+    font-size: 14px;
+    min-width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+}

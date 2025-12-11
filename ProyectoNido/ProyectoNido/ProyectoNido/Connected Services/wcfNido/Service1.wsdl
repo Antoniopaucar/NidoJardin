@@ -5,9 +5,28 @@
       <xsd:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/clsEntidades" />
-      <xsd:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WcfNido" />
+      <xsd:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/WcfNido" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IService1_MatriculaDetalle_Actualizar_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Actualizar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Actualizar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ActualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Eliminar_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Eliminar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Eliminar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_EliminarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Anular_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Anular" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Anular_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_AnularResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_MatriculaDetalle_Reactivar_InputMessage">
     <wsdl:part name="parameters" element="tns:MatriculaDetalle_Reactivar" />
   </wsdl:message>
@@ -103,6 +122,12 @@
   </wsdl:message>
   <wsdl:message name="IService1_EliminarGrupoServicio_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarGrupoServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ObtenerRolesPorIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRolesPorIds" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ObtenerRolesPorIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRolesPorIdsResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetData_InputMessage">
     <wsdl:part name="parameters" element="tns:GetData" />
@@ -386,6 +411,24 @@
   <wsdl:message name="IService1_ModApoderado_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModApoderadoResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ModUsuarioSinClave_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModUsuarioSinClave" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ModUsuarioSinClave_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModUsuarioSinClaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ModApoderadoOpcionalArchivo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModApoderadoOpcionalArchivo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ModApoderadoOpcionalArchivo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModApoderadoOpcionalArchivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ModApoderadoFormulario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModApoderadoFormulario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ModApoderadoFormulario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModApoderadoFormularioResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_RetArchivoApoderado_InputMessage">
     <wsdl:part name="parameters" element="tns:RetArchivoApoderado" />
   </wsdl:message>
@@ -596,25 +639,19 @@
   <wsdl:message name="IService1_MatriculaDetalle_Insertar_OutputMessage">
     <wsdl:part name="parameters" element="tns:MatriculaDetalle_InsertarResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_MatriculaDetalle_Actualizar_InputMessage">
-    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Actualizar" />
-  </wsdl:message>
-  <wsdl:message name="IService1_MatriculaDetalle_Actualizar_OutputMessage">
-    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ActualizarResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_MatriculaDetalle_Eliminar_InputMessage">
-    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Eliminar" />
-  </wsdl:message>
-  <wsdl:message name="IService1_MatriculaDetalle_Eliminar_OutputMessage">
-    <wsdl:part name="parameters" element="tns:MatriculaDetalle_EliminarResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_MatriculaDetalle_Anular_InputMessage">
-    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Anular" />
-  </wsdl:message>
-  <wsdl:message name="IService1_MatriculaDetalle_Anular_OutputMessage">
-    <wsdl:part name="parameters" element="tns:MatriculaDetalle_AnularResponse" />
-  </wsdl:message>
   <wsdl:portType name="IService1">
+    <wsdl:operation name="MatriculaDetalle_Actualizar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Actualizar" message="tns:IService1_MatriculaDetalle_Actualizar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ActualizarResponse" message="tns:IService1_MatriculaDetalle_Actualizar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Eliminar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Eliminar" message="tns:IService1_MatriculaDetalle_Eliminar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_EliminarResponse" message="tns:IService1_MatriculaDetalle_Eliminar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Anular">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Anular" message="tns:IService1_MatriculaDetalle_Anular_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_AnularResponse" message="tns:IService1_MatriculaDetalle_Anular_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="MatriculaDetalle_Reactivar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Reactivar" message="tns:IService1_MatriculaDetalle_Reactivar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ReactivarResponse" message="tns:IService1_MatriculaDetalle_Reactivar_OutputMessage" />
@@ -678,6 +715,10 @@
     <wsdl:operation name="EliminarGrupoServicio">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/EliminarGrupoServicio" message="tns:IService1_EliminarGrupoServicio_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/EliminarGrupoServicioResponse" message="tns:IService1_EliminarGrupoServicio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRolesPorIds">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ObtenerRolesPorIds" message="tns:IService1_ObtenerRolesPorIds_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ObtenerRolesPorIdsResponse" message="tns:IService1_ObtenerRolesPorIds_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -867,6 +908,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ModApoderado" message="tns:IService1_ModApoderado_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ModApoderadoResponse" message="tns:IService1_ModApoderado_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ModUsuarioSinClave">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ModUsuarioSinClave" message="tns:IService1_ModUsuarioSinClave_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ModUsuarioSinClaveResponse" message="tns:IService1_ModUsuarioSinClave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModApoderadoOpcionalArchivo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ModApoderadoOpcionalArchivo" message="tns:IService1_ModApoderadoOpcionalArchivo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ModApoderadoOpcionalArchivoResponse" message="tns:IService1_ModApoderadoOpcionalArchivo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModApoderadoFormulario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ModApoderadoFormulario" message="tns:IService1_ModApoderadoFormulario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ModApoderadoFormularioResponse" message="tns:IService1_ModApoderadoFormulario_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RetArchivoApoderado">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RetArchivoApoderado" message="tns:IService1_RetArchivoApoderado_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/RetArchivoApoderadoResponse" message="tns:IService1_RetArchivoApoderado_OutputMessage" />
@@ -1007,21 +1060,36 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Insertar" message="tns:IService1_MatriculaDetalle_Insertar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_InsertarResponse" message="tns:IService1_MatriculaDetalle_Insertar_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="MatriculaDetalle_Actualizar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Actualizar" message="tns:IService1_MatriculaDetalle_Actualizar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ActualizarResponse" message="tns:IService1_MatriculaDetalle_Actualizar_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="MatriculaDetalle_Eliminar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Eliminar" message="tns:IService1_MatriculaDetalle_Eliminar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_EliminarResponse" message="tns:IService1_MatriculaDetalle_Eliminar_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="MatriculaDetalle_Anular">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Anular" message="tns:IService1_MatriculaDetalle_Anular_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_AnularResponse" message="tns:IService1_MatriculaDetalle_Anular_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MatriculaDetalle_Actualizar">
+      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Actualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Eliminar">
+      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Eliminar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Anular">
+      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Anular" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="MatriculaDetalle_Reactivar">
       <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Reactivar" style="document" />
       <wsdl:input>
@@ -1159,6 +1227,15 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarGrupoServicio">
       <soap:operation soapAction="http://tempuri.org/IService1/EliminarGrupoServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRolesPorIds">
+      <soap:operation soapAction="http://tempuri.org/IService1/ObtenerRolesPorIds" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1589,6 +1666,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ModUsuarioSinClave">
+      <soap:operation soapAction="http://tempuri.org/IService1/ModUsuarioSinClave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModApoderadoOpcionalArchivo">
+      <soap:operation soapAction="http://tempuri.org/IService1/ModApoderadoOpcionalArchivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModApoderadoFormulario">
+      <soap:operation soapAction="http://tempuri.org/IService1/ModApoderadoFormulario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RetArchivoApoderado">
       <soap:operation soapAction="http://tempuri.org/IService1/RetArchivoApoderado" style="document" />
       <wsdl:input>
@@ -1897,33 +2001,6 @@
     </wsdl:operation>
     <wsdl:operation name="MatriculaDetalle_Insertar">
       <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Insertar" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="MatriculaDetalle_Actualizar">
-      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Actualizar" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="MatriculaDetalle_Eliminar">
-      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Eliminar" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="MatriculaDetalle_Anular">
-      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Anular" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

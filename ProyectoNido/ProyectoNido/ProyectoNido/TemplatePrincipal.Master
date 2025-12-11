@@ -29,7 +29,7 @@
                 <td colspan="2">
                     <ul class="menu">
                         <!-- Grupo 1 -->
-                        <li class="grupo">
+                        <li id="grupo1" runat="server" class="grupo">
                             <span class="grupo-titulo">Seguridad / Usuarios</span>
                             <ul class="submenu">
                                 <li><a href="frm_Usuario.aspx"><img src="Img/usuario.png" alt="Usuario">Usuario</a></li>
@@ -42,7 +42,7 @@
                         </li>
 
                         <!-- Grupo 2 -->
-                        <li class="grupo">
+                        <li id="grupo2" runat="server" class="grupo">
                             <span class="grupo-titulo">Gestión Académica</span>
                             <ul class="submenu">
                                 <li><a href="frm_Apoderado.aspx"><img src="Img/apoderado.png" alt="Apoderado">Apoderado</a></li>
@@ -52,7 +52,7 @@
                         </li>
 
                         <!-- Grupo 3 -->
-                        <li class="grupo">
+                        <li id="grupo3" runat="server" class="grupo">
                             <span class="grupo-titulo">Gestión de Cursos y Servicios</span>
                             <ul class="submenu">
                                 <li><a href="frm_Salon.aspx"><img src="Img/salon.png" alt="Salón">Salón</a></li>
@@ -64,7 +64,7 @@
                         </li>
 
                         <!-- Grupo 4 -->
-                        <li class="grupo">
+                        <li id="grupo4" runat="server" class="grupo">
                             <span class="grupo-titulo">Finanzas</span>
                             <ul class="submenu">
                                 <li><a href="frm_ServicioAlumno.aspx"><img src="Img/servicio alumno.png" alt="Servicio Alumno">Servicio Alumno</a></li>
@@ -75,7 +75,7 @@
                         </li>
 
                         <!-- Grupo 5 -->
-                        <li class="grupo">
+                        <li id="grupo5" runat="server" class="grupo">
                             <span class="grupo-titulo">Reportes y Otros</span>
                             <ul class="submenu">
                                 <li><a href="frm_Reportes.aspx"><img src="Img/reportes.png" alt="Reportes">Reportes</a></li>
@@ -83,6 +83,16 @@
                                 <li><a href="frm_Distrito.aspx"><img src="Img/distrito.png" alt="Distrito">Distrito</a></li>
                                 <li><a href="frm_Tipo_Documento.aspx"><img src="Img/tipo de documento.png" alt="Tipo Documento">Tipo de Documento</a></li>
                             </ul>
+                        </li>
+
+                        <!-- Selector de Rol -->
+                        <li class="rol-selector-menu-item">
+                            <div class="rol-selector-wrapper">
+                                <label for="<%= ddlRoles.ClientID %>" class="rol-selector-label">Rol:</label>
+                                <asp:DropDownList ID="ddlRoles" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlRoles_SelectedIndexChanged" 
+                                    CssClass="rol-selector-dropdown">
+                                </asp:DropDownList>
+                            </div>
                         </li>
                     </ul>
                 </td>

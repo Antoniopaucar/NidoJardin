@@ -105,5 +105,36 @@ namespace clsBL
                 dacError.Control_Sql_Error(ex);
             }
         }
+
+        // Nuevo método: Modificar apoderado opcionalmente con archivo (para formulario de apoderado)
+        public void modificar_apoderado_opcional_archivo(clsEntidades.clsApoderado xapo)
+        {
+            try
+            {
+                clsDAC.clsDacApoderado db = new clsDAC.clsDacApoderado();
+                db.ModificarApoderadoOpcionalArchivo(xapo);
+            }
+            catch (SqlException ex)
+            {
+                clsBLError dacError = new clsBLError();
+                dacError.Control_Sql_Error(ex);
+            }
+        }
+
+        // Nuevo método: Modificar apoderado usando el nuevo stored procedure para formulario
+        public void modificar_apoderado_formulario(clsEntidades.clsUsuario xusuario, clsEntidades.clsApoderado xapo)
+        {
+            try
+            {
+                clsDAC.clsDacApoderado db = new clsDAC.clsDacApoderado();
+                db.ModificarApoderadoFormulario(xusuario, xapo);
+            }
+            catch (SqlException ex)
+            {
+                clsBLError dacError = new clsBLError();
+                dacError.Control_Sql_Error(ex);
+                throw; // Re-lanzar para que WCF lo capture como FaultException
+            }
+        }
     }
 }

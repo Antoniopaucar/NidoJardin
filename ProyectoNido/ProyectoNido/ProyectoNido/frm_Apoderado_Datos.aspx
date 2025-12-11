@@ -191,7 +191,7 @@
 
         </td>
         <td>
-            <asp:Button ID="btn_Modificar" runat="server" Text="MODIFICAR"
+            <asp:Button ID="btn_Modificar" runat="server" Text="GUARDAR"
                 OnClientClick="return confirm('¿Deseas modificar este Apoderado?') && validarCamposTabla('tablaApoderado','txt_Nombres,txt_ApellidoPaterno,txt_ApellidoMaterno,txt_Fecha_Nacimiento,Ddl_Sexo,Ddl_Distrito,txt_Direccion,txt_Telefono,txt_Email,fup_copia_dni') ;" 
                 OnClick="btn_Modificar_Click" class="btn btn-primario" />
         </td>

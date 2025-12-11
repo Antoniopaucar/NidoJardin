@@ -99,6 +99,28 @@ namespace clsBL
             }
         }
 
+        // Nuevo método: Modificar usuario sin actualizar contraseña (para apoderado)
+        public void modificar_usuario_sin_clave(clsEntidades.clsUsuario xusuario)
+        {
+            try
+            {
+                string errorUsuario = clsUtiles.ValidarUser(xusuario.NombreUsuario);
+
+                if (errorUsuario != null)
+                {
+                    throw new ArgumentException(errorUsuario);
+                }
+
+                clsDAC.clsDacUsuario db = new clsDAC.clsDacUsuario();
+                db.ModificarUsuarioSinClave(xusuario);
+            }
+            catch (SqlException ex)
+            {
+                clsBLError dacError = new clsBLError();
+                dacError.Control_Sql_Error(ex);
+            }
+        }
+
         //public void actualizar_datos_docente(int idUsuario, string nombres, string apPaterno, string apMaterno,
         //    string dni, DateTime? fechaNacimiento, string sexo, string direccion, string email,
         //    DateTime? fechaIngreso, string tituloProfesional, string cv, string evaluacionPsicologica,

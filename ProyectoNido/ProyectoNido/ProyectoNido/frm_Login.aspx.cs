@@ -61,7 +61,33 @@ namespace ProyectoNido
                 //Guardar todos los valores devueltos (el resultado completo)
                 Session["ResultadoLogin"] = resultado;
 
-                // Redirigir a la siguiente página
+                // Establecer rol actual por defecto (el primero si hay múltiples)
+                if (rolesArray.Length > 0)
+                {
+                    Session["RolActual"] = rolesArray[0];
+                    
+                    // Obtener nombre del rol
+                    try
+                    {
+                        wcfNido.Service1Client servicio = new wcfNido.Service1Client();
+                        var listaRoles = servicio.ObtenerRolesPorIds(new int[] { rolesArray[0] });
+                        if (listaRoles != null && listaRoles.Length > 0)
+                        {
+                            Session["NombreRolActual"] = listaRoles[0].NombreRol;
+                            
+                            // Redirigir según el rol principal
+                            string paginaDestino = ObtenerPaginaPorRol(listaRoles[0].NombreRol);
+                            Response.Redirect(paginaDestino);
+                            return;
+                        }
+                    }
+                    catch
+                    {
+                        // Si hay error, usar redirección por defecto
+                    }
+                }
+
+                // Redirigir a la siguiente página por defecto
                 Response.Redirect("frm_Inicio.aspx");
             }
             else
@@ -77,6 +103,23 @@ namespace ProyectoNido
             ClientScript.RegisterStartupScript(this.GetType(), "IrAGoogle", script, true);
         }
 
+        // Nuevo método: Obtener página de destino según rol
+        private string ObtenerPaginaPorRol(string nombreRol)
+        {
+            switch (nombreRol.ToUpper())
+            {
+                case "ADMINISTRADOR":
+                    return "frm_Inicio.aspx";
+                case "SECRETARIO":
+                    return "frm_Inicio.aspx";
+                case "PROFESOR":
+                    return "frm_Docente_Datos.aspx";
+                case "APODERADO":
+                    return "frm_Apoderado_Datos.aspx";
+                default:
+                    return "frm_Inicio.aspx";
+            }
+        }
 
     }
 }

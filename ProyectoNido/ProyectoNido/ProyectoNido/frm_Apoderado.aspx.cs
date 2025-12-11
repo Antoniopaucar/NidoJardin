@@ -72,7 +72,17 @@ namespace ProyectoNido
                 xApo.Id = Convert.ToInt32(this.txt_IdApoderado.Text.Trim());
 
                 xusuario.Id = Convert.ToInt32(this.txt_IdApoderado.Text.Trim());
-                xusuario.TipoDocumento.Id = Convert.ToInt32(Ddl_Tipo_Documento.SelectedValue);
+                
+                // Validar TipoDocumento igual que en docente
+                if (!string.IsNullOrEmpty(Ddl_Tipo_Documento.SelectedValue))
+                {
+                    xusuario.TipoDocumento.Id = Convert.ToInt32(Ddl_Tipo_Documento.SelectedValue);
+                }
+                else
+                {
+                    throw new ArgumentException("Debe seleccionar un Tipo de Documento.");
+                }
+                
                 xusuario.NombreUsuario = txt_Usuario.Text.Trim();
                 xusuario.Nombres = txt_Nombres.Text.Trim();
                 xusuario.ApellidoPaterno = txt_ApellidoPaterno.Text.Trim();
@@ -84,7 +94,7 @@ namespace ProyectoNido
                     : Ddl_Sexo.SelectedValue;
                 if (string.IsNullOrEmpty(Ddl_Distrito.SelectedValue))
                 {
-                    xusuario.Distrito = null;   // ← distrito NO seleccionado
+                    xusuario.Distrito = null;
                 }
                 else
                 {
@@ -94,28 +104,16 @@ namespace ProyectoNido
                 xusuario.Telefono = txt_Telefono.Text.Trim();
                 xusuario.Email = txt_Email.Text.Trim();
                 xusuario.Activo = Activo;
+                
+                // NO establecer Clave ni ClaveII - igual que en frm_Docente_Datos
+                // Esto permite que el método modificar_usuario en BL no valide la contraseña
+                // y el SP recibirá un hash de string vacío, que debe manejar correctamente
 
-                if (fup_Copia_Dni.HasFile)
-                {
-                    int maxBytes = 5 * 1024 * 1024; // 5 MB
+                // Procesar archivo usando el mismo método que en docente
+                if (!ProcesarArchivo(fup_Copia_Dni, xApo.ArchivoBase, "COPIA DNI"))
+                    return;
 
-                    if (fup_Copia_Dni.PostedFile.ContentLength > maxBytes)
-                    {
-                        ScriptManager.RegisterStartupScript(
-                            this,
-                            this.GetType(),
-                            "alertSize",
-                            "alert('El archivo (COPIA DNI) supera el límite máximo permitido de 5 MB.');",
-                            true
-                        );
-                        return; // Detiene el proceso para no guardar
-                    }
-
-                    xApo.ArchivoBase.NombreArchivo = fup_Copia_Dni.FileName;
-                    xApo.ArchivoBase.TamanioBytes = fup_Copia_Dni.FileBytes.Length;
-                    xApo.ArchivoBase.Archivo = fup_Copia_Dni.FileBytes;
-                }
-
+                // Usar los métodos originales igual que en docente
                 xdb.ModUsuario(xusuario);
                 xdb.ModApoderado(xApo);
 
@@ -362,6 +360,31 @@ namespace ProyectoNido
                 );
 
             }
+        }
+
+        private bool ProcesarArchivo(FileUpload fileUpload, clsArchivoBase archivoBase, string nombreMostrar)
+        {
+            if (fileUpload.HasFile)
+            {
+                int maxBytes = 5 * 1024 * 1024; // 5 MB
+                if (fileUpload.PostedFile.ContentLength > maxBytes)
+                {
+                    ScriptManager.RegisterStartupScript(
+                        this,
+                        this.GetType(),
+                        "alertSize",
+                        $"alert('El archivo ({nombreMostrar}) supera el límite máximo permitido de 5 MB.');",
+                        true
+                    );
+                    return false;
+                }
+
+                archivoBase.NombreArchivo = fileUpload.FileName;
+                archivoBase.TamanioBytes = fileUpload.FileBytes.Length;
+                archivoBase.Archivo = fileUpload.FileBytes;
+            }
+            // Si no hay archivo, retorna true para continuar (igual que en docente)
+            return true;
         }
 
         private void LimpiarCampos()

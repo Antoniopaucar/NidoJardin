@@ -168,6 +168,58 @@ namespace clsDAC
                 throw;
             }
         }
+
+        // Nuevo método: Modificar usuario sin actualizar contraseña (para apoderado)
+        // Usa el mismo SP pero pasa NULL para la clave si está vacía
+        public void ModificarUsuarioSinClave(clsEntidades.clsUsuario xusr)
+        {
+            try 
+            {
+                using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("modificar_usuarios", cn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@Id", xusr.Id);
+                        cmd.Parameters.AddWithValue("@Id_TipoDocumento", xusr.TipoDocumento.Id);
+                        cmd.Parameters.AddWithValue("@NombreUsuario", xusr.NombreUsuario);
+                        
+                        // Pasar NULL para la clave para que el SP mantenga la clave actual
+                        // Nota: Esto requiere que el SP maneje NULL correctamente
+                        cmd.Parameters.AddWithValue("@Clave", DBNull.Value);
+                        
+                        cmd.Parameters.AddWithValue("@Nombres", xusr.Nombres);
+                        cmd.Parameters.AddWithValue("@ApPaterno", xusr.ApellidoPaterno);
+                        cmd.Parameters.AddWithValue("@ApMaterno", xusr.ApellidoMaterno);
+                        cmd.Parameters.AddWithValue("@Documento", xusr.Documento);
+                        cmd.Parameters.AddWithValue("@FechaNacimiento", xusr.FechaNacimiento ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Sexo", xusr.Sexo ?? (object)DBNull.Value);
+
+                        cmd.Parameters.AddWithValue(
+                            "@Id_Distrito",
+                            xusr.Distrito == null ? (object)DBNull.Value : xusr.Distrito.Id
+                        );
+
+                        cmd.Parameters.AddWithValue("@Direccion", xusr.Direccion ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Telefono", xusr.Telefono ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Email", xusr.Email ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Activo", xusr.Activo);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception($"Error al modificar usuario sin clave: {ex.Message}", ex);
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+        }
         //public void ActualizarDatosDocente(int idUsuario, string nombres, string apPaterno, string apMaterno,
         //    string dni, DateTime? fechaNacimiento, string sexo, string direccion, string email,
         //    DateTime? fechaIngreso, string tituloProfesional, string cv, string evaluacionPsicologica,

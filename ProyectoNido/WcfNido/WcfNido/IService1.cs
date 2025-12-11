@@ -157,6 +157,12 @@ namespace WcfNido
         [OperationContract]
         void ModApoderado(clsEntidades.clsApoderado apo);
         [OperationContract]
+        void ModUsuarioSinClave(clsEntidades.clsUsuario User);
+        [OperationContract]
+        void ModApoderadoOpcionalArchivo(clsEntidades.clsApoderado apo);
+        [OperationContract]
+        void ModApoderadoFormulario(clsEntidades.clsUsuario usuario, clsEntidades.clsApoderado apo);
+        [OperationContract]
         clsArchivoBase RetArchivoApoderado(int Codigo);
         //------------------------ PROFESOR----------------------------------------------
 
@@ -350,6 +356,10 @@ namespace WcfNido
 
         [OperationContract]
         string EliminarGrupoServicio(int id);
+
+        //------------------------ OBTENER ROLES POR IDs -------------------------------------
+        [OperationContract]
+        List<clsRol> ObtenerRolesPorIds(int[] idsRoles);
 
     }
 

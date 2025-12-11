@@ -327,72 +327,81 @@ namespace ProyectoNido
         {
             try
             {
-                wcfNido.Service1Client servicio = new wcfNido.Service1Client();
+                wcfNido.Service1Client xdb = new wcfNido.Service1Client();
+                wcfNido.clsApoderado xApo = new wcfNido.clsApoderado();
                 
-                // Obtener el apoderado actual
-                int idApoderado = Convert.ToInt32(Session["IdUsuario"]);
-                var apoderado = servicio.ObtenerApoderadoPorId(idApoderado);
+                // Inicializar ArchivoBase
+                xApo.ArchivoBase = new wcfNido.clsArchivoBase();
+
+                wcfNido.clsUsuario xusuario = new wcfNido.clsUsuario();
+                xusuario.Distrito = new wcfNido.clsDistrito();
+                xusuario.TipoDocumento = new wcfNido.clsTipoDocumento();
+
+                // IDs
+                xApo.Id = Convert.ToInt32(this.txt_IdApoderado.Text.Trim());
+                xusuario.Id = Convert.ToInt32(this.txt_IdApoderado.Text.Trim());
                 
-                if (apoderado == null)
+                // Validar TipoDocumento igual que en docente
+                if (!string.IsNullOrEmpty(Ddl_Tipo_Documento.SelectedValue) && Ddl_Tipo_Documento.SelectedValue != "0")
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "errorNoEncontrado", 
-                        "alert('No se encontraron los datos del apoderado.');", true);
-                    return;
+                    xusuario.TipoDocumento.Id = Convert.ToInt32(Ddl_Tipo_Documento.SelectedValue);
+                }
+                else
+                {
+                    throw new ArgumentException("Debe seleccionar un Tipo de Documento.");
                 }
                 
-                // Crear objeto Usuario para actualizar datos comunes
-                wcfNido.clsUsuario usuario = new wcfNido.clsUsuario();
-                usuario.Distrito = new wcfNido.clsDistrito();
-                usuario.TipoDocumento = new wcfNido.clsTipoDocumento();
-                
-                // IDs
-                usuario.Id = idApoderado;
-                
-                // Actualizar datos del usuario (datos comunes)
-                usuario.TipoDocumento.Id = int.TryParse(Ddl_Tipo_Documento.SelectedValue, out int idTipoDoc) && idTipoDoc > 0 ? idTipoDoc : 0;
-                usuario.NombreUsuario = apoderado.NombreUsuario; // Mantener el nombre de usuario
-                usuario.Nombres = txt_Nombres.Text.Trim();
-                usuario.ApellidoPaterno = txt_ApellidoPaterno.Text.Trim();
-                usuario.ApellidoMaterno = txt_ApellidoMaterno.Text.Trim();
-                usuario.Documento = txt_Documento.Text.Trim();
-                usuario.FechaNacimiento = DateTime.TryParse(txt_Fecha_Nacimiento.Text, out DateTime fechaNac) ? fechaNac : (DateTime?)null;
-                usuario.Sexo = Ddl_Sexo.SelectedValue;
-                usuario.Distrito.Id = int.TryParse(Ddl_Distrito.SelectedValue, out int idDistrito) && idDistrito > 0 ? idDistrito : 0;
-                usuario.Direccion = txt_Direccion.Text.Trim();
-                usuario.Telefono = txt_Telefono.Text.Trim();
-                usuario.Email = txt_Email.Text.Trim();
-                usuario.Activo = apoderado.Activo; // Mantener el estado activo original
-                
-                // Inicializar ArchivoBase si no existe
-                if (apoderado.ArchivoBase == null)
-                    apoderado.ArchivoBase = new wcfNido.clsArchivoBase();
-                
-                // Procesar archivo Copia DNI
-                if (!ProcesarArchivo(fup_Copia_Dni, apoderado.ArchivoBase, "COPIA DNI"))
+                xusuario.NombreUsuario = txt_Usuario.Text.Trim();
+                xusuario.Nombres = txt_Nombres.Text.Trim();
+                xusuario.ApellidoPaterno = txt_ApellidoPaterno.Text.Trim();
+                xusuario.ApellidoMaterno = txt_ApellidoMaterno.Text.Trim();
+                xusuario.Documento = txt_Documento.Text.Trim();
+                xusuario.FechaNacimiento = DateTime.TryParse(txt_Fecha_Nacimiento.Text.Trim(), out DateTime f) ? f : (DateTime?)null;
+                xusuario.Sexo = string.IsNullOrEmpty(Ddl_Sexo.SelectedValue)
+                    ? null
+                    : Ddl_Sexo.SelectedValue;
+                if (string.IsNullOrEmpty(Ddl_Distrito.SelectedValue) || Ddl_Distrito.SelectedValue == "0")
+                {
+                    xusuario.Distrito = null;
+                }
+                else
+                {
+                    xusuario.Distrito.Id = Convert.ToInt32(Ddl_Distrito.SelectedValue);
+                }
+                xusuario.Direccion = txt_Direccion.Text.Trim();
+                xusuario.Telefono = txt_Telefono.Text.Trim();
+                xusuario.Email = txt_Email.Text.Trim();
+                xusuario.Activo = Activo; // Mantener el estado activo original
+
+                // NO establecer Clave ni ClaveII - igual que en frm_Docente_Datos
+                // Esto permite que el método modificar_usuario en BL no valide la contraseña
+                // y el SP recibirá un hash de string vacío, que debe manejar correctamente
+
+                // Procesar archivo usando el mismo método que en docente
+                if (!ProcesarArchivo(fup_Copia_Dni, xApo.ArchivoBase, "COPIA DNI"))
                     return;
-                
-                // Modificar usuario y apoderado (similar a como se hace con profesor)
-                servicio.ModUsuario(usuario);
-                servicio.ModApoderado(apoderado);
-                
-                // Mostrar mensaje de éxito
+
+                // Usar los métodos originales igual que en docente
+                xdb.ModUsuario(xusuario);
+                xdb.ModApoderado(xApo);
+
+                // Recargar datos
+                CargarDatosApoderado();
+
                 ScriptManager.RegisterStartupScript(
                     this,
                     this.GetType(),
                     "alert",
-                    "alert('Apoderado modificado correctamente.');",
+                    "alert('Sus datos han sido modificados correctamente.');",
                     true
                 );
-                
-                // Recargar datos
-                CargarDatosApoderado();
             }
             catch (System.ServiceModel.FaultException fex)
             {
                 string mensaje = fex.Message
                     .Replace("'", "\\'")
                     .Replace(Environment.NewLine, " ");
-                
+
                 ScriptManager.RegisterStartupScript(
                     this,
                     this.GetType(),
@@ -401,12 +410,26 @@ namespace ProyectoNido
                     true
                 );
             }
+            catch (ArgumentException aex)
+            {
+                string mensaje = aex.Message
+                    .Replace("'", "\\'")
+                    .Replace(Environment.NewLine, " ");
+
+                ScriptManager.RegisterStartupScript(
+                    this,
+                    this.GetType(),
+                    "alertArgumentError",
+                    $"alert('Error de validación: {mensaje}');",
+                    true
+                );
+            }
             catch (Exception ex)
             {
                 string mensaje = ex.Message
                     .Replace("'", "\\'")
                     .Replace(Environment.NewLine, " ");
-                
+
                 ScriptManager.RegisterStartupScript(
                     this,
                     this.GetType(),
@@ -463,6 +486,15 @@ namespace ProyectoNido
                 archivoBase.NombreArchivo = fileUpload.FileName;
                 archivoBase.TamanioBytes = fileUpload.FileBytes.Length;
                 archivoBase.Archivo = fileUpload.FileBytes;
+            }
+            else
+            {
+                // Si no hay archivo nuevo, asegurar que ArchivoBase no se envíe con datos vacíos
+                // Esto es crucial para que el SP no intente actualizar el archivo con un valor vacío/nulo
+                // y mantenga el existente.
+                archivoBase.NombreArchivo = null;
+                archivoBase.TamanioBytes = 0;
+                archivoBase.Archivo = null;
             }
             return true;
         }

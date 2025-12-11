@@ -87,5 +87,27 @@ namespace clsDAC
                 }
             }
         }
+
+        // Nuevo método: Obtener roles por lista de IDs
+        public List<clsEntidades.clsRol> ObtenerRolesPorIds(int[] idsRoles)
+        {
+            List<clsEntidades.clsRol> listaRoles = new List<clsEntidades.clsRol>();
+            
+            if (idsRoles == null || idsRoles.Length == 0)
+                return listaRoles;
+
+            // Obtener todos los roles y filtrar por los IDs solicitados
+            List<clsEntidades.clsRol> todosRoles = listarRol();
+            
+            foreach (var rol in todosRoles)
+            {
+                if (idsRoles.Contains(rol.Id))
+                {
+                    listaRoles.Add(rol);
+                }
+            }
+
+            return listaRoles;
+        }
     }
 }

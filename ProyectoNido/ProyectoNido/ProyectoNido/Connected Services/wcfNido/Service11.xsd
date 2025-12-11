@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/clsEntidades" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/clsEntidades" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="clsMatriculaDetalle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adicional" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Cantidad" type="xs:int" />
+      <xs:element minOccurs="0" name="Descuento" type="xs:decimal" />
+      <xs:element minOccurs="0" name="EstadoPago" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaPago" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaVencimiento" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id_Cuota" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Matricula" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_MatriculaDetalle" type="xs:int" />
+      <xs:element minOccurs="0" name="Monto" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NombreCuota" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NroCuota" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Observacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalLinea" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsMatriculaDetalle" nillable="true" type="tns:clsMatriculaDetalle" />
   <xs:complexType name="ArrayOfclsTarifario">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="clsTarifario" nillable="true" type="tns:clsTarifario" />
@@ -72,6 +91,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsGrupoServicio" nillable="true" type="tns:clsGrupoServicio" />
+  <xs:complexType name="ArrayOfclsRol">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsRol" nillable="true" type="tns:clsRol" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsRol" nillable="true" type="tns:ArrayOfclsRol" />
+  <xs:complexType name="clsRol">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreRol" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsRol" nillable="true" type="tns:clsRol" />
   <xs:complexType name="clsLogin">
     <xs:sequence>
       <xs:element minOccurs="0" name="Exito" type="xs:boolean" />
@@ -159,14 +192,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsComunicado" nillable="true" type="tns:clsComunicado" />
-  <xs:complexType name="clsRol">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="NombreRol" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="clsRol" nillable="true" type="tns:clsRol" />
   <xs:complexType name="ArrayOfclsDistrito">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="clsDistrito" nillable="true" type="tns:clsDistrito" />
@@ -216,12 +241,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsSalonCombo" nillable="true" type="tns:clsSalonCombo" />
-  <xs:complexType name="ArrayOfclsRol">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsRol" nillable="true" type="tns:clsRol" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfclsRol" nillable="true" type="tns:ArrayOfclsRol" />
   <xs:complexType name="ArrayOfclsPermiso">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="clsPermiso" nillable="true" type="tns:clsPermiso" />
@@ -486,23 +505,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfclsMatriculaDetalle" nillable="true" type="tns:ArrayOfclsMatriculaDetalle" />
-  <xs:complexType name="clsMatriculaDetalle">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Adicional" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Cantidad" type="xs:int" />
-      <xs:element minOccurs="0" name="Descuento" type="xs:decimal" />
-      <xs:element minOccurs="0" name="EstadoPago" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FechaPago" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="FechaVencimiento" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Id_Cuota" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Id_Matricula" type="xs:int" />
-      <xs:element minOccurs="0" name="Id_MatriculaDetalle" type="xs:int" />
-      <xs:element minOccurs="0" name="Monto" type="xs:decimal" />
-      <xs:element minOccurs="0" name="NombreCuota" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NroCuota" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Observacion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TotalLinea" type="xs:decimal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="clsMatriculaDetalle" nillable="true" type="tns:clsMatriculaDetalle" />
 </xs:schema>
