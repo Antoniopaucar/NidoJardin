@@ -153,6 +153,9 @@
     <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsSalonCombo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsGrupoServicioOferta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\wcfNido\Service1.disco" />
     <None Include="Connected Services\wcfNido\configuration91.svcinfo" />
     <None Include="Connected Services\wcfNido\configuration.svcinfo" />
@@ -161,6 +164,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="CSS\apoderado_hijos.css" />
+    <Content Include="CSS\apoderado_oferta_servicio.css" />
     <Content Include="CSS\docente_comunicado.css" />
     <Content Include="CSS\docente_grupo_anual.css" />
     <Content Include="CSS\EstiloLogin.css" />

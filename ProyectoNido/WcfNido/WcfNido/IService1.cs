@@ -235,6 +235,9 @@ namespace WcfNido
         List<clsEntidades.clsGrupoServicioDetalle> ListarGruposServicioPorDocente(int idUsuario);
 
         [OperationContract]
+        List<clsEntidades.clsGrupoServicioOferta> ListarOfertasGrupoServicio();
+
+        [OperationContract]
         List<clsEntidades.clsGrupoAnual> GetGrupoAnual();
 
         [OperationContract]

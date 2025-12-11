@@ -8,6 +8,12 @@
       <xsd:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WcfNido" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IService1_MatriculaDetalle_Reactivar_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Reactivar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Reactivar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ReactivarResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_listar_tarifario_InputMessage">
     <wsdl:part name="parameters" element="tns:listar_tarifario" />
   </wsdl:message>
@@ -518,6 +524,12 @@
   <wsdl:message name="IService1_ListarGruposServicioPorDocente_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListarGruposServicioPorDocenteResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ListarOfertasGrupoServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarOfertasGrupoServicio" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarOfertasGrupoServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarOfertasGrupoServicioResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetGrupoAnual_InputMessage">
     <wsdl:part name="parameters" element="tns:GetGrupoAnual" />
   </wsdl:message>
@@ -602,13 +614,11 @@
   <wsdl:message name="IService1_MatriculaDetalle_Anular_OutputMessage">
     <wsdl:part name="parameters" element="tns:MatriculaDetalle_AnularResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_MatriculaDetalle_Reactivar_InputMessage">
-    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Reactivar" />
-  </wsdl:message>
-  <wsdl:message name="IService1_MatriculaDetalle_Reactivar_OutputMessage">
-    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ReactivarResponse" />
-  </wsdl:message>
   <wsdl:portType name="IService1">
+    <wsdl:operation name="MatriculaDetalle_Reactivar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Reactivar" message="tns:IService1_MatriculaDetalle_Reactivar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ReactivarResponse" message="tns:IService1_MatriculaDetalle_Reactivar_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="listar_tarifario">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/listar_tarifario" message="tns:IService1_listar_tarifario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/listar_tarifarioResponse" message="tns:IService1_listar_tarifario_OutputMessage" />
@@ -949,6 +959,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarGruposServicioPorDocente" message="tns:IService1_ListarGruposServicioPorDocente_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarGruposServicioPorDocenteResponse" message="tns:IService1_ListarGruposServicioPorDocente_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ListarOfertasGrupoServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarOfertasGrupoServicio" message="tns:IService1_ListarOfertasGrupoServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarOfertasGrupoServicioResponse" message="tns:IService1_ListarOfertasGrupoServicio_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetGrupoAnual">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGrupoAnual" message="tns:IService1_GetGrupoAnual_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGrupoAnualResponse" message="tns:IService1_GetGrupoAnual_OutputMessage" />
@@ -1005,13 +1019,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Anular" message="tns:IService1_MatriculaDetalle_Anular_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_AnularResponse" message="tns:IService1_MatriculaDetalle_Anular_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="MatriculaDetalle_Reactivar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Reactivar" message="tns:IService1_MatriculaDetalle_Reactivar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ReactivarResponse" message="tns:IService1_MatriculaDetalle_Reactivar_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MatriculaDetalle_Reactivar">
+      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Reactivar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="listar_tarifario">
       <soap:operation soapAction="http://tempuri.org/IService1/listar_tarifario" style="document" />
       <wsdl:input>
@@ -1777,6 +1796,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ListarOfertasGrupoServicio">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarOfertasGrupoServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetGrupoAnual">
       <soap:operation soapAction="http://tempuri.org/IService1/GetGrupoAnual" style="document" />
       <wsdl:input>
@@ -1896,15 +1924,6 @@
     </wsdl:operation>
     <wsdl:operation name="MatriculaDetalle_Anular">
       <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Anular" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="MatriculaDetalle_Reactivar">
-      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Reactivar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

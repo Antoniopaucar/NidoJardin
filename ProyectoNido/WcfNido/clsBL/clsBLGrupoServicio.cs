@@ -15,6 +15,15 @@ namespace clsBL
             clsDACGrupoServicio dac = new clsDACGrupoServicio();
             return dac.ListarGruposServicioPorDocente(idUsuario);
         }
+
+        /// <summary>
+        /// Lista todas las ofertas de grupos de servicio del periodo actual para apoderados
+        /// </summary>
+        public List<clsGrupoServicioOferta> listar_ofertas_grupo_servicio()
+        {
+            clsDACGrupoServicio dac = new clsDACGrupoServicio();
+            return dac.ListarOfertasGrupoServicio();
+        }
     }
 }
 

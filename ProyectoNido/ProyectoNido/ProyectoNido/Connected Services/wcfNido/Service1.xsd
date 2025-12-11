@@ -2,6 +2,18 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/clsEntidades" />
   <xs:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WcfNido" />
+  <xs:element name="MatriculaDetalle_Reactivar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idMatriculaDetalle" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MatriculaDetalle_ReactivarResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="listar_tarifario">
     <xs:complexType>
       <xs:sequence />
@@ -1070,6 +1082,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ListarOfertasGrupoServicio">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarOfertasGrupoServicioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="ListarOfertasGrupoServicioResult" nillable="true" type="q71:ArrayOfclsGrupoServicioOferta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetGrupoAnual">
     <xs:complexType>
       <xs:sequence />
@@ -1078,7 +1102,7 @@
   <xs:element name="GetGrupoAnualResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="GetGrupoAnualResult" nillable="true" type="q71:ArrayOfclsGrupoAnual" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="GetGrupoAnualResult" nillable="true" type="q72:ArrayOfclsGrupoAnual" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1090,7 +1114,7 @@
   <xs:element name="listarGrupoAnual_ComboResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="listarGrupoAnual_ComboResult" nillable="true" type="q72:ArrayOfclsGrupoAnual" />
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="listarGrupoAnual_ComboResult" nillable="true" type="q73:ArrayOfclsGrupoAnual" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1104,7 +1128,7 @@
   <xs:element name="Nido_Matricula_ListarResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="Nido_Matricula_ListarResult" nillable="true" type="q73:ArrayOfclsMatricula" />
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="Nido_Matricula_ListarResult" nillable="true" type="q74:ArrayOfclsMatricula" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1121,7 +1145,7 @@
   <xs:element name="Matricula_ListarResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="Matricula_ListarResult" nillable="true" type="q74:ArrayOfclsMatricula" />
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="Matricula_ListarResult" nillable="true" type="q75:ArrayOfclsMatricula" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1135,14 +1159,14 @@
   <xs:element name="Matricula_ObtenerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="Matricula_ObtenerResult" nillable="true" type="q75:clsMatricula" />
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="Matricula_ObtenerResult" nillable="true" type="q76:clsMatricula" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Matricula_Insertar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="mat" nillable="true" type="q76:clsMatricula" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="mat" nillable="true" type="q77:clsMatricula" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1156,7 +1180,7 @@
   <xs:element name="Matricula_Actualizar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="mat" nillable="true" type="q77:clsMatricula" />
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="mat" nillable="true" type="q78:clsMatricula" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1192,7 +1216,7 @@
   <xs:element name="MatriculaDetalle_ListarPorMatriculaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="MatriculaDetalle_ListarPorMatriculaResult" nillable="true" type="q78:ArrayOfclsMatriculaDetalle" />
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="MatriculaDetalle_ListarPorMatriculaResult" nillable="true" type="q79:ArrayOfclsMatriculaDetalle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1206,14 +1230,14 @@
   <xs:element name="MatriculaDetalle_ObtenerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="MatriculaDetalle_ObtenerResult" nillable="true" type="q79:clsMatriculaDetalle" />
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="MatriculaDetalle_ObtenerResult" nillable="true" type="q80:clsMatriculaDetalle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="MatriculaDetalle_Insertar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="det" nillable="true" type="q80:clsMatriculaDetalle" />
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="det" nillable="true" type="q81:clsMatriculaDetalle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1227,7 +1251,7 @@
   <xs:element name="MatriculaDetalle_Actualizar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="det" nillable="true" type="q81:clsMatriculaDetalle" />
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/clsEntidades" minOccurs="0" name="det" nillable="true" type="q82:clsMatriculaDetalle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1256,18 +1280,6 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="MatriculaDetalle_AnularResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="MatriculaDetalle_Reactivar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idMatriculaDetalle" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="MatriculaDetalle_ReactivarResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

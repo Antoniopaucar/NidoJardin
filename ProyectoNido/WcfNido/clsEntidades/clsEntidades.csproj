@@ -51,6 +51,7 @@
     <Compile Include="clsGrupoAnualDetalle.cs" />
     <Compile Include="clsGrupoServicio.cs" />
     <Compile Include="clsGrupoServicioDetalle.cs" />
+    <Compile Include="clsGrupoServicioOferta.cs" />
     <Compile Include="clsLogin.cs" />
     <Compile Include="clsMatricula.cs" />
     <Compile Include="clsMatriculaDetalle.cs" />

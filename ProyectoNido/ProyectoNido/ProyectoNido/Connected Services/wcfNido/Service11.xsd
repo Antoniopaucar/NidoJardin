@@ -414,6 +414,29 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsGrupoServicioDetalle" nillable="true" type="tns:clsGrupoServicioDetalle" />
+  <xs:complexType name="ArrayOfclsGrupoServicioOferta">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsGrupoServicioOferta" nillable="true" type="tns:clsGrupoServicioOferta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsGrupoServicioOferta" nillable="true" type="tns:ArrayOfclsGrupoServicioOferta" />
+  <xs:complexType name="clsGrupoServicioOferta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aforo" type="xs:int" />
+      <xs:element minOccurs="0" name="ApellidoMaternoDocente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApellidoPaternoDocente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Costo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_GrupoServicio" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreDocente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Periodo" type="xs:int" />
+      <xs:element minOccurs="0" name="Salon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Servicio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalAlumnos" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsGrupoServicioOferta" nillable="true" type="tns:clsGrupoServicioOferta" />
   <xs:complexType name="ArrayOfclsGrupoAnual">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="clsGrupoAnual" nillable="true" type="tns:clsGrupoAnual" />

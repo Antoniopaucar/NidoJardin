@@ -1056,6 +1056,19 @@ namespace WcfNido
             }
         }
 
+        public List<clsEntidades.clsGrupoServicioOferta> ListarOfertasGrupoServicio()
+        {
+            try
+            {
+                clsBL.clsBLGrupoServicio xbl = new clsBL.clsBLGrupoServicio();
+                return xbl.listar_ofertas_grupo_servicio();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
         public List<clsEntidades.clsAlumno> ListarAlumnosPorGrupoServicio(int idGrupoServicio)
         {
             try
