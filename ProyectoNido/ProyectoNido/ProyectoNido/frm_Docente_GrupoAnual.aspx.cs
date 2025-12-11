@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Services;
 using ProyectoNido.wcfNido;
 
 namespace ProyectoNido
@@ -63,7 +64,7 @@ namespace ProyectoNido
                 
                 var grupos = servicio.ListarGruposPorDocente(idUsuario);
 
-                if (grupos != null && grupos.Length > 0)
+                if (grupos != null && grupos.Any())
                 {
                     rptGrupos.DataSource = grupos;
                     rptGrupos.DataBind();
@@ -78,8 +79,28 @@ namespace ProyectoNido
             }
             catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine($"Error al cargar grupos: {ex.Message}");
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "errorGrupos", 
                     $"alert('Error al cargar grupos: {ex.Message.Replace("'", "\\'")}');", true);
+            }
+        }
+
+        /// <summary>
+        /// WebMethod llamado desde JavaScript para obtener alumnos por grupo anual
+        /// </summary>
+        [WebMethod(EnableSession = true)]
+        public static List<wcfNido.clsAlumno> ObtenerAlumnosPorGrupo(int idGrupoAnual)
+        {
+            try
+            {
+                wcfNido.Service1Client servicio = new wcfNido.Service1Client();
+                var alumnos = servicio.ListarAlumnosPorGrupoAnual(idGrupoAnual);
+                return alumnos != null ? alumnos.ToList() : new List<wcfNido.clsAlumno>();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error al obtener alumnos: {ex.Message}");
+                throw;
             }
         }
     }

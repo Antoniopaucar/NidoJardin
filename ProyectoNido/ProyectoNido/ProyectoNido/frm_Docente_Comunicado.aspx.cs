@@ -65,14 +65,22 @@ namespace ProyectoNido
                 // Usar el nuevo método que filtra por rol del usuario
                 var listaComunicados = servicio.GetComunicadoPorRolUsuario(idUsuario);
                 
-                if (listaComunicados != null && listaComunicados.Length > 0)
+                if (listaComunicados != null && listaComunicados.Any())
                 {
                     rptComunicados.DataSource = listaComunicados;
                     rptComunicados.DataBind();
                 }
+                else
+                {
+                    // Mostrar mensaje cuando no hay comunicados
+                    rptComunicados.Visible = false;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "sinComunicados", 
+                        "alert('No hay comunicados disponibles.');", true);
+                }
             }
             catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine($"Error al cargar comunicados: {ex.Message}");
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "errorComunicados", 
                     $"alert('Error al cargar comunicados: {ex.Message.Replace("'", "\\'")}');", true);
             }

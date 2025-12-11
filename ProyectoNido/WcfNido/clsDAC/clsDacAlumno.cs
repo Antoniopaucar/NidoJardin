@@ -201,5 +201,107 @@ namespace clsDAC
             return lista;
         }
 
+        /// <summary>
+        /// Lista alumnos matriculados en un grupo anual específico
+        /// </summary>
+        public List<clsEntidades.clsAlumno> ListarAlumnosPorGrupoAnual(int idGrupoAnual)
+        {
+            List<clsEntidades.clsAlumno> lista = new List<clsEntidades.clsAlumno>();
+            try
+            {
+                using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("sp_ListarAlumnosPorGrupoAnual", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Id_GrupoAnual", idGrupoAnual);
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                clsEntidades.clsAlumno alumno = new clsEntidades.clsAlumno
+                                {
+                                    Id = Convert.ToInt32(dr["Id_Alumno"]),
+                                    Nombres = dr["Nombres"] != DBNull.Value ? dr["Nombres"].ToString() : string.Empty,
+                                    ApellidoPaterno = dr["ApPaterno"] != DBNull.Value ? dr["ApPaterno"].ToString() : string.Empty,
+                                    ApellidoMaterno = dr["ApMaterno"] != DBNull.Value ? dr["ApMaterno"].ToString() : string.Empty,
+                                    Documento = dr["Documento"] != DBNull.Value ? dr["Documento"].ToString() : string.Empty,
+                                    FechaNacimiento = dr.IsDBNull(dr.GetOrdinal("FechaNacimiento")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaNacimiento")),
+                                    Sexo = dr["Sexo"] != DBNull.Value ? dr["Sexo"].ToString() : string.Empty
+                                };
+                                
+                                // Construir nombre completo
+                                alumno.NombreCompleto = $"{alumno.Nombres} {alumno.ApellidoPaterno} {alumno.ApellidoMaterno}".Trim();
+                                
+                                lista.Add(alumno);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception($"Error al listar alumnos por grupo anual: {ex.Message}", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error inesperado al listar alumnos: {ex.Message}", ex);
+            }
+            return lista;
+        }
+
+        /// <summary>
+        /// Lista alumnos inscritos en un grupo de servicio específico
+        /// </summary>
+        public List<clsEntidades.clsAlumno> ListarAlumnosPorGrupoServicio(int idGrupoServicio)
+        {
+            List<clsEntidades.clsAlumno> lista = new List<clsEntidades.clsAlumno>();
+            try
+            {
+                using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("sp_ListarAlumnosPorGrupoServicio", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Id_GrupoServicio", idGrupoServicio);
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                clsEntidades.clsAlumno alumno = new clsEntidades.clsAlumno
+                                {
+                                    Id = Convert.ToInt32(dr["Id_Alumno"]),
+                                    Nombres = dr["Nombres"] != DBNull.Value ? dr["Nombres"].ToString() : string.Empty,
+                                    ApellidoPaterno = dr["ApPaterno"] != DBNull.Value ? dr["ApPaterno"].ToString() : string.Empty,
+                                    ApellidoMaterno = dr["ApMaterno"] != DBNull.Value ? dr["ApMaterno"].ToString() : string.Empty,
+                                    Documento = dr["Documento"] != DBNull.Value ? dr["Documento"].ToString() : string.Empty,
+                                    FechaNacimiento = dr.IsDBNull(dr.GetOrdinal("FechaNacimiento")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaNacimiento")),
+                                    Sexo = dr["Sexo"] != DBNull.Value ? dr["Sexo"].ToString() : string.Empty
+                                };
+                                
+                                // Construir nombre completo
+                                alumno.NombreCompleto = $"{alumno.Nombres} {alumno.ApellidoPaterno} {alumno.ApellidoMaterno}".Trim();
+                                
+                                lista.Add(alumno);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception($"Error al listar alumnos por grupo de servicio: {ex.Message}", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error inesperado al listar alumnos: {ex.Message}", ex);
+            }
+            return lista;
+        }
+
     }
 }

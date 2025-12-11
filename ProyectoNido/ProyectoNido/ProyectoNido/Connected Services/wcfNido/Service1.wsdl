@@ -8,6 +8,18 @@
       <xsd:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WcfNido" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IService1_GetServicioAdicional_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicioAdicional" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetServicioAdicional_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicioAdicionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DelServicioAdicional_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelServicioAdicional" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DelServicioAdicional_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelServicioAdicionalResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_InsServicioAdicional_InputMessage">
     <wsdl:part name="parameters" element="tns:InsServicioAdicional" />
   </wsdl:message>
@@ -404,6 +416,18 @@
   <wsdl:message name="IService1_GetAlumno_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAlumnoResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ListarAlumnosPorGrupoAnual_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAlumnosPorGrupoAnual" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarAlumnosPorGrupoAnual_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAlumnosPorGrupoAnualResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarAlumnosPorGrupoServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAlumnosPorGrupoServicio" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarAlumnosPorGrupoServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAlumnosPorGrupoServicioResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_DelAlumno_InputMessage">
     <wsdl:part name="parameters" element="tns:DelAlumno" />
   </wsdl:message>
@@ -572,19 +596,15 @@
   <wsdl:message name="IService1_listar_tarifario_combo_OutputMessage">
     <wsdl:part name="parameters" element="tns:listar_tarifario_comboResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetServicioAdicional_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetServicioAdicional" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetServicioAdicional_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetServicioAdicionalResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_DelServicioAdicional_InputMessage">
-    <wsdl:part name="parameters" element="tns:DelServicioAdicional" />
-  </wsdl:message>
-  <wsdl:message name="IService1_DelServicioAdicional_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DelServicioAdicionalResponse" />
-  </wsdl:message>
   <wsdl:portType name="IService1">
+    <wsdl:operation name="GetServicioAdicional">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetServicioAdicional" message="tns:IService1_GetServicioAdicional_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetServicioAdicionalResponse" message="tns:IService1_GetServicioAdicional_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelServicioAdicional">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DelServicioAdicional" message="tns:IService1_DelServicioAdicional_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DelServicioAdicionalResponse" message="tns:IService1_DelServicioAdicional_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="InsServicioAdicional">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsServicioAdicional" message="tns:IService1_InsServicioAdicional_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsServicioAdicionalResponse" message="tns:IService1_InsServicioAdicional_OutputMessage" />
@@ -849,6 +869,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAlumno" message="tns:IService1_GetAlumno_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAlumnoResponse" message="tns:IService1_GetAlumno_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ListarAlumnosPorGrupoAnual">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarAlumnosPorGrupoAnual" message="tns:IService1_ListarAlumnosPorGrupoAnual_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarAlumnosPorGrupoAnualResponse" message="tns:IService1_ListarAlumnosPorGrupoAnual_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarAlumnosPorGrupoServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarAlumnosPorGrupoServicio" message="tns:IService1_ListarAlumnosPorGrupoServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarAlumnosPorGrupoServicioResponse" message="tns:IService1_ListarAlumnosPorGrupoServicio_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="DelAlumno">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DelAlumno" message="tns:IService1_DelAlumno_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DelAlumnoResponse" message="tns:IService1_DelAlumno_OutputMessage" />
@@ -961,17 +989,27 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/listar_tarifario_combo" message="tns:IService1_listar_tarifario_combo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/listar_tarifario_comboResponse" message="tns:IService1_listar_tarifario_combo_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetServicioAdicional">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetServicioAdicional" message="tns:IService1_GetServicioAdicional_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetServicioAdicionalResponse" message="tns:IService1_GetServicioAdicional_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DelServicioAdicional">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DelServicioAdicional" message="tns:IService1_DelServicioAdicional_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DelServicioAdicionalResponse" message="tns:IService1_DelServicioAdicional_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetServicioAdicional">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetServicioAdicional" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelServicioAdicional">
+      <soap:operation soapAction="http://tempuri.org/IService1/DelServicioAdicional" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="InsServicioAdicional">
       <soap:operation soapAction="http://tempuri.org/IService1/InsServicioAdicional" style="document" />
       <wsdl:input>
@@ -1566,6 +1604,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ListarAlumnosPorGrupoAnual">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarAlumnosPorGrupoAnual" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAlumnosPorGrupoServicio">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarAlumnosPorGrupoServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DelAlumno">
       <soap:operation soapAction="http://tempuri.org/IService1/DelAlumno" style="document" />
       <wsdl:input>
@@ -1811,24 +1867,6 @@
     </wsdl:operation>
     <wsdl:operation name="listar_tarifario_combo">
       <soap:operation soapAction="http://tempuri.org/IService1/listar_tarifario_combo" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetServicioAdicional">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetServicioAdicional" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DelServicioAdicional">
-      <soap:operation soapAction="http://tempuri.org/IService1/DelServicioAdicional" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

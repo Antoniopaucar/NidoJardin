@@ -98,5 +98,41 @@ namespace clsBL
         {
             return oDac.listar_alumnos_Combo();
         }
+
+        /// <summary>
+        /// Lista alumnos matriculados en un grupo anual específico
+        /// </summary>
+        public List<clsEntidades.clsAlumno> ListarAlumnosPorGrupoAnual(int idGrupoAnual)
+        {
+            try
+            {
+                clsDAC.clsDacAlumno dac = new clsDAC.clsDacAlumno();
+                return dac.ListarAlumnosPorGrupoAnual(idGrupoAnual);
+            }
+            catch (SqlException ex)
+            {
+                clsBLError err = new clsBLError();
+                err.Control_Sql_Error(ex);
+                return new List<clsEntidades.clsAlumno>();
+            }
+        }
+
+        /// <summary>
+        /// Lista alumnos inscritos en un grupo de servicio específico
+        /// </summary>
+        public List<clsEntidades.clsAlumno> ListarAlumnosPorGrupoServicio(int idGrupoServicio)
+        {
+            try
+            {
+                clsDAC.clsDacAlumno dac = new clsDAC.clsDacAlumno();
+                return dac.ListarAlumnosPorGrupoServicio(idGrupoServicio);
+            }
+            catch (SqlException ex)
+            {
+                clsBLError err = new clsBLError();
+                err.Control_Sql_Error(ex);
+                return new List<clsEntidades.clsAlumno>();
+            }
+        }
     }
 }

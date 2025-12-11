@@ -36,7 +36,7 @@
                         <div class="comunicado-fecha">
                             <%# Eval("FechaCreacion", "{0:dd/MM/yyyy}" ) %>
                         </div>
-                        <div class="comunicado-estado <%# (bool)Eval(" Visto") ? "estado-visto" : "estado-abrir" %>">
+                        <div class="comunicado-estado <%# (bool)Eval("Visto") ? "estado-visto" : "estado-abrir" %>">
                             <%# (bool)Eval("Visto") ? "visto" : "abrir" %>
                         </div>
                     </div>

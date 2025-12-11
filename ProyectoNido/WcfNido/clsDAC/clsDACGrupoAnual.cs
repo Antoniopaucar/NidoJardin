@@ -14,32 +14,42 @@ namespace clsDAC
         public List<clsGrupoAnualDetalle> ListarGruposPorDocente(int idUsuario)
         {
             List<clsGrupoAnualDetalle> lista = new List<clsGrupoAnualDetalle>();
-
-            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            try
             {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand("sp_ListarGruposPorDocente", cn))
+                using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
-
-                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("sp_ListarGruposPorDocente", cn))
                     {
-                        while (dr.Read())
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
                         {
-                            clsGrupoAnualDetalle grupo = new clsGrupoAnualDetalle
+                            while (dr.Read())
                             {
-                                Id_GrupoAnual = Convert.ToInt32(dr["Id_GrupoAnual"]),
-                                Nivel = dr["Nivel"].ToString(),
-                                Salon = dr["Salon"].ToString(),
-                                Aforo = Convert.ToInt32(dr["Aforo"]),
-                                Periodo = Convert.ToInt32(dr["Periodo"]),
-                                TotalAlumnos = Convert.ToInt32(dr["TotalAlumnos"])
-                            };
-                            lista.Add(grupo);
+                                clsGrupoAnualDetalle grupo = new clsGrupoAnualDetalle
+                                {
+                                    Id_GrupoAnual = Convert.ToInt32(dr["Id_GrupoAnual"]),
+                                    Nivel = dr["Nivel"] != DBNull.Value ? dr["Nivel"].ToString() : string.Empty,
+                                    Salon = dr["Salon"] != DBNull.Value ? dr["Salon"].ToString() : string.Empty,
+                                    Aforo = dr["Aforo"] != DBNull.Value ? Convert.ToInt32(dr["Aforo"]) : 0,
+                                    Periodo = dr["Periodo"] != DBNull.Value ? Convert.ToInt32(dr["Periodo"]) : 0,
+                                    TotalAlumnos = dr["TotalAlumnos"] != DBNull.Value ? Convert.ToInt32(dr["TotalAlumnos"]) : 0
+                                };
+                                lista.Add(grupo);
+                            }
                         }
                     }
                 }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception($"Error al listar grupos por docente: {ex.Message}", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error inesperado al listar grupos: {ex.Message}", ex);
             }
             return lista;
         }

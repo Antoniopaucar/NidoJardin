@@ -710,6 +710,19 @@ namespace WcfNido
             return oBLAlumno.listar_alumnos_Combo();
         }
 
+        public List<clsEntidades.clsAlumno> ListarAlumnosPorGrupoAnual(int idGrupoAnual)
+        {
+            try
+            {
+                clsBL.clsBLAlumno xbl = new clsBL.clsBLAlumno();
+                return xbl.ListarAlumnosPorGrupoAnual(idGrupoAnual);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
         //---------------------------- ACTUALIZAR DATOS DOCENTE ---------------------------------
         //public void ActualizarDatosDocente(int idUsuario, string nombres, string apPaterno, string apMaterno,
         //    string dni, DateTime? fechaNacimiento, string sexo, string direccion, string email,
@@ -1006,17 +1019,54 @@ namespace WcfNido
 
         public List<clsComunicado> GetComunicadoPorRolUsuario(int idUsuario)
         {
-            throw new NotImplementedException();
+            try
+            {
+                clsBL.clsBLComunicado xbl = new clsBL.clsBLComunicado();
+                return xbl.listar_comunicados_por_rol_usuario(idUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
         List<clsGrupoAnualDetalle> IService1.ListarGruposPorDocente(int idUsuario)
         {
-            throw new NotImplementedException();
+            try
+            {
+                clsBL.clsBLGrupoAnual xbl = new clsBL.clsBLGrupoAnual();
+                return xbl.ListarGruposPorDocente(idUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
         public List<clsGrupoServicioDetalle> ListarGruposServicioPorDocente(int idUsuario)
         {
-            throw new NotImplementedException();
+            try
+            {
+                clsBL.clsBLGrupoServicio xbl = new clsBL.clsBLGrupoServicio();
+                return xbl.listar_grupos_servicio_por_docente(idUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public List<clsEntidades.clsAlumno> ListarAlumnosPorGrupoServicio(int idGrupoServicio)
+        {
+            try
+            {
+                clsBL.clsBLAlumno xbl = new clsBL.clsBLAlumno();
+                return xbl.ListarAlumnosPorGrupoServicio(idGrupoServicio);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
 

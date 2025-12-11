@@ -182,6 +182,12 @@ namespace WcfNido
         List<clsEntidades.clsAlumno> GetAlumno();
 
         [OperationContract]
+        List<clsEntidades.clsAlumno> ListarAlumnosPorGrupoAnual(int idGrupoAnual);
+
+        [OperationContract]
+        List<clsEntidades.clsAlumno> ListarAlumnosPorGrupoServicio(int idGrupoServicio);
+
+        [OperationContract]
         void DelAlumno(int Codigo);
         [OperationContract]
         void InsAlumno(clsEntidades.clsAlumno alu);

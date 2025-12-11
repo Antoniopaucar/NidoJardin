@@ -169,6 +169,7 @@
     <Content Include="frm_Docente_Comunicado.aspx" />
     <Content Include="frm_Docente_Datos.aspx" />
     <Content Include="frm_Docente_GrupoAnual.aspx" />
+    <Content Include="frm_Docente_GrupoServicio.aspx" />
     <Content Include="frm_GrupoServicio.aspx" />
     <Content Include="frm_Inicio.aspx" />
     <Content Include="frm_Login.aspx" />
@@ -274,6 +275,13 @@
     </Compile>
     <Compile Include="frm_Docente_GrupoAnual.aspx.designer.cs">
       <DependentUpon>frm_Docente_GrupoAnual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Docente_GrupoServicio.aspx.cs">
+      <DependentUpon>frm_Docente_GrupoServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Docente_GrupoServicio.aspx.designer.cs">
+      <DependentUpon>frm_Docente_GrupoServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="frm_GrupoServicio.aspx.cs">
       <DependentUpon>frm_GrupoServicio.aspx</DependentUpon>

@@ -152,39 +152,53 @@ namespace clsDAC
         {
             List<clsEntidades.clsComunicado> lista = new List<clsEntidades.clsComunicado>();
 
-            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            try
             {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand("listar_comunicados_por_rol_usuario", cn))
+                using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
                 {
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Id_Usuario", idUsuario);
-
-                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("listar_comunicados_por_rol_usuario", cn))
                     {
-                        while (dr.Read())
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Id_Usuario", idUsuario);
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
                         {
-                            clsEntidades.clsComunicado c = new clsEntidades.clsComunicado();
-                            c.Usuario = new clsEntidades.clsUsuario();
-                            c.Rol = new clsEntidades.clsRol();
+                            while (dr.Read())
+                            {
+                                clsEntidades.clsComunicado c = new clsEntidades.clsComunicado();
+                                c.Usuario = new clsEntidades.clsUsuario();
+                                c.Rol = new clsEntidades.clsRol();
 
-                            c.Id = Convert.ToInt32(dr["Id_Comunicado"]);
-                            c.Usuario.Id = Convert.ToInt32(dr["Id_Usuario"]);
-                            c.Usuario.NombreUsuario = dr["NombreUsuario"].ToString();
-                            c.Usuario.Nombres = dr["Nombres"].ToString();
-                            c.Usuario.ApellidoPaterno = dr["ApPaterno"].ToString();
-                            c.Rol.Id = Convert.ToInt32(dr["Id_Rol"]);
-                            c.Rol.NombreRol = dr["NombreRol"].ToString();
-                            c.Nombre = dr["Nombre"].ToString();
-                            c.Descripcion = dr["Descripcion"].ToString();
-                            c.FechaCreacion = dr.GetDateTime(dr.GetOrdinal("FechaCreacion"));
-                            c.FechaFinal = dr.IsDBNull(dr.GetOrdinal("FechaFinal")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaFinal"));
-                            c.Visto = Convert.ToBoolean(dr["Visto"]);
+                                c.Id = Convert.ToInt32(dr["Id_Comunicado"]);
+                                c.Usuario.Id = Convert.ToInt32(dr["Id_Usuario"]);
+                                c.Usuario.NombreUsuario = dr["NombreUsuario"] != DBNull.Value ? dr["NombreUsuario"].ToString() : string.Empty;
+                                c.Usuario.Nombres = dr["Nombres"] != DBNull.Value ? dr["Nombres"].ToString() : string.Empty;
+                                c.Usuario.ApellidoPaterno = dr["ApPaterno"] != DBNull.Value ? dr["ApPaterno"].ToString() : string.Empty;
+                                c.Rol.Id = Convert.ToInt32(dr["Id_Rol"]);
+                                c.Rol.NombreRol = dr["NombreRol"] != DBNull.Value ? dr["NombreRol"].ToString() : string.Empty;
+                                c.Nombre = dr["Nombre"] != DBNull.Value ? dr["Nombre"].ToString() : string.Empty;
+                                c.Descripcion = dr["Descripcion"] != DBNull.Value ? dr["Descripcion"].ToString() : string.Empty;
+                                c.FechaCreacion = dr.IsDBNull(dr.GetOrdinal("FechaCreacion")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaCreacion"));
+                                c.FechaFinal = dr.IsDBNull(dr.GetOrdinal("FechaFinal")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaFinal"));
+                                
+                                // Manejar el campo Visto de forma segura
+                                int vistoOrdinal = dr.GetOrdinal("Visto");
+                                c.Visto = dr.IsDBNull(vistoOrdinal) ? false : Convert.ToBoolean(dr[vistoOrdinal]);
 
-                            lista.Add(c);
+                                lista.Add(c);
+                            }
                         }
                     }
                 }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception($"Error al listar comunicados por rol de usuario: {ex.Message}", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error inesperado al listar comunicados: {ex.Message}", ex);
             }
 
             return lista;

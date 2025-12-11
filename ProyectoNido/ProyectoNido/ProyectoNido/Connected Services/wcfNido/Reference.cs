@@ -3731,6 +3731,18 @@ namespace ProyectoNido.wcfNido {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wcfNido.IService1")]
     public interface IService1 {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetServicioAdicional", ReplyAction="http://tempuri.org/IService1/GetServicioAdicionalResponse")]
+        ProyectoNido.wcfNido.clsServicioAdicional[] GetServicioAdicional();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetServicioAdicional", ReplyAction="http://tempuri.org/IService1/GetServicioAdicionalResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsServicioAdicional[]> GetServicioAdicionalAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DelServicioAdicional", ReplyAction="http://tempuri.org/IService1/DelServicioAdicionalResponse")]
+        void DelServicioAdicional(int Codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DelServicioAdicional", ReplyAction="http://tempuri.org/IService1/DelServicioAdicionalResponse")]
+        System.Threading.Tasks.Task DelServicioAdicionalAsync(int Codigo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsServicioAdicional", ReplyAction="http://tempuri.org/IService1/InsServicioAdicionalResponse")]
         void InsServicioAdicional(ProyectoNido.wcfNido.clsServicioAdicional servicio);
         
@@ -4127,6 +4139,18 @@ namespace ProyectoNido.wcfNido {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAlumno", ReplyAction="http://tempuri.org/IService1/GetAlumnoResponse")]
         System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsAlumno[]> GetAlumnoAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarAlumnosPorGrupoAnual", ReplyAction="http://tempuri.org/IService1/ListarAlumnosPorGrupoAnualResponse")]
+        ProyectoNido.wcfNido.clsAlumno[] ListarAlumnosPorGrupoAnual(int idGrupoAnual);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarAlumnosPorGrupoAnual", ReplyAction="http://tempuri.org/IService1/ListarAlumnosPorGrupoAnualResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsAlumno[]> ListarAlumnosPorGrupoAnualAsync(int idGrupoAnual);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarAlumnosPorGrupoServicio", ReplyAction="http://tempuri.org/IService1/ListarAlumnosPorGrupoServicioResponse")]
+        ProyectoNido.wcfNido.clsAlumno[] ListarAlumnosPorGrupoServicio(int idGrupoServicio);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarAlumnosPorGrupoServicio", ReplyAction="http://tempuri.org/IService1/ListarAlumnosPorGrupoServicioResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsAlumno[]> ListarAlumnosPorGrupoServicioAsync(int idGrupoServicio);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DelAlumno", ReplyAction="http://tempuri.org/IService1/DelAlumnoResponse")]
         void DelAlumno(int Codigo);
         
@@ -4294,18 +4318,6 @@ namespace ProyectoNido.wcfNido {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listar_tarifario_combo", ReplyAction="http://tempuri.org/IService1/listar_tarifario_comboResponse")]
         System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsTarifario[]> listar_tarifario_comboAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetServicioAdicional", ReplyAction="http://tempuri.org/IService1/GetServicioAdicionalResponse")]
-        ProyectoNido.wcfNido.clsServicioAdicional[] GetServicioAdicional();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetServicioAdicional", ReplyAction="http://tempuri.org/IService1/GetServicioAdicionalResponse")]
-        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsServicioAdicional[]> GetServicioAdicionalAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DelServicioAdicional", ReplyAction="http://tempuri.org/IService1/DelServicioAdicionalResponse")]
-        void DelServicioAdicional(int Codigo);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DelServicioAdicional", ReplyAction="http://tempuri.org/IService1/DelServicioAdicionalResponse")]
-        System.Threading.Tasks.Task DelServicioAdicionalAsync(int Codigo);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -4333,6 +4345,22 @@ namespace ProyectoNido.wcfNido {
         
         public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public ProyectoNido.wcfNido.clsServicioAdicional[] GetServicioAdicional() {
+            return base.Channel.GetServicioAdicional();
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsServicioAdicional[]> GetServicioAdicionalAsync() {
+            return base.Channel.GetServicioAdicionalAsync();
+        }
+        
+        public void DelServicioAdicional(int Codigo) {
+            base.Channel.DelServicioAdicional(Codigo);
+        }
+        
+        public System.Threading.Tasks.Task DelServicioAdicionalAsync(int Codigo) {
+            return base.Channel.DelServicioAdicionalAsync(Codigo);
         }
         
         public void InsServicioAdicional(ProyectoNido.wcfNido.clsServicioAdicional servicio) {
@@ -4863,6 +4891,22 @@ namespace ProyectoNido.wcfNido {
             return base.Channel.GetAlumnoAsync();
         }
         
+        public ProyectoNido.wcfNido.clsAlumno[] ListarAlumnosPorGrupoAnual(int idGrupoAnual) {
+            return base.Channel.ListarAlumnosPorGrupoAnual(idGrupoAnual);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsAlumno[]> ListarAlumnosPorGrupoAnualAsync(int idGrupoAnual) {
+            return base.Channel.ListarAlumnosPorGrupoAnualAsync(idGrupoAnual);
+        }
+        
+        public ProyectoNido.wcfNido.clsAlumno[] ListarAlumnosPorGrupoServicio(int idGrupoServicio) {
+            return base.Channel.ListarAlumnosPorGrupoServicio(idGrupoServicio);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsAlumno[]> ListarAlumnosPorGrupoServicioAsync(int idGrupoServicio) {
+            return base.Channel.ListarAlumnosPorGrupoServicioAsync(idGrupoServicio);
+        }
+        
         public void DelAlumno(int Codigo) {
             base.Channel.DelAlumno(Codigo);
         }
@@ -5085,22 +5129,6 @@ namespace ProyectoNido.wcfNido {
         
         public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsTarifario[]> listar_tarifario_comboAsync() {
             return base.Channel.listar_tarifario_comboAsync();
-        }
-        
-        public ProyectoNido.wcfNido.clsServicioAdicional[] GetServicioAdicional() {
-            return base.Channel.GetServicioAdicional();
-        }
-        
-        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsServicioAdicional[]> GetServicioAdicionalAsync() {
-            return base.Channel.GetServicioAdicionalAsync();
-        }
-        
-        public void DelServicioAdicional(int Codigo) {
-            base.Channel.DelServicioAdicional(Codigo);
-        }
-        
-        public System.Threading.Tasks.Task DelServicioAdicionalAsync(int Codigo) {
-            return base.Channel.DelServicioAdicionalAsync(Codigo);
         }
     }
 }
