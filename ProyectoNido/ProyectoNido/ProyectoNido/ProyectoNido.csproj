@@ -167,7 +167,9 @@
     <Content Include="CSS\Estilos.css" />
     <Content Include="frm_Alumno.aspx" />
     <Content Include="frm_Apoderado.aspx" />
+    <Content Include="frm_Apoderado_Comunicado.aspx" />
     <Content Include="frm_Apoderado_Datos.aspx" />
+    <Content Include="frm_Apoderado_OfertaGrupoServicio.aspx" />
     <Content Include="frm_Comunicado.aspx" />
     <Content Include="frm_Distrito.aspx" />
     <Content Include="frm_Docente_Comunicado.aspx" />
@@ -247,12 +249,26 @@
     <Compile Include="frm_Apoderado.aspx.designer.cs">
       <DependentUpon>frm_Apoderado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frm_Apoderado_Comunicado.aspx.cs">
+      <DependentUpon>frm_Apoderado_Comunicado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Apoderado_Comunicado.aspx.designer.cs">
+      <DependentUpon>frm_Apoderado_Comunicado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frm_Apoderado_Datos.aspx.cs">
       <DependentUpon>frm_Apoderado_Datos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="frm_Apoderado_Datos.aspx.designer.cs">
       <DependentUpon>frm_Apoderado_Datos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Apoderado_OfertaGrupoServicio.aspx.cs">
+      <DependentUpon>frm_Apoderado_OfertaGrupoServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Apoderado_OfertaGrupoServicio.aspx.designer.cs">
+      <DependentUpon>frm_Apoderado_OfertaGrupoServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="frm_Comunicado.aspx.cs">
       <DependentUpon>frm_Comunicado.aspx</DependentUpon>
