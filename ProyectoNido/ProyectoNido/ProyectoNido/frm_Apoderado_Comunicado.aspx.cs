@@ -145,6 +145,7 @@ namespace ProyectoNido
 
         /// <summary>
         /// Maneja el evento click de los botones de hijos
+        /// Redirige a frm_Apoderado_hijos.aspx para ver y editar los datos del hijo
         /// </summary>
         protected void btnHijo_Click(object sender, EventArgs e)
         {
@@ -156,8 +157,8 @@ namespace ProyectoNido
                 // Guardar el ID del alumno seleccionado en sesión
                 Session["IdAlumnoSeleccionado"] = idAlumno;
                 
-                // Recargar la página para actualizar el estado activo de los botones
-                Response.Redirect(Request.Url.AbsoluteUri);
+                // Redirigir a la página de hijos para ver y editar los datos del hijo seleccionado
+                Response.Redirect("frm_Apoderado_hijos.aspx");
             }
             catch (Exception ex)
             {

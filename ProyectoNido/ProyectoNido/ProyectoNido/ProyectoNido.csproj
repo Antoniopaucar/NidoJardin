@@ -164,6 +164,8 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="CSS\apoderado_hijos.css" />
+    <Content Include="CSS\apoderado_hijos_expandible.css" />
+    <Content Include="CSS\apoderado_info_hijo.css" />
     <Content Include="CSS\apoderado_oferta_servicio.css" />
     <Content Include="CSS\docente_comunicado.css" />
     <Content Include="CSS\docente_grupo_anual.css" />
@@ -173,6 +175,7 @@
     <Content Include="frm_Apoderado.aspx" />
     <Content Include="frm_Apoderado_Comunicado.aspx" />
     <Content Include="frm_Apoderado_Datos.aspx" />
+    <Content Include="frm_Apoderado_hijos.aspx" />
     <Content Include="frm_Apoderado_OfertaGrupoServicio.aspx" />
     <Content Include="frm_Comunicado.aspx" />
     <Content Include="frm_Distrito.aspx" />
@@ -226,6 +229,8 @@
     <Content Include="Img\USUARIO ROL.png" />
     <Content Include="Img\usuario.png" />
     <Content Include="Img\usuario2.png" />
+    <Content Include="Js\apoderado_hijos.js" />
+    <Content Include="Js\apoderado_hijos_expandible.js" />
     <Content Include="Js\docente_comunicado.js" />
     <Content Include="Js\docente_datos.js" />
     <Content Include="Js\docente_grupo_anual.js" />
@@ -266,6 +271,13 @@
     </Compile>
     <Compile Include="frm_Apoderado_Datos.aspx.designer.cs">
       <DependentUpon>frm_Apoderado_Datos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Apoderado_hijos.aspx.cs">
+      <DependentUpon>frm_Apoderado_hijos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Apoderado_hijos.aspx.designer.cs">
+      <DependentUpon>frm_Apoderado_hijos.aspx</DependentUpon>
     </Compile>
     <Compile Include="frm_Apoderado_OfertaGrupoServicio.aspx.cs">
       <DependentUpon>frm_Apoderado_OfertaGrupoServicio.aspx</DependentUpon>

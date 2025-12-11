@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="CSS/docente_grupo_anual.css" rel="stylesheet" />
     <link href="CSS/apoderado_oferta_servicio.css" rel="stylesheet" />
+    <link href="CSS/apoderado_hijos.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="docente-left">

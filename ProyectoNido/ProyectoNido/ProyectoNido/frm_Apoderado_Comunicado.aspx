@@ -1,10 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TemplatePrincipal.Master" AutoEventWireup="true" CodeBehind="frm_Apoderado_Comunicado.aspx.cs" Inherits="ProyectoNido.frm_Apoderado_Comunicado" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
-
-
-
-
+    <link href="CSS/apoderado_hijos.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
             <div class="docente-left">

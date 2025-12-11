@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Services;
 using ProyectoNido.wcfNido;
 
 namespace ProyectoNido
@@ -190,6 +191,7 @@ namespace ProyectoNido
 
         /// <summary>
         /// Maneja el evento click de los botones de hijos
+        /// Redirige a frm_Apoderado_hijos.aspx para ver y editar los datos del hijo
         /// </summary>
         protected void btnHijo_Click(object sender, EventArgs e)
         {
@@ -201,14 +203,120 @@ namespace ProyectoNido
                 // Guardar el ID del alumno seleccionado en sesión
                 Session["IdAlumnoSeleccionado"] = idAlumno;
                 
-                // Recargar la página para actualizar el estado activo de los botones
-                Response.Redirect(Request.Url.AbsoluteUri);
+                // Redirigir a la página de hijos para ver y editar los datos del hijo seleccionado
+                Response.Redirect("frm_Apoderado_hijos.aspx");
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Error al seleccionar hijo: {ex.Message}");
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "errorSeleccion", 
                     $"alert('Error al seleccionar hijo: {ex.Message.Replace("'", "\\'")}');", true);
+            }
+        }
+
+        /// <summary>
+        /// WebMethod para seleccionar un hijo usando AJAX (sin recargar página)
+        /// </summary>
+        [System.Web.Services.WebMethod(EnableSession = true)]
+        public static string SeleccionarHijo(int idAlumno)
+        {
+            try
+            {
+                if (HttpContext.Current.Session["IdUsuario"] == null)
+                {
+                    return "ERROR:SIN_SESION";
+                }
+
+                // Guardar el ID del alumno seleccionado en sesión
+                HttpContext.Current.Session["IdAlumnoSeleccionado"] = idAlumno;
+                
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return $"ERROR:{ex.Message}";
+            }
+        }
+
+        /// <summary>
+        /// WebMethod para deseleccionar hijo (Ver Todos)
+        /// </summary>
+        [System.Web.Services.WebMethod(EnableSession = true)]
+        public static string DeseleccionarHijo()
+        {
+            try
+            {
+                if (HttpContext.Current.Session["IdUsuario"] == null)
+                {
+                    return "ERROR:SIN_SESION";
+                }
+
+                // Limpiar la selección
+                HttpContext.Current.Session["IdAlumnoSeleccionado"] = null;
+                
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return $"ERROR:{ex.Message}";
+            }
+        }
+
+        /// <summary>
+        /// WebMethod para obtener información completa del hijo seleccionado
+        /// </summary>
+        [System.Web.Services.WebMethod(EnableSession = true)]
+        public static string ObtenerInfoHijo(int idAlumno)
+        {
+            try
+            {
+                if (HttpContext.Current.Session["IdUsuario"] == null)
+                {
+                    return "ERROR:SIN_SESION";
+                }
+
+                wcfNido.Service1Client servicio = new wcfNido.Service1Client();
+                
+                // Obtener todos los hijos del apoderado
+                int idApoderado = Convert.ToInt32(HttpContext.Current.Session["IdUsuario"]);
+                var hijos = servicio.ListarAlumnosPorApoderado(idApoderado);
+                
+                // Buscar el hijo específico
+                var hijo = hijos?.FirstOrDefault(h => h.Id == idAlumno);
+                
+                if (hijo == null)
+                {
+                    return "ERROR:HIJO_NO_ENCONTRADO";
+                }
+
+                // Calcular edad
+                string edad = "N/A";
+                if (hijo.FechaNacimiento.HasValue)
+                {
+                    int años = DateTime.Now.Year - hijo.FechaNacimiento.Value.Year;
+                    if (DateTime.Now.DayOfYear < hijo.FechaNacimiento.Value.DayOfYear)
+                        años--;
+                    edad = $"{años} años";
+                }
+
+                // Construir JSON con la información
+                System.Text.StringBuilder json = new System.Text.StringBuilder();
+                json.Append("{");
+                json.Append($"\"Id\":{hijo.Id},");
+                json.Append($"\"Nombres\":\"{hijo.Nombres}\",");
+                json.Append($"\"ApellidoPaterno\":\"{hijo.ApellidoPaterno ?? ""}\",");
+                json.Append($"\"ApellidoMaterno\":\"{hijo.ApellidoMaterno ?? ""}\",");
+                json.Append($"\"Documento\":\"{hijo.Documento ?? ""}\",");
+                json.Append($"\"FechaNacimiento\":\"{(hijo.FechaNacimiento.HasValue ? hijo.FechaNacimiento.Value.ToString("dd/MM/yyyy") : "N/A")}\",");
+                json.Append($"\"Edad\":\"{edad}\",");
+                json.Append($"\"Sexo\":\"{(hijo.Sexo == "M" ? "Masculino" : hijo.Sexo == "F" ? "Femenino" : "N/A")}\"");
+                json.Append("}");
+
+                return json.ToString();
+            }
+            catch (Exception ex)
+            {
+                return $"ERROR:{ex.Message}";
             }
         }
 

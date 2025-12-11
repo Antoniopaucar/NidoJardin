@@ -1,0 +1,96 @@
+/* ============================================
+   Estilos para Hijos Expandibles en Apoderado
+   ============================================ */
+
+.hijo-item {
+    margin-bottom: 8px;
+}
+
+.hijo-opciones {
+    margin-top: 8px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 200px;
+    }
+}
+
+.hijo-opcion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-left: 3px solid #007bff;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9em;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.hijo-opcion:hover {
+    background: #e9ecef;
+    border-left-color: #0056b3;
+    transform: translateX(5px);
+    color: #007bff;
+}
+
+.hijo-opcion i {
+    font-size: 0.9em;
+    color: #007bff;
+}
+
+.hijo-opcion:hover i {
+    color: #0056b3;
+}
+
+/* Mensaje cuando no hay hijo seleccionado */
+.sin-hijo-seleccionado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    padding: 40px;
+}
+
+.mensaje-sin-seleccion {
+    text-align: center;
+    color: #6c757d;
+}
+
+.mensaje-sin-seleccion h3 {
+    margin: 15px 0 10px 0;
+    color: #495057;
+    font-size: 1.3em;
+}
+
+.mensaje-sin-seleccion p {
+    font-size: 1em;
+    color: #6c757d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hijo-opciones {
+        padding-left: 15px;
+    }
+    
+    .hijo-opcion {
+        padding: 6px 10px;
+        font-size: 0.85em;
+    }
+}
+

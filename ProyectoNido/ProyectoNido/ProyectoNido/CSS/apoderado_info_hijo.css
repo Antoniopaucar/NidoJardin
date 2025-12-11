@@ -1,0 +1,150 @@
+/* ============================================
+   Estilos para el Panel de Información del Hijo
+   ============================================ */
+
+.info-hijo-panel {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding: 0;
+    border-left: 4px solid #007bff;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-hijo-header {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-hijo-header h3 {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-hijo-header h3 i {
+    font-size: 1.2em;
+}
+
+.btn-cerrar-panel {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.btn-cerrar-panel:hover {
+    background: rgba(255,255,255,0.3);
+    transform: rotate(90deg);
+}
+
+.info-hijo-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-hijo-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.info-hijo-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.info-hijo-item i {
+    font-size: 1.2em;
+    color: #007bff;
+    width: 24px;
+    text-align: center;
+}
+
+.info-hijo-item span {
+    font-size: 0.95em;
+    color: #333;
+}
+
+.info-hijo-item strong {
+    color: #495057;
+    margin-right: 5px;
+}
+
+/* Botón Ver Todos */
+.btn-ver-todos {
+    background-color: #6c757d !important;
+    border-color: #5a6268 !important;
+    color: white !important;
+    margin-top: 10px;
+}
+
+.btn-ver-todos:hover {
+    background-color: #5a6268 !important;
+    border-color: #545b62 !important;
+}
+
+.btn-ver-todos.activo {
+    background-color: #28a745 !important;
+    border-color: #218838 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .info-hijo-panel {
+        margin-bottom: 15px;
+    }
+    
+    .info-hijo-header {
+        padding: 12px 15px;
+    }
+    
+    .info-hijo-header h3 {
+        font-size: 1em;
+    }
+    
+    .info-hijo-body {
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    .info-hijo-item {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+}
+
