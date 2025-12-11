@@ -1,0 +1,60 @@
+﻿/* Estilos para los botones de hijos en el panel lateral del apoderado */
+
+.hijos-seccion {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.hijos-titulo {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hijos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-hijo {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #f5f5f5;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+    box-sizing: border-box;
+}
+
+    .btn-hijo:hover {
+        background-color: #e8f4f8;
+        border-color: #007bff;
+        color: #007bff;
+        transform: translateX(5px);
+    }
+
+    .btn-hijo.activo {
+        background-color: #FFD700;
+        border-color: #FFA500;
+        color: #333;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(255, 215, 0, 0.3);
+    }
+
+        .btn-hijo.activo:hover {
+            background-color: #FFD700;
+            border-color: #FFA500;
+            transform: translateX(0);
+        }

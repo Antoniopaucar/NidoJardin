@@ -15,6 +15,131 @@ namespace ProyectoNido.wcfNido {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsTarifario", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsTarifario : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_TarifarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte PeriodoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal ValorField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion {
+            get {
+                return this.DescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
+                    this.DescripcionField = value;
+                    this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Tarifario {
+            get {
+                return this.Id_TarifarioField;
+            }
+            set {
+                if ((this.Id_TarifarioField.Equals(value) != true)) {
+                    this.Id_TarifarioField = value;
+                    this.RaisePropertyChanged("Id_Tarifario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte Periodo {
+            get {
+                return this.PeriodoField;
+            }
+            set {
+                if ((this.PeriodoField.Equals(value) != true)) {
+                    this.PeriodoField = value;
+                    this.RaisePropertyChanged("Periodo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tipo {
+            get {
+                return this.TipoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoField, value) != true)) {
+                    this.TipoField = value;
+                    this.RaisePropertyChanged("Tipo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Valor {
+            get {
+                return this.ValorField;
+            }
+            set {
+                if ((this.ValorField.Equals(value) != true)) {
+                    this.ValorField = value;
+                    this.RaisePropertyChanged("Valor");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="clsServicioAdicional", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
     [System.SerializableAttribute()]
     public partial class clsServicioAdicional : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -3602,134 +3727,21 @@ namespace ProyectoNido.wcfNido {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="clsTarifario", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
-    [System.SerializableAttribute()]
-    public partial class clsTarifario : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescripcionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_TarifarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte PeriodoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TipoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal ValorField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Descripcion {
-            get {
-                return this.DescripcionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
-                    this.DescripcionField = value;
-                    this.RaisePropertyChanged("Descripcion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Tarifario {
-            get {
-                return this.Id_TarifarioField;
-            }
-            set {
-                if ((this.Id_TarifarioField.Equals(value) != true)) {
-                    this.Id_TarifarioField = value;
-                    this.RaisePropertyChanged("Id_Tarifario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre {
-            get {
-                return this.NombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
-                    this.NombreField = value;
-                    this.RaisePropertyChanged("Nombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte Periodo {
-            get {
-                return this.PeriodoField;
-            }
-            set {
-                if ((this.PeriodoField.Equals(value) != true)) {
-                    this.PeriodoField = value;
-                    this.RaisePropertyChanged("Periodo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tipo {
-            get {
-                return this.TipoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TipoField, value) != true)) {
-                    this.TipoField = value;
-                    this.RaisePropertyChanged("Tipo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Valor {
-            get {
-                return this.ValorField;
-            }
-            set {
-                if ((this.ValorField.Equals(value) != true)) {
-                    this.ValorField = value;
-                    this.RaisePropertyChanged("Valor");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wcfNido.IService1")]
     public interface IService1 {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listar_tarifario", ReplyAction="http://tempuri.org/IService1/listar_tarifarioResponse")]
+        ProyectoNido.wcfNido.clsTarifario[] listar_tarifario();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listar_tarifario", ReplyAction="http://tempuri.org/IService1/listar_tarifarioResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsTarifario[]> listar_tarifarioAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listar_tarifario_combo", ReplyAction="http://tempuri.org/IService1/listar_tarifario_comboResponse")]
+        ProyectoNido.wcfNido.clsTarifario[] listar_tarifario_combo();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listar_tarifario_combo", ReplyAction="http://tempuri.org/IService1/listar_tarifario_comboResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsTarifario[]> listar_tarifario_comboAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetServicioAdicional", ReplyAction="http://tempuri.org/IService1/GetServicioAdicionalResponse")]
         ProyectoNido.wcfNido.clsServicioAdicional[] GetServicioAdicional();
@@ -4151,6 +4163,18 @@ namespace ProyectoNido.wcfNido {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarAlumnosPorGrupoServicio", ReplyAction="http://tempuri.org/IService1/ListarAlumnosPorGrupoServicioResponse")]
         System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsAlumno[]> ListarAlumnosPorGrupoServicioAsync(int idGrupoServicio);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarAlumnosPorApoderado", ReplyAction="http://tempuri.org/IService1/ListarAlumnosPorApoderadoResponse")]
+        ProyectoNido.wcfNido.clsAlumno[] ListarAlumnosPorApoderado(int idApoderado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarAlumnosPorApoderado", ReplyAction="http://tempuri.org/IService1/ListarAlumnosPorApoderadoResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsAlumno[]> ListarAlumnosPorApoderadoAsync(int idApoderado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ObtenerApoderadoPorId", ReplyAction="http://tempuri.org/IService1/ObtenerApoderadoPorIdResponse")]
+        ProyectoNido.wcfNido.clsApoderado ObtenerApoderadoPorId(int idApoderado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ObtenerApoderadoPorId", ReplyAction="http://tempuri.org/IService1/ObtenerApoderadoPorIdResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsApoderado> ObtenerApoderadoPorIdAsync(int idApoderado);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DelAlumno", ReplyAction="http://tempuri.org/IService1/DelAlumnoResponse")]
         void DelAlumno(int Codigo);
         
@@ -4306,18 +4330,6 @@ namespace ProyectoNido.wcfNido {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_Reactivar", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_ReactivarResponse")]
         System.Threading.Tasks.Task MatriculaDetalle_ReactivarAsync(int idMatriculaDetalle);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listar_tarifario", ReplyAction="http://tempuri.org/IService1/listar_tarifarioResponse")]
-        ProyectoNido.wcfNido.clsTarifario[] listar_tarifario();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listar_tarifario", ReplyAction="http://tempuri.org/IService1/listar_tarifarioResponse")]
-        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsTarifario[]> listar_tarifarioAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listar_tarifario_combo", ReplyAction="http://tempuri.org/IService1/listar_tarifario_comboResponse")]
-        ProyectoNido.wcfNido.clsTarifario[] listar_tarifario_combo();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listar_tarifario_combo", ReplyAction="http://tempuri.org/IService1/listar_tarifario_comboResponse")]
-        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsTarifario[]> listar_tarifario_comboAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -4345,6 +4357,22 @@ namespace ProyectoNido.wcfNido {
         
         public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public ProyectoNido.wcfNido.clsTarifario[] listar_tarifario() {
+            return base.Channel.listar_tarifario();
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsTarifario[]> listar_tarifarioAsync() {
+            return base.Channel.listar_tarifarioAsync();
+        }
+        
+        public ProyectoNido.wcfNido.clsTarifario[] listar_tarifario_combo() {
+            return base.Channel.listar_tarifario_combo();
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsTarifario[]> listar_tarifario_comboAsync() {
+            return base.Channel.listar_tarifario_comboAsync();
         }
         
         public ProyectoNido.wcfNido.clsServicioAdicional[] GetServicioAdicional() {
@@ -4907,6 +4935,22 @@ namespace ProyectoNido.wcfNido {
             return base.Channel.ListarAlumnosPorGrupoServicioAsync(idGrupoServicio);
         }
         
+        public ProyectoNido.wcfNido.clsAlumno[] ListarAlumnosPorApoderado(int idApoderado) {
+            return base.Channel.ListarAlumnosPorApoderado(idApoderado);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsAlumno[]> ListarAlumnosPorApoderadoAsync(int idApoderado) {
+            return base.Channel.ListarAlumnosPorApoderadoAsync(idApoderado);
+        }
+        
+        public ProyectoNido.wcfNido.clsApoderado ObtenerApoderadoPorId(int idApoderado) {
+            return base.Channel.ObtenerApoderadoPorId(idApoderado);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsApoderado> ObtenerApoderadoPorIdAsync(int idApoderado) {
+            return base.Channel.ObtenerApoderadoPorIdAsync(idApoderado);
+        }
+        
         public void DelAlumno(int Codigo) {
             base.Channel.DelAlumno(Codigo);
         }
@@ -5113,22 +5157,6 @@ namespace ProyectoNido.wcfNido {
         
         public System.Threading.Tasks.Task MatriculaDetalle_ReactivarAsync(int idMatriculaDetalle) {
             return base.Channel.MatriculaDetalle_ReactivarAsync(idMatriculaDetalle);
-        }
-        
-        public ProyectoNido.wcfNido.clsTarifario[] listar_tarifario() {
-            return base.Channel.listar_tarifario();
-        }
-        
-        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsTarifario[]> listar_tarifarioAsync() {
-            return base.Channel.listar_tarifarioAsync();
-        }
-        
-        public ProyectoNido.wcfNido.clsTarifario[] listar_tarifario_combo() {
-            return base.Channel.listar_tarifario_combo();
-        }
-        
-        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsTarifario[]> listar_tarifario_comboAsync() {
-            return base.Channel.listar_tarifario_comboAsync();
         }
     }
 }

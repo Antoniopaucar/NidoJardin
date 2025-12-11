@@ -188,6 +188,12 @@ namespace WcfNido
         List<clsEntidades.clsAlumno> ListarAlumnosPorGrupoServicio(int idGrupoServicio);
 
         [OperationContract]
+        List<clsEntidades.clsAlumno> ListarAlumnosPorApoderado(int idApoderado);
+
+        [OperationContract]
+        clsEntidades.clsApoderado ObtenerApoderadoPorId(int idApoderado);
+
+        [OperationContract]
         void DelAlumno(int Codigo);
         [OperationContract]
         void InsAlumno(clsEntidades.clsAlumno alu);

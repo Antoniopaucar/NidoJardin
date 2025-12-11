@@ -1069,6 +1069,33 @@ namespace WcfNido
             }
         }
 
+        public List<clsEntidades.clsAlumno> ListarAlumnosPorApoderado(int idApoderado)
+        {
+            try
+            {
+                clsBL.clsBLAlumno xbl = new clsBL.clsBLAlumno();
+                return xbl.ListarAlumnosPorApoderado(idApoderado);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public clsEntidades.clsApoderado ObtenerApoderadoPorId(int idApoderado)
+        {
+            try
+            {
+                clsBL.clsBLApoderado xbl = new clsBL.clsBLApoderado();
+                var lista = xbl.listar_apoderados();
+                return lista.FirstOrDefault(a => a.Id == idApoderado);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
 
     }
 }

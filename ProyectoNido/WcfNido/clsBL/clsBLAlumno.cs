@@ -134,5 +134,23 @@ namespace clsBL
                 return new List<clsEntidades.clsAlumno>();
             }
         }
+
+        /// <summary>
+        /// Lista alumnos (hijos) de un apoderado específico
+        /// </summary>
+        public List<clsEntidades.clsAlumno> ListarAlumnosPorApoderado(int idApoderado)
+        {
+            try
+            {
+                clsDAC.clsDacAlumno dac = new clsDAC.clsDacAlumno();
+                return dac.ListarAlumnosPorApoderado(idApoderado);
+            }
+            catch (SqlException ex)
+            {
+                clsBLError err = new clsBLError();
+                err.Control_Sql_Error(ex);
+                return new List<clsEntidades.clsAlumno>();
+            }
+        }
     }
 }

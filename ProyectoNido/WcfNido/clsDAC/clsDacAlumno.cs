@@ -303,5 +303,57 @@ namespace clsDAC
             return lista;
         }
 
+        /// <summary>
+        /// Lista alumnos (hijos) de un apoderado específico
+        /// </summary>
+        public List<clsEntidades.clsAlumno> ListarAlumnosPorApoderado(int idApoderado)
+        {
+            List<clsEntidades.clsAlumno> lista = new List<clsEntidades.clsAlumno>();
+            try
+            {
+                using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("sp_ListarAlumnosPorApoderado", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Id_Apoderado", idApoderado);
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                clsEntidades.clsAlumno alumno = new clsEntidades.clsAlumno
+                                {
+                                    Id = Convert.ToInt32(dr["Id"]), // Corregido: el SP devuelve "Id" no "Id_Alumno"
+                                    Nombres = dr["Nombres"] != DBNull.Value ? dr["Nombres"].ToString() : string.Empty,
+                                    ApellidoPaterno = dr["ApellidoPaterno"] != DBNull.Value ? dr["ApellidoPaterno"].ToString() : string.Empty, // Corregido: usa alias del SP
+                                    ApellidoMaterno = dr["ApellidoMaterno"] != DBNull.Value ? dr["ApellidoMaterno"].ToString() : string.Empty, // Corregido: usa alias del SP
+                                    Documento = dr["Documento"] != DBNull.Value ? dr["Documento"].ToString() : string.Empty,
+                                    FechaNacimiento = dr.IsDBNull(dr.GetOrdinal("FechaNacimiento")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaNacimiento")),
+                                    Sexo = dr["Sexo"] != DBNull.Value ? dr["Sexo"].ToString() : string.Empty,
+                                    Activo = dr["Activo"] != DBNull.Value ? Convert.ToBoolean(dr["Activo"]) : true
+                                };
+                                
+                                // Construir nombre completo
+                                alumno.NombreCompleto = $"{alumno.Nombres} {alumno.ApellidoPaterno} {alumno.ApellidoMaterno}".Trim();
+                                
+                                lista.Add(alumno);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception($"Error al listar alumnos por apoderado: {ex.Message}", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error inesperado al listar alumnos: {ex.Message}", ex);
+            }
+            return lista;
+        }
+
     }
 }

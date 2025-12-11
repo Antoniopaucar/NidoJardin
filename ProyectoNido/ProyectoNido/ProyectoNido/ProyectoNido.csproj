@@ -160,10 +160,14 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="CSS\apoderado_hijos.css" />
+    <Content Include="CSS\docente_comunicado.css" />
+    <Content Include="CSS\docente_grupo_anual.css" />
     <Content Include="CSS\EstiloLogin.css" />
     <Content Include="CSS\Estilos.css" />
     <Content Include="frm_Alumno.aspx" />
     <Content Include="frm_Apoderado.aspx" />
+    <Content Include="frm_Apoderado_Datos.aspx" />
     <Content Include="frm_Comunicado.aspx" />
     <Content Include="frm_Distrito.aspx" />
     <Content Include="frm_Docente_Comunicado.aspx" />
@@ -217,6 +221,8 @@
     <Content Include="Img\usuario.png" />
     <Content Include="Img\usuario2.png" />
     <Content Include="Js\docente_comunicado.js" />
+    <Content Include="Js\docente_datos.js" />
+    <Content Include="Js\docente_grupo_anual.js" />
     <Content Include="Js\Funciones.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -240,6 +246,13 @@
     </Compile>
     <Compile Include="frm_Apoderado.aspx.designer.cs">
       <DependentUpon>frm_Apoderado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Apoderado_Datos.aspx.cs">
+      <DependentUpon>frm_Apoderado_Datos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_Apoderado_Datos.aspx.designer.cs">
+      <DependentUpon>frm_Apoderado_Datos.aspx</DependentUpon>
     </Compile>
     <Compile Include="frm_Comunicado.aspx.cs">
       <DependentUpon>frm_Comunicado.aspx</DependentUpon>

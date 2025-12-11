@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/clsEntidades" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/clsEntidades" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfclsTarifario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsTarifario" nillable="true" type="tns:clsTarifario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsTarifario" nillable="true" type="tns:ArrayOfclsTarifario" />
+  <xs:complexType name="clsTarifario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Tarifario" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Periodo" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valor" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsTarifario" nillable="true" type="tns:clsTarifario" />
   <xs:complexType name="ArrayOfclsServicioAdicional">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="clsServicioAdicional" nillable="true" type="tns:clsServicioAdicional" />
@@ -465,21 +482,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsMatriculaDetalle" nillable="true" type="tns:clsMatriculaDetalle" />
-  <xs:complexType name="ArrayOfclsTarifario">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsTarifario" nillable="true" type="tns:clsTarifario" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfclsTarifario" nillable="true" type="tns:ArrayOfclsTarifario" />
-  <xs:complexType name="clsTarifario">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id_Tarifario" type="xs:int" />
-      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Periodo" type="xs:unsignedByte" />
-      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Valor" type="xs:decimal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="clsTarifario" nillable="true" type="tns:clsTarifario" />
 </xs:schema>
