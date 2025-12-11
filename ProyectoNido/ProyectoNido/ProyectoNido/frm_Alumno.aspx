@@ -228,9 +228,9 @@
                             CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-exito btn-sm" />
                         <asp:Button ID="btnVerCopiaDni" runat="server" Text="Ver Copia Dni" CommandName="CopiaDni"
                             CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-exito btn-sm" />
-                        <asp:Button ID="btnVerPermisoPublicidad" runat="server" Text="Ver Permiso" CommandName="PermisoPublicidad"
+                        <asp:Button ID="btnVerPermisoPublicidad" runat="server" Text="Ver Permiso" CommandName="Permiso"
                             CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-exito btn-sm" />
-                        <asp:Button ID="btnVerCarnetSeguro" runat="server" Text="Ver Carnet" CommandName="CarnetSeguro"
+                        <asp:Button ID="btnVerCarnetSeguro" runat="server" Text="Ver Carnet" CommandName="Carnet"
                             CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-exito btn-sm" />
                     </ItemTemplate>
                 </asp:TemplateField>
