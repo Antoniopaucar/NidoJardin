@@ -47,6 +47,7 @@
     <Compile Include="clsDacApoderado.cs" />
     <Compile Include="clsDacArchivoBase.cs" />
     <Compile Include="clsDacComunicado.cs" />
+    <Compile Include="clsDacCuota.cs" />
     <Compile Include="clsDacDistrito.cs" />
     <Compile Include="clsDacError.cs" />
     <Compile Include="clsDACGrupoServicio.cs" />

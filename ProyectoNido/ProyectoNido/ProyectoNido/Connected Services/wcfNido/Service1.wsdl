@@ -45,6 +45,30 @@
   <wsdl:message name="IService1_listar_tarifario_combo_OutputMessage">
     <wsdl:part name="parameters" element="tns:listar_tarifario_comboResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetTarifario_1_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTarifario_1" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTarifario_1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTarifario_1Response" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertarTarifario_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarTarifario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertarTarifario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarTarifarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ActualizarTarifario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarTarifario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ActualizarTarifario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarTarifarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarTarifario_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarTarifario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarTarifario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarTarifarioResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetServicioAdicional_InputMessage">
     <wsdl:part name="parameters" element="tns:GetServicioAdicional" />
   </wsdl:message>
@@ -128,6 +152,30 @@
   </wsdl:message>
   <wsdl:message name="IService1_ObtenerRolesPorIds_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerRolesPorIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCuota_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCuota" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCuota_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCuotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertarCuota_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarCuota" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertarCuota_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarCuotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ActualizarCuota_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarCuota" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ActualizarCuota_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarCuotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarCuota_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarCuota" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarCuota_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarCuotaResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetData_InputMessage">
     <wsdl:part name="parameters" element="tns:GetData" />
@@ -664,6 +712,22 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/listar_tarifario_combo" message="tns:IService1_listar_tarifario_combo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/listar_tarifario_comboResponse" message="tns:IService1_listar_tarifario_combo_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetTarifario_1">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTarifario_1" message="tns:IService1_GetTarifario_1_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTarifario_1Response" message="tns:IService1_GetTarifario_1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarTarifario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertarTarifario" message="tns:IService1_InsertarTarifario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertarTarifarioResponse" message="tns:IService1_InsertarTarifario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarTarifario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ActualizarTarifario" message="tns:IService1_ActualizarTarifario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ActualizarTarifarioResponse" message="tns:IService1_ActualizarTarifario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTarifario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EliminarTarifario" message="tns:IService1_EliminarTarifario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EliminarTarifarioResponse" message="tns:IService1_EliminarTarifario_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetServicioAdicional">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetServicioAdicional" message="tns:IService1_GetServicioAdicional_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetServicioAdicionalResponse" message="tns:IService1_GetServicioAdicional_OutputMessage" />
@@ -719,6 +783,22 @@
     <wsdl:operation name="ObtenerRolesPorIds">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ObtenerRolesPorIds" message="tns:IService1_ObtenerRolesPorIds_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ObtenerRolesPorIdsResponse" message="tns:IService1_ObtenerRolesPorIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCuota">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCuota" message="tns:IService1_GetCuota_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCuotaResponse" message="tns:IService1_GetCuota_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarCuota">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertarCuota" message="tns:IService1_InsertarCuota_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertarCuotaResponse" message="tns:IService1_InsertarCuota_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCuota">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ActualizarCuota" message="tns:IService1_ActualizarCuota_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ActualizarCuotaResponse" message="tns:IService1_ActualizarCuota_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCuota">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EliminarCuota" message="tns:IService1_EliminarCuota_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EliminarCuotaResponse" message="tns:IService1_EliminarCuota_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -1117,6 +1197,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetTarifario_1">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTarifario_1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarTarifario">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertarTarifario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarTarifario">
+      <soap:operation soapAction="http://tempuri.org/IService1/ActualizarTarifario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarTarifario">
+      <soap:operation soapAction="http://tempuri.org/IService1/EliminarTarifario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetServicioAdicional">
       <soap:operation soapAction="http://tempuri.org/IService1/GetServicioAdicional" style="document" />
       <wsdl:input>
@@ -1236,6 +1352,42 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerRolesPorIds">
       <soap:operation soapAction="http://tempuri.org/IService1/ObtenerRolesPorIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCuota">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCuota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarCuota">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertarCuota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCuota">
+      <soap:operation soapAction="http://tempuri.org/IService1/ActualizarCuota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCuota">
+      <soap:operation soapAction="http://tempuri.org/IService1/EliminarCuota" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

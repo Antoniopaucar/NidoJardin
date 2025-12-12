@@ -311,6 +311,18 @@ namespace WcfNido
         [OperationContract]
         List<clsEntidades.clsTarifario> listar_tarifario_combo();
 
+        [OperationContract]
+        List<clsTarifario> GetTarifario_1();
+
+        [OperationContract]
+        bool InsertarTarifario(clsTarifario obj);
+
+        [OperationContract]
+        bool ActualizarTarifario(clsTarifario obj);
+
+        [OperationContract]
+        bool EliminarTarifario(int id);
+
         //------------------------ SERVICIO ADICIONAL ----------------------------------------------
 
         [OperationContract]
@@ -360,6 +372,20 @@ namespace WcfNido
         //------------------------ OBTENER ROLES POR IDs -------------------------------------
         [OperationContract]
         List<clsRol> ObtenerRolesPorIds(int[] idsRoles);
+
+
+        //------------------------ Cuota ----------------------------------------------
+        [OperationContract]
+        List<clsCuota> GetCuota(int? idTarifario);   // si envías null, trae todo
+
+        [OperationContract]
+        bool InsertarCuota(clsCuota obj);
+
+        [OperationContract]
+        bool ActualizarCuota(clsCuota obj);
+
+        [OperationContract]
+        bool EliminarCuota(int idCuota);
 
     }
 

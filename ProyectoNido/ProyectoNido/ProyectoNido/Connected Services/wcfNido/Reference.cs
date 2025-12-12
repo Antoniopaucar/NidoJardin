@@ -285,7 +285,7 @@ namespace ProyectoNido.wcfNido {
         private string NombreField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte PeriodoField;
+        private int PeriodoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TipoField;
@@ -343,7 +343,7 @@ namespace ProyectoNido.wcfNido {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte Periodo {
+        public int Periodo {
             get {
                 return this.PeriodoField;
             }
@@ -877,6 +877,163 @@ namespace ProyectoNido.wcfNido {
                 if ((object.ReferenceEquals(this.NombreRolField, value) != true)) {
                     this.NombreRolField = value;
                     this.RaisePropertyChanged("NombreRol");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsCuota", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsCuota : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> AdicionalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> DescuentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaPagoSugeridoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_CuotaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_TarifarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> MontoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreCuotaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NroCuotaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Adicional {
+            get {
+                return this.AdicionalField;
+            }
+            set {
+                if ((this.AdicionalField.Equals(value) != true)) {
+                    this.AdicionalField = value;
+                    this.RaisePropertyChanged("Adicional");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Descuento {
+            get {
+                return this.DescuentoField;
+            }
+            set {
+                if ((this.DescuentoField.Equals(value) != true)) {
+                    this.DescuentoField = value;
+                    this.RaisePropertyChanged("Descuento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaPagoSugerido {
+            get {
+                return this.FechaPagoSugeridoField;
+            }
+            set {
+                if ((this.FechaPagoSugeridoField.Equals(value) != true)) {
+                    this.FechaPagoSugeridoField = value;
+                    this.RaisePropertyChanged("FechaPagoSugerido");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Cuota {
+            get {
+                return this.Id_CuotaField;
+            }
+            set {
+                if ((this.Id_CuotaField.Equals(value) != true)) {
+                    this.Id_CuotaField = value;
+                    this.RaisePropertyChanged("Id_Cuota");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Tarifario {
+            get {
+                return this.Id_TarifarioField;
+            }
+            set {
+                if ((this.Id_TarifarioField.Equals(value) != true)) {
+                    this.Id_TarifarioField = value;
+                    this.RaisePropertyChanged("Id_Tarifario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Monto {
+            get {
+                return this.MontoField;
+            }
+            set {
+                if ((this.MontoField.Equals(value) != true)) {
+                    this.MontoField = value;
+                    this.RaisePropertyChanged("Monto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreCuota {
+            get {
+                return this.NombreCuotaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreCuotaField, value) != true)) {
+                    this.NombreCuotaField = value;
+                    this.RaisePropertyChanged("NombreCuota");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NroCuota {
+            get {
+                return this.NroCuotaField;
+            }
+            set {
+                if ((this.NroCuotaField.Equals(value) != true)) {
+                    this.NroCuotaField = value;
+                    this.RaisePropertyChanged("NroCuota");
                 }
             }
         }
@@ -3988,6 +4145,30 @@ namespace ProyectoNido.wcfNido {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listar_tarifario_combo", ReplyAction="http://tempuri.org/IService1/listar_tarifario_comboResponse")]
         System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsTarifario[]> listar_tarifario_comboAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTarifario_1", ReplyAction="http://tempuri.org/IService1/GetTarifario_1Response")]
+        ProyectoNido.wcfNido.clsTarifario[] GetTarifario_1();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTarifario_1", ReplyAction="http://tempuri.org/IService1/GetTarifario_1Response")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsTarifario[]> GetTarifario_1Async();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertarTarifario", ReplyAction="http://tempuri.org/IService1/InsertarTarifarioResponse")]
+        bool InsertarTarifario(ProyectoNido.wcfNido.clsTarifario obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertarTarifario", ReplyAction="http://tempuri.org/IService1/InsertarTarifarioResponse")]
+        System.Threading.Tasks.Task<bool> InsertarTarifarioAsync(ProyectoNido.wcfNido.clsTarifario obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ActualizarTarifario", ReplyAction="http://tempuri.org/IService1/ActualizarTarifarioResponse")]
+        bool ActualizarTarifario(ProyectoNido.wcfNido.clsTarifario obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ActualizarTarifario", ReplyAction="http://tempuri.org/IService1/ActualizarTarifarioResponse")]
+        System.Threading.Tasks.Task<bool> ActualizarTarifarioAsync(ProyectoNido.wcfNido.clsTarifario obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarTarifario", ReplyAction="http://tempuri.org/IService1/EliminarTarifarioResponse")]
+        bool EliminarTarifario(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarTarifario", ReplyAction="http://tempuri.org/IService1/EliminarTarifarioResponse")]
+        System.Threading.Tasks.Task<bool> EliminarTarifarioAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetServicioAdicional", ReplyAction="http://tempuri.org/IService1/GetServicioAdicionalResponse")]
         ProyectoNido.wcfNido.clsServicioAdicional[] GetServicioAdicional();
         
@@ -4071,6 +4252,30 @@ namespace ProyectoNido.wcfNido {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ObtenerRolesPorIds", ReplyAction="http://tempuri.org/IService1/ObtenerRolesPorIdsResponse")]
         System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsRol[]> ObtenerRolesPorIdsAsync(int[] idsRoles);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCuota", ReplyAction="http://tempuri.org/IService1/GetCuotaResponse")]
+        ProyectoNido.wcfNido.clsCuota[] GetCuota(System.Nullable<int> idTarifario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCuota", ReplyAction="http://tempuri.org/IService1/GetCuotaResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsCuota[]> GetCuotaAsync(System.Nullable<int> idTarifario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertarCuota", ReplyAction="http://tempuri.org/IService1/InsertarCuotaResponse")]
+        bool InsertarCuota(ProyectoNido.wcfNido.clsCuota obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertarCuota", ReplyAction="http://tempuri.org/IService1/InsertarCuotaResponse")]
+        System.Threading.Tasks.Task<bool> InsertarCuotaAsync(ProyectoNido.wcfNido.clsCuota obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ActualizarCuota", ReplyAction="http://tempuri.org/IService1/ActualizarCuotaResponse")]
+        bool ActualizarCuota(ProyectoNido.wcfNido.clsCuota obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ActualizarCuota", ReplyAction="http://tempuri.org/IService1/ActualizarCuotaResponse")]
+        System.Threading.Tasks.Task<bool> ActualizarCuotaAsync(ProyectoNido.wcfNido.clsCuota obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarCuota", ReplyAction="http://tempuri.org/IService1/EliminarCuotaResponse")]
+        bool EliminarCuota(int idCuota);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarCuota", ReplyAction="http://tempuri.org/IService1/EliminarCuotaResponse")]
+        System.Threading.Tasks.Task<bool> EliminarCuotaAsync(int idCuota);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
         string GetData(int value);
@@ -4658,6 +4863,38 @@ namespace ProyectoNido.wcfNido {
             return base.Channel.listar_tarifario_comboAsync();
         }
         
+        public ProyectoNido.wcfNido.clsTarifario[] GetTarifario_1() {
+            return base.Channel.GetTarifario_1();
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsTarifario[]> GetTarifario_1Async() {
+            return base.Channel.GetTarifario_1Async();
+        }
+        
+        public bool InsertarTarifario(ProyectoNido.wcfNido.clsTarifario obj) {
+            return base.Channel.InsertarTarifario(obj);
+        }
+        
+        public System.Threading.Tasks.Task<bool> InsertarTarifarioAsync(ProyectoNido.wcfNido.clsTarifario obj) {
+            return base.Channel.InsertarTarifarioAsync(obj);
+        }
+        
+        public bool ActualizarTarifario(ProyectoNido.wcfNido.clsTarifario obj) {
+            return base.Channel.ActualizarTarifario(obj);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ActualizarTarifarioAsync(ProyectoNido.wcfNido.clsTarifario obj) {
+            return base.Channel.ActualizarTarifarioAsync(obj);
+        }
+        
+        public bool EliminarTarifario(int id) {
+            return base.Channel.EliminarTarifario(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EliminarTarifarioAsync(int id) {
+            return base.Channel.EliminarTarifarioAsync(id);
+        }
+        
         public ProyectoNido.wcfNido.clsServicioAdicional[] GetServicioAdicional() {
             return base.Channel.GetServicioAdicional();
         }
@@ -4768,6 +5005,38 @@ namespace ProyectoNido.wcfNido {
         
         public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsRol[]> ObtenerRolesPorIdsAsync(int[] idsRoles) {
             return base.Channel.ObtenerRolesPorIdsAsync(idsRoles);
+        }
+        
+        public ProyectoNido.wcfNido.clsCuota[] GetCuota(System.Nullable<int> idTarifario) {
+            return base.Channel.GetCuota(idTarifario);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsCuota[]> GetCuotaAsync(System.Nullable<int> idTarifario) {
+            return base.Channel.GetCuotaAsync(idTarifario);
+        }
+        
+        public bool InsertarCuota(ProyectoNido.wcfNido.clsCuota obj) {
+            return base.Channel.InsertarCuota(obj);
+        }
+        
+        public System.Threading.Tasks.Task<bool> InsertarCuotaAsync(ProyectoNido.wcfNido.clsCuota obj) {
+            return base.Channel.InsertarCuotaAsync(obj);
+        }
+        
+        public bool ActualizarCuota(ProyectoNido.wcfNido.clsCuota obj) {
+            return base.Channel.ActualizarCuota(obj);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ActualizarCuotaAsync(ProyectoNido.wcfNido.clsCuota obj) {
+            return base.Channel.ActualizarCuotaAsync(obj);
+        }
+        
+        public bool EliminarCuota(int idCuota) {
+            return base.Channel.EliminarCuota(idCuota);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EliminarCuotaAsync(int idCuota) {
+            return base.Channel.EliminarCuotaAsync(idCuota);
         }
         
         public string GetData(int value) {

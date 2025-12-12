@@ -45,6 +45,7 @@
     <Compile Include="clsBLAlumno.cs" />
     <Compile Include="clsBLApoderado.cs" />
     <Compile Include="clsBLComunicado.cs" />
+    <Compile Include="clsBLCuota.cs" />
     <Compile Include="clsBLDistrito.cs" />
     <Compile Include="clsBLError.cs" />
     <Compile Include="clsBLGrupoServicio.cs" />

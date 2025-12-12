@@ -45,6 +45,7 @@
     <Compile Include="clsApoderado.cs" />
     <Compile Include="clsArchivoBase.cs" />
     <Compile Include="clsComunicado.cs" />
+    <Compile Include="clsCuota.cs" />
     <Compile Include="clsDistrito.cs" />
     <Compile Include="clsError.cs" />
     <Compile Include="clsGrupoAnual.cs" />

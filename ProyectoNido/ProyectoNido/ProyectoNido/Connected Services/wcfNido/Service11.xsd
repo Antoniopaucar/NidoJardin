@@ -31,7 +31,7 @@
       <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id_Tarifario" type="xs:int" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Periodo" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Periodo" type="xs:int" />
       <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Valor" type="xs:decimal" />
     </xs:sequence>
@@ -105,6 +105,25 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsRol" nillable="true" type="tns:clsRol" />
+  <xs:complexType name="ArrayOfclsCuota">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsCuota" nillable="true" type="tns:clsCuota" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsCuota" nillable="true" type="tns:ArrayOfclsCuota" />
+  <xs:complexType name="clsCuota">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adicional" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Descuento" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FechaPagoSugerido" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id_Cuota" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Tarifario" type="xs:int" />
+      <xs:element minOccurs="0" name="Monto" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NombreCuota" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NroCuota" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsCuota" nillable="true" type="tns:clsCuota" />
   <xs:complexType name="clsLogin">
     <xs:sequence>
       <xs:element minOccurs="0" name="Exito" type="xs:boolean" />

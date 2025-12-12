@@ -927,6 +927,33 @@ namespace WcfNido
             return bl.listar_tarifario_combo();
         }
 
+        // ===== TARIFARIO =====
+        public List<clsTarifario> GetTarifario_1()
+        {
+            clsBL.clsBLTarifario xbl = new clsBL.clsBLTarifario();
+            return xbl.listar_tarifario_1();
+        }
+
+        public bool InsertarTarifario(clsTarifario obj)
+        {
+            clsBL.clsBLTarifario xbl = new clsBL.clsBLTarifario();
+            return xbl.insertar_tarifario(obj);
+        }
+
+        public bool ActualizarTarifario(clsTarifario obj)
+        {
+            clsBL.clsBLTarifario xbl = new clsBL.clsBLTarifario();
+            return xbl.actualizar_tarifario(obj);
+        }
+
+        public bool EliminarTarifario(int id)
+        {
+            clsBL.clsBLTarifario xbl = new clsBL.clsBLTarifario();
+            return xbl.eliminar_tarifario(id);
+        }
+
+
+
         //-------------------------------- SERVICIO ADICIONAL ---------------------------------------
 
         public List<clsServicioAdicional> GetServicioAdicional()
@@ -1160,6 +1187,30 @@ namespace WcfNido
             {
                 throw new FaultException(ex.Message);
             }
+        }
+
+        public List<clsCuota> GetCuota(int? idTarifario)
+        {
+            clsBL.clsBLCuota xbl = new clsBL.clsBLCuota();
+            return xbl.listar_Cuota(idTarifario);
+        }
+
+        public bool InsertarCuota(clsCuota obj)
+        {
+            clsBL.clsBLCuota xbl = new clsBL.clsBLCuota();
+            return xbl.insertar_Cuota(obj);
+        }
+
+        public bool ActualizarCuota(clsCuota obj)
+        {
+            clsBL.clsBLCuota xbl = new clsBL.clsBLCuota();
+            return xbl.actualizar_Cuota(obj);
+        }
+
+        public bool EliminarCuota(int idCuota)
+        {
+            clsBL.clsBLCuota xbl = new clsBL.clsBLCuota();
+            return xbl.eliminar_Cuota(idCuota);
         }
 
 

@@ -11,10 +11,7 @@ namespace clsDAC
 {
     public class clsDacMatricula
     {
-        // ======================================
         //  1) LISTA RESUMEN PARA LA GRILLA
-        //     Usa Nido_Matricula_Listar
-        // ======================================
         public List<clsEntidades.clsMatricula> Nido_Matricula_Listar(char? estado = null)
         {
             var lista = new List<clsEntidades.clsMatricula>();
@@ -55,10 +52,8 @@ namespace clsDAC
             return lista;
         }
 
-        // ======================================
+
         //  2) LISTAR CON FILTROS (para consultas)
-        //     Usa Matricula_Listar
-        // ======================================
         public List<clsEntidades.clsMatricula> Matricula_Listar(
             int? idMatricula = null,
             int? idAlumno = null,
@@ -117,10 +112,7 @@ namespace clsDAC
             return lista;
         }
 
-        // ======================================
         //  3) OBTENER UNA MATRÍCULA POR ID
-        //     (usa Matricula_Listar internamente)
-        // ======================================
         public clsEntidades.clsMatricula Matricula_Obtener(int idMatricula)
         {
             var lista = Matricula_Listar(idMatricula, null, null, null);
@@ -129,11 +121,8 @@ namespace clsDAC
             return null;
         }
 
-        // ======================================
         //  4) INSERTAR MATRÍCULA
-        //     Usa Matricula_Insertar
-        //     Devuelve el Id generado
-        // ======================================
+
         public int Matricula_Insertar(clsEntidades.clsMatricula mat)
         {
             int idGenerado = 0;
@@ -176,10 +165,7 @@ namespace clsDAC
             return idGenerado;
         }
 
-        // ======================================
-        //  5) ACTUALIZAR MATRÍCULA
-        //     Usa Matricula_Actualizar
-        // ======================================
+        //ACTUALIZAR MATRÍCULA
         public bool Matricula_Actualizar(clsEntidades.clsMatricula mat)
         {
             int filas = 0;
