@@ -335,6 +335,14 @@ namespace clsDAC
                                     Activo = dr["Activo"] != DBNull.Value ? Convert.ToBoolean(dr["Activo"]) : true
                                 };
                                 
+                                // Inicializar y mapear TipoDocumento
+                                alumno.TipoDocumento = new clsTipoDocumento();
+                                if (dr["Id_TipoDocumento"] != DBNull.Value)
+                                {
+                                    alumno.TipoDocumento.Id = Convert.ToInt32(dr["Id_TipoDocumento"]);
+                                    alumno.TipoDocumento.Nombre = dr["NombreTipoDocumento"] != DBNull.Value ? dr["NombreTipoDocumento"].ToString() : string.Empty;
+                                }
+                                
                                 // Construir nombre completo
                                 alumno.NombreCompleto = $"{alumno.Nombres} {alumno.ApellidoPaterno} {alumno.ApellidoMaterno}".Trim();
                                 

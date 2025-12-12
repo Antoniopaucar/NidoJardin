@@ -1096,6 +1096,32 @@ namespace WcfNido
             }
         }
 
+        public List<clsComunicado> GetComunicadoPorRolUsuarioProfesor(int idUsuario)
+        {
+            try
+            {
+                clsBL.clsBLComunicado xbl = new clsBL.clsBLComunicado();
+                return xbl.listar_comunicados_por_rol_usuario_profesor(idUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public List<clsComunicado> GetComunicadoPorRolUsuarioApoderado(int idUsuario)
+        {
+            try
+            {
+                clsBL.clsBLComunicado xbl = new clsBL.clsBLComunicado();
+                return xbl.listar_comunicados_por_rol_usuario_apoderado(idUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
         List<clsGrupoAnualDetalle> IService1.ListarGruposPorDocente(int idUsuario)
         {
             try

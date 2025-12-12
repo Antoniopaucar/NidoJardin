@@ -62,8 +62,8 @@ namespace ProyectoNido
                 int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
                 wcfNido.Service1Client servicio = new wcfNido.Service1Client();
                 
-                // Usar el nuevo método que filtra por rol del usuario
-                var listaComunicados = servicio.GetComunicadoPorRolUsuario(idUsuario);
+                // Usar el método específico para profesores que usa el SP listar_comunicados_por_rol_usuario_Profesor
+                var listaComunicados = servicio.GetComunicadoPorRolUsuarioProfesor(idUsuario);
                 
                 if (listaComunicados != null && listaComunicados.Any())
                 {

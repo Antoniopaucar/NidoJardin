@@ -33,6 +33,33 @@ namespace ProyectoNido
         protected global::System.Web.UI.WebControls.Repeater rptHijos;
 
         /// <summary>
+        /// Control ScriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// Control pnlSinHijoSeleccionado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSinHijoSeleccionado;
+
+        /// <summary>
+        /// Control pnlFormularioHijo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlFormularioHijo;
+
+        /// <summary>
         /// Control Label2.
         /// </summary>
         /// <remarks>
@@ -58,24 +85,6 @@ namespace ProyectoNido
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_IdAlumno;
-
-        /// <summary>
-        /// Control Label4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-
-        /// <summary>
-        /// Control Ddl_Apoderado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Ddl_Apoderado;
 
         /// <summary>
         /// Control Label5.
@@ -231,6 +240,24 @@ namespace ProyectoNido
         protected global::System.Web.UI.WebControls.FileUpload fup_Fotos;
 
         /// <summary>
+        /// Control lnk_Fotos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_Fotos;
+
+        /// <summary>
+        /// Control lbl_Fotos_Msg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Fotos_Msg;
+
+        /// <summary>
         /// Control Label10.
         /// </summary>
         /// <remarks>
@@ -256,6 +283,24 @@ namespace ProyectoNido
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fup_Copia_Dni;
+
+        /// <summary>
+        /// Control lnk_Copia_Dni.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_Copia_Dni;
+
+        /// <summary>
+        /// Control lbl_Copia_Dni_Msg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Copia_Dni_Msg;
 
         /// <summary>
         /// Control Label12.
@@ -285,6 +330,24 @@ namespace ProyectoNido
         protected global::System.Web.UI.WebControls.FileUpload fup_Permiso_Publicidad;
 
         /// <summary>
+        /// Control lnk_Permiso_Publicidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_Permiso_Publicidad;
+
+        /// <summary>
+        /// Control lbl_Permiso_Publicidad_Msg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Permiso_Publicidad_Msg;
+
+        /// <summary>
         /// Control Label14.
         /// </summary>
         /// <remarks>
@@ -312,6 +375,24 @@ namespace ProyectoNido
         protected global::System.Web.UI.WebControls.FileUpload fup_Carnet_Seguro;
 
         /// <summary>
+        /// Control lnk_Carnet_Seguro.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk_Carnet_Seguro;
+
+        /// <summary>
+        /// Control lbl_Carnet_Seguro_Msg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Carnet_Seguro_Msg;
+
+        /// <summary>
         /// Control Label18.
         /// </summary>
         /// <remarks>
@@ -321,15 +402,6 @@ namespace ProyectoNido
         protected global::System.Web.UI.WebControls.Label Label18;
 
         /// <summary>
-        /// Control btn_Agregar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Agregar;
-
-        /// <summary>
         /// Control btn_Modificar.
         /// </summary>
         /// <remarks>
@@ -337,41 +409,5 @@ namespace ProyectoNido
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Modificar;
-
-        /// <summary>
-        /// Control btn_Eliminar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Eliminar;
-
-        /// <summary>
-        /// Control ScriptManager1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-
-        /// <summary>
-        /// Control pnlSinHijoSeleccionado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSinHijoSeleccionado;
-
-        /// <summary>
-        /// Control pnlFormularioHijo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlFormularioHijo;
     }
 }

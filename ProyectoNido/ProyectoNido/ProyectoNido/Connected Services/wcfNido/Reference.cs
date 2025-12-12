@@ -4109,6 +4109,18 @@ namespace ProyectoNido.wcfNido {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wcfNido.IService1")]
     public interface IService1 {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_Obtener", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_ObtenerResponse")]
+        ProyectoNido.wcfNido.clsMatriculaDetalle MatriculaDetalle_Obtener(int idMatriculaDetalle);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_Obtener", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_ObtenerResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatriculaDetalle> MatriculaDetalle_ObtenerAsync(int idMatriculaDetalle);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_Insertar", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_InsertarResponse")]
+        int MatriculaDetalle_Insertar(ProyectoNido.wcfNido.clsMatriculaDetalle det);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_Insertar", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_InsertarResponse")]
+        System.Threading.Tasks.Task<int> MatriculaDetalle_InsertarAsync(ProyectoNido.wcfNido.clsMatriculaDetalle det);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_Actualizar", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_ActualizarResponse")]
         void MatriculaDetalle_Actualizar(ProyectoNido.wcfNido.clsMatriculaDetalle det);
         
@@ -4354,6 +4366,18 @@ namespace ProyectoNido.wcfNido {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuario", ReplyAction="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioResponse")]
         System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsComunicado[]> GetComunicadoPorRolUsuarioAsync(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioProfesor", ReplyAction="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioProfesorResponse")]
+        ProyectoNido.wcfNido.clsComunicado[] GetComunicadoPorRolUsuarioProfesor(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioProfesor", ReplyAction="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioProfesorResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsComunicado[]> GetComunicadoPorRolUsuarioProfesorAsync(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioApoderado", ReplyAction="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioApoderadoResponse")]
+        ProyectoNido.wcfNido.clsComunicado[] GetComunicadoPorRolUsuarioApoderado(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioApoderado", ReplyAction="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioApoderadoResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsComunicado[]> GetComunicadoPorRolUsuarioApoderadoAsync(int idUsuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDistrito", ReplyAction="http://tempuri.org/IService1/GetDistritoResponse")]
         ProyectoNido.wcfNido.clsDistrito[] GetDistrito();
@@ -4774,18 +4798,6 @@ namespace ProyectoNido.wcfNido {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatricula", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatriculaResponse")]
         System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatriculaDetalle[]> MatriculaDetalle_ListarPorMatriculaAsync(int idMatricula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_Obtener", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_ObtenerResponse")]
-        ProyectoNido.wcfNido.clsMatriculaDetalle MatriculaDetalle_Obtener(int idMatriculaDetalle);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_Obtener", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_ObtenerResponse")]
-        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatriculaDetalle> MatriculaDetalle_ObtenerAsync(int idMatriculaDetalle);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_Insertar", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_InsertarResponse")]
-        int MatriculaDetalle_Insertar(ProyectoNido.wcfNido.clsMatriculaDetalle det);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_Insertar", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_InsertarResponse")]
-        System.Threading.Tasks.Task<int> MatriculaDetalle_InsertarAsync(ProyectoNido.wcfNido.clsMatriculaDetalle det);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -4813,6 +4825,22 @@ namespace ProyectoNido.wcfNido {
         
         public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public ProyectoNido.wcfNido.clsMatriculaDetalle MatriculaDetalle_Obtener(int idMatriculaDetalle) {
+            return base.Channel.MatriculaDetalle_Obtener(idMatriculaDetalle);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatriculaDetalle> MatriculaDetalle_ObtenerAsync(int idMatriculaDetalle) {
+            return base.Channel.MatriculaDetalle_ObtenerAsync(idMatriculaDetalle);
+        }
+        
+        public int MatriculaDetalle_Insertar(ProyectoNido.wcfNido.clsMatriculaDetalle det) {
+            return base.Channel.MatriculaDetalle_Insertar(det);
+        }
+        
+        public System.Threading.Tasks.Task<int> MatriculaDetalle_InsertarAsync(ProyectoNido.wcfNido.clsMatriculaDetalle det) {
+            return base.Channel.MatriculaDetalle_InsertarAsync(det);
         }
         
         public void MatriculaDetalle_Actualizar(ProyectoNido.wcfNido.clsMatriculaDetalle det) {
@@ -5141,6 +5169,22 @@ namespace ProyectoNido.wcfNido {
         
         public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsComunicado[]> GetComunicadoPorRolUsuarioAsync(int idUsuario) {
             return base.Channel.GetComunicadoPorRolUsuarioAsync(idUsuario);
+        }
+        
+        public ProyectoNido.wcfNido.clsComunicado[] GetComunicadoPorRolUsuarioProfesor(int idUsuario) {
+            return base.Channel.GetComunicadoPorRolUsuarioProfesor(idUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsComunicado[]> GetComunicadoPorRolUsuarioProfesorAsync(int idUsuario) {
+            return base.Channel.GetComunicadoPorRolUsuarioProfesorAsync(idUsuario);
+        }
+        
+        public ProyectoNido.wcfNido.clsComunicado[] GetComunicadoPorRolUsuarioApoderado(int idUsuario) {
+            return base.Channel.GetComunicadoPorRolUsuarioApoderado(idUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsComunicado[]> GetComunicadoPorRolUsuarioApoderadoAsync(int idUsuario) {
+            return base.Channel.GetComunicadoPorRolUsuarioApoderadoAsync(idUsuario);
         }
         
         public ProyectoNido.wcfNido.clsDistrito[] GetDistrito() {
@@ -5701,22 +5745,6 @@ namespace ProyectoNido.wcfNido {
         
         public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatriculaDetalle[]> MatriculaDetalle_ListarPorMatriculaAsync(int idMatricula) {
             return base.Channel.MatriculaDetalle_ListarPorMatriculaAsync(idMatricula);
-        }
-        
-        public ProyectoNido.wcfNido.clsMatriculaDetalle MatriculaDetalle_Obtener(int idMatriculaDetalle) {
-            return base.Channel.MatriculaDetalle_Obtener(idMatriculaDetalle);
-        }
-        
-        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatriculaDetalle> MatriculaDetalle_ObtenerAsync(int idMatriculaDetalle) {
-            return base.Channel.MatriculaDetalle_ObtenerAsync(idMatriculaDetalle);
-        }
-        
-        public int MatriculaDetalle_Insertar(ProyectoNido.wcfNido.clsMatriculaDetalle det) {
-            return base.Channel.MatriculaDetalle_Insertar(det);
-        }
-        
-        public System.Threading.Tasks.Task<int> MatriculaDetalle_InsertarAsync(ProyectoNido.wcfNido.clsMatriculaDetalle det) {
-            return base.Channel.MatriculaDetalle_InsertarAsync(det);
         }
     }
 }

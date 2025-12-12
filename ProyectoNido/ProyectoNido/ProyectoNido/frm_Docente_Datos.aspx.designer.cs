@@ -306,7 +306,8 @@ namespace ProyectoNido
         /// Control lnk_Titulo_Profesional.
         /// </summary>
         /// <remarks>
-        /// Campo generado manualmente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_Titulo_Profesional;
 
@@ -314,7 +315,8 @@ namespace ProyectoNido
         /// Control lbl_Titulo_Profesional_Msg.
         /// </summary>
         /// <remarks>
-        /// Campo generado manualmente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Titulo_Profesional_Msg;
 
@@ -349,7 +351,8 @@ namespace ProyectoNido
         /// Control lnk_Cv.
         /// </summary>
         /// <remarks>
-        /// Campo generado manualmente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_Cv;
 
@@ -357,7 +360,8 @@ namespace ProyectoNido
         /// Control lbl_Cv_Msg.
         /// </summary>
         /// <remarks>
-        /// Campo generado manualmente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Cv_Msg;
 
@@ -392,7 +396,8 @@ namespace ProyectoNido
         /// Control lnk_Evaluacion_Psicologica.
         /// </summary>
         /// <remarks>
-        /// Campo generado manualmente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_Evaluacion_Psicologica;
 
@@ -400,7 +405,8 @@ namespace ProyectoNido
         /// Control lbl_Evaluacion_Psicologica_Msg.
         /// </summary>
         /// <remarks>
-        /// Campo generado manualmente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Evaluacion_Psicologica_Msg;
 
@@ -435,7 +441,8 @@ namespace ProyectoNido
         /// Control lnk_Fotos.
         /// </summary>
         /// <remarks>
-        /// Campo generado manualmente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_Fotos;
 
@@ -443,7 +450,8 @@ namespace ProyectoNido
         /// Control lbl_Fotos_Msg.
         /// </summary>
         /// <remarks>
-        /// Campo generado manualmente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Fotos_Msg;
 
@@ -478,7 +486,8 @@ namespace ProyectoNido
         /// Control lnk_Verificacion_Domiciliaria.
         /// </summary>
         /// <remarks>
-        /// Campo generado manualmente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_Verificacion_Domiciliaria;
 
@@ -486,7 +495,8 @@ namespace ProyectoNido
         /// Control lbl_Verificacion_Domiciliaria_Msg.
         /// </summary>
         /// <remarks>
-        /// Campo generado manualmente.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Verificacion_Domiciliaria_Msg;
 
@@ -507,14 +517,5 @@ namespace ProyectoNido
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Modificar;
-
-        /// <summary>
-        /// Control btn_Limpiar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Limpiar;
     }
 }

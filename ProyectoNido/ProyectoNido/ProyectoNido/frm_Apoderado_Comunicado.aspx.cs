@@ -83,8 +83,7 @@ namespace ProyectoNido
         }
 
         /// <summary>
-        /// Carga la lista de comunicados dirigidos a los roles del usuario
-        /// REUTILIZA el mismo método que usa el docente
+        /// Carga la lista de comunicados dirigidos específicamente al rol APODERADO
         /// </summary>
         private void CargarListaComunicados()
         {
@@ -93,9 +92,8 @@ namespace ProyectoNido
                 int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
                 wcfNido.Service1Client servicio = new wcfNido.Service1Client();
                 
-                // REUTILIZA: Usar el mismo método que filtra por rol del usuario
-                // Funciona para apoderado porque también tiene roles asignados
-                var listaComunicados = servicio.GetComunicadoPorRolUsuario(idUsuario);
+                // Usar el método específico para apoderados que usa el SP listar_comunicados_por_rol_usuario_Apoderado
+                var listaComunicados = servicio.GetComunicadoPorRolUsuarioApoderado(idUsuario);
                 
                 if (listaComunicados != null && listaComunicados.Any())
                 {

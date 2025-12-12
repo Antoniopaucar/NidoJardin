@@ -167,6 +167,9 @@ namespace ProyectoNido
                     
                     chb_Activo.Checked = hijo.Activo;
                     
+                    // Actualizar estado de documentos (mostrar si existen o mensaje de carga)
+                    ActualizarEstadoDocumentos(idAlumno);
+                    
                     // Mostrar formulario y ocultar mensaje
                     pnlSinHijoSeleccionado.Visible = false;
                     pnlFormularioHijo.Visible = true;
@@ -310,7 +313,7 @@ namespace ProyectoNido
                     true
                 );
 
-                // Recargar datos
+                // Recargar datos (incluye actualizar estado de documentos)
                 CargarDatosHijo(alumno.Id);
             }
             catch (System.ServiceModel.FaultException fex)
@@ -371,6 +374,125 @@ namespace ProyectoNido
         protected void Ddl_Tipo_Documento_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Aquí se pueden agregar validaciones según el tipo de documento seleccionado
+        }
+
+        /// <summary>
+        /// Verifica si un documento existe en la BD consultando directamente el archivo
+        /// </summary>
+        private bool VerificarDocumentoExisteEnBD(int idAlumno, string tipoArchivo)
+        {
+            try
+            {
+                wcfNido.Service1Client xdb = new wcfNido.Service1Client();
+                clsArchivoBase archivo = xdb.RetArchivoAlumno(idAlumno, tipoArchivo);
+                
+                // El documento existe si tiene tamaño mayor a 0
+                return archivo != null && archivo.TamanioBytes > 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Actualiza la visibilidad de los controles de documentos según si existen en la BD
+        /// Muestra "Descargar" si existe, "Cargar documento" si no existe
+        /// </summary>
+        private void ActualizarEstadoDocumentos(int idAlumno)
+        {
+            // Fotos
+            bool existeFotos = VerificarDocumentoExisteEnBD(idAlumno, "Fotos");
+            lnk_Fotos.Visible = existeFotos;
+            lnk_Fotos.Text = "Descargar";
+            lbl_Fotos_Msg.Visible = !existeFotos;
+            lbl_Fotos_Msg.Text = "Cargar documento";
+
+            // Copia DNI
+            bool existeCopiaDni = VerificarDocumentoExisteEnBD(idAlumno, "CopiaDni");
+            lnk_Copia_Dni.Visible = existeCopiaDni;
+            lnk_Copia_Dni.Text = "Descargar";
+            lbl_Copia_Dni_Msg.Visible = !existeCopiaDni;
+            lbl_Copia_Dni_Msg.Text = "Cargar documento";
+
+            // Permiso Publicidad
+            bool existePermiso = VerificarDocumentoExisteEnBD(idAlumno, "Permiso");
+            lnk_Permiso_Publicidad.Visible = existePermiso;
+            lnk_Permiso_Publicidad.Text = "Descargar";
+            lbl_Permiso_Publicidad_Msg.Visible = !existePermiso;
+            lbl_Permiso_Publicidad_Msg.Text = "Cargar documento";
+
+            // Carnet Seguro
+            bool existeCarnet = VerificarDocumentoExisteEnBD(idAlumno, "Carnet");
+            lnk_Carnet_Seguro.Visible = existeCarnet;
+            lnk_Carnet_Seguro.Text = "Descargar";
+            lbl_Carnet_Seguro_Msg.Visible = !existeCarnet;
+            lbl_Carnet_Seguro_Msg.Text = "Cargar documento";
+        }
+
+        /// <summary>
+        /// Maneja la descarga de archivos del alumno
+        /// </summary>
+        public void DescargarArchivo_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            string tipoArchivo = btn.CommandArgument;
+            
+            if (Session["IdAlumnoSeleccionado"] == null)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "sinSeleccion", 
+                    "alert('Debe seleccionar un hijo primero.');", true);
+                return;
+            }
+
+            int idAlumno = Convert.ToInt32(Session["IdAlumnoSeleccionado"]);
+            wcfNido.Service1Client xdb = new wcfNido.Service1Client();
+
+            try
+            {
+                // Enviar el archivo al navegador
+                clsArchivoBase xAb = xdb.RetArchivoAlumno(idAlumno, tipoArchivo);
+
+                if (xAb != null && xAb.TamanioBytes > 0)
+                {
+                    Response.Clear();
+                    Response.ContentType = "application/octet-stream"; // Default
+                    
+                    // Ajustar ContentType según la extensión
+                    string extension = System.IO.Path.GetExtension(xAb.NombreArchivo).ToLower();
+                    if (extension == ".pdf") Response.ContentType = "application/pdf";
+                    else if (extension == ".jpg" || extension == ".jpeg") Response.ContentType = "image/jpeg";
+                    else if (extension == ".png") Response.ContentType = "image/png";
+                    else if (extension == ".doc" || extension == ".docx") Response.ContentType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+
+                    string headerFileName = HttpUtility.UrlPathEncode(xAb.NombreArchivo);
+                    Response.AddHeader("Content-Disposition", "attachment; filename=" + headerFileName);
+                    Response.AddHeader("Content-Length", xAb.Archivo.Length.ToString());
+                    Response.BinaryWrite(xAb.Archivo);
+                    Response.Flush();
+                    Response.End();
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('El archivo no se encontró o está vacío.');", true);
+                }
+            }
+            catch (System.ServiceModel.FaultException fex)
+            {
+                string mensaje = fex.Message.Replace("'", "\\'").Replace(Environment.NewLine, " ");
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertError", 
+                    $"alert('Error al descargar: {mensaje}');", true);
+            }
+            catch (Exception ex)
+            {
+                // Response.End() lanza ThreadAbortException, es normal
+                if (!(ex is System.Threading.ThreadAbortException))
+                {
+                    string mensaje = ex.Message.Replace("'", "\\'").Replace(Environment.NewLine, " ");
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertErrorDescarga", 
+                        $"alert('Error inesperado: {mensaje}');", true);
+                }
+            }
         }
     }
 }

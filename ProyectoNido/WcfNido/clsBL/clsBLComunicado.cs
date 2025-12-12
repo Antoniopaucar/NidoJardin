@@ -81,5 +81,25 @@ namespace clsBL
             List<clsEntidades.clsComunicado> xlistacomunicados = xcomunicados.ListarComunicadosPorRolUsuario(idUsuario);
             return xlistacomunicados;
         }
+
+        /// <summary>
+        /// Lista comunicados dirigidos específicamente al rol PROFESOR
+        /// </summary>
+        public List<clsEntidades.clsComunicado> listar_comunicados_por_rol_usuario_profesor(int idUsuario)
+        {
+            clsDAC.clsDacComunicado xcomunicados = new clsDAC.clsDacComunicado();
+            List<clsEntidades.clsComunicado> xlistacomunicados = xcomunicados.ListarComunicadosPorRolUsuarioProfesor(idUsuario);
+            return xlistacomunicados;
+        }
+
+        /// <summary>
+        /// Lista comunicados dirigidos específicamente al rol APODERADO
+        /// </summary>
+        public List<clsEntidades.clsComunicado> listar_comunicados_por_rol_usuario_apoderado(int idUsuario)
+        {
+            clsDAC.clsDacComunicado xcomunicados = new clsDAC.clsDacComunicado();
+            List<clsEntidades.clsComunicado> xlistacomunicados = xcomunicados.ListarComunicadosPorRolUsuarioApoderado(idUsuario);
+            return xlistacomunicados;
+        }
     }
 }

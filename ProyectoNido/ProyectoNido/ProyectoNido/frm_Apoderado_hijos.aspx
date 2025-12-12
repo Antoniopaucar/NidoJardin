@@ -153,7 +153,7 @@
     <tr>
         <td></td>
         <td>
-            <asp:CheckBox ID="chb_Activo" runat="server" Text="Activo"></asp:CheckBox>
+            <asp:CheckBox ID="chb_Activo" runat="server" Text="Activo" Enabled="false"></asp:CheckBox>
         </td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
@@ -164,6 +164,11 @@
         </td>
         <td colspan="3">
             <asp:FileUpload ID="fup_Fotos" runat="server" CssClass="file-upload-custom" />
+            <asp:LinkButton ID="lnk_Fotos" runat="server" Text="Descargar"
+                OnClick="DescargarArchivo_Click" CommandArgument="Fotos" Visible="false"
+                CssClass="btn btn-link" ForeColor="Green" Font-Bold="true" />
+            <asp:Label ID="lbl_Fotos_Msg" runat="server" Text="Cargar documento" ForeColor="Red"
+                Visible="false" Font-Bold="true" />
         </td>
     </tr>
     <tr>
@@ -181,6 +186,11 @@
         </td>
         <td colspan="3">
             <asp:FileUpload ID="fup_Copia_Dni" runat="server" CssClass="file-upload-custom" />
+            <asp:LinkButton ID="lnk_Copia_Dni" runat="server" Text="Descargar"
+                OnClick="DescargarArchivo_Click" CommandArgument="CopiaDni" Visible="false"
+                CssClass="btn btn-link" ForeColor="Green" Font-Bold="true" />
+            <asp:Label ID="lbl_Copia_Dni_Msg" runat="server" Text="Cargar documento" ForeColor="Red"
+                Visible="false" Font-Bold="true" />
         </td>
     </tr>
     <tr>
@@ -198,6 +208,11 @@
         </td>
         <td colspan="3">
             <asp:FileUpload ID="fup_Permiso_Publicidad" runat="server" CssClass="file-upload-custom" />
+            <asp:LinkButton ID="lnk_Permiso_Publicidad" runat="server" Text="Descargar"
+                OnClick="DescargarArchivo_Click" CommandArgument="Permiso" Visible="false"
+                CssClass="btn btn-link" ForeColor="Green" Font-Bold="true" />
+            <asp:Label ID="lbl_Permiso_Publicidad_Msg" runat="server" Text="Cargar documento" ForeColor="Red"
+                Visible="false" Font-Bold="true" />
         </td>
     </tr>
     <tr>
@@ -215,6 +230,11 @@
         </td>
         <td colspan="3">
             <asp:FileUpload ID="fup_Carnet_Seguro" runat="server" CssClass="file-upload-custom" />
+            <asp:LinkButton ID="lnk_Carnet_Seguro" runat="server" Text="Descargar"
+                OnClick="DescargarArchivo_Click" CommandArgument="Carnet" Visible="false"
+                CssClass="btn btn-link" ForeColor="Green" Font-Bold="true" />
+            <asp:Label ID="lbl_Carnet_Seguro_Msg" runat="server" Text="Cargar documento" ForeColor="Red"
+                Visible="false" Font-Bold="true" />
         </td>
     </tr>
     <tr>

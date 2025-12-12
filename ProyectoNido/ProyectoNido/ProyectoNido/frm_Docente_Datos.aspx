@@ -135,7 +135,7 @@
                     <asp:Label ID="Label17" runat="server" Text="Fecha Ingreso:"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txt_Fecha_Ingreso" runat="server" CssClass="full-width-textbox" TextMode="Date">
+                    <asp:TextBox ID="txt_Fecha_Ingreso" runat="server" CssClass="full-width-textbox" TextMode="Date" Enabled="false">
                     </asp:TextBox>
                 </td>
                 <td>&nbsp;</td>

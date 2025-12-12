@@ -9,6 +9,18 @@
       <xsd:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/WcfNido" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IService1_MatriculaDetalle_Obtener_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Obtener" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Obtener_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ObtenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Insertar_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Insertar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_Insertar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_InsertarResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_MatriculaDetalle_Actualizar_InputMessage">
     <wsdl:part name="parameters" element="tns:MatriculaDetalle_Actualizar" />
   </wsdl:message>
@@ -254,6 +266,18 @@
   </wsdl:message>
   <wsdl:message name="IService1_GetComunicadoPorRolUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetComunicadoPorRolUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetComunicadoPorRolUsuarioProfesor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComunicadoPorRolUsuarioProfesor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetComunicadoPorRolUsuarioProfesor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetComunicadoPorRolUsuarioProfesorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetComunicadoPorRolUsuarioApoderado_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComunicadoPorRolUsuarioApoderado" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetComunicadoPorRolUsuarioApoderado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetComunicadoPorRolUsuarioApoderadoResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetDistrito_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDistrito" />
@@ -675,19 +699,15 @@
   <wsdl:message name="IService1_MatriculaDetalle_ListarPorMatricula_OutputMessage">
     <wsdl:part name="parameters" element="tns:MatriculaDetalle_ListarPorMatriculaResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_MatriculaDetalle_Obtener_InputMessage">
-    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Obtener" />
-  </wsdl:message>
-  <wsdl:message name="IService1_MatriculaDetalle_Obtener_OutputMessage">
-    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ObtenerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_MatriculaDetalle_Insertar_InputMessage">
-    <wsdl:part name="parameters" element="tns:MatriculaDetalle_Insertar" />
-  </wsdl:message>
-  <wsdl:message name="IService1_MatriculaDetalle_Insertar_OutputMessage">
-    <wsdl:part name="parameters" element="tns:MatriculaDetalle_InsertarResponse" />
-  </wsdl:message>
   <wsdl:portType name="IService1">
+    <wsdl:operation name="MatriculaDetalle_Obtener">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Obtener" message="tns:IService1_MatriculaDetalle_Obtener_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ObtenerResponse" message="tns:IService1_MatriculaDetalle_Obtener_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Insertar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Insertar" message="tns:IService1_MatriculaDetalle_Insertar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_InsertarResponse" message="tns:IService1_MatriculaDetalle_Insertar_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="MatriculaDetalle_Actualizar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Actualizar" message="tns:IService1_MatriculaDetalle_Actualizar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ActualizarResponse" message="tns:IService1_MatriculaDetalle_Actualizar_OutputMessage" />
@@ -851,6 +871,14 @@
     <wsdl:operation name="GetComunicadoPorRolUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuario" message="tns:IService1_GetComunicadoPorRolUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioResponse" message="tns:IService1_GetComunicadoPorRolUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComunicadoPorRolUsuarioProfesor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioProfesor" message="tns:IService1_GetComunicadoPorRolUsuarioProfesor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioProfesorResponse" message="tns:IService1_GetComunicadoPorRolUsuarioProfesor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComunicadoPorRolUsuarioApoderado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioApoderado" message="tns:IService1_GetComunicadoPorRolUsuarioApoderado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioApoderadoResponse" message="tns:IService1_GetComunicadoPorRolUsuarioApoderado_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDistrito">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDistrito" message="tns:IService1_GetDistrito_InputMessage" />
@@ -1132,17 +1160,27 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatricula" message="tns:IService1_MatriculaDetalle_ListarPorMatricula_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatriculaResponse" message="tns:IService1_MatriculaDetalle_ListarPorMatricula_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="MatriculaDetalle_Obtener">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Obtener" message="tns:IService1_MatriculaDetalle_Obtener_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ObtenerResponse" message="tns:IService1_MatriculaDetalle_Obtener_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="MatriculaDetalle_Insertar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Insertar" message="tns:IService1_MatriculaDetalle_Insertar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_InsertarResponse" message="tns:IService1_MatriculaDetalle_Insertar_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MatriculaDetalle_Obtener">
+      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Obtener" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatriculaDetalle_Insertar">
+      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Insertar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="MatriculaDetalle_Actualizar">
       <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Actualizar" style="document" />
       <wsdl:input>
@@ -1505,6 +1543,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetComunicadoPorRolUsuario">
       <soap:operation soapAction="http://tempuri.org/IService1/GetComunicadoPorRolUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComunicadoPorRolUsuarioProfesor">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioProfesor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComunicadoPorRolUsuarioApoderado">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetComunicadoPorRolUsuarioApoderado" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2135,24 +2191,6 @@
     </wsdl:operation>
     <wsdl:operation name="MatriculaDetalle_ListarPorMatricula">
       <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatricula" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="MatriculaDetalle_Obtener">
-      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Obtener" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="MatriculaDetalle_Insertar">
-      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Insertar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

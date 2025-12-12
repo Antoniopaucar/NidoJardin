@@ -203,5 +203,125 @@ namespace clsDAC
 
             return lista;
         }
+
+        /// <summary>
+        /// Lista comunicados dirigidos específicamente al rol PROFESOR
+        /// Requiere el SP: listar_comunicados_por_rol_usuario_Profesor
+        /// </summary>
+        public List<clsEntidades.clsComunicado> ListarComunicadosPorRolUsuarioProfesor(int idUsuario)
+        {
+            List<clsEntidades.clsComunicado> lista = new List<clsEntidades.clsComunicado>();
+
+            try
+            {
+                using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("listar_comunicados_por_rol_usuario_Profesor", cn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Id_Usuario", idUsuario);
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                clsEntidades.clsComunicado c = new clsEntidades.clsComunicado();
+                                c.Usuario = new clsEntidades.clsUsuario();
+                                c.Rol = new clsEntidades.clsRol();
+
+                                c.Id = Convert.ToInt32(dr["Id_Comunicado"]);
+                                c.Usuario.Id = Convert.ToInt32(dr["Id_Usuario"]);
+                                c.Usuario.NombreUsuario = dr["NombreUsuario"] != DBNull.Value ? dr["NombreUsuario"].ToString() : string.Empty;
+                                c.Usuario.Nombres = dr["Nombres"] != DBNull.Value ? dr["Nombres"].ToString() : string.Empty;
+                                c.Usuario.ApellidoPaterno = dr["ApPaterno"] != DBNull.Value ? dr["ApPaterno"].ToString() : string.Empty;
+                                c.Rol.Id = Convert.ToInt32(dr["Id_Rol"]);
+                                c.Rol.NombreRol = dr["NombreRol"] != DBNull.Value ? dr["NombreRol"].ToString() : string.Empty;
+                                c.Nombre = dr["Nombre"] != DBNull.Value ? dr["Nombre"].ToString() : string.Empty;
+                                c.Descripcion = dr["Descripcion"] != DBNull.Value ? dr["Descripcion"].ToString() : string.Empty;
+                                c.FechaCreacion = dr.IsDBNull(dr.GetOrdinal("FechaCreacion")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaCreacion"));
+                                c.FechaFinal = dr.IsDBNull(dr.GetOrdinal("FechaFinal")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaFinal"));
+                                
+                                // Manejar el campo Visto de forma segura
+                                int vistoOrdinal = dr.GetOrdinal("Visto");
+                                c.Visto = dr.IsDBNull(vistoOrdinal) ? false : Convert.ToBoolean(dr[vistoOrdinal]);
+
+                                lista.Add(c);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception($"Error al listar comunicados por rol de profesor: {ex.Message}", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error inesperado al listar comunicados de profesor: {ex.Message}", ex);
+            }
+
+            return lista;
+        }
+
+        /// <summary>
+        /// Lista comunicados dirigidos específicamente al rol APODERADO
+        /// Requiere el SP: listar_comunicados_por_rol_usuario_Apoderado
+        /// </summary>
+        public List<clsEntidades.clsComunicado> ListarComunicadosPorRolUsuarioApoderado(int idUsuario)
+        {
+            List<clsEntidades.clsComunicado> lista = new List<clsEntidades.clsComunicado>();
+
+            try
+            {
+                using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("listar_comunicados_por_rol_usuario_Apoderado", cn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Id_Usuario", idUsuario);
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                clsEntidades.clsComunicado c = new clsEntidades.clsComunicado();
+                                c.Usuario = new clsEntidades.clsUsuario();
+                                c.Rol = new clsEntidades.clsRol();
+
+                                c.Id = Convert.ToInt32(dr["Id_Comunicado"]);
+                                c.Usuario.Id = Convert.ToInt32(dr["Id_Usuario"]);
+                                c.Usuario.NombreUsuario = dr["NombreUsuario"] != DBNull.Value ? dr["NombreUsuario"].ToString() : string.Empty;
+                                c.Usuario.Nombres = dr["Nombres"] != DBNull.Value ? dr["Nombres"].ToString() : string.Empty;
+                                c.Usuario.ApellidoPaterno = dr["ApPaterno"] != DBNull.Value ? dr["ApPaterno"].ToString() : string.Empty;
+                                c.Rol.Id = Convert.ToInt32(dr["Id_Rol"]);
+                                c.Rol.NombreRol = dr["NombreRol"] != DBNull.Value ? dr["NombreRol"].ToString() : string.Empty;
+                                c.Nombre = dr["Nombre"] != DBNull.Value ? dr["Nombre"].ToString() : string.Empty;
+                                c.Descripcion = dr["Descripcion"] != DBNull.Value ? dr["Descripcion"].ToString() : string.Empty;
+                                c.FechaCreacion = dr.IsDBNull(dr.GetOrdinal("FechaCreacion")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaCreacion"));
+                                c.FechaFinal = dr.IsDBNull(dr.GetOrdinal("FechaFinal")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaFinal"));
+                                
+                                // Manejar el campo Visto de forma segura
+                                int vistoOrdinal = dr.GetOrdinal("Visto");
+                                c.Visto = dr.IsDBNull(vistoOrdinal) ? false : Convert.ToBoolean(dr[vistoOrdinal]);
+
+                                lista.Add(c);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception($"Error al listar comunicados por rol de apoderado: {ex.Message}", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error inesperado al listar comunicados de apoderado: {ex.Message}", ex);
+            }
+
+            return lista;
+        }
     }
 }
