@@ -1240,5 +1240,46 @@ namespace WcfNido
         }
 
 
+        //------------------------ APARTADO MÓVIL ------------------------------
+        //------------------------ OBTENER COMUNICADOS PARA APLICACIÓN MÓVIL ------------------------------
+        public List<ComunicadoMovil> Mov_ListarComunicados(int idUsuario)
+        {
+            return new clsBL_Movil().ListarComunicados(idUsuario);
+        }
+        // LOGIN APODERADO
+        public E_MovLogin Mov_LoginApoderado(string usuarioODocumento, string clave)
+        {
+            var bl = new clsBL_Movil();
+            var user = bl.LoginApoderado(usuarioODocumento, clave);
+
+            // WCF no maneja bien null en algunos casos, devolvemos objeto “vacío”
+            if (user == null)
+                return new E_MovLogin { Id_Usuario = 0 };
+
+            return user;
+        }
+        // COMBO LISTAR ALUMNOS POR APODERADO
+        public List<clsAlumno> Mov_ListarHijosPorApoderado(int idApoderado)
+        {
+            clsBL_Movil bl = new clsBL_Movil();
+            return bl.ListarHijosPorApoderado(idApoderado);
+        }
+        // OBTENER MATRICULA POR ALUMNO
+        public clsMatricula Mov_ObtenerMatriculaActual(int idAlumno)
+        {
+            return new clsBL_Movil().ObtenerMatriculaActual(idAlumno);
+        }
+        // RESUMEN DE PAGOS POR MATRICULA
+        public clsResumenCuotas Mov_ResumenCuotas(int idMatricula)
+        {
+            return new clsBL_Movil().ResumenCuotasPorMatricula(idMatricula);
+        }
+        // LISTAR DETALLE DE CUOTAS POR MATRICULA
+        public List<clsMatriculaDetalle> Mov_ListarCuotas(int idMatricula)
+        {
+            return new clsBL_Movil().ListarCuotasPorMatricula(idMatricula);
+        }
+
+        // ------------------------ FIN APARTADO MÓVIL ------------------------------
     }
 }

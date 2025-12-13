@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Movil_Servicio_DB_Nido.CuotasPage"
+             Title="CuotasPage"
+             BackgroundColor="#F3F4F6">
+    <VerticalStackLayout Padding="16" Spacing="12">
+
+        <Label x:Name="lblAlumno"
+               FontSize="16"
+               FontAttributes="Bold"
+               TextColor="#111827"/>
+
+        <!-- Resumen -->
+        <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+            <Border Grid.Column="0" Background="White" Padding="12" Stroke="#E5E7EB" StrokeShape="RoundRectangle 14">
+                <VerticalStackLayout>
+                    <Label Text="Total" TextColor="#6B7280" FontSize="12"/>
+                    <Label x:Name="lblTotal" FontAttributes="Bold" FontSize="16"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Grid.Column="1" Background="White" Padding="12" Stroke="#E5E7EB" StrokeShape="RoundRectangle 14">
+                <VerticalStackLayout>
+                    <Label Text="Pagado" TextColor="#6B7280" FontSize="12"/>
+                    <Label x:Name="lblPagado" FontAttributes="Bold" FontSize="16"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Grid.Column="2" Background="White" Padding="12" Stroke="#E5E7EB" StrokeShape="RoundRectangle 14">
+                <VerticalStackLayout>
+                    <Label Text="Pendiente" TextColor="#6B7280" FontSize="12"/>
+                    <Label x:Name="lblPendiente" FontAttributes="Bold" FontSize="16"/>
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+
+        <!-- Lista cuotas -->
+        <CollectionView x:Name="cvCuotas">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="White"
+                            Padding="14"
+                            Stroke="#E5E7EB"
+                            StrokeShape="RoundRectangle 14"
+                            Margin="0,0,0,10">
+
+                        <VerticalStackLayout Spacing="6">
+                            <HorizontalStackLayout>
+                                <Label Text="{Binding NombreCuota}"
+                                       FontAttributes="Bold"
+                                       TextColor="#111827"/>
+
+                                <Label Text="{Binding EstadoTexto}"
+                                       HorizontalOptions="EndAndExpand"
+                                       TextColor="#6B7280"/>
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout>
+                                <Label Text="{Binding FechaVencimiento, StringFormat='Vence: {0:dd/MM/yyyy}'}"
+                                       TextColor="#6B7280"/>
+
+                                <Label Text="{Binding TotalLinea, StringFormat='S/ {0:F2}'}"
+                                       HorizontalOptions="EndAndExpand"
+                                       FontAttributes="Bold"
+                                       TextColor="#111827"/>
+                            </HorizontalStackLayout>
+
+                            <Label Text="{Binding FechaPago, StringFormat='Pago: {0:dd/MM/yyyy}'}"
+                                   TextColor="#6B7280"/>
+                        </VerticalStackLayout>
+
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

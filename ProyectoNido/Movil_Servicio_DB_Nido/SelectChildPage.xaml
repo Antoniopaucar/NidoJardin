@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Movil_Servicio_DB_Nido.SelectChildPage"
+             Title="Mis Hijos"
+             BackgroundColor="#F5F6FA">
+    <Grid Padding="18" RowDefinitions="Auto,*" RowSpacing="14">
+
+        <VerticalStackLayout Grid.Row="0" Spacing="4">
+            <Label Text="Selecciona a tu hijo(a)"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   TextColor="#111827" />
+            <Label Text="Verás comunicados y cuotas según la matrícula actual."
+                   FontSize="13"
+                   TextColor="#6B7280" />
+        </VerticalStackLayout>
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Hijos}"
+                        SelectionMode="Single">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="16"
+                           Padding="14"
+                           Margin="0,0,0,12"
+                           BackgroundColor="White"
+                           HasShadow="True">
+
+                        <Grid ColumnDefinitions="52,*,Auto"
+                              RowDefinitions="Auto,Auto"
+                              ColumnSpacing="12">
+
+                            <!-- Avatar inicial -->
+                            <Frame WidthRequest="44" HeightRequest="44"
+                                   CornerRadius="22"
+                                   BackgroundColor="#EEF2FF"
+                                   Grid.RowSpan="2"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center">
+                                <Label Text="{Binding Inicial}"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       FontAttributes="Bold"
+                                       TextColor="#4F46E5"/>
+                            </Frame>
+
+                            <Label Grid.Column="1"
+                                   Text="{Binding NombreCompleto}"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="#111827"/>
+
+                            <Label Grid.Column="1" Grid.Row="1"
+                                   Text="{Binding GrupoTexto}"
+                                   FontSize="13"
+                                   TextColor="#6B7280"/>
+
+                            <Label Grid.Column="2" Grid.RowSpan="2"
+                                   Text="›"
+                                   FontSize="26"
+                                   TextColor="#9CA3AF"
+                                   VerticalTextAlignment="Center"/>
+                        </Grid>
+
+                        <!-- Tap -->
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SeleccionarHijoCommand}"
+                                                  CommandParameter="{Binding .}" />
+                        </Frame.GestureRecognizers>
+
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

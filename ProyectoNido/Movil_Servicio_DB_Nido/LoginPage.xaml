@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Movil_Servicio_DB_Nido.LoginPage"
+             Title="LoginPage"
+             BackgroundColor="#F5F6FA">
+    <ScrollView>
+        <Grid Padding="24"
+              RowDefinitions="Auto,*"
+              VerticalOptions="Center">
+
+            <VerticalStackLayout Grid.Row="1"
+                                 Spacing="20"
+                                 VerticalOptions="Center">
+
+                <!-- Logo -->
+                <Image Source="dotnet_bot.png"
+                       HeightRequest="120"
+                       HorizontalOptions="Center" />
+
+                <!-- Títulos -->
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Bienvenido"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                           TextColor="#111827" />
+
+                    <Label Text="Acceso para Apoderados"
+                           FontSize="14"
+                           HorizontalTextAlignment="Center"
+                           TextColor="#6B7280" />
+                </VerticalStackLayout>
+
+                <!-- Card Login -->
+                <Border
+                    Background="White"
+                    Padding="20"
+                    Stroke="#E5E7EB"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 16">
+
+                    <Border.Shadow>
+                        <Shadow Brush="#000000"
+                                Opacity="0.15"
+                                Radius="10"
+                                Offset="0,4" />
+                    </Border.Shadow>
+
+                    <VerticalStackLayout Spacing="14">
+
+                        <!-- Usuario -->
+                        <Label Text="Usuario o Documento"
+                               FontSize="12"
+                               TextColor="#6B7280" />
+
+                        <Entry x:Name="txtUser"
+                               Placeholder="Ej: hquiroz2 o DNI"
+                               ClearButtonVisibility="WhileEditing" />
+
+                        <!-- Clave -->
+                        <Label Text="Clave"
+                               FontSize="12"
+                               TextColor="#6B7280" />
+
+                        <Entry x:Name="txtClave"
+                               Placeholder="••••••••"
+                               IsPassword="True"
+                               ClearButtonVisibility="WhileEditing" />
+
+                        <!-- Botón -->
+                        <Button Text="Ingresar"
+                                HeightRequest="48"
+                                CornerRadius="12"
+                                BackgroundColor="#4F46E5"
+                                TextColor="White"
+                                FontAttributes="Bold"
+                                Clicked="BtnIngresar_Clicked" />
+
+                        <!-- Error -->
+                        <Label x:Name="lblError"
+                               FontSize="13"
+                               TextColor="#DC2626"
+                               IsVisible="False"
+                               HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Footer -->
+                <Label Text="© Sistema Nido - Apoderados"
+                       FontSize="12"
+                       TextColor="#9CA3AF"
+                       HorizontalTextAlignment="Center" />
+
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Movil_Servicio_DB_Nido.HomePage"
+             BackgroundColor="#F3F4F6"
+             Title="HomePage">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="16">
+
+            <!-- HEADER -->
+            <Border
+                Background="White"
+                Stroke="#E5E7EB"
+                StrokeShape="RoundRectangle 16"
+                Padding="16">
+
+                <VerticalStackLayout Spacing="8">
+
+                    <Label Text="Bienvenido"
+                           FontSize="14"
+                           TextColor="#6B7280"/>
+
+                    <Label x:Name="lblApoderado"
+                           Text="Apoderado"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="#111827"/>
+
+                    <Label Text="Hijo seleccionado"
+                           FontSize="12"
+                           TextColor="#6B7280"/>
+
+                    <!-- Picker Hijos -->
+                    <Picker x:Name="pickerHijos"
+                            Title="Seleccione un hijo"
+                            SelectedIndexChanged="pickerHijos_SelectedIndexChanged"
+                            />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- BOTONES PRINCIPALES -->
+
+            <!-- Comunicados -->
+            <Border
+                Background="White"
+                Stroke="#E5E7EB"
+                StrokeShape="RoundRectangle 16"
+                Padding="16">
+
+                <Grid ColumnDefinitions="Auto,*"
+                      ColumnSpacing="12">
+
+                    <Label Text="📢"
+                           FontSize="32"
+                           VerticalOptions="Center"/>
+
+                    <VerticalStackLayout Grid.Column="1" Spacing="4">
+                        <Label Text="Comunicados"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#111827"/>
+
+                        <Label Text="Avisos y mensajes del jardín"
+                               FontSize="13"
+                               TextColor="#6B7280"/>
+                    </VerticalStackLayout>
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GoComunicados"/>
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+            </Border>
+
+            <!-- Cuotas -->
+            <Border
+                Background="White"
+                Stroke="#E5E7EB"
+                StrokeShape="RoundRectangle 16"
+                Padding="16">
+
+                <Grid ColumnDefinitions="Auto,*"
+                      ColumnSpacing="12">
+
+                    <Label Text="💳"
+                           FontSize="32"
+                           VerticalOptions="Center"/>
+
+                    <VerticalStackLayout Grid.Column="1" Spacing="4">
+                        <Label Text="Cuotas"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#111827"/>
+
+                        <Label Text="Estado de pagos y vencimientos"
+                               FontSize="13"
+                               TextColor="#6B7280"/>
+                    </VerticalStackLayout>
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GoCuotas"/>
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+            </Border>
+
+            <!-- FOOTER -->
+            <Label Text="App informativa · Solo lectura"
+                   FontSize="12"
+                   TextColor="#9CA3AF"
+                   HorizontalTextAlignment="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

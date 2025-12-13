@@ -393,6 +393,25 @@ namespace WcfNido
         [OperationContract]
         bool EliminarCuota(int idCuota);
 
+        //------------------------- APARTADO MOVIL ----------------------------------------------
+        //------------------------ Mov_LISTAR_COMUNICADOS_APODERADO ----------------------------------------------
+        [OperationContract]
+        List<ComunicadoMovil> Mov_ListarComunicados(int idUsuario);
+        //------------------------ Mov_LOGIN_APODERADO ----------------------------------------------
+        [OperationContract]
+        E_MovLogin Mov_LoginApoderado(string usuarioODocumento, string clave);
+        //------------------------ LISTAR HIJOS POR APODERADO ----------------------------------------------
+        [OperationContract]
+        List<clsAlumno> Mov_ListarHijosPorApoderado(int idApoderado);
+        //------------------------ OBTENER MATRICULA POR ALUMNO ----------------------------------------------
+        [OperationContract]
+        clsMatricula Mov_ObtenerMatriculaActual(int idAlumno);
+        //------------------------ RESUMEN DE PAGOS POR MATRICULA ----------------------------------------------
+        [OperationContract]
+        clsResumenCuotas Mov_ResumenCuotas(int idMatricula);
+        //------------------------ LISTAR DETALLE DE CUOTAS POR MATRICULA ----------------------------------------------
+        [OperationContract]
+        List<clsMatriculaDetalle> Mov_ListarCuotas(int idMatricula);
     }
 
 

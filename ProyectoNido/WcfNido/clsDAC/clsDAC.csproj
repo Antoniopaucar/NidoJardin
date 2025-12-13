@@ -69,6 +69,7 @@
     <Compile Include="clsDacUsuarioPermiso.cs" />
     <Compile Include="clsDacUsuarioRol.cs" />
     <Compile Include="clsDACGrupoAnual.cs" />
+    <Compile Include="clsDAC_Movil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

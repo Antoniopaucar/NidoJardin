@@ -67,6 +67,7 @@
     <Compile Include="clsBLUsuarioPermiso.cs" />
     <Compile Include="clsBLUsuarioRol.cs" />
     <Compile Include="clsBLGrupoAnual.cs" />
+    <Compile Include="clsBL_Movil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -22,6 +22,8 @@ namespace clsEntidades
         public System.DateTime? FechaPago { get; set; }
         public string EstadoPago { get; set; }  // 'P' pagado, 'A' pendiente, etc.
         public string Observacion { get; set; }
+        public string EstadoTexto { get; set; }
+
 
         public clsMatriculaDetalle() { }
     }
