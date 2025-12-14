@@ -189,6 +189,42 @@
   <wsdl:message name="IService1_EliminarCuota_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarCuotaResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Mov_ListarComunicados_InputMessage">
+    <wsdl:part name="parameters" element="tns:Mov_ListarComunicados" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Mov_ListarComunicados_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Mov_ListarComunicadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Mov_LoginApoderado_InputMessage">
+    <wsdl:part name="parameters" element="tns:Mov_LoginApoderado" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Mov_LoginApoderado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Mov_LoginApoderadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Mov_ListarHijosPorApoderado_InputMessage">
+    <wsdl:part name="parameters" element="tns:Mov_ListarHijosPorApoderado" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Mov_ListarHijosPorApoderado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Mov_ListarHijosPorApoderadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Mov_ObtenerMatriculaActual_InputMessage">
+    <wsdl:part name="parameters" element="tns:Mov_ObtenerMatriculaActual" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Mov_ObtenerMatriculaActual_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Mov_ObtenerMatriculaActualResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Mov_ResumenCuotas_InputMessage">
+    <wsdl:part name="parameters" element="tns:Mov_ResumenCuotas" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Mov_ResumenCuotas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Mov_ResumenCuotasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Mov_ListarCuotas_InputMessage">
+    <wsdl:part name="parameters" element="tns:Mov_ListarCuotas" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Mov_ListarCuotas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Mov_ListarCuotasResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetData_InputMessage">
     <wsdl:part name="parameters" element="tns:GetData" />
   </wsdl:message>
@@ -820,6 +856,30 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/EliminarCuota" message="tns:IService1_EliminarCuota_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/EliminarCuotaResponse" message="tns:IService1_EliminarCuota_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Mov_ListarComunicados">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Mov_ListarComunicados" message="tns:IService1_Mov_ListarComunicados_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Mov_ListarComunicadosResponse" message="tns:IService1_Mov_ListarComunicados_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Mov_LoginApoderado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Mov_LoginApoderado" message="tns:IService1_Mov_LoginApoderado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Mov_LoginApoderadoResponse" message="tns:IService1_Mov_LoginApoderado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Mov_ListarHijosPorApoderado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Mov_ListarHijosPorApoderado" message="tns:IService1_Mov_ListarHijosPorApoderado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Mov_ListarHijosPorApoderadoResponse" message="tns:IService1_Mov_ListarHijosPorApoderado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Mov_ObtenerMatriculaActual">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Mov_ObtenerMatriculaActual" message="tns:IService1_Mov_ObtenerMatriculaActual_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Mov_ObtenerMatriculaActualResponse" message="tns:IService1_Mov_ObtenerMatriculaActual_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Mov_ResumenCuotas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Mov_ResumenCuotas" message="tns:IService1_Mov_ResumenCuotas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Mov_ResumenCuotasResponse" message="tns:IService1_Mov_ResumenCuotas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Mov_ListarCuotas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Mov_ListarCuotas" message="tns:IService1_Mov_ListarCuotas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Mov_ListarCuotasResponse" message="tns:IService1_Mov_ListarCuotas_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
@@ -1426,6 +1486,60 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarCuota">
       <soap:operation soapAction="http://tempuri.org/IService1/EliminarCuota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Mov_ListarComunicados">
+      <soap:operation soapAction="http://tempuri.org/IService1/Mov_ListarComunicados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Mov_LoginApoderado">
+      <soap:operation soapAction="http://tempuri.org/IService1/Mov_LoginApoderado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Mov_ListarHijosPorApoderado">
+      <soap:operation soapAction="http://tempuri.org/IService1/Mov_ListarHijosPorApoderado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Mov_ObtenerMatriculaActual">
+      <soap:operation soapAction="http://tempuri.org/IService1/Mov_ObtenerMatriculaActual" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Mov_ResumenCuotas">
+      <soap:operation soapAction="http://tempuri.org/IService1/Mov_ResumenCuotas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Mov_ListarCuotas">
+      <soap:operation soapAction="http://tempuri.org/IService1/Mov_ListarCuotas" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

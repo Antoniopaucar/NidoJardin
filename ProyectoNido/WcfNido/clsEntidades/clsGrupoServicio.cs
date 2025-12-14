@@ -12,11 +12,14 @@ namespace clsEntidades
         public int Id_Salon { get; set; }
         public int Id_Profesor { get; set; }
         public int Id_ServicioAdicional { get; set; }
-        public byte Periodo { get; set; }
+        public short Periodo { get; set; }
+        public string NombreSalon { get; set; }
+        public string NombreProfesor { get; set; }
+        public string NombreServicio { get; set; }
 
         public clsGrupoServicio() { }
 
-        public clsGrupoServicio(int id_GrupoServicio, int id_Salon, int id_Profesor, int id_ServicioAdicional, byte periodo)
+        public clsGrupoServicio(int id_GrupoServicio, int id_Salon, int id_Profesor, int id_ServicioAdicional, short periodo)
         {
             Id_GrupoServicio = id_GrupoServicio;
             Id_Salon = id_Salon;

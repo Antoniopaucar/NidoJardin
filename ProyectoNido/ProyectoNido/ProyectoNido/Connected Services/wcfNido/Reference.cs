@@ -35,6 +35,9 @@ namespace ProyectoNido.wcfNido {
         private string EstadoPagoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoTextoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> FechaPagoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -122,6 +125,19 @@ namespace ProyectoNido.wcfNido {
                 if ((object.ReferenceEquals(this.EstadoPagoField, value) != true)) {
                     this.EstadoPagoField = value;
                     this.RaisePropertyChanged("EstadoPago");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EstadoTexto {
+            get {
+                return this.EstadoTextoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoTextoField, value) != true)) {
+                    this.EstadoTextoField = value;
+                    this.RaisePropertyChanged("EstadoTexto");
                 }
             }
         }
@@ -727,7 +743,16 @@ namespace ProyectoNido.wcfNido {
         private int Id_ServicioAdicionalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte PeriodoField;
+        private string NombreProfesorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreSalonField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreServicioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short PeriodoField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -792,7 +817,46 @@ namespace ProyectoNido.wcfNido {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte Periodo {
+        public string NombreProfesor {
+            get {
+                return this.NombreProfesorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreProfesorField, value) != true)) {
+                    this.NombreProfesorField = value;
+                    this.RaisePropertyChanged("NombreProfesor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreSalon {
+            get {
+                return this.NombreSalonField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreSalonField, value) != true)) {
+                    this.NombreSalonField = value;
+                    this.RaisePropertyChanged("NombreSalon");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreServicio {
+            get {
+                return this.NombreServicioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreServicioField, value) != true)) {
+                    this.NombreServicioField = value;
+                    this.RaisePropertyChanged("NombreServicio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short Periodo {
             get {
                 return this.PeriodoField;
             }
@@ -1050,18 +1114,30 @@ namespace ProyectoNido.wcfNido {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WcfNido")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ComunicadoMovil", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
     [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ComunicadoMovil : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
+        private string DescripcionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
+        private string EstadoTextoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaCreacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_ComunicadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TituloField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool VistoField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1074,27 +1150,79 @@ namespace ProyectoNido.wcfNido {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
+        public string Descripcion {
             get {
-                return this.BoolValueField;
+                return this.DescripcionField;
             }
             set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
+                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
+                    this.DescripcionField = value;
+                    this.RaisePropertyChanged("Descripcion");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
+        public string EstadoTexto {
             get {
-                return this.StringValueField;
+                return this.EstadoTextoField;
             }
             set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
+                if ((object.ReferenceEquals(this.EstadoTextoField, value) != true)) {
+                    this.EstadoTextoField = value;
+                    this.RaisePropertyChanged("EstadoTexto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaCreacion {
+            get {
+                return this.FechaCreacionField;
+            }
+            set {
+                if ((this.FechaCreacionField.Equals(value) != true)) {
+                    this.FechaCreacionField = value;
+                    this.RaisePropertyChanged("FechaCreacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Comunicado {
+            get {
+                return this.Id_ComunicadoField;
+            }
+            set {
+                if ((this.Id_ComunicadoField.Equals(value) != true)) {
+                    this.Id_ComunicadoField = value;
+                    this.RaisePropertyChanged("Id_Comunicado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Titulo {
+            get {
+                return this.TituloField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TituloField, value) != true)) {
+                    this.TituloField = value;
+                    this.RaisePropertyChanged("Titulo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Visto {
+            get {
+                return this.VistoField;
+            }
+            set {
+                if ((this.VistoField.Equals(value) != true)) {
+                    this.VistoField = value;
+                    this.RaisePropertyChanged("Visto");
                 }
             }
         }
@@ -1111,33 +1239,33 @@ namespace ProyectoNido.wcfNido {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="clsLogin", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="E_MovLogin", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
     [System.SerializableAttribute()]
-    public partial class clsLogin : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class E_MovLogin : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool ExitoField;
+        private bool ActivoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> Id_PermisoField;
+        private bool BloqueadoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> Id_RolField;
+        private string DocumentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_RolField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Id_UsuarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MensajeField;
+        private string NombreCompletoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UsuarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string claveField;
+        private string NombreUsuarioField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1150,33 +1278,46 @@ namespace ProyectoNido.wcfNido {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Exito {
+        public bool Activo {
             get {
-                return this.ExitoField;
+                return this.ActivoField;
             }
             set {
-                if ((this.ExitoField.Equals(value) != true)) {
-                    this.ExitoField = value;
-                    this.RaisePropertyChanged("Exito");
+                if ((this.ActivoField.Equals(value) != true)) {
+                    this.ActivoField = value;
+                    this.RaisePropertyChanged("Activo");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Id_Permiso {
+        public bool Bloqueado {
             get {
-                return this.Id_PermisoField;
+                return this.BloqueadoField;
             }
             set {
-                if ((this.Id_PermisoField.Equals(value) != true)) {
-                    this.Id_PermisoField = value;
-                    this.RaisePropertyChanged("Id_Permiso");
+                if ((this.BloqueadoField.Equals(value) != true)) {
+                    this.BloqueadoField = value;
+                    this.RaisePropertyChanged("Bloqueado");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Id_Rol {
+        public string Documento {
+            get {
+                return this.DocumentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DocumentoField, value) != true)) {
+                    this.DocumentoField = value;
+                    this.RaisePropertyChanged("Documento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Rol {
             get {
                 return this.Id_RolField;
             }
@@ -1202,40 +1343,585 @@ namespace ProyectoNido.wcfNido {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Mensaje {
+        public string NombreCompleto {
             get {
-                return this.MensajeField;
+                return this.NombreCompletoField;
             }
             set {
-                if ((object.ReferenceEquals(this.MensajeField, value) != true)) {
-                    this.MensajeField = value;
-                    this.RaisePropertyChanged("Mensaje");
+                if ((object.ReferenceEquals(this.NombreCompletoField, value) != true)) {
+                    this.NombreCompletoField = value;
+                    this.RaisePropertyChanged("NombreCompleto");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Usuario {
+        public string NombreUsuario {
             get {
-                return this.UsuarioField;
+                return this.NombreUsuarioField;
             }
             set {
-                if ((object.ReferenceEquals(this.UsuarioField, value) != true)) {
-                    this.UsuarioField = value;
-                    this.RaisePropertyChanged("Usuario");
+                if ((object.ReferenceEquals(this.NombreUsuarioField, value) != true)) {
+                    this.NombreUsuarioField = value;
+                    this.RaisePropertyChanged("NombreUsuario");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsAlumno", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsAlumno : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ActivoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ApellidoMaternoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ApellidoPaternoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ProyectoNido.wcfNido.clsApoderado ApoderadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ProyectoNido.wcfNido.clsArchivoBase CarnetSeguroField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ProyectoNido.wcfNido.clsArchivoBase CopiaDniField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DocumentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoCarnetSeguroField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoCopiaDniField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoFotosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoPermisoPublicidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> FechaNacimientoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ProyectoNido.wcfNido.clsArchivoBase FotosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreCompletoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombresField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ProyectoNido.wcfNido.clsArchivoBase PermisoPublicidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SexoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ProyectoNido.wcfNido.clsTipoDocumento TipoDocumentoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Activo {
+            get {
+                return this.ActivoField;
+            }
+            set {
+                if ((this.ActivoField.Equals(value) != true)) {
+                    this.ActivoField = value;
+                    this.RaisePropertyChanged("Activo");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string clave {
+        public string ApellidoMaterno {
             get {
-                return this.claveField;
+                return this.ApellidoMaternoField;
             }
             set {
-                if ((object.ReferenceEquals(this.claveField, value) != true)) {
-                    this.claveField = value;
-                    this.RaisePropertyChanged("clave");
+                if ((object.ReferenceEquals(this.ApellidoMaternoField, value) != true)) {
+                    this.ApellidoMaternoField = value;
+                    this.RaisePropertyChanged("ApellidoMaterno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ApellidoPaterno {
+            get {
+                return this.ApellidoPaternoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApellidoPaternoField, value) != true)) {
+                    this.ApellidoPaternoField = value;
+                    this.RaisePropertyChanged("ApellidoPaterno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ProyectoNido.wcfNido.clsApoderado Apoderado {
+            get {
+                return this.ApoderadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApoderadoField, value) != true)) {
+                    this.ApoderadoField = value;
+                    this.RaisePropertyChanged("Apoderado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ProyectoNido.wcfNido.clsArchivoBase CarnetSeguro {
+            get {
+                return this.CarnetSeguroField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CarnetSeguroField, value) != true)) {
+                    this.CarnetSeguroField = value;
+                    this.RaisePropertyChanged("CarnetSeguro");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ProyectoNido.wcfNido.clsArchivoBase CopiaDni {
+            get {
+                return this.CopiaDniField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CopiaDniField, value) != true)) {
+                    this.CopiaDniField = value;
+                    this.RaisePropertyChanged("CopiaDni");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Documento {
+            get {
+                return this.DocumentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DocumentoField, value) != true)) {
+                    this.DocumentoField = value;
+                    this.RaisePropertyChanged("Documento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EstadoCarnetSeguro {
+            get {
+                return this.EstadoCarnetSeguroField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoCarnetSeguroField, value) != true)) {
+                    this.EstadoCarnetSeguroField = value;
+                    this.RaisePropertyChanged("EstadoCarnetSeguro");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EstadoCopiaDni {
+            get {
+                return this.EstadoCopiaDniField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoCopiaDniField, value) != true)) {
+                    this.EstadoCopiaDniField = value;
+                    this.RaisePropertyChanged("EstadoCopiaDni");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EstadoFotos {
+            get {
+                return this.EstadoFotosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoFotosField, value) != true)) {
+                    this.EstadoFotosField = value;
+                    this.RaisePropertyChanged("EstadoFotos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EstadoPermisoPublicidad {
+            get {
+                return this.EstadoPermisoPublicidadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoPermisoPublicidadField, value) != true)) {
+                    this.EstadoPermisoPublicidadField = value;
+                    this.RaisePropertyChanged("EstadoPermisoPublicidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> FechaNacimiento {
+            get {
+                return this.FechaNacimientoField;
+            }
+            set {
+                if ((this.FechaNacimientoField.Equals(value) != true)) {
+                    this.FechaNacimientoField = value;
+                    this.RaisePropertyChanged("FechaNacimiento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ProyectoNido.wcfNido.clsArchivoBase Fotos {
+            get {
+                return this.FotosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FotosField, value) != true)) {
+                    this.FotosField = value;
+                    this.RaisePropertyChanged("Fotos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreCompleto {
+            get {
+                return this.NombreCompletoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreCompletoField, value) != true)) {
+                    this.NombreCompletoField = value;
+                    this.RaisePropertyChanged("NombreCompleto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombres {
+            get {
+                return this.NombresField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombresField, value) != true)) {
+                    this.NombresField = value;
+                    this.RaisePropertyChanged("Nombres");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ProyectoNido.wcfNido.clsArchivoBase PermisoPublicidad {
+            get {
+                return this.PermisoPublicidadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PermisoPublicidadField, value) != true)) {
+                    this.PermisoPublicidadField = value;
+                    this.RaisePropertyChanged("PermisoPublicidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Sexo {
+            get {
+                return this.SexoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SexoField, value) != true)) {
+                    this.SexoField = value;
+                    this.RaisePropertyChanged("Sexo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ProyectoNido.wcfNido.clsTipoDocumento TipoDocumento {
+            get {
+                return this.TipoDocumentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoDocumentoField, value) != true)) {
+                    this.TipoDocumentoField = value;
+                    this.RaisePropertyChanged("TipoDocumento");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsApoderado", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsApoderado : ProyectoNido.wcfNido.clsUsuario {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ProyectoNido.wcfNido.clsArchivoBase ArchivoBaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoArchivoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreCompletoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ProyectoNido.wcfNido.clsArchivoBase ArchivoBase {
+            get {
+                return this.ArchivoBaseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ArchivoBaseField, value) != true)) {
+                    this.ArchivoBaseField = value;
+                    this.RaisePropertyChanged("ArchivoBase");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EstadoArchivo {
+            get {
+                return this.EstadoArchivoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoArchivoField, value) != true)) {
+                    this.EstadoArchivoField = value;
+                    this.RaisePropertyChanged("EstadoArchivo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreCompleto {
+            get {
+                return this.NombreCompletoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreCompletoField, value) != true)) {
+                    this.NombreCompletoField = value;
+                    this.RaisePropertyChanged("NombreCompleto");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsArchivoBase", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsArchivoBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] ArchivoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreArchivoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TamanioBytesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Archivo {
+            get {
+                return this.ArchivoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ArchivoField, value) != true)) {
+                    this.ArchivoField = value;
+                    this.RaisePropertyChanged("Archivo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreArchivo {
+            get {
+                return this.NombreArchivoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreArchivoField, value) != true)) {
+                    this.NombreArchivoField = value;
+                    this.RaisePropertyChanged("NombreArchivo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TamanioBytes {
+            get {
+                return this.TamanioBytesField;
+            }
+            set {
+                if ((this.TamanioBytesField.Equals(value) != true)) {
+                    this.TamanioBytesField = value;
+                    this.RaisePropertyChanged("TamanioBytes");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsTipoDocumento", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsTipoDocumento : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AbreviaturaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CantidadCaracteresField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Abreviatura {
+            get {
+                return this.AbreviaturaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AbreviaturaField, value) != true)) {
+                    this.AbreviaturaField = value;
+                    this.RaisePropertyChanged("Abreviatura");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CantidadCaracteres {
+            get {
+                return this.CantidadCaracteresField;
+            }
+            set {
+                if ((this.CantidadCaracteresField.Equals(value) != true)) {
+                    this.CantidadCaracteresField = value;
+                    this.RaisePropertyChanged("CantidadCaracteres");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
                 }
             }
         }
@@ -1712,99 +2398,6 @@ namespace ProyectoNido.wcfNido {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="clsTipoDocumento", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
-    [System.SerializableAttribute()]
-    public partial class clsTipoDocumento : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AbreviaturaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CantidadCaracteresField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Abreviatura {
-            get {
-                return this.AbreviaturaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AbreviaturaField, value) != true)) {
-                    this.AbreviaturaField = value;
-                    this.RaisePropertyChanged("Abreviatura");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CantidadCaracteres {
-            get {
-                return this.CantidadCaracteresField;
-            }
-            set {
-                if ((this.CantidadCaracteresField.Equals(value) != true)) {
-                    this.CantidadCaracteresField = value;
-                    this.RaisePropertyChanged("CantidadCaracteres");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre {
-            get {
-                return this.NombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
-                    this.NombreField = value;
-                    this.RaisePropertyChanged("Nombre");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="clsProfesor", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
     [System.SerializableAttribute()]
     public partial class clsProfesor : ProyectoNido.wcfNido.clsUsuario {
@@ -1988,76 +2581,54 @@ namespace ProyectoNido.wcfNido {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="clsApoderado", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsMatricula", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
     [System.SerializableAttribute()]
-    public partial class clsApoderado : ProyectoNido.wcfNido.clsUsuario {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ProyectoNido.wcfNido.clsArchivoBase ArchivoBaseField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EstadoArchivoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreCompletoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ProyectoNido.wcfNido.clsArchivoBase ArchivoBase {
-            get {
-                return this.ArchivoBaseField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ArchivoBaseField, value) != true)) {
-                    this.ArchivoBaseField = value;
-                    this.RaisePropertyChanged("ArchivoBase");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EstadoArchivo {
-            get {
-                return this.EstadoArchivoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EstadoArchivoField, value) != true)) {
-                    this.EstadoArchivoField = value;
-                    this.RaisePropertyChanged("EstadoArchivo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreCompleto {
-            get {
-                return this.NombreCompletoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreCompletoField, value) != true)) {
-                    this.NombreCompletoField = value;
-                    this.RaisePropertyChanged("NombreCompleto");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="clsArchivoBase", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
-    [System.SerializableAttribute()]
-    public partial class clsArchivoBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class clsMatricula : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] ArchivoField;
+        private string AlumnoNombreField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreArchivoField;
+        private string CodigoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TamanioBytesField;
+        private decimal DescuentoTotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaMatriculaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GrupoNombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_AlumnoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_GrupoAnualField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_MatriculaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_TarifarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreTarifarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ObservacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal SubTotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal TotalField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -2070,40 +2641,462 @@ namespace ProyectoNido.wcfNido {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] Archivo {
+        public string AlumnoNombre {
             get {
-                return this.ArchivoField;
+                return this.AlumnoNombreField;
             }
             set {
-                if ((object.ReferenceEquals(this.ArchivoField, value) != true)) {
-                    this.ArchivoField = value;
-                    this.RaisePropertyChanged("Archivo");
+                if ((object.ReferenceEquals(this.AlumnoNombreField, value) != true)) {
+                    this.AlumnoNombreField = value;
+                    this.RaisePropertyChanged("AlumnoNombre");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreArchivo {
+        public string Codigo {
             get {
-                return this.NombreArchivoField;
+                return this.CodigoField;
             }
             set {
-                if ((object.ReferenceEquals(this.NombreArchivoField, value) != true)) {
-                    this.NombreArchivoField = value;
-                    this.RaisePropertyChanged("NombreArchivo");
+                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
+                    this.CodigoField = value;
+                    this.RaisePropertyChanged("Codigo");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TamanioBytes {
+        public decimal DescuentoTotal {
             get {
-                return this.TamanioBytesField;
+                return this.DescuentoTotalField;
             }
             set {
-                if ((this.TamanioBytesField.Equals(value) != true)) {
-                    this.TamanioBytesField = value;
-                    this.RaisePropertyChanged("TamanioBytes");
+                if ((this.DescuentoTotalField.Equals(value) != true)) {
+                    this.DescuentoTotalField = value;
+                    this.RaisePropertyChanged("DescuentoTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaMatricula {
+            get {
+                return this.FechaMatriculaField;
+            }
+            set {
+                if ((this.FechaMatriculaField.Equals(value) != true)) {
+                    this.FechaMatriculaField = value;
+                    this.RaisePropertyChanged("FechaMatricula");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GrupoNombre {
+            get {
+                return this.GrupoNombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GrupoNombreField, value) != true)) {
+                    this.GrupoNombreField = value;
+                    this.RaisePropertyChanged("GrupoNombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Alumno {
+            get {
+                return this.Id_AlumnoField;
+            }
+            set {
+                if ((this.Id_AlumnoField.Equals(value) != true)) {
+                    this.Id_AlumnoField = value;
+                    this.RaisePropertyChanged("Id_Alumno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_GrupoAnual {
+            get {
+                return this.Id_GrupoAnualField;
+            }
+            set {
+                if ((this.Id_GrupoAnualField.Equals(value) != true)) {
+                    this.Id_GrupoAnualField = value;
+                    this.RaisePropertyChanged("Id_GrupoAnual");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Matricula {
+            get {
+                return this.Id_MatriculaField;
+            }
+            set {
+                if ((this.Id_MatriculaField.Equals(value) != true)) {
+                    this.Id_MatriculaField = value;
+                    this.RaisePropertyChanged("Id_Matricula");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Tarifario {
+            get {
+                return this.Id_TarifarioField;
+            }
+            set {
+                if ((this.Id_TarifarioField.Equals(value) != true)) {
+                    this.Id_TarifarioField = value;
+                    this.RaisePropertyChanged("Id_Tarifario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreTarifario {
+            get {
+                return this.NombreTarifarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreTarifarioField, value) != true)) {
+                    this.NombreTarifarioField = value;
+                    this.RaisePropertyChanged("NombreTarifario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Observacion {
+            get {
+                return this.ObservacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ObservacionField, value) != true)) {
+                    this.ObservacionField = value;
+                    this.RaisePropertyChanged("Observacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal SubTotal {
+            get {
+                return this.SubTotalField;
+            }
+            set {
+                if ((this.SubTotalField.Equals(value) != true)) {
+                    this.SubTotalField = value;
+                    this.RaisePropertyChanged("SubTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Total {
+            get {
+                return this.TotalField;
+            }
+            set {
+                if ((this.TotalField.Equals(value) != true)) {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsResumenCuotas", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsResumenCuotas : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal PagadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal PendienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal TotalField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Pagado {
+            get {
+                return this.PagadoField;
+            }
+            set {
+                if ((this.PagadoField.Equals(value) != true)) {
+                    this.PagadoField = value;
+                    this.RaisePropertyChanged("Pagado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Pendiente {
+            get {
+                return this.PendienteField;
+            }
+            set {
+                if ((this.PendienteField.Equals(value) != true)) {
+                    this.PendienteField = value;
+                    this.RaisePropertyChanged("Pendiente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Total {
+            get {
+                return this.TotalField;
+            }
+            set {
+                if ((this.TotalField.Equals(value) != true)) {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WcfNido")]
+    [System.SerializableAttribute()]
+    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool BoolValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StringValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool BoolValue {
+            get {
+                return this.BoolValueField;
+            }
+            set {
+                if ((this.BoolValueField.Equals(value) != true)) {
+                    this.BoolValueField = value;
+                    this.RaisePropertyChanged("BoolValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StringValue {
+            get {
+                return this.StringValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
+                    this.StringValueField = value;
+                    this.RaisePropertyChanged("StringValue");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsLogin", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsLogin : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ExitoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> Id_PermisoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> Id_RolField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_UsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MensajeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string claveField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Exito {
+            get {
+                return this.ExitoField;
+            }
+            set {
+                if ((this.ExitoField.Equals(value) != true)) {
+                    this.ExitoField = value;
+                    this.RaisePropertyChanged("Exito");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Id_Permiso {
+            get {
+                return this.Id_PermisoField;
+            }
+            set {
+                if ((this.Id_PermisoField.Equals(value) != true)) {
+                    this.Id_PermisoField = value;
+                    this.RaisePropertyChanged("Id_Permiso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Id_Rol {
+            get {
+                return this.Id_RolField;
+            }
+            set {
+                if ((this.Id_RolField.Equals(value) != true)) {
+                    this.Id_RolField = value;
+                    this.RaisePropertyChanged("Id_Rol");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Usuario {
+            get {
+                return this.Id_UsuarioField;
+            }
+            set {
+                if ((this.Id_UsuarioField.Equals(value) != true)) {
+                    this.Id_UsuarioField = value;
+                    this.RaisePropertyChanged("Id_Usuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mensaje {
+            get {
+                return this.MensajeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MensajeField, value) != true)) {
+                    this.MensajeField = value;
+                    this.RaisePropertyChanged("Mensaje");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Usuario {
+            get {
+                return this.UsuarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsuarioField, value) != true)) {
+                    this.UsuarioField = value;
+                    this.RaisePropertyChanged("Usuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string clave {
+            get {
+                return this.claveField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.claveField, value) != true)) {
+                    this.claveField = value;
+                    this.RaisePropertyChanged("clave");
                 }
             }
         }
@@ -2877,339 +3870,6 @@ namespace ProyectoNido.wcfNido {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="clsAlumno", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
-    [System.SerializableAttribute()]
-    public partial class clsAlumno : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool ActivoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ApellidoMaternoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ApellidoPaternoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ProyectoNido.wcfNido.clsApoderado ApoderadoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ProyectoNido.wcfNido.clsArchivoBase CarnetSeguroField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ProyectoNido.wcfNido.clsArchivoBase CopiaDniField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DocumentoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EstadoCarnetSeguroField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EstadoCopiaDniField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EstadoFotosField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EstadoPermisoPublicidadField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> FechaNacimientoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ProyectoNido.wcfNido.clsArchivoBase FotosField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreCompletoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombresField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ProyectoNido.wcfNido.clsArchivoBase PermisoPublicidadField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SexoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ProyectoNido.wcfNido.clsTipoDocumento TipoDocumentoField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Activo {
-            get {
-                return this.ActivoField;
-            }
-            set {
-                if ((this.ActivoField.Equals(value) != true)) {
-                    this.ActivoField = value;
-                    this.RaisePropertyChanged("Activo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ApellidoMaterno {
-            get {
-                return this.ApellidoMaternoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ApellidoMaternoField, value) != true)) {
-                    this.ApellidoMaternoField = value;
-                    this.RaisePropertyChanged("ApellidoMaterno");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ApellidoPaterno {
-            get {
-                return this.ApellidoPaternoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ApellidoPaternoField, value) != true)) {
-                    this.ApellidoPaternoField = value;
-                    this.RaisePropertyChanged("ApellidoPaterno");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ProyectoNido.wcfNido.clsApoderado Apoderado {
-            get {
-                return this.ApoderadoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ApoderadoField, value) != true)) {
-                    this.ApoderadoField = value;
-                    this.RaisePropertyChanged("Apoderado");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ProyectoNido.wcfNido.clsArchivoBase CarnetSeguro {
-            get {
-                return this.CarnetSeguroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CarnetSeguroField, value) != true)) {
-                    this.CarnetSeguroField = value;
-                    this.RaisePropertyChanged("CarnetSeguro");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ProyectoNido.wcfNido.clsArchivoBase CopiaDni {
-            get {
-                return this.CopiaDniField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CopiaDniField, value) != true)) {
-                    this.CopiaDniField = value;
-                    this.RaisePropertyChanged("CopiaDni");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Documento {
-            get {
-                return this.DocumentoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DocumentoField, value) != true)) {
-                    this.DocumentoField = value;
-                    this.RaisePropertyChanged("Documento");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EstadoCarnetSeguro {
-            get {
-                return this.EstadoCarnetSeguroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EstadoCarnetSeguroField, value) != true)) {
-                    this.EstadoCarnetSeguroField = value;
-                    this.RaisePropertyChanged("EstadoCarnetSeguro");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EstadoCopiaDni {
-            get {
-                return this.EstadoCopiaDniField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EstadoCopiaDniField, value) != true)) {
-                    this.EstadoCopiaDniField = value;
-                    this.RaisePropertyChanged("EstadoCopiaDni");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EstadoFotos {
-            get {
-                return this.EstadoFotosField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EstadoFotosField, value) != true)) {
-                    this.EstadoFotosField = value;
-                    this.RaisePropertyChanged("EstadoFotos");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EstadoPermisoPublicidad {
-            get {
-                return this.EstadoPermisoPublicidadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EstadoPermisoPublicidadField, value) != true)) {
-                    this.EstadoPermisoPublicidadField = value;
-                    this.RaisePropertyChanged("EstadoPermisoPublicidad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> FechaNacimiento {
-            get {
-                return this.FechaNacimientoField;
-            }
-            set {
-                if ((this.FechaNacimientoField.Equals(value) != true)) {
-                    this.FechaNacimientoField = value;
-                    this.RaisePropertyChanged("FechaNacimiento");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ProyectoNido.wcfNido.clsArchivoBase Fotos {
-            get {
-                return this.FotosField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FotosField, value) != true)) {
-                    this.FotosField = value;
-                    this.RaisePropertyChanged("Fotos");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreCompleto {
-            get {
-                return this.NombreCompletoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreCompletoField, value) != true)) {
-                    this.NombreCompletoField = value;
-                    this.RaisePropertyChanged("NombreCompleto");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombres {
-            get {
-                return this.NombresField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombresField, value) != true)) {
-                    this.NombresField = value;
-                    this.RaisePropertyChanged("Nombres");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ProyectoNido.wcfNido.clsArchivoBase PermisoPublicidad {
-            get {
-                return this.PermisoPublicidadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PermisoPublicidadField, value) != true)) {
-                    this.PermisoPublicidadField = value;
-                    this.RaisePropertyChanged("PermisoPublicidad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Sexo {
-            get {
-                return this.SexoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SexoField, value) != true)) {
-                    this.SexoField = value;
-                    this.RaisePropertyChanged("Sexo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ProyectoNido.wcfNido.clsTipoDocumento TipoDocumento {
-            get {
-                return this.TipoDocumentoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TipoDocumentoField, value) != true)) {
-                    this.TipoDocumentoField = value;
-                    this.RaisePropertyChanged("TipoDocumento");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="clsGrupoAnualDetalle", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
     [System.SerializableAttribute()]
     public partial class clsGrupoAnualDetalle : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -3852,259 +4512,6 @@ namespace ProyectoNido.wcfNido {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="clsMatricula", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
-    [System.SerializableAttribute()]
-    public partial class clsMatricula : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AlumnoNombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodigoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal DescuentoTotalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EstadoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime FechaMatriculaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string GrupoNombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_AlumnoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_GrupoAnualField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_MatriculaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_TarifarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreTarifarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ObservacionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal SubTotalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal TotalField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AlumnoNombre {
-            get {
-                return this.AlumnoNombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AlumnoNombreField, value) != true)) {
-                    this.AlumnoNombreField = value;
-                    this.RaisePropertyChanged("AlumnoNombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Codigo {
-            get {
-                return this.CodigoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
-                    this.CodigoField = value;
-                    this.RaisePropertyChanged("Codigo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal DescuentoTotal {
-            get {
-                return this.DescuentoTotalField;
-            }
-            set {
-                if ((this.DescuentoTotalField.Equals(value) != true)) {
-                    this.DescuentoTotalField = value;
-                    this.RaisePropertyChanged("DescuentoTotal");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Estado {
-            get {
-                return this.EstadoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
-                    this.EstadoField = value;
-                    this.RaisePropertyChanged("Estado");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime FechaMatricula {
-            get {
-                return this.FechaMatriculaField;
-            }
-            set {
-                if ((this.FechaMatriculaField.Equals(value) != true)) {
-                    this.FechaMatriculaField = value;
-                    this.RaisePropertyChanged("FechaMatricula");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string GrupoNombre {
-            get {
-                return this.GrupoNombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.GrupoNombreField, value) != true)) {
-                    this.GrupoNombreField = value;
-                    this.RaisePropertyChanged("GrupoNombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Alumno {
-            get {
-                return this.Id_AlumnoField;
-            }
-            set {
-                if ((this.Id_AlumnoField.Equals(value) != true)) {
-                    this.Id_AlumnoField = value;
-                    this.RaisePropertyChanged("Id_Alumno");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_GrupoAnual {
-            get {
-                return this.Id_GrupoAnualField;
-            }
-            set {
-                if ((this.Id_GrupoAnualField.Equals(value) != true)) {
-                    this.Id_GrupoAnualField = value;
-                    this.RaisePropertyChanged("Id_GrupoAnual");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Matricula {
-            get {
-                return this.Id_MatriculaField;
-            }
-            set {
-                if ((this.Id_MatriculaField.Equals(value) != true)) {
-                    this.Id_MatriculaField = value;
-                    this.RaisePropertyChanged("Id_Matricula");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Tarifario {
-            get {
-                return this.Id_TarifarioField;
-            }
-            set {
-                if ((this.Id_TarifarioField.Equals(value) != true)) {
-                    this.Id_TarifarioField = value;
-                    this.RaisePropertyChanged("Id_Tarifario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreTarifario {
-            get {
-                return this.NombreTarifarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreTarifarioField, value) != true)) {
-                    this.NombreTarifarioField = value;
-                    this.RaisePropertyChanged("NombreTarifario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Observacion {
-            get {
-                return this.ObservacionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ObservacionField, value) != true)) {
-                    this.ObservacionField = value;
-                    this.RaisePropertyChanged("Observacion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal SubTotal {
-            get {
-                return this.SubTotalField;
-            }
-            set {
-                if ((this.SubTotalField.Equals(value) != true)) {
-                    this.SubTotalField = value;
-                    this.RaisePropertyChanged("SubTotal");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Total {
-            get {
-                return this.TotalField;
-            }
-            set {
-                if ((this.TotalField.Equals(value) != true)) {
-                    this.TotalField = value;
-                    this.RaisePropertyChanged("Total");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wcfNido.IService1")]
     public interface IService1 {
@@ -4288,6 +4695,42 @@ namespace ProyectoNido.wcfNido {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarCuota", ReplyAction="http://tempuri.org/IService1/EliminarCuotaResponse")]
         System.Threading.Tasks.Task<bool> EliminarCuotaAsync(int idCuota);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ListarComunicados", ReplyAction="http://tempuri.org/IService1/Mov_ListarComunicadosResponse")]
+        ProyectoNido.wcfNido.ComunicadoMovil[] Mov_ListarComunicados(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ListarComunicados", ReplyAction="http://tempuri.org/IService1/Mov_ListarComunicadosResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.ComunicadoMovil[]> Mov_ListarComunicadosAsync(int idUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_LoginApoderado", ReplyAction="http://tempuri.org/IService1/Mov_LoginApoderadoResponse")]
+        ProyectoNido.wcfNido.E_MovLogin Mov_LoginApoderado(string usuarioODocumento, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_LoginApoderado", ReplyAction="http://tempuri.org/IService1/Mov_LoginApoderadoResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.E_MovLogin> Mov_LoginApoderadoAsync(string usuarioODocumento, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ListarHijosPorApoderado", ReplyAction="http://tempuri.org/IService1/Mov_ListarHijosPorApoderadoResponse")]
+        ProyectoNido.wcfNido.clsAlumno[] Mov_ListarHijosPorApoderado(int idApoderado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ListarHijosPorApoderado", ReplyAction="http://tempuri.org/IService1/Mov_ListarHijosPorApoderadoResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsAlumno[]> Mov_ListarHijosPorApoderadoAsync(int idApoderado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ObtenerMatriculaActual", ReplyAction="http://tempuri.org/IService1/Mov_ObtenerMatriculaActualResponse")]
+        ProyectoNido.wcfNido.clsMatricula Mov_ObtenerMatriculaActual(int idAlumno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ObtenerMatriculaActual", ReplyAction="http://tempuri.org/IService1/Mov_ObtenerMatriculaActualResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatricula> Mov_ObtenerMatriculaActualAsync(int idAlumno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ResumenCuotas", ReplyAction="http://tempuri.org/IService1/Mov_ResumenCuotasResponse")]
+        ProyectoNido.wcfNido.clsResumenCuotas Mov_ResumenCuotas(int idMatricula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ResumenCuotas", ReplyAction="http://tempuri.org/IService1/Mov_ResumenCuotasResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsResumenCuotas> Mov_ResumenCuotasAsync(int idMatricula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ListarCuotas", ReplyAction="http://tempuri.org/IService1/Mov_ListarCuotasResponse")]
+        ProyectoNido.wcfNido.clsMatriculaDetalle[] Mov_ListarCuotas(int idMatricula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ListarCuotas", ReplyAction="http://tempuri.org/IService1/Mov_ListarCuotasResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatriculaDetalle[]> Mov_ListarCuotasAsync(int idMatricula);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
         string GetData(int value);
@@ -5065,6 +5508,54 @@ namespace ProyectoNido.wcfNido {
         
         public System.Threading.Tasks.Task<bool> EliminarCuotaAsync(int idCuota) {
             return base.Channel.EliminarCuotaAsync(idCuota);
+        }
+        
+        public ProyectoNido.wcfNido.ComunicadoMovil[] Mov_ListarComunicados(int idUsuario) {
+            return base.Channel.Mov_ListarComunicados(idUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.ComunicadoMovil[]> Mov_ListarComunicadosAsync(int idUsuario) {
+            return base.Channel.Mov_ListarComunicadosAsync(idUsuario);
+        }
+        
+        public ProyectoNido.wcfNido.E_MovLogin Mov_LoginApoderado(string usuarioODocumento, string clave) {
+            return base.Channel.Mov_LoginApoderado(usuarioODocumento, clave);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.E_MovLogin> Mov_LoginApoderadoAsync(string usuarioODocumento, string clave) {
+            return base.Channel.Mov_LoginApoderadoAsync(usuarioODocumento, clave);
+        }
+        
+        public ProyectoNido.wcfNido.clsAlumno[] Mov_ListarHijosPorApoderado(int idApoderado) {
+            return base.Channel.Mov_ListarHijosPorApoderado(idApoderado);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsAlumno[]> Mov_ListarHijosPorApoderadoAsync(int idApoderado) {
+            return base.Channel.Mov_ListarHijosPorApoderadoAsync(idApoderado);
+        }
+        
+        public ProyectoNido.wcfNido.clsMatricula Mov_ObtenerMatriculaActual(int idAlumno) {
+            return base.Channel.Mov_ObtenerMatriculaActual(idAlumno);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatricula> Mov_ObtenerMatriculaActualAsync(int idAlumno) {
+            return base.Channel.Mov_ObtenerMatriculaActualAsync(idAlumno);
+        }
+        
+        public ProyectoNido.wcfNido.clsResumenCuotas Mov_ResumenCuotas(int idMatricula) {
+            return base.Channel.Mov_ResumenCuotas(idMatricula);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsResumenCuotas> Mov_ResumenCuotasAsync(int idMatricula) {
+            return base.Channel.Mov_ResumenCuotasAsync(idMatricula);
+        }
+        
+        public ProyectoNido.wcfNido.clsMatriculaDetalle[] Mov_ListarCuotas(int idMatricula) {
+            return base.Channel.Mov_ListarCuotas(idMatricula);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatriculaDetalle[]> Mov_ListarCuotasAsync(int idMatricula) {
+            return base.Channel.Mov_ListarCuotasAsync(idMatricula);
         }
         
         public string GetData(int value) {

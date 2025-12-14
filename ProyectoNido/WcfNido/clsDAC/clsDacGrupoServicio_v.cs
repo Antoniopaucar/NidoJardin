@@ -10,9 +10,12 @@ namespace clsDAC
 {
     public class clsDacGrupoServicio_v
     {
+
+
+        // Método corregido:
         public List<clsEntidades.clsGrupoServicio> ListarGrupoServicio()
         {
-            List<clsEntidades.clsGrupoServicio> lista = new List<clsEntidades.clsGrupoServicio>();
+            var lista = new List<clsEntidades.clsGrupoServicio>();
 
             using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
             {
@@ -23,6 +26,7 @@ namespace clsDAC
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
+                        int ordPeriodo = dr.GetOrdinal("Periodo");
                         while (dr.Read())
                         {
                             var gs = new clsEntidades.clsGrupoServicio
@@ -31,7 +35,10 @@ namespace clsDAC
                                 Id_Salon = Convert.ToInt32(dr["Id_Salon"]),
                                 Id_Profesor = Convert.ToInt32(dr["Id_Profesor"]),
                                 Id_ServicioAdicional = Convert.ToInt32(dr["Id_ServicioAdicional"]),
-                                Periodo = Convert.ToByte(dr["Periodo"])
+                                Periodo = dr["Periodo"] == DBNull.Value ? (short)0 : Convert.ToInt16(dr["Periodo"]),
+                                NombreSalon = dr["NombreSalon"] == DBNull.Value ? "" : dr["NombreSalon"].ToString(),
+                                NombreProfesor = dr["NombreProfesor"] == DBNull.Value ? "" : dr["NombreProfesor"].ToString(),
+                                NombreServicio = dr["NombreServicio"] == DBNull.Value ? "" : dr["NombreServicio"].ToString()
                             };
 
                             lista.Add(gs);
@@ -69,7 +76,8 @@ namespace clsDAC
                     cmd.Parameters.AddWithValue("@Id_Salon", grupo.Id_Salon);
                     cmd.Parameters.AddWithValue("@Id_Profesor", grupo.Id_Profesor);
                     cmd.Parameters.AddWithValue("@Id_ServicioAdicional", grupo.Id_ServicioAdicional);
-                    cmd.Parameters.AddWithValue("@Periodo", grupo.Periodo);
+                    cmd.Parameters.Add("@Periodo", SqlDbType.SmallInt).Value = grupo.Periodo;
+
 
                     cmd.ExecuteNonQuery();
                 }
@@ -89,7 +97,7 @@ namespace clsDAC
                     cmd.Parameters.AddWithValue("@Id_Salon", grupo.Id_Salon);
                     cmd.Parameters.AddWithValue("@Id_Profesor", grupo.Id_Profesor);
                     cmd.Parameters.AddWithValue("@Id_ServicioAdicional", grupo.Id_ServicioAdicional);
-                    cmd.Parameters.AddWithValue("@Periodo", grupo.Periodo);
+                    cmd.Parameters.Add("@Periodo", SqlDbType.SmallInt).Value = grupo.Periodo;
 
                     cmd.ExecuteNonQuery();
                 }

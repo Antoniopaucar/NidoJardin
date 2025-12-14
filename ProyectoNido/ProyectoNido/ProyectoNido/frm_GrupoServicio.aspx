@@ -60,9 +60,9 @@
         <tr>
             <td>Periodo:</td>
             <td>
-                <asp:TextBox ID="txt_Periodo" runat="server" Width="120" />
-                &nbsp;
-                <span style="font-size: smaller;">(Ej: 1, 2... según el catálogo)</span>
+                <asp:TextBox ID="txt_Periodo" runat="server"
+                    MaxLength="4"
+                    placeholder="Ej: 2025" />
             </td>
         </tr>
 
@@ -226,9 +226,9 @@
 
     <Columns>
         <asp:BoundField DataField="Id_GrupoServicio" HeaderText="ID" />
-        <asp:BoundField DataField="Id_Salon" HeaderText="Id Salón" />
-        <asp:BoundField DataField="Id_Profesor" HeaderText="Id Profesor" />
-        <asp:BoundField DataField="Id_ServicioAdicional" HeaderText="Id Servicio" />
+        <asp:BoundField DataField="NombreSalon" HeaderText="Salón" />
+        <asp:BoundField DataField="NombreProfesor" HeaderText="Profesor" />
+        <asp:BoundField DataField="NombreServicio" HeaderText="Servicio" />
         <asp:BoundField DataField="Periodo" HeaderText="Periodo" />
 
         <asp:TemplateField HeaderText="Acciones">
