@@ -416,6 +416,14 @@ namespace WcfNido
         [OperationContract]
         bool EliminarCuota(int idCuota);
 
+        //------------------------- CRONOGRAMA DE PAGOS (APLICACIÓN WEB) ----------------------------------------------
+        [OperationContract]
+        clsMatricula ObtenerMatriculaActualPorAlumno(int idAlumno);
+        [OperationContract]
+        clsResumenCuotas ResumenCuotasPorMatricula(int idMatricula);
+        [OperationContract]
+        List<clsMatriculaDetalle> ListarCuotasPorMatricula(int idMatricula);
+
         //------------------------- APARTADO MOVIL ----------------------------------------------
         //------------------------ Mov_LISTAR_COMUNICADOS_APODERADO ----------------------------------------------
         [OperationContract]

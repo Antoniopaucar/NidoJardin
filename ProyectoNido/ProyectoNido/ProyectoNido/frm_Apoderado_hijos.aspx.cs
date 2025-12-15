@@ -224,13 +224,17 @@ namespace ProyectoNido
                 LinkButton lnk = (LinkButton)sender;
                 int idAlumno = Convert.ToInt32(lnk.CommandArgument);
                 
-                // TODO: Implementar redirección o modal para cronograma de pagos
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "cronograma", 
-                    $"alert('Cronograma de Pagos para el alumno ID: {idAlumno} - Funcionalidad pendiente de implementar');", true);
+                // Guardar el ID del alumno seleccionado en sesión
+                Session["IdAlumnoSeleccionado"] = idAlumno;
+                
+                // Redirigir a la página de cronograma de pagos
+                Response.Redirect($"frm_CronogramaPago_PorHijo.aspx?idAlumno={idAlumno}");
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Error al abrir cronograma: {ex.Message}");
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "errorCronograma",
+                    $"alert('Error al abrir cronograma: {ex.Message.Replace("'", "\\'")}');", true);
             }
         }
 

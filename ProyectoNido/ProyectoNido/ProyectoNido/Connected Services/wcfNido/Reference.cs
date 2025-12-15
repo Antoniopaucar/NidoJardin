@@ -1399,6 +1399,336 @@ namespace ProyectoNido.wcfNido {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsMatricula", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsMatricula : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AlumnoNombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal DescuentoTotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaMatriculaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GrupoNombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_AlumnoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_GrupoAnualField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_MatriculaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_TarifarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreTarifarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ObservacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal SubTotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal TotalField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AlumnoNombre {
+            get {
+                return this.AlumnoNombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AlumnoNombreField, value) != true)) {
+                    this.AlumnoNombreField = value;
+                    this.RaisePropertyChanged("AlumnoNombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Codigo {
+            get {
+                return this.CodigoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
+                    this.CodigoField = value;
+                    this.RaisePropertyChanged("Codigo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal DescuentoTotal {
+            get {
+                return this.DescuentoTotalField;
+            }
+            set {
+                if ((this.DescuentoTotalField.Equals(value) != true)) {
+                    this.DescuentoTotalField = value;
+                    this.RaisePropertyChanged("DescuentoTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaMatricula {
+            get {
+                return this.FechaMatriculaField;
+            }
+            set {
+                if ((this.FechaMatriculaField.Equals(value) != true)) {
+                    this.FechaMatriculaField = value;
+                    this.RaisePropertyChanged("FechaMatricula");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GrupoNombre {
+            get {
+                return this.GrupoNombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GrupoNombreField, value) != true)) {
+                    this.GrupoNombreField = value;
+                    this.RaisePropertyChanged("GrupoNombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Alumno {
+            get {
+                return this.Id_AlumnoField;
+            }
+            set {
+                if ((this.Id_AlumnoField.Equals(value) != true)) {
+                    this.Id_AlumnoField = value;
+                    this.RaisePropertyChanged("Id_Alumno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_GrupoAnual {
+            get {
+                return this.Id_GrupoAnualField;
+            }
+            set {
+                if ((this.Id_GrupoAnualField.Equals(value) != true)) {
+                    this.Id_GrupoAnualField = value;
+                    this.RaisePropertyChanged("Id_GrupoAnual");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Matricula {
+            get {
+                return this.Id_MatriculaField;
+            }
+            set {
+                if ((this.Id_MatriculaField.Equals(value) != true)) {
+                    this.Id_MatriculaField = value;
+                    this.RaisePropertyChanged("Id_Matricula");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Tarifario {
+            get {
+                return this.Id_TarifarioField;
+            }
+            set {
+                if ((this.Id_TarifarioField.Equals(value) != true)) {
+                    this.Id_TarifarioField = value;
+                    this.RaisePropertyChanged("Id_Tarifario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreTarifario {
+            get {
+                return this.NombreTarifarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreTarifarioField, value) != true)) {
+                    this.NombreTarifarioField = value;
+                    this.RaisePropertyChanged("NombreTarifario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Observacion {
+            get {
+                return this.ObservacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ObservacionField, value) != true)) {
+                    this.ObservacionField = value;
+                    this.RaisePropertyChanged("Observacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal SubTotal {
+            get {
+                return this.SubTotalField;
+            }
+            set {
+                if ((this.SubTotalField.Equals(value) != true)) {
+                    this.SubTotalField = value;
+                    this.RaisePropertyChanged("SubTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Total {
+            get {
+                return this.TotalField;
+            }
+            set {
+                if ((this.TotalField.Equals(value) != true)) {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsResumenCuotas", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsResumenCuotas : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal PagadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal PendienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal TotalField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Pagado {
+            get {
+                return this.PagadoField;
+            }
+            set {
+                if ((this.PagadoField.Equals(value) != true)) {
+                    this.PagadoField = value;
+                    this.RaisePropertyChanged("Pagado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Pendiente {
+            get {
+                return this.PendienteField;
+            }
+            set {
+                if ((this.PendienteField.Equals(value) != true)) {
+                    this.PendienteField = value;
+                    this.RaisePropertyChanged("Pendiente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Total {
+            get {
+                return this.TotalField;
+            }
+            set {
+                if ((this.TotalField.Equals(value) != true)) {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ComunicadoMovil", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
     [System.SerializableAttribute()]
     public partial class ComunicadoMovil : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -2860,336 +3190,6 @@ namespace ProyectoNido.wcfNido {
                     this.VerificacionDomiciliariaField = value;
                     this.RaisePropertyChanged("VerificacionDomiciliaria");
                 }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="clsMatricula", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
-    [System.SerializableAttribute()]
-    public partial class clsMatricula : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AlumnoNombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodigoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal DescuentoTotalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EstadoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime FechaMatriculaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string GrupoNombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_AlumnoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_GrupoAnualField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_MatriculaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_TarifarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreTarifarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ObservacionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal SubTotalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal TotalField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AlumnoNombre {
-            get {
-                return this.AlumnoNombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AlumnoNombreField, value) != true)) {
-                    this.AlumnoNombreField = value;
-                    this.RaisePropertyChanged("AlumnoNombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Codigo {
-            get {
-                return this.CodigoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
-                    this.CodigoField = value;
-                    this.RaisePropertyChanged("Codigo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal DescuentoTotal {
-            get {
-                return this.DescuentoTotalField;
-            }
-            set {
-                if ((this.DescuentoTotalField.Equals(value) != true)) {
-                    this.DescuentoTotalField = value;
-                    this.RaisePropertyChanged("DescuentoTotal");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Estado {
-            get {
-                return this.EstadoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
-                    this.EstadoField = value;
-                    this.RaisePropertyChanged("Estado");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime FechaMatricula {
-            get {
-                return this.FechaMatriculaField;
-            }
-            set {
-                if ((this.FechaMatriculaField.Equals(value) != true)) {
-                    this.FechaMatriculaField = value;
-                    this.RaisePropertyChanged("FechaMatricula");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string GrupoNombre {
-            get {
-                return this.GrupoNombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.GrupoNombreField, value) != true)) {
-                    this.GrupoNombreField = value;
-                    this.RaisePropertyChanged("GrupoNombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Alumno {
-            get {
-                return this.Id_AlumnoField;
-            }
-            set {
-                if ((this.Id_AlumnoField.Equals(value) != true)) {
-                    this.Id_AlumnoField = value;
-                    this.RaisePropertyChanged("Id_Alumno");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_GrupoAnual {
-            get {
-                return this.Id_GrupoAnualField;
-            }
-            set {
-                if ((this.Id_GrupoAnualField.Equals(value) != true)) {
-                    this.Id_GrupoAnualField = value;
-                    this.RaisePropertyChanged("Id_GrupoAnual");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Matricula {
-            get {
-                return this.Id_MatriculaField;
-            }
-            set {
-                if ((this.Id_MatriculaField.Equals(value) != true)) {
-                    this.Id_MatriculaField = value;
-                    this.RaisePropertyChanged("Id_Matricula");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Tarifario {
-            get {
-                return this.Id_TarifarioField;
-            }
-            set {
-                if ((this.Id_TarifarioField.Equals(value) != true)) {
-                    this.Id_TarifarioField = value;
-                    this.RaisePropertyChanged("Id_Tarifario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreTarifario {
-            get {
-                return this.NombreTarifarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreTarifarioField, value) != true)) {
-                    this.NombreTarifarioField = value;
-                    this.RaisePropertyChanged("NombreTarifario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Observacion {
-            get {
-                return this.ObservacionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ObservacionField, value) != true)) {
-                    this.ObservacionField = value;
-                    this.RaisePropertyChanged("Observacion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal SubTotal {
-            get {
-                return this.SubTotalField;
-            }
-            set {
-                if ((this.SubTotalField.Equals(value) != true)) {
-                    this.SubTotalField = value;
-                    this.RaisePropertyChanged("SubTotal");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Total {
-            get {
-                return this.TotalField;
-            }
-            set {
-                if ((this.TotalField.Equals(value) != true)) {
-                    this.TotalField = value;
-                    this.RaisePropertyChanged("Total");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="clsResumenCuotas", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
-    [System.SerializableAttribute()]
-    public partial class clsResumenCuotas : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal PagadoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal PendienteField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal TotalField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Pagado {
-            get {
-                return this.PagadoField;
-            }
-            set {
-                if ((this.PagadoField.Equals(value) != true)) {
-                    this.PagadoField = value;
-                    this.RaisePropertyChanged("Pagado");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Pendiente {
-            get {
-                return this.PendienteField;
-            }
-            set {
-                if ((this.PendienteField.Equals(value) != true)) {
-                    this.PendienteField = value;
-                    this.RaisePropertyChanged("Pendiente");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Total {
-            get {
-                return this.TotalField;
-            }
-            set {
-                if ((this.TotalField.Equals(value) != true)) {
-                    this.TotalField = value;
-                    this.RaisePropertyChanged("Total");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
@@ -5088,6 +5088,24 @@ namespace ProyectoNido.wcfNido {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarCuota", ReplyAction="http://tempuri.org/IService1/EliminarCuotaResponse")]
         System.Threading.Tasks.Task<bool> EliminarCuotaAsync(int idCuota);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ObtenerMatriculaActualPorAlumno", ReplyAction="http://tempuri.org/IService1/ObtenerMatriculaActualPorAlumnoResponse")]
+        ProyectoNido.wcfNido.clsMatricula ObtenerMatriculaActualPorAlumno(int idAlumno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ObtenerMatriculaActualPorAlumno", ReplyAction="http://tempuri.org/IService1/ObtenerMatriculaActualPorAlumnoResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatricula> ObtenerMatriculaActualPorAlumnoAsync(int idAlumno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ResumenCuotasPorMatricula", ReplyAction="http://tempuri.org/IService1/ResumenCuotasPorMatriculaResponse")]
+        ProyectoNido.wcfNido.clsResumenCuotas ResumenCuotasPorMatricula(int idMatricula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ResumenCuotasPorMatricula", ReplyAction="http://tempuri.org/IService1/ResumenCuotasPorMatriculaResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsResumenCuotas> ResumenCuotasPorMatriculaAsync(int idMatricula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarCuotasPorMatricula", ReplyAction="http://tempuri.org/IService1/ListarCuotasPorMatriculaResponse")]
+        ProyectoNido.wcfNido.clsMatriculaDetalle[] ListarCuotasPorMatricula(int idMatricula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarCuotasPorMatricula", ReplyAction="http://tempuri.org/IService1/ListarCuotasPorMatriculaResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatriculaDetalle[]> ListarCuotasPorMatriculaAsync(int idMatricula);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ListarComunicados", ReplyAction="http://tempuri.org/IService1/Mov_ListarComunicadosResponse")]
         ProyectoNido.wcfNido.ComunicadoMovil[] Mov_ListarComunicados(int idUsuario);
         
@@ -5940,6 +5958,30 @@ namespace ProyectoNido.wcfNido {
         
         public System.Threading.Tasks.Task<bool> EliminarCuotaAsync(int idCuota) {
             return base.Channel.EliminarCuotaAsync(idCuota);
+        }
+        
+        public ProyectoNido.wcfNido.clsMatricula ObtenerMatriculaActualPorAlumno(int idAlumno) {
+            return base.Channel.ObtenerMatriculaActualPorAlumno(idAlumno);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatricula> ObtenerMatriculaActualPorAlumnoAsync(int idAlumno) {
+            return base.Channel.ObtenerMatriculaActualPorAlumnoAsync(idAlumno);
+        }
+        
+        public ProyectoNido.wcfNido.clsResumenCuotas ResumenCuotasPorMatricula(int idMatricula) {
+            return base.Channel.ResumenCuotasPorMatricula(idMatricula);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsResumenCuotas> ResumenCuotasPorMatriculaAsync(int idMatricula) {
+            return base.Channel.ResumenCuotasPorMatriculaAsync(idMatricula);
+        }
+        
+        public ProyectoNido.wcfNido.clsMatriculaDetalle[] ListarCuotasPorMatricula(int idMatricula) {
+            return base.Channel.ListarCuotasPorMatricula(idMatricula);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatriculaDetalle[]> ListarCuotasPorMatriculaAsync(int idMatricula) {
+            return base.Channel.ListarCuotasPorMatriculaAsync(idMatricula);
         }
         
         public ProyectoNido.wcfNido.ComunicadoMovil[] Mov_ListarComunicados(int idUsuario) {

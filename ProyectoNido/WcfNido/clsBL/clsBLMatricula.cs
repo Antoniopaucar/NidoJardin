@@ -110,5 +110,62 @@ namespace clsBL
                 return false;
             }
         }
+
+        // Obtener matrícula actual por alumno (para aplicación web)
+        public clsEntidades.clsMatricula ObtenerMatriculaActualPorAlumno(int idAlumno)
+        {
+            try
+            {
+                if (idAlumno <= 0)
+                    return new clsEntidades.clsMatricula { Id_Matricula = 0 };
+
+                var dac = new clsDAC.clsDacMatricula();
+                return dac.ObtenerMatriculaActualPorAlumno(idAlumno);
+            }
+            catch (SqlException ex)
+            {
+                var err = new clsBLError();
+                err.Control_Sql_Error(ex);
+                return new clsEntidades.clsMatricula { Id_Matricula = 0 };
+            }
+        }
+
+        // Resumen de cuotas por matrícula (para aplicación web)
+        public clsEntidades.clsResumenCuotas ResumenCuotasPorMatricula(int idMatricula)
+        {
+            try
+            {
+                if (idMatricula <= 0)
+                    return new clsEntidades.clsResumenCuotas { Total = 0, Pagado = 0, Pendiente = 0 };
+
+                var dac = new clsDAC.clsDacMatricula();
+                return dac.ResumenCuotasPorMatricula(idMatricula);
+            }
+            catch (SqlException ex)
+            {
+                var err = new clsBLError();
+                err.Control_Sql_Error(ex);
+                return new clsEntidades.clsResumenCuotas { Total = 0, Pagado = 0, Pendiente = 0 };
+            }
+        }
+
+        // Listar cuotas por matrícula (para aplicación web)
+        public List<clsEntidades.clsMatriculaDetalle> ListarCuotasPorMatricula(int idMatricula)
+        {
+            try
+            {
+                if (idMatricula <= 0)
+                    return new List<clsEntidades.clsMatriculaDetalle>();
+
+                var dac = new clsDAC.clsDacMatricula();
+                return dac.ListarCuotasPorMatricula(idMatricula);
+            }
+            catch (SqlException ex)
+            {
+                var err = new clsBLError();
+                err.Control_Sql_Error(ex);
+                return new List<clsEntidades.clsMatriculaDetalle>();
+            }
+        }
     }
 }

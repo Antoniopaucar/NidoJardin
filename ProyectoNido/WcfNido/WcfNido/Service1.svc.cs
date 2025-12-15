@@ -1330,6 +1330,24 @@ namespace WcfNido
             return xbl.eliminar_Cuota(idCuota);
         }
 
+        //------------------------- CRONOGRAMA DE PAGOS (APLICACIÓN WEB) ----------------------------------------------
+        public clsMatricula ObtenerMatriculaActualPorAlumno(int idAlumno)
+        {
+            clsBL.clsBLMatricula xbl = new clsBL.clsBLMatricula();
+            return xbl.ObtenerMatriculaActualPorAlumno(idAlumno);
+        }
+
+        public clsResumenCuotas ResumenCuotasPorMatricula(int idMatricula)
+        {
+            clsBL.clsBLMatricula xbl = new clsBL.clsBLMatricula();
+            return xbl.ResumenCuotasPorMatricula(idMatricula);
+        }
+
+        public List<clsMatriculaDetalle> ListarCuotasPorMatricula(int idMatricula)
+        {
+            clsBL.clsBLMatricula xbl = new clsBL.clsBLMatricula();
+            return xbl.ListarCuotasPorMatricula(idMatricula);
+        }
 
         //------------------------ APARTADO MÓVIL ------------------------------
         //------------------------ OBTENER COMUNICADOS PARA APLICACIÓN MÓVIL ------------------------------

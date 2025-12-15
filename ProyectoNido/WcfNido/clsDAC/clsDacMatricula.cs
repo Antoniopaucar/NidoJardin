@@ -222,6 +222,105 @@ namespace clsDAC
             return filas > 0;
         }
 
+        // ======================================
+        //  7) OBTENER MATRÍCULA ACTUAL POR ALUMNO (para aplicación web)
+        // ======================================
+        public clsEntidades.clsMatricula ObtenerMatriculaActualPorAlumno(int idAlumno)
+        {
+            clsEntidades.clsMatricula mat = null;
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            using (SqlCommand cmd = new SqlCommand("mov_obtener_matricula_actual_por_alumno", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_Alumno", idAlumno);
+
+                cn.Open();
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        mat = new clsEntidades.clsMatricula
+                        {
+                            Id_Matricula = (int)dr["Id_Matricula"],
+                            Id_Alumno = (int)dr["Id_Alumno"],
+                            FechaMatricula = (DateTime)dr["FechaMatricula"],
+                            Total = (decimal)dr["Total"],
+                            Estado = dr["Estado"].ToString()
+                        };
+                    }
+                }
+            }
+
+            return mat ?? new clsEntidades.clsMatricula { Id_Matricula = 0 };
+        }
+
+        // ======================================
+        //  8) RESUMEN CUOTAS POR MATRÍCULA (para aplicación web)
+        // ======================================
+        public clsEntidades.clsResumenCuotas ResumenCuotasPorMatricula(int idMatricula)
+        {
+            clsEntidades.clsResumenCuotas res = new clsEntidades.clsResumenCuotas();
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            using (SqlCommand cmd = new SqlCommand("mov_resumen_cuotas_por_matricula", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_Matricula", idMatricula);
+
+                cn.Open();
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        res.Total = dr["Total"] == DBNull.Value ? 0 : (decimal)dr["Total"];
+                        res.Pagado = dr["Pagado"] == DBNull.Value ? 0 : (decimal)dr["Pagado"];
+                        res.Pendiente = dr["Pendiente"] == DBNull.Value ? 0 : (decimal)dr["Pendiente"];
+                    }
+                }
+            }
+
+            return res;
+        }
+
+        // ======================================
+        //  9) LISTAR CUOTAS POR MATRÍCULA (para aplicación web)
+        // ======================================
+        public List<clsEntidades.clsMatriculaDetalle> ListarCuotasPorMatricula(int idMatricula)
+        {
+            List<clsEntidades.clsMatriculaDetalle> lista = new List<clsEntidades.clsMatriculaDetalle>();
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            using (SqlCommand cmd = new SqlCommand("mov_listar_cuotas_por_matricula", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_Matricula", idMatricula);
+
+                cn.Open();
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        lista.Add(new clsEntidades.clsMatriculaDetalle
+                        {
+                            Id_MatriculaDetalle = Convert.ToInt32(dr["Id_MatriculaDetalle"]),
+                            Id_Matricula = idMatricula, // Usar el parámetro ya que el SP no retorna esta columna
+                            NroCuota = dr["NroCuota"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["NroCuota"]),
+                            NombreCuota = dr["NombreCuota"]?.ToString() ?? "",
+                            FechaVencimiento = dr["FechaVencimiento"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dr["FechaVencimiento"]),
+                            TotalLinea = dr["TotalLinea"] == DBNull.Value ? 0 : Convert.ToDecimal(dr["TotalLinea"]),
+                            FechaPago = dr["FechaPago"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dr["FechaPago"]),
+                            EstadoPago = dr["EstadoPago"]?.ToString() ?? "",
+                            EstadoTexto = dr["EstadoTexto"]?.ToString() ?? ""
+                            // Nota: El SP no retorna: Cantidad, Monto, Descuento, Adicional, Observacion
+                            // Estos campos quedarán con sus valores por defecto (0 para decimal/int, "" para string)
+                        });
+                    }
+                }
+            }
+
+            return lista;
+        }
 
     }
 }
