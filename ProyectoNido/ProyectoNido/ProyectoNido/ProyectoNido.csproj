@@ -191,6 +191,7 @@
     <Content Include="frm_Apoderado_hijos.aspx" />
     <Content Include="frm_Apoderado_OfertaGrupoServicio.aspx" />
     <Content Include="frm_Comunicado.aspx" />
+    <Content Include="frm_CronogramaPago_PorHijo.aspx" />
     <Content Include="frm_Cuota.aspx" />
     <Content Include="frm_Distrito.aspx" />
     <Content Include="frm_Docente_Comunicado.aspx" />
@@ -198,6 +199,7 @@
     <Content Include="frm_Docente_GrupoAnual.aspx" />
     <Content Include="frm_Docente_GrupoServicio.aspx" />
     <Content Include="frm_GrupoServicio.aspx" />
+    <Content Include="frm_HistorialServicio_PorHijo.aspx" />
     <Content Include="frm_Inicio.aspx" />
     <Content Include="frm_Login.aspx" />
     <Content Include="frm_Matricula.aspx" />
@@ -315,6 +317,13 @@
     <Compile Include="frm_Comunicado.aspx.designer.cs">
       <DependentUpon>frm_Comunicado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frm_CronogramaPago_PorHijo.aspx.cs">
+      <DependentUpon>frm_CronogramaPago_PorHijo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_CronogramaPago_PorHijo.aspx.designer.cs">
+      <DependentUpon>frm_CronogramaPago_PorHijo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frm_Cuota.aspx.cs">
       <DependentUpon>frm_Cuota.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -363,6 +372,13 @@
     </Compile>
     <Compile Include="frm_GrupoServicio.aspx.designer.cs">
       <DependentUpon>frm_GrupoServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_HistorialServicio_PorHijo.aspx.cs">
+      <DependentUpon>frm_HistorialServicio_PorHijo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_HistorialServicio_PorHijo.aspx.designer.cs">
+      <DependentUpon>frm_HistorialServicio_PorHijo.aspx</DependentUpon>
     </Compile>
     <Compile Include="frm_Inicio.aspx.cs">
       <DependentUpon>frm_Inicio.aspx</DependentUpon>

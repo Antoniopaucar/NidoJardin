@@ -128,6 +128,39 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsCuota" nillable="true" type="tns:clsCuota" />
+  <xs:complexType name="clsMatricula">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlumnoNombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescuentoTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaMatricula" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GrupoNombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Alumno" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_GrupoAnual" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Matricula" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Tarifario" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreTarifario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Observacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Total" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsMatricula" nillable="true" type="tns:clsMatricula" />
+  <xs:complexType name="clsResumenCuotas">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Pagado" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Pendiente" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Total" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsResumenCuotas" nillable="true" type="tns:clsResumenCuotas" />
+  <xs:complexType name="ArrayOfclsMatriculaDetalle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsMatriculaDetalle" nillable="true" type="tns:clsMatriculaDetalle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsMatriculaDetalle" nillable="true" type="tns:ArrayOfclsMatriculaDetalle" />
   <xs:complexType name="ArrayOfComunicadoMovil">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ComunicadoMovil" nillable="true" type="tns:ComunicadoMovil" />
@@ -251,39 +284,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsArchivoBase" nillable="true" type="tns:clsArchivoBase" />
-  <xs:complexType name="clsMatricula">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AlumnoNombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DescuentoTotal" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FechaMatricula" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="GrupoNombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id_Alumno" type="xs:int" />
-      <xs:element minOccurs="0" name="Id_GrupoAnual" type="xs:int" />
-      <xs:element minOccurs="0" name="Id_Matricula" type="xs:int" />
-      <xs:element minOccurs="0" name="Id_Tarifario" type="xs:int" />
-      <xs:element minOccurs="0" name="NombreTarifario" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Observacion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SubTotal" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Total" type="xs:decimal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="clsMatricula" nillable="true" type="tns:clsMatricula" />
-  <xs:complexType name="clsResumenCuotas">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Pagado" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Pendiente" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Total" type="xs:decimal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="clsResumenCuotas" nillable="true" type="tns:clsResumenCuotas" />
-  <xs:complexType name="ArrayOfclsMatriculaDetalle">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsMatriculaDetalle" nillable="true" type="tns:clsMatriculaDetalle" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfclsMatriculaDetalle" nillable="true" type="tns:ArrayOfclsMatriculaDetalle" />
   <xs:complexType name="clsLogin">
     <xs:sequence>
       <xs:element minOccurs="0" name="Exito" type="xs:boolean" />

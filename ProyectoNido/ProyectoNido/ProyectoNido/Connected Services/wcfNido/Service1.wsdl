@@ -189,6 +189,24 @@
   <wsdl:message name="IService1_EliminarCuota_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarCuotaResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ObtenerMatriculaActualPorAlumno_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMatriculaActualPorAlumno" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ObtenerMatriculaActualPorAlumno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMatriculaActualPorAlumnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ResumenCuotasPorMatricula_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResumenCuotasPorMatricula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ResumenCuotasPorMatricula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResumenCuotasPorMatriculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarCuotasPorMatricula_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCuotasPorMatricula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarCuotasPorMatricula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCuotasPorMatriculaResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_Mov_ListarComunicados_InputMessage">
     <wsdl:part name="parameters" element="tns:Mov_ListarComunicados" />
   </wsdl:message>
@@ -856,6 +874,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/EliminarCuota" message="tns:IService1_EliminarCuota_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/EliminarCuotaResponse" message="tns:IService1_EliminarCuota_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ObtenerMatriculaActualPorAlumno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ObtenerMatriculaActualPorAlumno" message="tns:IService1_ObtenerMatriculaActualPorAlumno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ObtenerMatriculaActualPorAlumnoResponse" message="tns:IService1_ObtenerMatriculaActualPorAlumno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResumenCuotasPorMatricula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ResumenCuotasPorMatricula" message="tns:IService1_ResumenCuotasPorMatricula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ResumenCuotasPorMatriculaResponse" message="tns:IService1_ResumenCuotasPorMatricula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCuotasPorMatricula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarCuotasPorMatricula" message="tns:IService1_ListarCuotasPorMatricula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarCuotasPorMatriculaResponse" message="tns:IService1_ListarCuotasPorMatricula_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Mov_ListarComunicados">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Mov_ListarComunicados" message="tns:IService1_Mov_ListarComunicados_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Mov_ListarComunicadosResponse" message="tns:IService1_Mov_ListarComunicados_OutputMessage" />
@@ -1486,6 +1516,33 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarCuota">
       <soap:operation soapAction="http://tempuri.org/IService1/EliminarCuota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMatriculaActualPorAlumno">
+      <soap:operation soapAction="http://tempuri.org/IService1/ObtenerMatriculaActualPorAlumno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResumenCuotasPorMatricula">
+      <soap:operation soapAction="http://tempuri.org/IService1/ResumenCuotasPorMatricula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCuotasPorMatricula">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarCuotasPorMatricula" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
