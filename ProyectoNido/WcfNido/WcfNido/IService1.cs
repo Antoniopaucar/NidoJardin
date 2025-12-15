@@ -442,6 +442,10 @@ namespace WcfNido
         [OperationContract]
         List<clsMatriculaDetalle> ListarCuotasPorMatricula(int idMatricula);
 
+        //------------------------- HISTORIAL DE SERVICIOS (APLICACIÓN WEB) ----------------------------------------------
+        [OperationContract]
+        List<clsServicioAlumno> ListarServicioAlumnoPorAlumno(int idAlumno);
+
         //------------------------- APARTADO MOVIL ----------------------------------------------
         //------------------------ Mov_LISTAR_COMUNICADOS_APODERADO ----------------------------------------------
         [OperationContract]

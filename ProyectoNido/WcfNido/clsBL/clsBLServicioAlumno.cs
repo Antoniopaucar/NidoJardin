@@ -53,5 +53,22 @@ namespace clsBL
                 throw;
             }
         }
+
+        // Listar servicios por alumno (para aplicación web)
+        public List<clsEntidades.clsServicioAlumno> ListarServicioAlumnoPorAlumno(int idAlumno)
+        {
+            try
+            {
+                if (idAlumno <= 0)
+                    return new List<clsEntidades.clsServicioAlumno>();
+
+                clsDAC.clsDacServicioAlumno xSer = new clsDAC.clsDacServicioAlumno();
+                return xSer.ListarServicioAlumnoPorAlumno(idAlumno);
+            }
+            catch (Exception)
+            {
+                return new List<clsEntidades.clsServicioAlumno>();
+            }
+        }
     }
 }
