@@ -48,6 +48,7 @@
     <Compile Include="clsBLCuota.cs" />
     <Compile Include="clsBLDistrito.cs" />
     <Compile Include="clsBLError.cs" />
+    <Compile Include="clsBLGrupoAnual_v.cs" />
     <Compile Include="clsBLGrupoServicio.cs" />
     <Compile Include="clsBLGrupoServicio_v.cs" />
     <Compile Include="clsBLLogin.cs" />

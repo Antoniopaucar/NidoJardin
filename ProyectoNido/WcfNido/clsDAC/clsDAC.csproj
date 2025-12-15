@@ -50,6 +50,7 @@
     <Compile Include="clsDacCuota.cs" />
     <Compile Include="clsDacDistrito.cs" />
     <Compile Include="clsDacError.cs" />
+    <Compile Include="clsDacGrupoAnual_v.cs" />
     <Compile Include="clsDACGrupoServicio.cs" />
     <Compile Include="clsDacGrupoServicio_v.cs" />
     <Compile Include="clsDacLogin.cs" />

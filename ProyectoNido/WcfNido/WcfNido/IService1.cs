@@ -83,6 +83,10 @@ namespace WcfNido
         void InsNivel(clsEntidades.clsNivel nivel);
         [OperationContract]
         void ModNivel(clsEntidades.clsNivel nivel);
+        //----listar nivel por nombre que se usa para el modal
+        [OperationContract]
+        List<clsNivel> buscarNivel(string texto);
+
         //------------------------ SALON ----------------------------------------------
 
         [OperationContract]
@@ -246,6 +250,19 @@ namespace WcfNido
         [OperationContract]
         List<clsEntidades.clsGrupoAnualDetalle> ListarGruposPorDocente(int idUsuario);
 
+        //------------------------ GRUPO ANUAL_V ----------------------------------------------
+        [OperationContract]
+        List<clsGrupoAnual_v> GetGrupoAnual_V();
+
+        [OperationContract]
+        string InsertarGrupoAnual(clsGrupoAnual obj);
+
+        [OperationContract]
+        string ModificarGrupoAnual(clsGrupoAnual obj);
+
+        [OperationContract]
+        string EliminarGrupoAnual(int id);
+
         //------------------------ GRUPO SERVICIO ----------------------------------------------
         [OperationContract]
         List<clsEntidades.clsGrupoServicioDetalle> ListarGruposServicioPorDocente(int idUsuario);
@@ -258,6 +275,7 @@ namespace WcfNido
 
         [OperationContract]
         List<clsGrupoAnual> listarGrupoAnual_Combo();
+
 
         // TODO: agregue aquí sus operaciones de servicio
 

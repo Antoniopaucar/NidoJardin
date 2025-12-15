@@ -284,6 +284,14 @@ namespace WcfNido
                 throw new FaultException(ex.Message);
             }
         }
+        //buscar nivel para el modal
+        public List<clsNivel> buscarNivel(string texto)
+        {
+            return new clsBL.clsBLNivel().BuscarNivel(texto);
+        }
+
+
+
         //----------------------------- SALON ---------------------------------------
         public List<clsSalon> GetSalon()
         {
@@ -820,6 +828,37 @@ namespace WcfNido
                 throw new FaultException(ex.Message);
             }
         }
+
+        public List<clsGrupoAnual_v> GetGrupoAnual_V()
+        {
+            return new clsBL.clsBLGrupoAnual_v().Listar();
+        }
+
+        public string InsertarGrupoAnual(clsGrupoAnual obj)
+        {
+            new clsBL.clsBLGrupoAnual().Insertar(obj);
+            return "Grupo Anual registrado correctamente.";
+        }
+
+        public string ModificarGrupoAnual(clsGrupoAnual obj)
+        {
+            new clsBL.clsBLGrupoAnual().Modificar(obj);
+            return "Grupo Anual actualizado correctamente.";
+        }
+
+        public string EliminarGrupoAnual(int id)
+        {
+            try
+            {
+                new clsBL.clsBLGrupoAnual().Eliminar(id);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message; // <- tu UI mostrará alert(msg)
+            }
+        }
+
 
         public List<clsEntidades.clsGrupoAnual> GetGrupoAnual()
         {

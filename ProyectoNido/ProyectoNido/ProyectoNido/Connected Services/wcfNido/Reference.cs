@@ -15,6 +15,259 @@ namespace ProyectoNido.wcfNido {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsMatricula", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsMatricula : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AlumnoNombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal DescuentoTotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaMatriculaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GrupoNombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_AlumnoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_GrupoAnualField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_MatriculaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_TarifarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreTarifarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ObservacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal SubTotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal TotalField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AlumnoNombre {
+            get {
+                return this.AlumnoNombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AlumnoNombreField, value) != true)) {
+                    this.AlumnoNombreField = value;
+                    this.RaisePropertyChanged("AlumnoNombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Codigo {
+            get {
+                return this.CodigoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
+                    this.CodigoField = value;
+                    this.RaisePropertyChanged("Codigo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal DescuentoTotal {
+            get {
+                return this.DescuentoTotalField;
+            }
+            set {
+                if ((this.DescuentoTotalField.Equals(value) != true)) {
+                    this.DescuentoTotalField = value;
+                    this.RaisePropertyChanged("DescuentoTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaMatricula {
+            get {
+                return this.FechaMatriculaField;
+            }
+            set {
+                if ((this.FechaMatriculaField.Equals(value) != true)) {
+                    this.FechaMatriculaField = value;
+                    this.RaisePropertyChanged("FechaMatricula");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GrupoNombre {
+            get {
+                return this.GrupoNombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GrupoNombreField, value) != true)) {
+                    this.GrupoNombreField = value;
+                    this.RaisePropertyChanged("GrupoNombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Alumno {
+            get {
+                return this.Id_AlumnoField;
+            }
+            set {
+                if ((this.Id_AlumnoField.Equals(value) != true)) {
+                    this.Id_AlumnoField = value;
+                    this.RaisePropertyChanged("Id_Alumno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_GrupoAnual {
+            get {
+                return this.Id_GrupoAnualField;
+            }
+            set {
+                if ((this.Id_GrupoAnualField.Equals(value) != true)) {
+                    this.Id_GrupoAnualField = value;
+                    this.RaisePropertyChanged("Id_GrupoAnual");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Matricula {
+            get {
+                return this.Id_MatriculaField;
+            }
+            set {
+                if ((this.Id_MatriculaField.Equals(value) != true)) {
+                    this.Id_MatriculaField = value;
+                    this.RaisePropertyChanged("Id_Matricula");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Tarifario {
+            get {
+                return this.Id_TarifarioField;
+            }
+            set {
+                if ((this.Id_TarifarioField.Equals(value) != true)) {
+                    this.Id_TarifarioField = value;
+                    this.RaisePropertyChanged("Id_Tarifario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreTarifario {
+            get {
+                return this.NombreTarifarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreTarifarioField, value) != true)) {
+                    this.NombreTarifarioField = value;
+                    this.RaisePropertyChanged("NombreTarifario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Observacion {
+            get {
+                return this.ObservacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ObservacionField, value) != true)) {
+                    this.ObservacionField = value;
+                    this.RaisePropertyChanged("Observacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal SubTotal {
+            get {
+                return this.SubTotalField;
+            }
+            set {
+                if ((this.SubTotalField.Equals(value) != true)) {
+                    this.SubTotalField = value;
+                    this.RaisePropertyChanged("SubTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Total {
+            get {
+                return this.TotalField;
+            }
+            set {
+                if ((this.TotalField.Equals(value) != true)) {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="clsMatriculaDetalle", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
     [System.SerializableAttribute()]
     public partial class clsMatriculaDetalle : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1383,259 +1636,6 @@ namespace ProyectoNido.wcfNido {
                 if ((this.NroCuotaField.Equals(value) != true)) {
                     this.NroCuotaField = value;
                     this.RaisePropertyChanged("NroCuota");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="clsMatricula", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
-    [System.SerializableAttribute()]
-    public partial class clsMatricula : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AlumnoNombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodigoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal DescuentoTotalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EstadoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime FechaMatriculaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string GrupoNombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_AlumnoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_GrupoAnualField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_MatriculaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_TarifarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreTarifarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ObservacionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal SubTotalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal TotalField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AlumnoNombre {
-            get {
-                return this.AlumnoNombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AlumnoNombreField, value) != true)) {
-                    this.AlumnoNombreField = value;
-                    this.RaisePropertyChanged("AlumnoNombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Codigo {
-            get {
-                return this.CodigoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
-                    this.CodigoField = value;
-                    this.RaisePropertyChanged("Codigo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal DescuentoTotal {
-            get {
-                return this.DescuentoTotalField;
-            }
-            set {
-                if ((this.DescuentoTotalField.Equals(value) != true)) {
-                    this.DescuentoTotalField = value;
-                    this.RaisePropertyChanged("DescuentoTotal");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Estado {
-            get {
-                return this.EstadoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
-                    this.EstadoField = value;
-                    this.RaisePropertyChanged("Estado");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime FechaMatricula {
-            get {
-                return this.FechaMatriculaField;
-            }
-            set {
-                if ((this.FechaMatriculaField.Equals(value) != true)) {
-                    this.FechaMatriculaField = value;
-                    this.RaisePropertyChanged("FechaMatricula");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string GrupoNombre {
-            get {
-                return this.GrupoNombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.GrupoNombreField, value) != true)) {
-                    this.GrupoNombreField = value;
-                    this.RaisePropertyChanged("GrupoNombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Alumno {
-            get {
-                return this.Id_AlumnoField;
-            }
-            set {
-                if ((this.Id_AlumnoField.Equals(value) != true)) {
-                    this.Id_AlumnoField = value;
-                    this.RaisePropertyChanged("Id_Alumno");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_GrupoAnual {
-            get {
-                return this.Id_GrupoAnualField;
-            }
-            set {
-                if ((this.Id_GrupoAnualField.Equals(value) != true)) {
-                    this.Id_GrupoAnualField = value;
-                    this.RaisePropertyChanged("Id_GrupoAnual");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Matricula {
-            get {
-                return this.Id_MatriculaField;
-            }
-            set {
-                if ((this.Id_MatriculaField.Equals(value) != true)) {
-                    this.Id_MatriculaField = value;
-                    this.RaisePropertyChanged("Id_Matricula");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Tarifario {
-            get {
-                return this.Id_TarifarioField;
-            }
-            set {
-                if ((this.Id_TarifarioField.Equals(value) != true)) {
-                    this.Id_TarifarioField = value;
-                    this.RaisePropertyChanged("Id_Tarifario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreTarifario {
-            get {
-                return this.NombreTarifarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreTarifarioField, value) != true)) {
-                    this.NombreTarifarioField = value;
-                    this.RaisePropertyChanged("NombreTarifario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Observacion {
-            get {
-                return this.ObservacionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ObservacionField, value) != true)) {
-                    this.ObservacionField = value;
-                    this.RaisePropertyChanged("Observacion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal SubTotal {
-            get {
-                return this.SubTotalField;
-            }
-            set {
-                if ((this.SubTotalField.Equals(value) != true)) {
-                    this.SubTotalField = value;
-                    this.RaisePropertyChanged("SubTotal");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Total {
-            get {
-                return this.TotalField;
-            }
-            set {
-                if ((this.TotalField.Equals(value) != true)) {
-                    this.TotalField = value;
-                    this.RaisePropertyChanged("Total");
                 }
             }
         }
@@ -4373,6 +4373,320 @@ namespace ProyectoNido.wcfNido {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsGrupoAnual_v", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsGrupoAnual_v : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AforoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_GrupoAnualField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_NivelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_ProfesorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_SalonField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreNivelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreProfesorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreSalonField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short PeriodoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Aforo {
+            get {
+                return this.AforoField;
+            }
+            set {
+                if ((this.AforoField.Equals(value) != true)) {
+                    this.AforoField = value;
+                    this.RaisePropertyChanged("Aforo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_GrupoAnual {
+            get {
+                return this.Id_GrupoAnualField;
+            }
+            set {
+                if ((this.Id_GrupoAnualField.Equals(value) != true)) {
+                    this.Id_GrupoAnualField = value;
+                    this.RaisePropertyChanged("Id_GrupoAnual");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Nivel {
+            get {
+                return this.Id_NivelField;
+            }
+            set {
+                if ((this.Id_NivelField.Equals(value) != true)) {
+                    this.Id_NivelField = value;
+                    this.RaisePropertyChanged("Id_Nivel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Profesor {
+            get {
+                return this.Id_ProfesorField;
+            }
+            set {
+                if ((this.Id_ProfesorField.Equals(value) != true)) {
+                    this.Id_ProfesorField = value;
+                    this.RaisePropertyChanged("Id_Profesor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Salon {
+            get {
+                return this.Id_SalonField;
+            }
+            set {
+                if ((this.Id_SalonField.Equals(value) != true)) {
+                    this.Id_SalonField = value;
+                    this.RaisePropertyChanged("Id_Salon");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreNivel {
+            get {
+                return this.NombreNivelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreNivelField, value) != true)) {
+                    this.NombreNivelField = value;
+                    this.RaisePropertyChanged("NombreNivel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreProfesor {
+            get {
+                return this.NombreProfesorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreProfesorField, value) != true)) {
+                    this.NombreProfesorField = value;
+                    this.RaisePropertyChanged("NombreProfesor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreSalon {
+            get {
+                return this.NombreSalonField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreSalonField, value) != true)) {
+                    this.NombreSalonField = value;
+                    this.RaisePropertyChanged("NombreSalon");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short Periodo {
+            get {
+                return this.PeriodoField;
+            }
+            set {
+                if ((this.PeriodoField.Equals(value) != true)) {
+                    this.PeriodoField = value;
+                    this.RaisePropertyChanged("Periodo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsGrupoAnual", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsGrupoAnual : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_GrupoAnualField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_NivelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_ProfesorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_SalonField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreGrupoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short PeriodoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion {
+            get {
+                return this.DescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
+                    this.DescripcionField = value;
+                    this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_GrupoAnual {
+            get {
+                return this.Id_GrupoAnualField;
+            }
+            set {
+                if ((this.Id_GrupoAnualField.Equals(value) != true)) {
+                    this.Id_GrupoAnualField = value;
+                    this.RaisePropertyChanged("Id_GrupoAnual");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Nivel {
+            get {
+                return this.Id_NivelField;
+            }
+            set {
+                if ((this.Id_NivelField.Equals(value) != true)) {
+                    this.Id_NivelField = value;
+                    this.RaisePropertyChanged("Id_Nivel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Profesor {
+            get {
+                return this.Id_ProfesorField;
+            }
+            set {
+                if ((this.Id_ProfesorField.Equals(value) != true)) {
+                    this.Id_ProfesorField = value;
+                    this.RaisePropertyChanged("Id_Profesor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Salon {
+            get {
+                return this.Id_SalonField;
+            }
+            set {
+                if ((this.Id_SalonField.Equals(value) != true)) {
+                    this.Id_SalonField = value;
+                    this.RaisePropertyChanged("Id_Salon");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreGrupo {
+            get {
+                return this.NombreGrupoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreGrupoField, value) != true)) {
+                    this.NombreGrupoField = value;
+                    this.RaisePropertyChanged("NombreGrupo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short Periodo {
+            get {
+                return this.PeriodoField;
+            }
+            set {
+                if ((this.PeriodoField.Equals(value) != true)) {
+                    this.PeriodoField = value;
+                    this.RaisePropertyChanged("Periodo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="clsGrupoServicioDetalle", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
     [System.SerializableAttribute()]
     public partial class clsGrupoServicioDetalle : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -4733,150 +5047,39 @@ namespace ProyectoNido.wcfNido {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="clsGrupoAnual", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
-    [System.SerializableAttribute()]
-    public partial class clsGrupoAnual : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescripcionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_GrupoAnualField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_NivelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_ProfesorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_SalonField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreGrupoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int PeriodoField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Descripcion {
-            get {
-                return this.DescripcionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
-                    this.DescripcionField = value;
-                    this.RaisePropertyChanged("Descripcion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_GrupoAnual {
-            get {
-                return this.Id_GrupoAnualField;
-            }
-            set {
-                if ((this.Id_GrupoAnualField.Equals(value) != true)) {
-                    this.Id_GrupoAnualField = value;
-                    this.RaisePropertyChanged("Id_GrupoAnual");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Nivel {
-            get {
-                return this.Id_NivelField;
-            }
-            set {
-                if ((this.Id_NivelField.Equals(value) != true)) {
-                    this.Id_NivelField = value;
-                    this.RaisePropertyChanged("Id_Nivel");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Profesor {
-            get {
-                return this.Id_ProfesorField;
-            }
-            set {
-                if ((this.Id_ProfesorField.Equals(value) != true)) {
-                    this.Id_ProfesorField = value;
-                    this.RaisePropertyChanged("Id_Profesor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Salon {
-            get {
-                return this.Id_SalonField;
-            }
-            set {
-                if ((this.Id_SalonField.Equals(value) != true)) {
-                    this.Id_SalonField = value;
-                    this.RaisePropertyChanged("Id_Salon");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreGrupo {
-            get {
-                return this.NombreGrupoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreGrupoField, value) != true)) {
-                    this.NombreGrupoField = value;
-                    this.RaisePropertyChanged("NombreGrupo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Periodo {
-            get {
-                return this.PeriodoField;
-            }
-            set {
-                if ((this.PeriodoField.Equals(value) != true)) {
-                    this.PeriodoField = value;
-                    this.RaisePropertyChanged("Periodo");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wcfNido.IService1")]
     public interface IService1 {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Listar", ReplyAction="http://tempuri.org/IService1/Matricula_ListarResponse")]
+        ProyectoNido.wcfNido.clsMatricula[] Matricula_Listar(System.Nullable<int> idMatricula, System.Nullable<int> idAlumno, System.Nullable<int> idGrupoAnual, string estado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Listar", ReplyAction="http://tempuri.org/IService1/Matricula_ListarResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatricula[]> Matricula_ListarAsync(System.Nullable<int> idMatricula, System.Nullable<int> idAlumno, System.Nullable<int> idGrupoAnual, string estado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Obtener", ReplyAction="http://tempuri.org/IService1/Matricula_ObtenerResponse")]
+        ProyectoNido.wcfNido.clsMatricula Matricula_Obtener(int idMatricula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Obtener", ReplyAction="http://tempuri.org/IService1/Matricula_ObtenerResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatricula> Matricula_ObtenerAsync(int idMatricula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Insertar", ReplyAction="http://tempuri.org/IService1/Matricula_InsertarResponse")]
+        int Matricula_Insertar(ProyectoNido.wcfNido.clsMatricula mat);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Insertar", ReplyAction="http://tempuri.org/IService1/Matricula_InsertarResponse")]
+        System.Threading.Tasks.Task<int> Matricula_InsertarAsync(ProyectoNido.wcfNido.clsMatricula mat);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Actualizar", ReplyAction="http://tempuri.org/IService1/Matricula_ActualizarResponse")]
+        bool Matricula_Actualizar(ProyectoNido.wcfNido.clsMatricula mat);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Actualizar", ReplyAction="http://tempuri.org/IService1/Matricula_ActualizarResponse")]
+        System.Threading.Tasks.Task<bool> Matricula_ActualizarAsync(ProyectoNido.wcfNido.clsMatricula mat);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_CambiarEstado", ReplyAction="http://tempuri.org/IService1/Matricula_CambiarEstadoResponse")]
+        bool Matricula_CambiarEstado(int idMatricula, string estado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_CambiarEstado", ReplyAction="http://tempuri.org/IService1/Matricula_CambiarEstadoResponse")]
+        System.Threading.Tasks.Task<bool> Matricula_CambiarEstadoAsync(int idMatricula, string estado);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatricula", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatriculaResponse")]
         ProyectoNido.wcfNido.clsMatriculaDetalle[] MatriculaDetalle_ListarPorMatricula(int idMatricula);
@@ -5280,6 +5483,12 @@ namespace ProyectoNido.wcfNido {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModNivel", ReplyAction="http://tempuri.org/IService1/ModNivelResponse")]
         System.Threading.Tasks.Task ModNivelAsync(ProyectoNido.wcfNido.clsNivel nivel);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/buscarNivel", ReplyAction="http://tempuri.org/IService1/buscarNivelResponse")]
+        ProyectoNido.wcfNido.clsNivel[] buscarNivel(string texto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/buscarNivel", ReplyAction="http://tempuri.org/IService1/buscarNivelResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsNivel[]> buscarNivelAsync(string texto);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetSalon", ReplyAction="http://tempuri.org/IService1/GetSalonResponse")]
         ProyectoNido.wcfNido.clsSalon[] GetSalon();
         
@@ -5592,6 +5801,30 @@ namespace ProyectoNido.wcfNido {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarGruposPorDocente", ReplyAction="http://tempuri.org/IService1/ListarGruposPorDocenteResponse")]
         System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsGrupoAnualDetalle[]> ListarGruposPorDocenteAsync(int idUsuario);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGrupoAnual_V", ReplyAction="http://tempuri.org/IService1/GetGrupoAnual_VResponse")]
+        ProyectoNido.wcfNido.clsGrupoAnual_v[] GetGrupoAnual_V();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGrupoAnual_V", ReplyAction="http://tempuri.org/IService1/GetGrupoAnual_VResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsGrupoAnual_v[]> GetGrupoAnual_VAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertarGrupoAnual", ReplyAction="http://tempuri.org/IService1/InsertarGrupoAnualResponse")]
+        string InsertarGrupoAnual(ProyectoNido.wcfNido.clsGrupoAnual obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertarGrupoAnual", ReplyAction="http://tempuri.org/IService1/InsertarGrupoAnualResponse")]
+        System.Threading.Tasks.Task<string> InsertarGrupoAnualAsync(ProyectoNido.wcfNido.clsGrupoAnual obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModificarGrupoAnual", ReplyAction="http://tempuri.org/IService1/ModificarGrupoAnualResponse")]
+        string ModificarGrupoAnual(ProyectoNido.wcfNido.clsGrupoAnual obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModificarGrupoAnual", ReplyAction="http://tempuri.org/IService1/ModificarGrupoAnualResponse")]
+        System.Threading.Tasks.Task<string> ModificarGrupoAnualAsync(ProyectoNido.wcfNido.clsGrupoAnual obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarGrupoAnual", ReplyAction="http://tempuri.org/IService1/EliminarGrupoAnualResponse")]
+        string EliminarGrupoAnual(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarGrupoAnual", ReplyAction="http://tempuri.org/IService1/EliminarGrupoAnualResponse")]
+        System.Threading.Tasks.Task<string> EliminarGrupoAnualAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarGruposServicioPorDocente", ReplyAction="http://tempuri.org/IService1/ListarGruposServicioPorDocenteResponse")]
         ProyectoNido.wcfNido.clsGrupoServicioDetalle[] ListarGruposServicioPorDocente(int idUsuario);
         
@@ -5621,36 +5854,6 @@ namespace ProyectoNido.wcfNido {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Nido_Matricula_Listar", ReplyAction="http://tempuri.org/IService1/Nido_Matricula_ListarResponse")]
         System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatricula[]> Nido_Matricula_ListarAsync(string estado);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Listar", ReplyAction="http://tempuri.org/IService1/Matricula_ListarResponse")]
-        ProyectoNido.wcfNido.clsMatricula[] Matricula_Listar(System.Nullable<int> idMatricula, System.Nullable<int> idAlumno, System.Nullable<int> idGrupoAnual, string estado);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Listar", ReplyAction="http://tempuri.org/IService1/Matricula_ListarResponse")]
-        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatricula[]> Matricula_ListarAsync(System.Nullable<int> idMatricula, System.Nullable<int> idAlumno, System.Nullable<int> idGrupoAnual, string estado);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Obtener", ReplyAction="http://tempuri.org/IService1/Matricula_ObtenerResponse")]
-        ProyectoNido.wcfNido.clsMatricula Matricula_Obtener(int idMatricula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Obtener", ReplyAction="http://tempuri.org/IService1/Matricula_ObtenerResponse")]
-        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatricula> Matricula_ObtenerAsync(int idMatricula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Insertar", ReplyAction="http://tempuri.org/IService1/Matricula_InsertarResponse")]
-        int Matricula_Insertar(ProyectoNido.wcfNido.clsMatricula mat);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Insertar", ReplyAction="http://tempuri.org/IService1/Matricula_InsertarResponse")]
-        System.Threading.Tasks.Task<int> Matricula_InsertarAsync(ProyectoNido.wcfNido.clsMatricula mat);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Actualizar", ReplyAction="http://tempuri.org/IService1/Matricula_ActualizarResponse")]
-        bool Matricula_Actualizar(ProyectoNido.wcfNido.clsMatricula mat);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Actualizar", ReplyAction="http://tempuri.org/IService1/Matricula_ActualizarResponse")]
-        System.Threading.Tasks.Task<bool> Matricula_ActualizarAsync(ProyectoNido.wcfNido.clsMatricula mat);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_CambiarEstado", ReplyAction="http://tempuri.org/IService1/Matricula_CambiarEstadoResponse")]
-        bool Matricula_CambiarEstado(int idMatricula, string estado);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_CambiarEstado", ReplyAction="http://tempuri.org/IService1/Matricula_CambiarEstadoResponse")]
-        System.Threading.Tasks.Task<bool> Matricula_CambiarEstadoAsync(int idMatricula, string estado);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -5678,6 +5881,46 @@ namespace ProyectoNido.wcfNido {
         
         public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public ProyectoNido.wcfNido.clsMatricula[] Matricula_Listar(System.Nullable<int> idMatricula, System.Nullable<int> idAlumno, System.Nullable<int> idGrupoAnual, string estado) {
+            return base.Channel.Matricula_Listar(idMatricula, idAlumno, idGrupoAnual, estado);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatricula[]> Matricula_ListarAsync(System.Nullable<int> idMatricula, System.Nullable<int> idAlumno, System.Nullable<int> idGrupoAnual, string estado) {
+            return base.Channel.Matricula_ListarAsync(idMatricula, idAlumno, idGrupoAnual, estado);
+        }
+        
+        public ProyectoNido.wcfNido.clsMatricula Matricula_Obtener(int idMatricula) {
+            return base.Channel.Matricula_Obtener(idMatricula);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatricula> Matricula_ObtenerAsync(int idMatricula) {
+            return base.Channel.Matricula_ObtenerAsync(idMatricula);
+        }
+        
+        public int Matricula_Insertar(ProyectoNido.wcfNido.clsMatricula mat) {
+            return base.Channel.Matricula_Insertar(mat);
+        }
+        
+        public System.Threading.Tasks.Task<int> Matricula_InsertarAsync(ProyectoNido.wcfNido.clsMatricula mat) {
+            return base.Channel.Matricula_InsertarAsync(mat);
+        }
+        
+        public bool Matricula_Actualizar(ProyectoNido.wcfNido.clsMatricula mat) {
+            return base.Channel.Matricula_Actualizar(mat);
+        }
+        
+        public System.Threading.Tasks.Task<bool> Matricula_ActualizarAsync(ProyectoNido.wcfNido.clsMatricula mat) {
+            return base.Channel.Matricula_ActualizarAsync(mat);
+        }
+        
+        public bool Matricula_CambiarEstado(int idMatricula, string estado) {
+            return base.Channel.Matricula_CambiarEstado(idMatricula, estado);
+        }
+        
+        public System.Threading.Tasks.Task<bool> Matricula_CambiarEstadoAsync(int idMatricula, string estado) {
+            return base.Channel.Matricula_CambiarEstadoAsync(idMatricula, estado);
         }
         
         public ProyectoNido.wcfNido.clsMatriculaDetalle[] MatriculaDetalle_ListarPorMatricula(int idMatricula) {
@@ -6216,6 +6459,14 @@ namespace ProyectoNido.wcfNido {
             return base.Channel.ModNivelAsync(nivel);
         }
         
+        public ProyectoNido.wcfNido.clsNivel[] buscarNivel(string texto) {
+            return base.Channel.buscarNivel(texto);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsNivel[]> buscarNivelAsync(string texto) {
+            return base.Channel.buscarNivelAsync(texto);
+        }
+        
         public ProyectoNido.wcfNido.clsSalon[] GetSalon() {
             return base.Channel.GetSalon();
         }
@@ -6632,6 +6883,38 @@ namespace ProyectoNido.wcfNido {
             return base.Channel.ListarGruposPorDocenteAsync(idUsuario);
         }
         
+        public ProyectoNido.wcfNido.clsGrupoAnual_v[] GetGrupoAnual_V() {
+            return base.Channel.GetGrupoAnual_V();
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsGrupoAnual_v[]> GetGrupoAnual_VAsync() {
+            return base.Channel.GetGrupoAnual_VAsync();
+        }
+        
+        public string InsertarGrupoAnual(ProyectoNido.wcfNido.clsGrupoAnual obj) {
+            return base.Channel.InsertarGrupoAnual(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertarGrupoAnualAsync(ProyectoNido.wcfNido.clsGrupoAnual obj) {
+            return base.Channel.InsertarGrupoAnualAsync(obj);
+        }
+        
+        public string ModificarGrupoAnual(ProyectoNido.wcfNido.clsGrupoAnual obj) {
+            return base.Channel.ModificarGrupoAnual(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> ModificarGrupoAnualAsync(ProyectoNido.wcfNido.clsGrupoAnual obj) {
+            return base.Channel.ModificarGrupoAnualAsync(obj);
+        }
+        
+        public string EliminarGrupoAnual(int id) {
+            return base.Channel.EliminarGrupoAnual(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> EliminarGrupoAnualAsync(int id) {
+            return base.Channel.EliminarGrupoAnualAsync(id);
+        }
+        
         public ProyectoNido.wcfNido.clsGrupoServicioDetalle[] ListarGruposServicioPorDocente(int idUsuario) {
             return base.Channel.ListarGruposServicioPorDocente(idUsuario);
         }
@@ -6670,46 +6953,6 @@ namespace ProyectoNido.wcfNido {
         
         public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatricula[]> Nido_Matricula_ListarAsync(string estado) {
             return base.Channel.Nido_Matricula_ListarAsync(estado);
-        }
-        
-        public ProyectoNido.wcfNido.clsMatricula[] Matricula_Listar(System.Nullable<int> idMatricula, System.Nullable<int> idAlumno, System.Nullable<int> idGrupoAnual, string estado) {
-            return base.Channel.Matricula_Listar(idMatricula, idAlumno, idGrupoAnual, estado);
-        }
-        
-        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatricula[]> Matricula_ListarAsync(System.Nullable<int> idMatricula, System.Nullable<int> idAlumno, System.Nullable<int> idGrupoAnual, string estado) {
-            return base.Channel.Matricula_ListarAsync(idMatricula, idAlumno, idGrupoAnual, estado);
-        }
-        
-        public ProyectoNido.wcfNido.clsMatricula Matricula_Obtener(int idMatricula) {
-            return base.Channel.Matricula_Obtener(idMatricula);
-        }
-        
-        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatricula> Matricula_ObtenerAsync(int idMatricula) {
-            return base.Channel.Matricula_ObtenerAsync(idMatricula);
-        }
-        
-        public int Matricula_Insertar(ProyectoNido.wcfNido.clsMatricula mat) {
-            return base.Channel.Matricula_Insertar(mat);
-        }
-        
-        public System.Threading.Tasks.Task<int> Matricula_InsertarAsync(ProyectoNido.wcfNido.clsMatricula mat) {
-            return base.Channel.Matricula_InsertarAsync(mat);
-        }
-        
-        public bool Matricula_Actualizar(ProyectoNido.wcfNido.clsMatricula mat) {
-            return base.Channel.Matricula_Actualizar(mat);
-        }
-        
-        public System.Threading.Tasks.Task<bool> Matricula_ActualizarAsync(ProyectoNido.wcfNido.clsMatricula mat) {
-            return base.Channel.Matricula_ActualizarAsync(mat);
-        }
-        
-        public bool Matricula_CambiarEstado(int idMatricula, string estado) {
-            return base.Channel.Matricula_CambiarEstado(idMatricula, estado);
-        }
-        
-        public System.Threading.Tasks.Task<bool> Matricula_CambiarEstadoAsync(int idMatricula, string estado) {
-            return base.Channel.Matricula_CambiarEstadoAsync(idMatricula, estado);
         }
     }
 }

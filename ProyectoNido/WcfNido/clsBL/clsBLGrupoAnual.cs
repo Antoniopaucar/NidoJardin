@@ -44,5 +44,20 @@ namespace clsBL
         {
             return oDac.listar_grupo_anual_combo();
         }
+
+        public void Insertar(clsGrupoAnual obj)
+        {
+            new clsDAC.clsDACGrupoAnual().Insertar(obj);
+        }
+
+        public void Modificar(clsGrupoAnual obj)
+        {
+            new clsDAC.clsDACGrupoAnual().Modificar(obj);
+        }
+
+        public void Eliminar(int id)
+        {
+            new clsDAC.clsDACGrupoAnual().Eliminar(id);
+        }
     }
 }

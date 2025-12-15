@@ -171,6 +171,9 @@
     <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsAlumnoCombo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsGrupoAnual_v.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\wcfNido\Service1.disco" />
     <None Include="Connected Services\wcfNido\configuration91.svcinfo" />
     <None Include="Connected Services\wcfNido\configuration.svcinfo" />
@@ -201,6 +204,7 @@
     <Content Include="frm_Docente_Datos.aspx" />
     <Content Include="frm_Docente_GrupoAnual.aspx" />
     <Content Include="frm_Docente_GrupoServicio.aspx" />
+    <Content Include="frm_GrupoAnual.aspx" />
     <Content Include="frm_GrupoServicio.aspx" />
     <Content Include="frm_HistorialServicio_PorHijo.aspx" />
     <Content Include="frm_Inicio.aspx" />
@@ -368,6 +372,13 @@
     </Compile>
     <Compile Include="frm_Docente_GrupoServicio.aspx.designer.cs">
       <DependentUpon>frm_Docente_GrupoServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frm_GrupoAnual.aspx.cs">
+      <DependentUpon>frm_GrupoAnual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frm_GrupoAnual.aspx.designer.cs">
+      <DependentUpon>frm_GrupoAnual.aspx</DependentUpon>
     </Compile>
     <Compile Include="frm_GrupoServicio.aspx.cs">
       <DependentUpon>frm_GrupoServicio.aspx</DependentUpon>

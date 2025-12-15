@@ -12,12 +12,12 @@ namespace clsEntidades
         public int Id_Salon { get; set; }
         public int Id_Profesor { get; set; }
         public int Id_Nivel { get; set; }
-        public int Periodo { get; set; }
+        public short Periodo { get; set; }
 
         // Mostrar en el Combo
-        public string NombreGrupo { get; set; }   // "Aula A - Inicial - 2025"
+        public string NombreGrupo { get; set; }  
 
         // Mostrar en listas o en formularios
-        public string Descripcion { get; set; }   // "Inicial - 2025 - Aula A"
+        public string Descripcion { get; set; }   
     }
 }

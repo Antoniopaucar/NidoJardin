@@ -51,6 +51,7 @@
     <Compile Include="clsError.cs" />
     <Compile Include="clsGrupoAnual.cs" />
     <Compile Include="clsGrupoAnualDetalle.cs" />
+    <Compile Include="clsGrupoAnual_v.cs" />
     <Compile Include="clsGrupoServicio.cs" />
     <Compile Include="clsGrupoServicioDetalle.cs" />
     <Compile Include="clsGrupoServicioOferta.cs" />
