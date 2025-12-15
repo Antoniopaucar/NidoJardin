@@ -14,18 +14,42 @@ namespace ProyectoNido
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                Response.Redirect("frm_Login.aspx");
+                return;
+            }
+
             if (!Page.IsPostBack)
             {
+                CargarNombreDocente();
                 CargarCombos();
-                CargarDatosUsuario();
             }
         }
 
-        private void CargarDatosUsuario()
+        /// <summary>
+        /// Carga el nombre del docente en el panel lateral.
+        /// </summary>
+        private void CargarNombreDocente()
         {
-            if (Session["s_Nombre"] != null)
+            try
             {
-                lblNombreDocente.Text = Session["s_Nombre"].ToString();
+                int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
+                // Usamos el cliente ya existente o instanciamos uno nuevo si preferimos aislamiento, 
+                // pero para seguir el ejemplo exacto de ReporteIngresos:
+                Service1Client servicio = new Service1Client();
+
+                var listaProfesores = servicio.GetProfesor();
+                var profesor = listaProfesores.FirstOrDefault(p => p.Id == idUsuario);
+
+                if (profesor != null)
+                {
+                    lblNombreDocente.Text = $"{profesor.Nombres} {profesor.ApellidoPaterno}";
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error al cargar nombre docente: {ex.Message}");
             }
         }
 

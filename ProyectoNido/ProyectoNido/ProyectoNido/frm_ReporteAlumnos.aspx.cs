@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ProyectoNido.wcfNido;
 
 namespace ProyectoNido
 {
@@ -13,14 +14,37 @@ namespace ProyectoNido
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                Response.Redirect("frm_Login.aspx");
+                return;
+            }
+
             if (!IsPostBack)
             {
-                if (Session["Nombres"] != null)
-                {
-                    lblNombreDocente.Text = Session["Nombres"].ToString();
-                }
-
+                CargarNombreDocente();
                 CargarAlumnosActivos();
+            }
+        }
+
+        private void CargarNombreDocente()
+        {
+            try
+            {
+                int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
+                Service1Client servicio = new Service1Client();
+
+                var listaProfesores = servicio.GetProfesor();
+                var profesor = listaProfesores.FirstOrDefault(p => p.Id == idUsuario);
+
+                if (profesor != null)
+                {
+                    lblNombreDocente.Text = $"{profesor.Nombres} {profesor.ApellidoPaterno}";
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error al cargar nombre docente: {ex.Message}");
             }
         }
 
