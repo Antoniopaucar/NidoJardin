@@ -1,4 +1,6 @@
-﻿using System;
+﻿using clsDAC;
+using clsEntidades;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -55,6 +57,11 @@ namespace clsBL
                 clsBLError dacError = new clsBLError();
                 dacError.Control_Sql_Error(ex);
             }
+        }
+        //---BuscarNivel----
+        public List<clsNivel> BuscarNivel(string texto)
+        {
+            return new clsDacNivel().BuscarNivel(texto);
         }
     }
 }

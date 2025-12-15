@@ -75,7 +75,7 @@ namespace clsDAC
                             Id_Salon = Convert.ToInt32(dr["Id_Salon"]),
                             Id_Profesor = Convert.ToInt32(dr["Id_Profesor"]),
                             Id_Nivel = Convert.ToInt32(dr["Id_Nivel"]),
-                            Periodo = Convert.ToInt32(dr["Periodo"]),
+                            Periodo = (short)Convert.ToInt32(dr["Periodo"]),
                             Descripcion = dr["Descripcion"].ToString()
                         };
                         lista.Add(x);
@@ -117,7 +117,7 @@ namespace clsDAC
                                 obj.Id_Nivel = Convert.ToInt32(dr["Id_Nivel"]);
 
                             if (HasColumn(dr, "Periodo") && !dr.IsDBNull(dr.GetOrdinal("Periodo")))
-                                obj.Periodo = Convert.ToInt32(dr["Periodo"]);
+                                obj.Periodo = (short)Convert.ToInt32(dr["Periodo"]);
 
                             if (HasColumn(dr, "Descripcion") && !dr.IsDBNull(dr.GetOrdinal("Descripcion")))
                                 obj.Descripcion = dr["Descripcion"].ToString();
@@ -141,6 +141,70 @@ namespace clsDAC
                     return true;
             }
             return false;
+        }
+
+
+        //actualizacion de grupo anual
+        public void Insertar(clsGrupoAnual obj)
+        {
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand("insertar_grupoAnual", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id_Salon", obj.Id_Salon);
+                    cmd.Parameters.AddWithValue("@Id_Profesor", obj.Id_Profesor);
+                    cmd.Parameters.AddWithValue("@Id_Nivel", obj.Id_Nivel);
+                    cmd.Parameters.AddWithValue("@Periodo", obj.Periodo);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void Modificar(clsGrupoAnual obj)
+        {
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand("modificar_grupoAnual", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id_GrupoAnual", obj.Id_GrupoAnual);
+                    cmd.Parameters.AddWithValue("@Id_Salon", obj.Id_Salon);
+                    cmd.Parameters.AddWithValue("@Id_Profesor", obj.Id_Profesor);
+                    cmd.Parameters.AddWithValue("@Id_Nivel", obj.Id_Nivel);
+                    cmd.Parameters.AddWithValue("@Periodo", obj.Periodo);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void Eliminar(int id)
+        {
+            try
+            {
+                using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("eliminar_grupoAnual", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Id_GrupoAnual", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                // Si viene de RAISERROR, normalmente Number = 50000
+                if (ex.Number == 50000)
+                    throw new Exception(ex.Message); // mensaje de negocio (bonito)
+
+                // otros errores SQL (FK, etc.)
+                throw new Exception("Error en base de datos: " + ex.Message);
+            }
+
         }
     }
 }

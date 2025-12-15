@@ -1,5 +1,7 @@
-﻿using System;
+﻿using clsEntidades;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -86,6 +88,36 @@ namespace clsDAC
                     cmd.ExecuteNonQuery();
                 }
             }
+        }
+
+
+        //----BuscarNivel ----
+        public List<clsNivel> BuscarNivel(string texto)
+        {
+            var lista = new List<clsNivel>();
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand("buscarNivel", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Texto", texto);
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new clsNivel
+                            {
+                                Id = Convert.ToInt32(dr["Id_Nivel"]),
+                                Nombre = dr["Nombre"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            return lista;
         }
     }
 }

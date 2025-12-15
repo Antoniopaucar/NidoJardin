@@ -193,5 +193,36 @@ namespace clsDAC
 
             return lista;
         }
+
+        //LISTAR COMUNICADOS POR USUARIO
+        public List<E_Comunicado> mov_Comunicado_Listar_Por_Usuario(int idUsuario)
+        {
+            var lista = new List<E_Comunicado>();
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            using (SqlCommand cmd = new SqlCommand("mov_Comunicado_Listar_Por_Usuario", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_Usuario", idUsuario);
+
+                cn.Open();
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        lista.Add(new E_Comunicado
+                        {
+                            Id_Comunicado = Convert.ToInt32(dr["Id_Comunicado"]),
+                            Nombre = dr["Nombre"].ToString(),
+                            Descripcion = dr["Descripcion"].ToString(),
+                            FechaCreacion = Convert.ToDateTime(dr["FechaCreacion"]),
+                            FechaFinal = dr["FechaFinal"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dr["FechaFinal"])
+                        });
+                    }
+                }
+            }
+
+            return lista;
+        }
     }
 }

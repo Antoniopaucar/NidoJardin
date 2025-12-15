@@ -223,3 +223,38 @@ select *from Matricula
 SELECT * FROM Apoderado
 SELECT * FROM Alumno
 SELECT * FROM MatriculaDetalle WHERE Id_Matricula= 4
+
+
+CREATE OR ALTER PROC mov_Comunicado_Listar_Por_Usuario
+    @Id_Usuario INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    -- Si no tiene roles -> retorna vacío SIN ERROR
+    IF NOT EXISTS (SELECT 1 FROM UsuarioRol WHERE Id_Usuario = @Id_Usuario)
+    BEGIN
+        SELECT 
+            CAST(NULL AS INT) AS Id_Comunicado,
+            CAST(NULL AS VARCHAR(100)) AS Nombre,
+            CAST(NULL AS VARCHAR(300)) AS Descripcion,
+            CAST(NULL AS DATETIME) AS FechaCreacion,
+            CAST(NULL AS DATETIME) AS FechaFinal
+        WHERE 1 = 0;
+        RETURN;
+    END
+    -- Traer comunicados de TODOS los roles del usuario
+    SELECT DISTINCT
+        C.Id_Comunicado,
+        C.Nombre,
+        C.Descripcion,
+        C.FechaCreacion,
+        C.FechaFinal
+    FROM Comunicado C
+    INNER JOIN UsuarioRol UR ON UR.Id_Rol = C.Id_Rol
+    WHERE UR.Id_Usuario = @Id_Usuario
+      AND (C.FechaFinal IS NULL OR C.FechaFinal >= CAST(GETDATE() AS DATE))
+    ORDER BY C.FechaFinal DESC, C.FechaCreacion DESC;
+END;
+GO
+
+exec mov_Comunicado_Listar_Por_Usuario 1

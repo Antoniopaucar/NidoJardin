@@ -386,3 +386,196 @@ BEGIN
     ORDER BY gs.Id_GrupoServicio DESC;
 END;
 GO
+
+
+
+select  
+    Id_GrupoAnual,
+    s.Id_Salon,
+    s.Nombre,
+    p.Id_Profesor,
+    CONCAT(u.ApPaterno,' ',u.ApMaterno) AS Nprofesor,
+    ss.Id_Salon,
+    ss.Nombre,
+    ss.Aforo  
+from GrupoAnual ga
+    INNER JOIN Salon s ON s.Id_Salon = ga.Id_Salon
+    INNER JOIN Profesor p ON p.Id_Profesor = ga.Id_Profesor
+    INNER JOIN Salon SS ON SS.Id_Salon=ga.Id_Nivel
+    INNER JOIN Usuario U ON u.Id=p.Id_Profesor
+go;
+
+CREATE OR ALTER PROC dbo.listar_grupoAnual
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        ga.Id_GrupoAnual,
+        ga.Id_Salon,
+        s.Nombre AS NombreSalon,
+        s.Aforo,
+        ga.Id_Profesor,
+        (u.Nombres + ' ' + u.ApPaterno + ' ' + u.ApMaterno) AS NombreProfesor,
+        ga.Id_Nivel,
+        n.Nombre AS NombreNivel,
+        ga.Periodo
+    FROM GrupoAnual ga
+    INNER JOIN Salon s     ON s.Id_Salon = ga.Id_Salon
+    INNER JOIN Profesor p  ON p.Id_Profesor = ga.Id_Profesor
+    INNER JOIN Usuario u   ON u.Id = p.Id_Profesor
+    INNER JOIN Nivel n     ON n.Id_Nivel = ga.Id_Nivel
+    ORDER BY ga.Periodo DESC, s.Nombre, n.Nombre;
+END
+GO
+
+CREATE OR ALTER PROC dbo.insertar_grupoAnual
+(
+    @Id_Salon     INT,
+    @Id_Profesor  INT,
+    @Id_Nivel     INT,
+    @Periodo      SMALLINT
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF (@Periodo < 2000 OR @Periodo > 2100)
+    BEGIN
+        RAISERROR('Periodo inválido (2000-2100).', 16, 1);
+        RETURN;
+    END
+
+    -- Evitar duplicado (mismo salón+nivel+periodo)
+    IF EXISTS (
+        SELECT 1 FROM GrupoAnual
+        WHERE Id_Salon=@Id_Salon AND Id_Nivel=@Id_Nivel AND Periodo=@Periodo
+    )
+    BEGIN
+        RAISERROR('Ya existe un GrupoAnual para ese Salón, Nivel y Periodo.', 16, 1);
+        RETURN;
+    END
+
+    INSERT INTO GrupoAnual(Id_Salon, Id_Profesor, Id_Nivel, Periodo)
+    VALUES (@Id_Salon, @Id_Profesor, @Id_Nivel, @Periodo);
+END
+GO
+SELECT *FROM Matricula
+
+CREATE OR ALTER PROC dbo.modificar_grupoAnual
+(
+    @Id_GrupoAnual INT,
+    @Id_Salon      INT,
+    @Id_Profesor   INT,
+    @Id_Nivel      INT,
+    @Periodo       SMALLINT
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF NOT EXISTS(SELECT 1 FROM GrupoAnual WHERE Id_GrupoAnual=@Id_GrupoAnual)
+    BEGIN
+        RAISERROR('GrupoAnual no existe.', 16, 1);
+        RETURN;
+    END
+
+    IF (@Periodo < 2000 OR @Periodo > 2100)
+    BEGIN
+        RAISERROR('Periodo inválido (2000-2100).', 16, 1);
+        RETURN;
+    END
+
+    IF EXISTS (
+        SELECT 1 FROM GrupoAnual
+        WHERE Id_Salon=@Id_Salon AND Id_Nivel=@Id_Nivel AND Periodo=@Periodo
+          AND Id_GrupoAnual <> @Id_GrupoAnual
+    )
+    BEGIN
+        RAISERROR('Ya existe otro GrupoAnual con ese Salón, Nivel y Periodo.', 16, 1);
+        RETURN;
+    END
+
+    UPDATE GrupoAnual
+    SET Id_Salon=@Id_Salon,
+        Id_Profesor=@Id_Profesor,
+        Id_Nivel=@Id_Nivel,
+        Periodo=@Periodo
+    WHERE Id_GrupoAnual=@Id_GrupoAnual;
+END
+GO
+
+CREATE OR ALTER PROC dbo.eliminar_grupoAnual
+(
+    @Id_GrupoAnual INT
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Si existe matrícula relacionada, no borrar:
+    IF EXISTS (SELECT 1 FROM Matricula WHERE Id_GrupoAnual = @Id_GrupoAnual)
+    BEGIN
+        RAISERROR('No se puede eliminar: el GrupoAnual tiene alumnos registrados.', 16, 1);
+        RETURN;
+    END
+
+    DELETE FROM GrupoAnual WHERE Id_GrupoAnual = @Id_GrupoAnual;
+END
+GO
+
+CREATE OR ALTER PROC dbo.buscarNivel
+(
+    @Texto VARCHAR(100)
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        Id_Nivel,
+        Nombre
+    FROM Nivel
+    WHERE
+        Nombre LIKE '%' + @Texto + '%'
+        OR Descripcion LIKE '%' + @Texto + '%'
+    ORDER BY Nombre;
+END;
+GO
+
+
+---ACTAULIZAR MATRICULA
+--1) SP para validar aforo (integrado en INSERT de Matricula)
+
+--Si ya tienes insertar_matricula, agrega esta validación antes del INSERT:
+--DECLARE @Aforo INT, @Ocupados INT;
+
+--SELECT @Aforo = s.Aforo
+--FROM GrupoAnual ga
+--INNER JOIN Salon s ON s.Id_Salon = ga.Id_Salon
+--WHERE ga.Id_GrupoAnual = @Id_GrupoAnual;
+
+--IF @Aforo IS NULL
+--BEGIN
+--    RAISERROR('Grupo Anual inválido o sin salón asociado.',16,1);
+--    RETURN;
+--END
+
+--SELECT @Ocupados = COUNT(*)
+--FROM Matricula m
+--WHERE m.Id_GrupoAnual = @Id_GrupoAnual
+--  AND m.Estado = 1;  -- ajusta según tu Estado (1=activo, o 'A', etc)
+
+--IF @Ocupados >= @Aforo
+--BEGIN
+--    RAISERROR('Aforo completo: no se pueden registrar más alumnos en este salón.',16,1);
+--    RETURN;
+--END
+--2) Y si MODIFICAS matrícula (cambias de grupo)
+
+--En tu SP modificar_matricula (si permite cambiar Id_GrupoAnual) repites la validación, pero con una diferencia:
+--SELECT @Ocupados = COUNT(*)
+--FROM Matricula m
+--WHERE m.Id_GrupoAnual = @Id_GrupoAnual
+--  AND m.Estado = 1
+--  AND m.Id_Matricula <> @Id_Matricula;
