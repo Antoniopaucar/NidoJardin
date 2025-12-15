@@ -18,6 +18,12 @@ namespace clsBL
             return xlistaAl;
         }
 
+        public List<clsEntidades.clsAlumno> listarAlumnosActivos()
+        {
+            clsDAC.clsDacAlumno xal = new clsDAC.clsDacAlumno();
+            return xal.listarAlumnosActivos();
+        }
+
         public clsArchivoBase Retornar_Archivo_Alumno(int id,string tipoArchivo)
         {
             try

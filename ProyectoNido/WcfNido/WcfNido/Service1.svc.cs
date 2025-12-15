@@ -1397,5 +1397,43 @@ namespace WcfNido
         }
 
         // ------------------------ FIN APARTADO MÓVIL ------------------------------
+
+        public List<clsEntidades.clsReporteIngreso> ListarReporteIngresos(int? idSalon, int? idDistrito, DateTime? fechaInicio, DateTime? fechaFin)
+        {
+            clsBL.clsBLReporteIngresos bl = new clsBL.clsBLReporteIngresos();
+            return bl.ListarReporte(idSalon, idDistrito, fechaInicio, fechaFin);
+        }
+
+        public List<clsEntidades.clsReporteIngreso> ListarReporteCobranzas(int? idSalon, int? idDistrito, DateTime? fechaInicio, DateTime? fechaFin)
+        {
+            clsBL.clsBLReporteIngresos bl = new clsBL.clsBLReporteIngresos();
+            return bl.ListarReporteCobranzas(idSalon, idDistrito, fechaInicio, fechaFin);
+        }
+
+        public List<clsEntidades.clsAlumno> ListarAlumnosActivos()
+        {
+            try
+            {
+                clsBL.clsBLAlumno bl = new clsBL.clsBLAlumno();
+                return bl.listarAlumnosActivos();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public List<clsEntidades.clsProfesor> ListarProfesoresActivos()
+        {
+            try
+            {
+                clsBL.clsBLProfesor bl = new clsBL.clsBLProfesor();
+                return bl.listarProfesoresActivos();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
     }
 }

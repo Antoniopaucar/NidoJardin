@@ -18,6 +18,12 @@ namespace clsBL
             return xlistaPros;
         }
 
+        public List<clsEntidades.clsProfesor> listarProfesoresActivos()
+        {
+            clsDAC.clsDacProfesor xpro = new clsDAC.clsDacProfesor();
+            return xpro.listarProfesoresActivos();
+        }
+
         public clsArchivoBase Retornar_Archivo_Profesor(int id, string tipoArchivo)
         {
             try

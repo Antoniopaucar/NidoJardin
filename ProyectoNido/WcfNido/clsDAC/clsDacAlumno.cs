@@ -56,6 +56,50 @@ namespace clsDAC
             return lista;
         }
 
+        public List<clsEntidades.clsAlumno> listarAlumnosActivos()
+        {
+            List<clsEntidades.clsAlumno> lista = new List<clsEntidades.clsAlumno>();
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand("sp_ListarAlumnosActivos", cn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            clsEntidades.clsAlumno a = new clsEntidades.clsAlumno();
+                            a.Apoderado = new clsApoderado();
+                            a.TipoDocumento = new clsTipoDocumento();
+
+                            a.Id = Convert.ToInt32(dr["Id_Alumno"]);
+                            a.Apoderado.Id = Convert.ToInt32(dr["Id_Apoderado"]);
+                            // En el nuevo SP, NombreCompleto es del Apoderado
+                            a.Apoderado.NombreCompleto = dr["NombreCompleto"].ToString();
+                            a.TipoDocumento.Id = Convert.ToInt32(dr["Id_TipoDocumento"]);
+                            a.TipoDocumento.Nombre = dr["NombreTipoDocumento"].ToString();
+                            a.Nombres = dr["Nombres"].ToString();
+                            a.ApellidoPaterno = dr["ApPaterno"].ToString();
+                            a.ApellidoMaterno = dr["ApMaterno"].ToString();
+                            a.Documento = dr["Documento"].ToString();
+                            a.FechaNacimiento = dr.IsDBNull(dr.GetOrdinal("FechaNacimiento")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
+                            a.Sexo = dr["Sexo"].ToString();
+                            a.Activo = Convert.ToBoolean(dr["Activo"]);
+
+                            // Construir NombreCompleto del Alumno para la Grilla
+                            a.NombreCompleto = a.Nombres + " " + a.ApellidoPaterno + " " + a.ApellidoMaterno;
+
+                            lista.Add(a);
+                        }
+                    }
+                }
+            }
+            return lista;
+        }
+
         public void EliminarAlumno(int id)
         {
             try

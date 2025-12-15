@@ -78,7 +78,7 @@
                         <li id="grupo5" runat="server" class="grupo">
                             <span class="grupo-titulo">Reportes y Otros</span>
                             <ul class="submenu">
-                                <li><a href="frm_Reportes.aspx"><img src="Img/reportes.png" alt="Reportes">Reportes</a></li>
+                                <li><a href="frm_ReporteIngresos.aspx"><img src="Img/reportes.png" alt="Reportes">Reportes</a></li>
                                 <li><a href="frm_Comunicado.aspx"><img src="Img/comunicado.png" alt="Comunicado">Comunicado</a></li>
                                 <li><a href="frm_Distrito.aspx"><img src="Img/distrito.png" alt="Distrito">Distrito</a></li>
                                 <li><a href="frm_Tipo_Documento.aspx"><img src="Img/tipo de documento.png" alt="Tipo Documento">Tipo de Documento</a></li>

@@ -65,6 +65,7 @@
     <Compile Include="clsBLTarifario.cs" />
     <Compile Include="clsBLTipoDocumento.cs" />
     <Compile Include="clsBLUsuario.cs" />
+    <Compile Include="clsBLReporteIngresos.cs" />
     <Compile Include="clsBLUsuarioPermiso.cs" />
     <Compile Include="clsBLUsuarioRol.cs" />
     <Compile Include="clsBLGrupoAnual.cs" />

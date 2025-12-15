@@ -72,6 +72,72 @@ namespace clsDAC
             return lista;
         }
 
+        public List<clsEntidades.clsProfesor> listarProfesoresActivos()
+        {
+            List<clsEntidades.clsProfesor> lista = new List<clsEntidades.clsProfesor>();
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand("sp_ListarProfesoresActivos", cn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            clsEntidades.clsProfesor p = new clsEntidades.clsProfesor();
+                            p.Distrito = new clsEntidades.clsDistrito();
+                            p.TipoDocumento = new clsEntidades.clsTipoDocumento();
+
+                            p.Id = Convert.ToInt32(dr["Id_Profesor"]);
+                            p.NombreUsuario = dr["NombreUsuario"].ToString();
+                            p.Nombres = dr["Nombres"].ToString();
+                            p.ApellidoPaterno = dr["ApPaterno"].ToString();
+                            p.ApellidoMaterno = dr["ApMaterno"].ToString();
+                            p.Documento = dr["Documento"].ToString();
+
+                            p.FechaIngreso = dr.IsDBNull(dr.GetOrdinal("FechaIngreso")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaIngreso"));
+                            
+                            // Mapeo los estados "calculados" por el SP
+                            // p.EstadoTituloProfesional = dr["EstadoTituloProfesional"].ToString();
+                            // p.EstadoCv= dr["EstadoCv"].ToString();
+                            // p.EstadoEvaluacionPsicologica =dr["EstadoEvaluacionPsicologica"].ToString();
+                            // p.EstadoFotos= dr["EstadoFotos"].ToString();
+                            // p.EstadoVerificacionDomiciliaria= dr["EstadoVerificacionDomiciliaria"].ToString();
+
+                            p.TipoDocumento.Id = Convert.ToInt32(dr["Id_TipoDocumento"]);
+                            p.TipoDocumento.Nombre = dr["NombreTipoDocumento"].ToString();
+                            p.FechaNacimiento = dr.IsDBNull(dr.GetOrdinal("FechaNacimiento")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
+                            p.Sexo = dr["Sexo"].ToString();
+                            p.Distrito.Id = Convert.IsDBNull(dr["Id_Distrito"])
+                            ? 0
+                            : Convert.ToInt32(dr["Id_Distrito"]);
+                            p.Distrito.Nombre = dr["NombreDistrito"].ToString();
+                            p.Direccion = dr["Direccion"].ToString();
+                            p.Telefono = dr["Telefono"].ToString();
+                            p.Email = dr["Email"].ToString();
+                            p.Activo = Convert.ToBoolean(dr["Activo"]);
+                            p.Intentos = Convert.ToInt32(dr["Intentos"]);
+                            p.Bloqueado = Convert.ToBoolean(dr["Bloqueado"]);
+                            p.FechaBloqueo = dr.IsDBNull(dr.GetOrdinal("FechaBloqueo")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("FechaBloqueo"));
+                            p.UltimoIntento = dr.IsDBNull(dr.GetOrdinal("UltimoIntento")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("UltimoIntento"));
+                            p.UltimoLoginExitoso = dr.IsDBNull(dr.GetOrdinal("UltimoLoginExitoso")) ? (DateTime?)null : dr.GetDateTime(dr.GetOrdinal("UltimoLoginExitoso"));
+                            p.FechaCreacion = dr.GetDateTime(dr.GetOrdinal("FechaCreacion"));
+
+                            // Calculo NombreCompleto
+                            p.NombreCompleto = p.Nombres + " " + p.ApellidoPaterno + " " + p.ApellidoMaterno;
+
+                            lista.Add(p);
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+
         public void EliminarProfesor(int id)
         {
             try

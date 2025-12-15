@@ -10,6 +10,7 @@ namespace clsEntidades
     public class clsProfesor:clsUsuario
     {
         public DateTime? FechaIngreso {  get; set; }
+        public string NombreCompleto { get; set; }
         public string EstadoTituloProfesional { get; set; }
         public string EstadoCv { get; set; }
         public string EstadoEvaluacionPsicologica { get; set; }

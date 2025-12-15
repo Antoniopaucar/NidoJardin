@@ -279,6 +279,30 @@
   <wsdl:message name="IService1_Mov_ListarCuotas_OutputMessage">
     <wsdl:part name="parameters" element="tns:Mov_ListarCuotasResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ListarReporteIngresos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarReporteIngresos" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarReporteIngresos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarReporteIngresosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarReporteCobranzas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarReporteCobranzas" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarReporteCobranzas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarReporteCobranzasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarAlumnosActivos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAlumnosActivos" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarAlumnosActivos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAlumnosActivosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarProfesoresActivos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarProfesoresActivos" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarProfesoresActivos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarProfesoresActivosResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetData_InputMessage">
     <wsdl:part name="parameters" element="tns:GetData" />
   </wsdl:message>
@@ -969,6 +993,22 @@
     <wsdl:operation name="Mov_ListarCuotas">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Mov_ListarCuotas" message="tns:IService1_Mov_ListarCuotas_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Mov_ListarCuotasResponse" message="tns:IService1_Mov_ListarCuotas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarReporteIngresos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarReporteIngresos" message="tns:IService1_ListarReporteIngresos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarReporteIngresosResponse" message="tns:IService1_ListarReporteIngresos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarReporteCobranzas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarReporteCobranzas" message="tns:IService1_ListarReporteCobranzas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarReporteCobranzasResponse" message="tns:IService1_ListarReporteCobranzas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarAlumnosActivos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarAlumnosActivos" message="tns:IService1_ListarAlumnosActivos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarAlumnosActivosResponse" message="tns:IService1_ListarAlumnosActivos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarProfesoresActivos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarProfesoresActivos" message="tns:IService1_ListarProfesoresActivos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarProfesoresActivosResponse" message="tns:IService1_ListarProfesoresActivos_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -1711,6 +1751,42 @@
     </wsdl:operation>
     <wsdl:operation name="Mov_ListarCuotas">
       <soap:operation soapAction="http://tempuri.org/IService1/Mov_ListarCuotas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarReporteIngresos">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarReporteIngresos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarReporteCobranzas">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarReporteCobranzas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAlumnosActivos">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarAlumnosActivos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarProfesoresActivos">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarProfesoresActivos" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

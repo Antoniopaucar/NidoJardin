@@ -311,6 +311,53 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsArchivoBase" nillable="true" type="tns:clsArchivoBase" />
+  <xs:complexType name="ArrayOfclsReporteIngreso">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsReporteIngreso" nillable="true" type="tns:clsReporteIngreso" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsReporteIngreso" nillable="true" type="tns:ArrayOfclsReporteIngreso" />
+  <xs:complexType name="clsReporteIngreso">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alumno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Concepto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Distrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoDescripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoPago" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaPago" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Monto" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Salon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoOrigen" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsReporteIngreso" nillable="true" type="tns:clsReporteIngreso" />
+  <xs:complexType name="ArrayOfclsProfesor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsProfesor" nillable="true" type="tns:clsProfesor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsProfesor" nillable="true" type="tns:ArrayOfclsProfesor" />
+  <xs:complexType name="clsProfesor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:clsUsuario">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cv" nillable="true" type="tns:clsArchivoBase" />
+          <xs:element minOccurs="0" name="EstadoCv" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EstadoEvaluacionPsicologica" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EstadoFotos" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EstadoTituloProfesional" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EstadoVerificacionDomiciliaria" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EvaluacionPsicologica" nillable="true" type="tns:clsArchivoBase" />
+          <xs:element minOccurs="0" name="FechaIngreso" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Fotos" nillable="true" type="tns:clsArchivoBase" />
+          <xs:element minOccurs="0" name="NombreCompleto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TituloProfesional" nillable="true" type="tns:clsArchivoBase" />
+          <xs:element minOccurs="0" name="VerificacionDomiciliaria" nillable="true" type="tns:clsArchivoBase" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="clsProfesor" nillable="true" type="tns:clsProfesor" />
   <xs:complexType name="clsLogin">
     <xs:sequence>
       <xs:element minOccurs="0" name="Exito" type="xs:boolean" />
@@ -430,26 +477,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsUsuarioRol" nillable="true" type="tns:clsUsuarioRol" />
-  <xs:complexType name="clsProfesor">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:clsUsuario">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Cv" nillable="true" type="tns:clsArchivoBase" />
-          <xs:element minOccurs="0" name="EstadoCv" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="EstadoEvaluacionPsicologica" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="EstadoFotos" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="EstadoTituloProfesional" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="EstadoVerificacionDomiciliaria" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="EvaluacionPsicologica" nillable="true" type="tns:clsArchivoBase" />
-          <xs:element minOccurs="0" name="FechaIngreso" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="Fotos" nillable="true" type="tns:clsArchivoBase" />
-          <xs:element minOccurs="0" name="TituloProfesional" nillable="true" type="tns:clsArchivoBase" />
-          <xs:element minOccurs="0" name="VerificacionDomiciliaria" nillable="true" type="tns:clsArchivoBase" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="clsProfesor" nillable="true" type="tns:clsProfesor" />
   <xs:complexType name="ArrayOfclsRolPermiso">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="clsRolPermiso" nillable="true" type="tns:clsRolPermiso" />
@@ -484,12 +511,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfclsApoderado" nillable="true" type="tns:ArrayOfclsApoderado" />
-  <xs:complexType name="ArrayOfclsProfesor">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsProfesor" nillable="true" type="tns:clsProfesor" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfclsProfesor" nillable="true" type="tns:ArrayOfclsProfesor" />
   <xs:complexType name="ArrayOfclsProfesorCombo">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="clsProfesorCombo" nillable="true" type="tns:clsProfesorCombo" />

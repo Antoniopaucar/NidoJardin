@@ -447,6 +447,17 @@ namespace WcfNido
         //------------------------ LISTAR DETALLE DE CUOTAS POR MATRICULA ----------------------------------------------
         [OperationContract]
         List<clsMatriculaDetalle> Mov_ListarCuotas(int idMatricula);
+        [OperationContract]
+        List<clsEntidades.clsReporteIngreso> ListarReporteIngresos(int? idSalon, int? idDistrito, DateTime? fechaInicio, DateTime? fechaFin);
+
+        [OperationContract]
+        List<clsEntidades.clsReporteIngreso> ListarReporteCobranzas(int? idSalon, int? idDistrito, DateTime? fechaInicio, DateTime? fechaFin);
+
+        [OperationContract]
+        List<clsEntidades.clsAlumno> ListarAlumnosActivos();
+
+        [OperationContract]
+        List<clsEntidades.clsProfesor> ListarProfesoresActivos();
     }
 
 
@@ -470,5 +481,7 @@ namespace WcfNido
             get { return stringValue; }
             set { stringValue = value; }
         }
+
+
     }
 }

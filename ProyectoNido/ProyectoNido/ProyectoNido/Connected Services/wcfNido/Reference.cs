@@ -3045,6 +3045,9 @@ namespace ProyectoNido.wcfNido {
         private ProyectoNido.wcfNido.clsArchivoBase FotosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreCompletoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ProyectoNido.wcfNido.clsArchivoBase TituloProfesionalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3168,6 +3171,19 @@ namespace ProyectoNido.wcfNido {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreCompleto {
+            get {
+                return this.NombreCompletoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreCompletoField, value) != true)) {
+                    this.NombreCompletoField = value;
+                    this.RaisePropertyChanged("NombreCompleto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public ProyectoNido.wcfNido.clsArchivoBase TituloProfesional {
             get {
                 return this.TituloProfesionalField;
@@ -3190,6 +3206,179 @@ namespace ProyectoNido.wcfNido {
                     this.VerificacionDomiciliariaField = value;
                     this.RaisePropertyChanged("VerificacionDomiciliaria");
                 }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsReporteIngreso", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    [System.SerializableAttribute()]
+    public partial class clsReporteIngreso : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AlumnoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ConceptoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DistritoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoDescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoPagoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> FechaPagoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal MontoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SalonField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoOrigenField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Alumno {
+            get {
+                return this.AlumnoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AlumnoField, value) != true)) {
+                    this.AlumnoField = value;
+                    this.RaisePropertyChanged("Alumno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Concepto {
+            get {
+                return this.ConceptoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ConceptoField, value) != true)) {
+                    this.ConceptoField = value;
+                    this.RaisePropertyChanged("Concepto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Distrito {
+            get {
+                return this.DistritoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DistritoField, value) != true)) {
+                    this.DistritoField = value;
+                    this.RaisePropertyChanged("Distrito");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EstadoDescripcion {
+            get {
+                return this.EstadoDescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoDescripcionField, value) != true)) {
+                    this.EstadoDescripcionField = value;
+                    this.RaisePropertyChanged("EstadoDescripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EstadoPago {
+            get {
+                return this.EstadoPagoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoPagoField, value) != true)) {
+                    this.EstadoPagoField = value;
+                    this.RaisePropertyChanged("EstadoPago");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> FechaPago {
+            get {
+                return this.FechaPagoField;
+            }
+            set {
+                if ((this.FechaPagoField.Equals(value) != true)) {
+                    this.FechaPagoField = value;
+                    this.RaisePropertyChanged("FechaPago");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Monto {
+            get {
+                return this.MontoField;
+            }
+            set {
+                if ((this.MontoField.Equals(value) != true)) {
+                    this.MontoField = value;
+                    this.RaisePropertyChanged("Monto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Salon {
+            get {
+                return this.SalonField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SalonField, value) != true)) {
+                    this.SalonField = value;
+                    this.RaisePropertyChanged("Salon");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TipoOrigen {
+            get {
+                return this.TipoOrigenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoOrigenField, value) != true)) {
+                    this.TipoOrigenField = value;
+                    this.RaisePropertyChanged("TipoOrigen");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
@@ -5148,6 +5337,30 @@ namespace ProyectoNido.wcfNido {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ListarCuotas", ReplyAction="http://tempuri.org/IService1/Mov_ListarCuotasResponse")]
         System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatriculaDetalle[]> Mov_ListarCuotasAsync(int idMatricula);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarReporteIngresos", ReplyAction="http://tempuri.org/IService1/ListarReporteIngresosResponse")]
+        ProyectoNido.wcfNido.clsReporteIngreso[] ListarReporteIngresos(System.Nullable<int> idSalon, System.Nullable<int> idDistrito, System.Nullable<System.DateTime> fechaInicio, System.Nullable<System.DateTime> fechaFin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarReporteIngresos", ReplyAction="http://tempuri.org/IService1/ListarReporteIngresosResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsReporteIngreso[]> ListarReporteIngresosAsync(System.Nullable<int> idSalon, System.Nullable<int> idDistrito, System.Nullable<System.DateTime> fechaInicio, System.Nullable<System.DateTime> fechaFin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarReporteCobranzas", ReplyAction="http://tempuri.org/IService1/ListarReporteCobranzasResponse")]
+        ProyectoNido.wcfNido.clsReporteIngreso[] ListarReporteCobranzas(System.Nullable<int> idSalon, System.Nullable<int> idDistrito, System.Nullable<System.DateTime> fechaInicio, System.Nullable<System.DateTime> fechaFin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarReporteCobranzas", ReplyAction="http://tempuri.org/IService1/ListarReporteCobranzasResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsReporteIngreso[]> ListarReporteCobranzasAsync(System.Nullable<int> idSalon, System.Nullable<int> idDistrito, System.Nullable<System.DateTime> fechaInicio, System.Nullable<System.DateTime> fechaFin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarAlumnosActivos", ReplyAction="http://tempuri.org/IService1/ListarAlumnosActivosResponse")]
+        ProyectoNido.wcfNido.clsAlumno[] ListarAlumnosActivos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarAlumnosActivos", ReplyAction="http://tempuri.org/IService1/ListarAlumnosActivosResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsAlumno[]> ListarAlumnosActivosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarProfesoresActivos", ReplyAction="http://tempuri.org/IService1/ListarProfesoresActivosResponse")]
+        ProyectoNido.wcfNido.clsProfesor[] ListarProfesoresActivos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarProfesoresActivos", ReplyAction="http://tempuri.org/IService1/ListarProfesoresActivosResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsProfesor[]> ListarProfesoresActivosAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
         string GetData(int value);
         
@@ -6044,6 +6257,38 @@ namespace ProyectoNido.wcfNido {
         
         public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatriculaDetalle[]> Mov_ListarCuotasAsync(int idMatricula) {
             return base.Channel.Mov_ListarCuotasAsync(idMatricula);
+        }
+        
+        public ProyectoNido.wcfNido.clsReporteIngreso[] ListarReporteIngresos(System.Nullable<int> idSalon, System.Nullable<int> idDistrito, System.Nullable<System.DateTime> fechaInicio, System.Nullable<System.DateTime> fechaFin) {
+            return base.Channel.ListarReporteIngresos(idSalon, idDistrito, fechaInicio, fechaFin);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsReporteIngreso[]> ListarReporteIngresosAsync(System.Nullable<int> idSalon, System.Nullable<int> idDistrito, System.Nullable<System.DateTime> fechaInicio, System.Nullable<System.DateTime> fechaFin) {
+            return base.Channel.ListarReporteIngresosAsync(idSalon, idDistrito, fechaInicio, fechaFin);
+        }
+        
+        public ProyectoNido.wcfNido.clsReporteIngreso[] ListarReporteCobranzas(System.Nullable<int> idSalon, System.Nullable<int> idDistrito, System.Nullable<System.DateTime> fechaInicio, System.Nullable<System.DateTime> fechaFin) {
+            return base.Channel.ListarReporteCobranzas(idSalon, idDistrito, fechaInicio, fechaFin);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsReporteIngreso[]> ListarReporteCobranzasAsync(System.Nullable<int> idSalon, System.Nullable<int> idDistrito, System.Nullable<System.DateTime> fechaInicio, System.Nullable<System.DateTime> fechaFin) {
+            return base.Channel.ListarReporteCobranzasAsync(idSalon, idDistrito, fechaInicio, fechaFin);
+        }
+        
+        public ProyectoNido.wcfNido.clsAlumno[] ListarAlumnosActivos() {
+            return base.Channel.ListarAlumnosActivos();
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsAlumno[]> ListarAlumnosActivosAsync() {
+            return base.Channel.ListarAlumnosActivosAsync();
+        }
+        
+        public ProyectoNido.wcfNido.clsProfesor[] ListarProfesoresActivos() {
+            return base.Channel.ListarProfesoresActivos();
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsProfesor[]> ListarProfesoresActivosAsync() {
+            return base.Channel.ListarProfesoresActivosAsync();
         }
         
         public string GetData(int value) {

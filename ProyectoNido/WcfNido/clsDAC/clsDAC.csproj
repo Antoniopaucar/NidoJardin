@@ -66,6 +66,7 @@
     <Compile Include="clsDacTarifario.cs" />
     <Compile Include="clsDacTipoDocumento.cs" />
     <Compile Include="clsDacUsuario.cs" />
+    <Compile Include="clsDacReporteIngresos.cs" />
     <Compile Include="clsDacUsuarioPermiso.cs" />
     <Compile Include="clsDacUsuarioRol.cs" />
     <Compile Include="clsDACGrupoAnual.cs" />
