@@ -14,6 +14,223 @@ namespace ServiceReference1
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsMatricula", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    public partial class clsMatricula : object
+    {
+        
+        private string AlumnoNombreField;
+        
+        private string CodigoField;
+        
+        private decimal DescuentoTotalField;
+        
+        private string EstadoField;
+        
+        private System.DateTime FechaMatriculaField;
+        
+        private string GrupoNombreField;
+        
+        private int Id_AlumnoField;
+        
+        private int Id_GrupoAnualField;
+        
+        private int Id_MatriculaField;
+        
+        private int Id_TarifarioField;
+        
+        private string NombreTarifarioField;
+        
+        private string ObservacionField;
+        
+        private decimal SubTotalField;
+        
+        private decimal TotalField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AlumnoNombre
+        {
+            get
+            {
+                return this.AlumnoNombreField;
+            }
+            set
+            {
+                this.AlumnoNombreField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Codigo
+        {
+            get
+            {
+                return this.CodigoField;
+            }
+            set
+            {
+                this.CodigoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal DescuentoTotal
+        {
+            get
+            {
+                return this.DescuentoTotalField;
+            }
+            set
+            {
+                this.DescuentoTotalField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado
+        {
+            get
+            {
+                return this.EstadoField;
+            }
+            set
+            {
+                this.EstadoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaMatricula
+        {
+            get
+            {
+                return this.FechaMatriculaField;
+            }
+            set
+            {
+                this.FechaMatriculaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GrupoNombre
+        {
+            get
+            {
+                return this.GrupoNombreField;
+            }
+            set
+            {
+                this.GrupoNombreField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Alumno
+        {
+            get
+            {
+                return this.Id_AlumnoField;
+            }
+            set
+            {
+                this.Id_AlumnoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_GrupoAnual
+        {
+            get
+            {
+                return this.Id_GrupoAnualField;
+            }
+            set
+            {
+                this.Id_GrupoAnualField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Matricula
+        {
+            get
+            {
+                return this.Id_MatriculaField;
+            }
+            set
+            {
+                this.Id_MatriculaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Tarifario
+        {
+            get
+            {
+                return this.Id_TarifarioField;
+            }
+            set
+            {
+                this.Id_TarifarioField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreTarifario
+        {
+            get
+            {
+                return this.NombreTarifarioField;
+            }
+            set
+            {
+                this.NombreTarifarioField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Observacion
+        {
+            get
+            {
+                return this.ObservacionField;
+            }
+            set
+            {
+                this.ObservacionField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal SubTotal
+        {
+            get
+            {
+                return this.SubTotalField;
+            }
+            set
+            {
+                this.SubTotalField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Total
+        {
+            get
+            {
+                return this.TotalField;
+            }
+            set
+            {
+                this.TotalField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="clsMatriculaDetalle", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
     public partial class clsMatriculaDetalle : object
     {
@@ -597,6 +814,253 @@ namespace ServiceReference1
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsServicioAlumno_v", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    public partial class clsServicioAlumno_v : object
+    {
+        
+        private int AforoField;
+        
+        private string EstadoField;
+        
+        private System.Nullable<System.DateTime> FechaFinalField;
+        
+        private System.DateTime FechaInicioField;
+        
+        private System.Nullable<System.DateTime> FechaPagoField;
+        
+        private System.Nullable<System.TimeSpan> HoraFinalField;
+        
+        private System.Nullable<System.TimeSpan> HoraInicioField;
+        
+        private int Id_AlumnoField;
+        
+        private int Id_GrupoServicioField;
+        
+        private int Id_ServicioAlumnoField;
+        
+        private decimal MontoField;
+        
+        private string NombreAlumnoField;
+        
+        private string NombreProfesorField;
+        
+        private string NombreSalonField;
+        
+        private string NombreServicioField;
+        
+        private short PeriodoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Aforo
+        {
+            get
+            {
+                return this.AforoField;
+            }
+            set
+            {
+                this.AforoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado
+        {
+            get
+            {
+                return this.EstadoField;
+            }
+            set
+            {
+                this.EstadoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> FechaFinal
+        {
+            get
+            {
+                return this.FechaFinalField;
+            }
+            set
+            {
+                this.FechaFinalField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaInicio
+        {
+            get
+            {
+                return this.FechaInicioField;
+            }
+            set
+            {
+                this.FechaInicioField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> FechaPago
+        {
+            get
+            {
+                return this.FechaPagoField;
+            }
+            set
+            {
+                this.FechaPagoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.TimeSpan> HoraFinal
+        {
+            get
+            {
+                return this.HoraFinalField;
+            }
+            set
+            {
+                this.HoraFinalField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.TimeSpan> HoraInicio
+        {
+            get
+            {
+                return this.HoraInicioField;
+            }
+            set
+            {
+                this.HoraInicioField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Alumno
+        {
+            get
+            {
+                return this.Id_AlumnoField;
+            }
+            set
+            {
+                this.Id_AlumnoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_GrupoServicio
+        {
+            get
+            {
+                return this.Id_GrupoServicioField;
+            }
+            set
+            {
+                this.Id_GrupoServicioField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_ServicioAlumno
+        {
+            get
+            {
+                return this.Id_ServicioAlumnoField;
+            }
+            set
+            {
+                this.Id_ServicioAlumnoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Monto
+        {
+            get
+            {
+                return this.MontoField;
+            }
+            set
+            {
+                this.MontoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreAlumno
+        {
+            get
+            {
+                return this.NombreAlumnoField;
+            }
+            set
+            {
+                this.NombreAlumnoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreProfesor
+        {
+            get
+            {
+                return this.NombreProfesorField;
+            }
+            set
+            {
+                this.NombreProfesorField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreSalon
+        {
+            get
+            {
+                return this.NombreSalonField;
+            }
+            set
+            {
+                this.NombreSalonField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreServicio
+        {
+            get
+            {
+                return this.NombreServicioField;
+            }
+            set
+            {
+                this.NombreServicioField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short Periodo
+        {
+            get
+            {
+                return this.PeriodoField;
+            }
+            set
+            {
+                this.PeriodoField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="clsGrupoServicio", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
     public partial class clsGrupoServicio : object
     {
@@ -609,7 +1073,13 @@ namespace ServiceReference1
         
         private int Id_ServicioAdicionalField;
         
-        private byte PeriodoField;
+        private string NombreProfesorField;
+        
+        private string NombreSalonField;
+        
+        private string NombreServicioField;
+        
+        private short PeriodoField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id_GrupoServicio
@@ -664,7 +1134,46 @@ namespace ServiceReference1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte Periodo
+        public string NombreProfesor
+        {
+            get
+            {
+                return this.NombreProfesorField;
+            }
+            set
+            {
+                this.NombreProfesorField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreSalon
+        {
+            get
+            {
+                return this.NombreSalonField;
+            }
+            set
+            {
+                this.NombreSalonField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreServicio
+        {
+            get
+            {
+                return this.NombreServicioField;
+            }
+            set
+            {
+                this.NombreServicioField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short Periodo
         {
             get
             {
@@ -852,6 +1361,58 @@ namespace ServiceReference1
             set
             {
                 this.NroCuotaField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsResumenCuotas", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    public partial class clsResumenCuotas : object
+    {
+        
+        private decimal PagadoField;
+        
+        private decimal PendienteField;
+        
+        private decimal TotalField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Pagado
+        {
+            get
+            {
+                return this.PagadoField;
+            }
+            set
+            {
+                this.PagadoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Pendiente
+        {
+            get
+            {
+                return this.PendienteField;
+            }
+            set
+            {
+                this.PendienteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Total
+        {
+            get
+            {
+                return this.TotalField;
+            }
+            set
+            {
+                this.TotalField = value;
             }
         }
     }
@@ -2093,269 +2654,82 @@ namespace ServiceReference1
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="clsMatricula", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
-    public partial class clsMatricula : object
+    [System.Runtime.Serialization.DataContractAttribute(Name="E_Comunicado", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    public partial class E_Comunicado : object
     {
         
-        private string AlumnoNombreField;
+        private string DescripcionField;
         
-        private string CodigoField;
+        private System.DateTime FechaCreacionField;
         
-        private decimal DescuentoTotalField;
+        private System.Nullable<System.DateTime> FechaFinalField;
         
-        private string EstadoField;
+        private int Id_ComunicadoField;
         
-        private System.DateTime FechaMatriculaField;
-        
-        private string GrupoNombreField;
-        
-        private int Id_AlumnoField;
-        
-        private int Id_GrupoAnualField;
-        
-        private int Id_MatriculaField;
-        
-        private int Id_TarifarioField;
-        
-        private string NombreTarifarioField;
-        
-        private string ObservacionField;
-        
-        private decimal SubTotalField;
-        
-        private decimal TotalField;
+        private string NombreField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AlumnoNombre
+        public string Descripcion
         {
             get
             {
-                return this.AlumnoNombreField;
+                return this.DescripcionField;
             }
             set
             {
-                this.AlumnoNombreField = value;
+                this.DescripcionField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Codigo
+        public System.DateTime FechaCreacion
         {
             get
             {
-                return this.CodigoField;
+                return this.FechaCreacionField;
             }
             set
             {
-                this.CodigoField = value;
+                this.FechaCreacionField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal DescuentoTotal
+        public System.Nullable<System.DateTime> FechaFinal
         {
             get
             {
-                return this.DescuentoTotalField;
+                return this.FechaFinalField;
             }
             set
             {
-                this.DescuentoTotalField = value;
+                this.FechaFinalField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Estado
+        public int Id_Comunicado
         {
             get
             {
-                return this.EstadoField;
+                return this.Id_ComunicadoField;
             }
             set
             {
-                this.EstadoField = value;
+                this.Id_ComunicadoField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime FechaMatricula
+        public string Nombre
         {
             get
             {
-                return this.FechaMatriculaField;
+                return this.NombreField;
             }
             set
             {
-                this.FechaMatriculaField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string GrupoNombre
-        {
-            get
-            {
-                return this.GrupoNombreField;
-            }
-            set
-            {
-                this.GrupoNombreField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Alumno
-        {
-            get
-            {
-                return this.Id_AlumnoField;
-            }
-            set
-            {
-                this.Id_AlumnoField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_GrupoAnual
-        {
-            get
-            {
-                return this.Id_GrupoAnualField;
-            }
-            set
-            {
-                this.Id_GrupoAnualField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Matricula
-        {
-            get
-            {
-                return this.Id_MatriculaField;
-            }
-            set
-            {
-                this.Id_MatriculaField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Tarifario
-        {
-            get
-            {
-                return this.Id_TarifarioField;
-            }
-            set
-            {
-                this.Id_TarifarioField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreTarifario
-        {
-            get
-            {
-                return this.NombreTarifarioField;
-            }
-            set
-            {
-                this.NombreTarifarioField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Observacion
-        {
-            get
-            {
-                return this.ObservacionField;
-            }
-            set
-            {
-                this.ObservacionField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal SubTotal
-        {
-            get
-            {
-                return this.SubTotalField;
-            }
-            set
-            {
-                this.SubTotalField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Total
-        {
-            get
-            {
-                return this.TotalField;
-            }
-            set
-            {
-                this.TotalField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="clsResumenCuotas", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
-    public partial class clsResumenCuotas : object
-    {
-        
-        private decimal PagadoField;
-        
-        private decimal PendienteField;
-        
-        private decimal TotalField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Pagado
-        {
-            get
-            {
-                return this.PagadoField;
-            }
-            set
-            {
-                this.PagadoField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Pendiente
-        {
-            get
-            {
-                return this.PendienteField;
-            }
-            set
-            {
-                this.PendienteField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Total
-        {
-            get
-            {
-                return this.TotalField;
-            }
-            set
-            {
-                this.TotalField = value;
+                this.NombreField = value;
             }
         }
     }
@@ -3039,6 +3413,58 @@ namespace ServiceReference1
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsAlumnoCombo", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    public partial class clsAlumnoCombo : object
+    {
+        
+        private string DocumentoField;
+        
+        private int Id_AlumnoField;
+        
+        private string NombreCompletoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Documento
+        {
+            get
+            {
+                return this.DocumentoField;
+            }
+            set
+            {
+                this.DocumentoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Alumno
+        {
+            get
+            {
+                return this.Id_AlumnoField;
+            }
+            set
+            {
+                this.Id_AlumnoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreCompleto
+        {
+            get
+            {
+                return this.NombreCompletoField;
+            }
+            set
+            {
+                this.NombreCompletoField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="clsGrupoAnualDetalle", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
     public partial class clsGrupoAnualDetalle : object
     {
@@ -3145,6 +3571,260 @@ namespace ServiceReference1
             set
             {
                 this.TotalAlumnosField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsGrupoAnual_v", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    public partial class clsGrupoAnual_v : object
+    {
+        
+        private int AforoField;
+        
+        private int Id_GrupoAnualField;
+        
+        private int Id_NivelField;
+        
+        private int Id_ProfesorField;
+        
+        private int Id_SalonField;
+        
+        private string NombreNivelField;
+        
+        private string NombreProfesorField;
+        
+        private string NombreSalonField;
+        
+        private short PeriodoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Aforo
+        {
+            get
+            {
+                return this.AforoField;
+            }
+            set
+            {
+                this.AforoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_GrupoAnual
+        {
+            get
+            {
+                return this.Id_GrupoAnualField;
+            }
+            set
+            {
+                this.Id_GrupoAnualField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Nivel
+        {
+            get
+            {
+                return this.Id_NivelField;
+            }
+            set
+            {
+                this.Id_NivelField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Profesor
+        {
+            get
+            {
+                return this.Id_ProfesorField;
+            }
+            set
+            {
+                this.Id_ProfesorField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Salon
+        {
+            get
+            {
+                return this.Id_SalonField;
+            }
+            set
+            {
+                this.Id_SalonField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreNivel
+        {
+            get
+            {
+                return this.NombreNivelField;
+            }
+            set
+            {
+                this.NombreNivelField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreProfesor
+        {
+            get
+            {
+                return this.NombreProfesorField;
+            }
+            set
+            {
+                this.NombreProfesorField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreSalon
+        {
+            get
+            {
+                return this.NombreSalonField;
+            }
+            set
+            {
+                this.NombreSalonField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short Periodo
+        {
+            get
+            {
+                return this.PeriodoField;
+            }
+            set
+            {
+                this.PeriodoField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clsGrupoAnual", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
+    public partial class clsGrupoAnual : object
+    {
+        
+        private string DescripcionField;
+        
+        private int Id_GrupoAnualField;
+        
+        private int Id_NivelField;
+        
+        private int Id_ProfesorField;
+        
+        private int Id_SalonField;
+        
+        private string NombreGrupoField;
+        
+        private short PeriodoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion
+        {
+            get
+            {
+                return this.DescripcionField;
+            }
+            set
+            {
+                this.DescripcionField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_GrupoAnual
+        {
+            get
+            {
+                return this.Id_GrupoAnualField;
+            }
+            set
+            {
+                this.Id_GrupoAnualField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Nivel
+        {
+            get
+            {
+                return this.Id_NivelField;
+            }
+            set
+            {
+                this.Id_NivelField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Profesor
+        {
+            get
+            {
+                return this.Id_ProfesorField;
+            }
+            set
+            {
+                this.Id_ProfesorField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_Salon
+        {
+            get
+            {
+                return this.Id_SalonField;
+            }
+            set
+            {
+                this.Id_SalonField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreGrupo
+        {
+            get
+            {
+                return this.NombreGrupoField;
+            }
+            set
+            {
+                this.NombreGrupoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short Periodo
+        {
+            get
+            {
+                return this.PeriodoField;
+            }
+            set
+            {
+                this.PeriodoField = value;
             }
         }
     }
@@ -3448,122 +4128,28 @@ namespace ServiceReference1
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="clsGrupoAnual", Namespace="http://schemas.datacontract.org/2004/07/clsEntidades")]
-    public partial class clsGrupoAnual : object
-    {
-        
-        private string DescripcionField;
-        
-        private int Id_GrupoAnualField;
-        
-        private int Id_NivelField;
-        
-        private int Id_ProfesorField;
-        
-        private int Id_SalonField;
-        
-        private string NombreGrupoField;
-        
-        private int PeriodoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Descripcion
-        {
-            get
-            {
-                return this.DescripcionField;
-            }
-            set
-            {
-                this.DescripcionField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_GrupoAnual
-        {
-            get
-            {
-                return this.Id_GrupoAnualField;
-            }
-            set
-            {
-                this.Id_GrupoAnualField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Nivel
-        {
-            get
-            {
-                return this.Id_NivelField;
-            }
-            set
-            {
-                this.Id_NivelField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Profesor
-        {
-            get
-            {
-                return this.Id_ProfesorField;
-            }
-            set
-            {
-                this.Id_ProfesorField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Salon
-        {
-            get
-            {
-                return this.Id_SalonField;
-            }
-            set
-            {
-                this.Id_SalonField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NombreGrupo
-        {
-            get
-            {
-                return this.NombreGrupoField;
-            }
-            set
-            {
-                this.NombreGrupoField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Periodo
-        {
-            get
-            {
-                return this.PeriodoField;
-            }
-            set
-            {
-                this.PeriodoField = value;
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1
     {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Listar", ReplyAction="http://tempuri.org/IService1/Matricula_ListarResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsMatricula>> Matricula_ListarAsync(System.Nullable<int> idMatricula, System.Nullable<int> idAlumno, System.Nullable<int> idGrupoAnual, string estado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Obtener", ReplyAction="http://tempuri.org/IService1/Matricula_ObtenerResponse")]
+        System.Threading.Tasks.Task<ServiceReference1.clsMatricula> Matricula_ObtenerAsync(int idMatricula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Insertar", ReplyAction="http://tempuri.org/IService1/Matricula_InsertarResponse")]
+        System.Threading.Tasks.Task<int> Matricula_InsertarAsync(ServiceReference1.clsMatricula mat);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Actualizar", ReplyAction="http://tempuri.org/IService1/Matricula_ActualizarResponse")]
+        System.Threading.Tasks.Task<bool> Matricula_ActualizarAsync(ServiceReference1.clsMatricula mat);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_CambiarEstado", ReplyAction="http://tempuri.org/IService1/Matricula_CambiarEstadoResponse")]
+        System.Threading.Tasks.Task<bool> Matricula_CambiarEstadoAsync(int idMatricula, string estado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatricula", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatriculaResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsMatriculaDetalle>> MatriculaDetalle_ListarPorMatriculaAsync(int idMatricula);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_Obtener", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_ObtenerResponse")]
         System.Threading.Tasks.Task<ServiceReference1.clsMatriculaDetalle> MatriculaDetalle_ObtenerAsync(int idMatriculaDetalle);
@@ -3616,9 +4202,6 @@ namespace ServiceReference1
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/BuscarServicioAdicional", ReplyAction="http://tempuri.org/IService1/BuscarServicioAdicionalResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsServicioAdicional>> BuscarServicioAdicionalAsync(string texto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetServicioAlumno", ReplyAction="http://tempuri.org/IService1/GetServicioAlumnoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsServicioAlumno>> GetServicioAlumnoAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DelServicioAlumno", ReplyAction="http://tempuri.org/IService1/DelServicioAlumnoResponse")]
         System.Threading.Tasks.Task DelServicioAlumnoAsync(int Codigo);
         
@@ -3627,6 +4210,18 @@ namespace ServiceReference1
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModServicioAlumno", ReplyAction="http://tempuri.org/IService1/ModServicioAlumnoResponse")]
         System.Threading.Tasks.Task ModServicioAlumnoAsync(ServiceReference1.clsServicioAlumno servicioAlumno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetServicioAlumno", ReplyAction="http://tempuri.org/IService1/GetServicioAlumnoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsServicioAlumno_v>> GetServicioAlumnoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertarServicioAlumno", ReplyAction="http://tempuri.org/IService1/InsertarServicioAlumnoResponse")]
+        System.Threading.Tasks.Task<string> InsertarServicioAlumnoAsync(ServiceReference1.clsServicioAlumno_v obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModificarServicioAlumno", ReplyAction="http://tempuri.org/IService1/ModificarServicioAlumnoResponse")]
+        System.Threading.Tasks.Task<string> ModificarServicioAlumnoAsync(ServiceReference1.clsServicioAlumno_v obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarServicioAlumno", ReplyAction="http://tempuri.org/IService1/EliminarServicioAlumnoResponse")]
+        System.Threading.Tasks.Task<string> EliminarServicioAlumnoAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGrupoServicio", ReplyAction="http://tempuri.org/IService1/GetGrupoServicioResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsGrupoServicio>> GetGrupoServicioAsync();
@@ -3639,6 +4234,9 @@ namespace ServiceReference1
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarGrupoServicio", ReplyAction="http://tempuri.org/IService1/EliminarGrupoServicioResponse")]
         System.Threading.Tasks.Task<string> EliminarGrupoServicioAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/buscarGrupoServicio", ReplyAction="http://tempuri.org/IService1/buscarGrupoServicioResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsGrupoServicio>> buscarGrupoServicioAsync(string texto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ObtenerRolesPorIds", ReplyAction="http://tempuri.org/IService1/ObtenerRolesPorIdsResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsRol>> ObtenerRolesPorIdsAsync(System.Collections.Generic.List<int> idsRoles);
@@ -3654,6 +4252,18 @@ namespace ServiceReference1
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarCuota", ReplyAction="http://tempuri.org/IService1/EliminarCuotaResponse")]
         System.Threading.Tasks.Task<bool> EliminarCuotaAsync(int idCuota);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ObtenerMatriculaActualPorAlumno", ReplyAction="http://tempuri.org/IService1/ObtenerMatriculaActualPorAlumnoResponse")]
+        System.Threading.Tasks.Task<ServiceReference1.clsMatricula> ObtenerMatriculaActualPorAlumnoAsync(int idAlumno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ResumenCuotasPorMatricula", ReplyAction="http://tempuri.org/IService1/ResumenCuotasPorMatriculaResponse")]
+        System.Threading.Tasks.Task<ServiceReference1.clsResumenCuotas> ResumenCuotasPorMatriculaAsync(int idMatricula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarCuotasPorMatricula", ReplyAction="http://tempuri.org/IService1/ListarCuotasPorMatriculaResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsMatriculaDetalle>> ListarCuotasPorMatriculaAsync(int idMatricula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarServicioAlumnoPorAlumno", ReplyAction="http://tempuri.org/IService1/ListarServicioAlumnoPorAlumnoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsServicioAlumno>> ListarServicioAlumnoPorAlumnoAsync(int idAlumno);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ListarComunicados", ReplyAction="http://tempuri.org/IService1/Mov_ListarComunicadosResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.ComunicadoMovil>> Mov_ListarComunicadosAsync(int idUsuario);
@@ -3672,6 +4282,9 @@ namespace ServiceReference1
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ListarCuotas", ReplyAction="http://tempuri.org/IService1/Mov_ListarCuotasResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsMatriculaDetalle>> Mov_ListarCuotasAsync(int idMatricula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/mov_Comunicado_Listar_Por_Usuario", ReplyAction="http://tempuri.org/IService1/mov_Comunicado_Listar_Por_UsuarioResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.E_Comunicado>> mov_Comunicado_Listar_Por_UsuarioAsync(int idUsuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
@@ -3741,6 +4354,9 @@ namespace ServiceReference1
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModNivel", ReplyAction="http://tempuri.org/IService1/ModNivelResponse")]
         System.Threading.Tasks.Task ModNivelAsync(ServiceReference1.clsNivel nivel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/buscarNivel", ReplyAction="http://tempuri.org/IService1/buscarNivelResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsNivel>> buscarNivelAsync(string texto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetSalon", ReplyAction="http://tempuri.org/IService1/GetSalonResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsSalon>> GetSalonAsync();
@@ -3880,6 +4496,9 @@ namespace ServiceReference1
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/listarAlumnos_Combo", ReplyAction="http://tempuri.org/IService1/listarAlumnos_ComboResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsAlumno>> listarAlumnos_ComboAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/buscarAlumno", ReplyAction="http://tempuri.org/IService1/buscarAlumnoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsAlumnoCombo>> buscarAlumnoAsync(string texto);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTipoDocumento", ReplyAction="http://tempuri.org/IService1/GetTipoDocumentoResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsTipoDocumento>> GetTipoDocumentoAsync();
         
@@ -3895,6 +4514,18 @@ namespace ServiceReference1
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarGruposPorDocente", ReplyAction="http://tempuri.org/IService1/ListarGruposPorDocenteResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsGrupoAnualDetalle>> ListarGruposPorDocenteAsync(int idUsuario);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGrupoAnual_V", ReplyAction="http://tempuri.org/IService1/GetGrupoAnual_VResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsGrupoAnual_v>> GetGrupoAnual_VAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertarGrupoAnual", ReplyAction="http://tempuri.org/IService1/InsertarGrupoAnualResponse")]
+        System.Threading.Tasks.Task<string> InsertarGrupoAnualAsync(ServiceReference1.clsGrupoAnual obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModificarGrupoAnual", ReplyAction="http://tempuri.org/IService1/ModificarGrupoAnualResponse")]
+        System.Threading.Tasks.Task<string> ModificarGrupoAnualAsync(ServiceReference1.clsGrupoAnual obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarGrupoAnual", ReplyAction="http://tempuri.org/IService1/EliminarGrupoAnualResponse")]
+        System.Threading.Tasks.Task<string> EliminarGrupoAnualAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarGruposServicioPorDocente", ReplyAction="http://tempuri.org/IService1/ListarGruposServicioPorDocenteResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsGrupoServicioDetalle>> ListarGruposServicioPorDocenteAsync(int idUsuario);
         
@@ -3909,24 +4540,6 @@ namespace ServiceReference1
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Nido_Matricula_Listar", ReplyAction="http://tempuri.org/IService1/Nido_Matricula_ListarResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsMatricula>> Nido_Matricula_ListarAsync(string estado);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Listar", ReplyAction="http://tempuri.org/IService1/Matricula_ListarResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsMatricula>> Matricula_ListarAsync(System.Nullable<int> idMatricula, System.Nullable<int> idAlumno, System.Nullable<int> idGrupoAnual, string estado);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Obtener", ReplyAction="http://tempuri.org/IService1/Matricula_ObtenerResponse")]
-        System.Threading.Tasks.Task<ServiceReference1.clsMatricula> Matricula_ObtenerAsync(int idMatricula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Insertar", ReplyAction="http://tempuri.org/IService1/Matricula_InsertarResponse")]
-        System.Threading.Tasks.Task<int> Matricula_InsertarAsync(ServiceReference1.clsMatricula mat);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_Actualizar", ReplyAction="http://tempuri.org/IService1/Matricula_ActualizarResponse")]
-        System.Threading.Tasks.Task<bool> Matricula_ActualizarAsync(ServiceReference1.clsMatricula mat);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Matricula_CambiarEstado", ReplyAction="http://tempuri.org/IService1/Matricula_CambiarEstadoResponse")]
-        System.Threading.Tasks.Task<bool> Matricula_CambiarEstadoAsync(int idMatricula, string estado);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatricula", ReplyAction="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatriculaResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsMatriculaDetalle>> MatriculaDetalle_ListarPorMatriculaAsync(int idMatricula);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
@@ -3977,6 +4590,36 @@ namespace ServiceReference1
         public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress)
         {
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsMatricula>> Matricula_ListarAsync(System.Nullable<int> idMatricula, System.Nullable<int> idAlumno, System.Nullable<int> idGrupoAnual, string estado)
+        {
+            return base.Channel.Matricula_ListarAsync(idMatricula, idAlumno, idGrupoAnual, estado);
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.clsMatricula> Matricula_ObtenerAsync(int idMatricula)
+        {
+            return base.Channel.Matricula_ObtenerAsync(idMatricula);
+        }
+        
+        public System.Threading.Tasks.Task<int> Matricula_InsertarAsync(ServiceReference1.clsMatricula mat)
+        {
+            return base.Channel.Matricula_InsertarAsync(mat);
+        }
+        
+        public System.Threading.Tasks.Task<bool> Matricula_ActualizarAsync(ServiceReference1.clsMatricula mat)
+        {
+            return base.Channel.Matricula_ActualizarAsync(mat);
+        }
+        
+        public System.Threading.Tasks.Task<bool> Matricula_CambiarEstadoAsync(int idMatricula, string estado)
+        {
+            return base.Channel.Matricula_CambiarEstadoAsync(idMatricula, estado);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsMatriculaDetalle>> MatriculaDetalle_ListarPorMatriculaAsync(int idMatricula)
+        {
+            return base.Channel.MatriculaDetalle_ListarPorMatriculaAsync(idMatricula);
         }
         
         public System.Threading.Tasks.Task<ServiceReference1.clsMatriculaDetalle> MatriculaDetalle_ObtenerAsync(int idMatriculaDetalle)
@@ -4064,11 +4707,6 @@ namespace ServiceReference1
             return base.Channel.BuscarServicioAdicionalAsync(texto);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsServicioAlumno>> GetServicioAlumnoAsync()
-        {
-            return base.Channel.GetServicioAlumnoAsync();
-        }
-        
         public System.Threading.Tasks.Task DelServicioAlumnoAsync(int Codigo)
         {
             return base.Channel.DelServicioAlumnoAsync(Codigo);
@@ -4082,6 +4720,26 @@ namespace ServiceReference1
         public System.Threading.Tasks.Task ModServicioAlumnoAsync(ServiceReference1.clsServicioAlumno servicioAlumno)
         {
             return base.Channel.ModServicioAlumnoAsync(servicioAlumno);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsServicioAlumno_v>> GetServicioAlumnoAsync()
+        {
+            return base.Channel.GetServicioAlumnoAsync();
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertarServicioAlumnoAsync(ServiceReference1.clsServicioAlumno_v obj)
+        {
+            return base.Channel.InsertarServicioAlumnoAsync(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> ModificarServicioAlumnoAsync(ServiceReference1.clsServicioAlumno_v obj)
+        {
+            return base.Channel.ModificarServicioAlumnoAsync(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> EliminarServicioAlumnoAsync(int id)
+        {
+            return base.Channel.EliminarServicioAlumnoAsync(id);
         }
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsGrupoServicio>> GetGrupoServicioAsync()
@@ -4102,6 +4760,11 @@ namespace ServiceReference1
         public System.Threading.Tasks.Task<string> EliminarGrupoServicioAsync(int id)
         {
             return base.Channel.EliminarGrupoServicioAsync(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsGrupoServicio>> buscarGrupoServicioAsync(string texto)
+        {
+            return base.Channel.buscarGrupoServicioAsync(texto);
         }
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsRol>> ObtenerRolesPorIdsAsync(System.Collections.Generic.List<int> idsRoles)
@@ -4127,6 +4790,26 @@ namespace ServiceReference1
         public System.Threading.Tasks.Task<bool> EliminarCuotaAsync(int idCuota)
         {
             return base.Channel.EliminarCuotaAsync(idCuota);
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.clsMatricula> ObtenerMatriculaActualPorAlumnoAsync(int idAlumno)
+        {
+            return base.Channel.ObtenerMatriculaActualPorAlumnoAsync(idAlumno);
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.clsResumenCuotas> ResumenCuotasPorMatriculaAsync(int idMatricula)
+        {
+            return base.Channel.ResumenCuotasPorMatriculaAsync(idMatricula);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsMatriculaDetalle>> ListarCuotasPorMatriculaAsync(int idMatricula)
+        {
+            return base.Channel.ListarCuotasPorMatriculaAsync(idMatricula);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsServicioAlumno>> ListarServicioAlumnoPorAlumnoAsync(int idAlumno)
+        {
+            return base.Channel.ListarServicioAlumnoPorAlumnoAsync(idAlumno);
         }
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.ComunicadoMovil>> Mov_ListarComunicadosAsync(int idUsuario)
@@ -4157,6 +4840,11 @@ namespace ServiceReference1
         public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsMatriculaDetalle>> Mov_ListarCuotasAsync(int idMatricula)
         {
             return base.Channel.Mov_ListarCuotasAsync(idMatricula);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.E_Comunicado>> mov_Comunicado_Listar_Por_UsuarioAsync(int idUsuario)
+        {
+            return base.Channel.mov_Comunicado_Listar_Por_UsuarioAsync(idUsuario);
         }
         
         public System.Threading.Tasks.Task<string> GetDataAsync(int value)
@@ -4272,6 +4960,11 @@ namespace ServiceReference1
         public System.Threading.Tasks.Task ModNivelAsync(ServiceReference1.clsNivel nivel)
         {
             return base.Channel.ModNivelAsync(nivel);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsNivel>> buscarNivelAsync(string texto)
+        {
+            return base.Channel.buscarNivelAsync(texto);
         }
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsSalon>> GetSalonAsync()
@@ -4504,6 +5197,11 @@ namespace ServiceReference1
             return base.Channel.listarAlumnos_ComboAsync();
         }
         
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsAlumnoCombo>> buscarAlumnoAsync(string texto)
+        {
+            return base.Channel.buscarAlumnoAsync(texto);
+        }
+        
         public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsTipoDocumento>> GetTipoDocumentoAsync()
         {
             return base.Channel.GetTipoDocumentoAsync();
@@ -4529,6 +5227,26 @@ namespace ServiceReference1
             return base.Channel.ListarGruposPorDocenteAsync(idUsuario);
         }
         
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsGrupoAnual_v>> GetGrupoAnual_VAsync()
+        {
+            return base.Channel.GetGrupoAnual_VAsync();
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertarGrupoAnualAsync(ServiceReference1.clsGrupoAnual obj)
+        {
+            return base.Channel.InsertarGrupoAnualAsync(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> ModificarGrupoAnualAsync(ServiceReference1.clsGrupoAnual obj)
+        {
+            return base.Channel.ModificarGrupoAnualAsync(obj);
+        }
+        
+        public System.Threading.Tasks.Task<string> EliminarGrupoAnualAsync(int id)
+        {
+            return base.Channel.EliminarGrupoAnualAsync(id);
+        }
+        
         public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsGrupoServicioDetalle>> ListarGruposServicioPorDocenteAsync(int idUsuario)
         {
             return base.Channel.ListarGruposServicioPorDocenteAsync(idUsuario);
@@ -4552,36 +5270,6 @@ namespace ServiceReference1
         public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsMatricula>> Nido_Matricula_ListarAsync(string estado)
         {
             return base.Channel.Nido_Matricula_ListarAsync(estado);
-        }
-        
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsMatricula>> Matricula_ListarAsync(System.Nullable<int> idMatricula, System.Nullable<int> idAlumno, System.Nullable<int> idGrupoAnual, string estado)
-        {
-            return base.Channel.Matricula_ListarAsync(idMatricula, idAlumno, idGrupoAnual, estado);
-        }
-        
-        public System.Threading.Tasks.Task<ServiceReference1.clsMatricula> Matricula_ObtenerAsync(int idMatricula)
-        {
-            return base.Channel.Matricula_ObtenerAsync(idMatricula);
-        }
-        
-        public System.Threading.Tasks.Task<int> Matricula_InsertarAsync(ServiceReference1.clsMatricula mat)
-        {
-            return base.Channel.Matricula_InsertarAsync(mat);
-        }
-        
-        public System.Threading.Tasks.Task<bool> Matricula_ActualizarAsync(ServiceReference1.clsMatricula mat)
-        {
-            return base.Channel.Matricula_ActualizarAsync(mat);
-        }
-        
-        public System.Threading.Tasks.Task<bool> Matricula_CambiarEstadoAsync(int idMatricula, string estado)
-        {
-            return base.Channel.Matricula_CambiarEstadoAsync(idMatricula, estado);
-        }
-        
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<ServiceReference1.clsMatriculaDetalle>> MatriculaDetalle_ListarPorMatriculaAsync(int idMatricula)
-        {
-            return base.Channel.MatriculaDetalle_ListarPorMatriculaAsync(idMatricula);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

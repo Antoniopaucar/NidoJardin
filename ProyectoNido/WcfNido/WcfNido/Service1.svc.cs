@@ -1434,6 +1434,11 @@ namespace WcfNido
         {
             return new clsBL_Movil().ListarCuotasPorMatricula(idMatricula);
         }
+        // LISTAR COMUNICADOS POR USUARIO
+        public List<E_Comunicado> mov_Comunicado_Listar_Por_Usuario(int idUsuario)
+        {
+            return clsBL_Movil.GetInstance().mov_Comunicado_Listar_Por_Usuario(idUsuario);
+        }
 
         // ------------------------ FIN APARTADO MÓVIL ------------------------------
     }

@@ -10,7 +10,14 @@ namespace clsBL
 {
     public class clsBL_Movil
     {
+        private static clsBL_Movil instance = null;
         clsDAC_Movil dac = new clsDAC_Movil();
+        public static clsBL_Movil GetInstance()
+        {
+            if (instance == null)
+                instance = new clsBL_Movil();
+            return instance;
+        }
 
         public List<ComunicadoMovil> ListarComunicados(int idUsuario)
         {
@@ -71,6 +78,12 @@ namespace clsBL
                 return new List<clsMatriculaDetalle>();
 
             return dac.ListarCuotasPorMatricula(idMatricula);
+        }
+
+        //LISTAR COMUNICADOS POR USUARIO
+        public List<E_Comunicado> mov_Comunicado_Listar_Por_Usuario(int idUsuario)
+        {
+            return dac.mov_Comunicado_Listar_Por_Usuario(idUsuario);
         }
     }
 }

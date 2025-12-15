@@ -465,6 +465,9 @@ namespace WcfNido
         //------------------------ LISTAR DETALLE DE CUOTAS POR MATRICULA ----------------------------------------------
         [OperationContract]
         List<clsMatriculaDetalle> Mov_ListarCuotas(int idMatricula);
+        //------------------------ LISTAR COMUNICADOS POR USUARIO ----------------------------------------------
+        [OperationContract]
+        List<E_Comunicado> mov_Comunicado_Listar_Por_Usuario(int idUsuario);
     }
 
 
