@@ -5106,6 +5106,12 @@ namespace ProyectoNido.wcfNido {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarCuotasPorMatricula", ReplyAction="http://tempuri.org/IService1/ListarCuotasPorMatriculaResponse")]
         System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatriculaDetalle[]> ListarCuotasPorMatriculaAsync(int idMatricula);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarServicioAlumnoPorAlumno", ReplyAction="http://tempuri.org/IService1/ListarServicioAlumnoPorAlumnoResponse")]
+        ProyectoNido.wcfNido.clsServicioAlumno[] ListarServicioAlumnoPorAlumno(int idAlumno);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarServicioAlumnoPorAlumno", ReplyAction="http://tempuri.org/IService1/ListarServicioAlumnoPorAlumnoResponse")]
+        System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsServicioAlumno[]> ListarServicioAlumnoPorAlumnoAsync(int idAlumno);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mov_ListarComunicados", ReplyAction="http://tempuri.org/IService1/Mov_ListarComunicadosResponse")]
         ProyectoNido.wcfNido.ComunicadoMovil[] Mov_ListarComunicados(int idUsuario);
         
@@ -5982,6 +5988,14 @@ namespace ProyectoNido.wcfNido {
         
         public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsMatriculaDetalle[]> ListarCuotasPorMatriculaAsync(int idMatricula) {
             return base.Channel.ListarCuotasPorMatriculaAsync(idMatricula);
+        }
+        
+        public ProyectoNido.wcfNido.clsServicioAlumno[] ListarServicioAlumnoPorAlumno(int idAlumno) {
+            return base.Channel.ListarServicioAlumnoPorAlumno(idAlumno);
+        }
+        
+        public System.Threading.Tasks.Task<ProyectoNido.wcfNido.clsServicioAlumno[]> ListarServicioAlumnoPorAlumnoAsync(int idAlumno) {
+            return base.Channel.ListarServicioAlumnoPorAlumnoAsync(idAlumno);
         }
         
         public ProyectoNido.wcfNido.ComunicadoMovil[] Mov_ListarComunicados(int idUsuario) {

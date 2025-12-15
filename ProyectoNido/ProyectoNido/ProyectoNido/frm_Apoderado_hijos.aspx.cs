@@ -248,13 +248,17 @@ namespace ProyectoNido
                 LinkButton lnk = (LinkButton)sender;
                 int idAlumno = Convert.ToInt32(lnk.CommandArgument);
                 
-                // TODO: Implementar redirección o modal para historial de servicio
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "historial", 
-                    $"alert('Historial de Servicio para el alumno ID: {idAlumno} - Funcionalidad pendiente de implementar');", true);
+                // Guardar el ID del alumno seleccionado en sesión
+                Session["IdAlumnoSeleccionado"] = idAlumno;
+                
+                // Redirigir a la página de historial de servicios
+                Response.Redirect($"frm_HistorialServicio_PorHijo.aspx?idAlumno={idAlumno}");
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Error al abrir historial: {ex.Message}");
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "errorHistorial",
+                    $"alert('Error al abrir historial: {ex.Message.Replace("'", "\\'")}');", true);
             }
         }
 

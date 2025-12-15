@@ -1349,6 +1349,13 @@ namespace WcfNido
             return xbl.ListarCuotasPorMatricula(idMatricula);
         }
 
+        //------------------------- HISTORIAL DE SERVICIOS (APLICACIÓN WEB) ----------------------------------------------
+        public List<clsServicioAlumno> ListarServicioAlumnoPorAlumno(int idAlumno)
+        {
+            clsBL.clsBLServicioAlumno xbl = new clsBL.clsBLServicioAlumno();
+            return xbl.ListarServicioAlumnoPorAlumno(idAlumno);
+        }
+
         //------------------------ APARTADO MÓVIL ------------------------------
         //------------------------ OBTENER COMUNICADOS PARA APLICACIÓN MÓVIL ------------------------------
         public List<ComunicadoMovil> Mov_ListarComunicados(int idUsuario)

@@ -12,15 +12,15 @@ namespace ProyectoNido
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Verificar si hay sesión de usuario
+            if (Session["IdUsuario"] == null)
+            {
+                Response.Redirect("frm_Login.aspx");
+                return;
+            }
+
             if (!IsPostBack)
             {
-                // Verificar si hay sesión de usuario
-                if (Session["IdUsuario"] == null)
-                {
-                    Response.Redirect("frm_Login.aspx");
-                    return;
-                }
-
                 CargarNombreApoderado();
                 CargarHijos();
                 CargarCronograma();
@@ -165,6 +165,7 @@ namespace ProyectoNido
 
         /// <summary>
         /// Maneja el evento click de los botones de hijos
+        /// Redirige a frm_Apoderado_hijos.aspx para ver y editar los datos del hijo
         /// </summary>
         protected void btnHijo_Click(object sender, EventArgs e)
         {
@@ -173,8 +174,13 @@ namespace ProyectoNido
                 Button btn = (Button)sender;
                 int idAlumno = Convert.ToInt32(btn.CommandArgument);
 
+                // Guardar el ID del alumno seleccionado en sesión
                 Session["IdAlumnoSeleccionado"] = idAlumno;
-                Response.Redirect($"frm_CronogramaPago_PorHijo.aspx?idAlumno={idAlumno}");
+
+                // Redirigir inmediatamente a la página de hijos para ver y editar los datos del hijo seleccionado
+                // endResponse: true asegura que no se ejecute código adicional después de la redirección
+                Response.Redirect("frm_Apoderado_hijos.aspx", false);
+                Context.ApplicationInstance.CompleteRequest();
             }
             catch (Exception ex)
             {
@@ -211,13 +217,17 @@ namespace ProyectoNido
                 LinkButton lnk = (LinkButton)sender;
                 int idAlumno = Convert.ToInt32(lnk.CommandArgument);
 
-                // TODO: Implementar redirección a página de historial cuando esté disponible
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "historial",
-                    $"alert('Historial de Servicio para el alumno ID: {idAlumno} - Funcionalidad pendiente de implementar');", true);
+                // Guardar el ID del alumno seleccionado en sesión
+                Session["IdAlumnoSeleccionado"] = idAlumno;
+
+                // Redirigir a la página de historial de servicios
+                Response.Redirect($"frm_HistorialServicio_PorHijo.aspx?idAlumno={idAlumno}");
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Error al abrir historial: {ex.Message}");
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "errorHistorial",
+                    $"alert('Error al abrir historial: {ex.Message.Replace("'", "\\'")}');", true);
             }
         }
 
