@@ -152,5 +152,12 @@ namespace clsBL
                 return new List<clsEntidades.clsAlumno>();
             }
         }
+
+        public List<clsAlumnoCombo> buscarAlumno(string texto)
+        {
+            clsDacAlumno dac = new clsDacAlumno();
+            return dac.buscarAlumno(texto);
+        }
+
     }
 }

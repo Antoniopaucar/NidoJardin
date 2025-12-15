@@ -61,6 +61,7 @@
     <Compile Include="clsBLSalon.cs" />
     <Compile Include="clsBLServicioAdicional.cs" />
     <Compile Include="clsBLServicioAlumno.cs" />
+    <Compile Include="clsBLServicioAlumno_v.cs" />
     <Compile Include="clsBLTarifario.cs" />
     <Compile Include="clsBLTipoDocumento.cs" />
     <Compile Include="clsBLUsuario.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="clsBLUsuarioRol.cs" />
     <Compile Include="clsBLGrupoAnual.cs" />
     <Compile Include="clsBL_Movil.cs" />
+    <Compile Include="clsDacServicioAlumno_v.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

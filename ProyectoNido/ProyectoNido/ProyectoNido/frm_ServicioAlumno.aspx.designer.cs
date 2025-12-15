@@ -15,24 +15,6 @@ namespace ProyectoNido
     {
 
         /// <summary>
-        /// Control LabelTitulo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelTitulo;
-
-        /// <summary>
-        /// Control LabelId.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelId;
-
-        /// <summary>
         /// Control txt_IdServicioAlumno.
         /// </summary>
         /// <remarks>
@@ -42,49 +24,40 @@ namespace ProyectoNido
         protected global::System.Web.UI.WebControls.TextBox txt_IdServicioAlumno;
 
         /// <summary>
-        /// Control LabelGrupo.
+        /// Control hdnIdGrupoServicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelGrupo;
+        protected global::System.Web.UI.WebControls.HiddenField hdnIdGrupoServicio;
 
         /// <summary>
-        /// Control ddl_GrupoServicio.
+        /// Control txt_GrupoServicioSeleccionado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_GrupoServicio;
+        protected global::System.Web.UI.WebControls.TextBox txt_GrupoServicioSeleccionado;
 
         /// <summary>
-        /// Control LabelAlumno.
+        /// Control hdnIdAlumno.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelAlumno;
+        protected global::System.Web.UI.WebControls.HiddenField hdnIdAlumno;
 
         /// <summary>
-        /// Control ddl_Alumno.
+        /// Control txt_AlumnoSeleccionado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_Alumno;
-
-        /// <summary>
-        /// Control LabelFechaInicio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelFechaInicio;
+        protected global::System.Web.UI.WebControls.TextBox txt_AlumnoSeleccionado;
 
         /// <summary>
         /// Control txt_FechaInicio.
@@ -96,15 +69,6 @@ namespace ProyectoNido
         protected global::System.Web.UI.WebControls.TextBox txt_FechaInicio;
 
         /// <summary>
-        /// Control LabelFechaFinal.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelFechaFinal;
-
-        /// <summary>
         /// Control txt_FechaFinal.
         /// </summary>
         /// <remarks>
@@ -112,15 +76,6 @@ namespace ProyectoNido
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_FechaFinal;
-
-        /// <summary>
-        /// Control LabelFechaPago.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelFechaPago;
 
         /// <summary>
         /// Control txt_FechaPago.
@@ -132,15 +87,6 @@ namespace ProyectoNido
         protected global::System.Web.UI.WebControls.TextBox txt_FechaPago;
 
         /// <summary>
-        /// Control LabelHoraInicio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelHoraInicio;
-
-        /// <summary>
         /// Control txt_HoraInicio.
         /// </summary>
         /// <remarks>
@@ -150,15 +96,6 @@ namespace ProyectoNido
         protected global::System.Web.UI.WebControls.TextBox txt_HoraInicio;
 
         /// <summary>
-        /// Control LabelHoraFinal.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelHoraFinal;
-
-        /// <summary>
         /// Control txt_HoraFinal.
         /// </summary>
         /// <remarks>
@@ -166,15 +103,6 @@ namespace ProyectoNido
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_HoraFinal;
-
-        /// <summary>
-        /// Control LabelMonto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelMonto;
 
         /// <summary>
         /// Control txt_Monto.
@@ -220,6 +148,87 @@ namespace ProyectoNido
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Eliminar;
+
+        /// <summary>
+        /// Control txtBuscarGrupoServicio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBuscarGrupoServicio;
+
+        /// <summary>
+        /// Control btnBuscarGrupoServicioModal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnBuscarGrupoServicioModal;
+
+        /// <summary>
+        /// Control gvGrupoServicioModal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvGrupoServicioModal;
+
+        /// <summary>
+        /// Control txtBuscarAlumno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBuscarAlumno;
+
+        /// <summary>
+        /// Control btnBuscarAlumnoModal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnBuscarAlumnoModal;
+
+        /// <summary>
+        /// Control gvAlumno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvAlumno;
+
+        /// <summary>
+        /// Control txtBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBuscar;
+
+        /// <summary>
+        /// Control btnFiltrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFiltrar;
+
+        /// <summary>
+        /// Control lblMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
 
         /// <summary>
         /// Control gvServicioAlumno.

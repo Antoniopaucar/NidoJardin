@@ -1,4 +1,6 @@
-﻿using System;
+﻿using clsDAC;
+using clsEntidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,6 +66,12 @@ namespace clsBL
             {
                 throw;
             }
+        }
+
+        public List<clsGrupoServicio> buscarGrupoServicio(string texto)
+        {
+            clsDacGrupoServicio_v dac = new clsDacGrupoServicio_v();
+            return dac.buscarGrupoServicio(texto);
         }
     }
 }

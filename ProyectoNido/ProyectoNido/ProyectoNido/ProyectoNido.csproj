@@ -141,9 +141,6 @@
     <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsServicioAdicional.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsServicioAlumno.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsGrupoServicio.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -166,6 +163,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.E_MovLogin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsServicioAlumno_v.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsAlumnoCombo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\wcfNido\Service1.disco" />

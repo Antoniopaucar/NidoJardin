@@ -1,4 +1,5 @@
-﻿using System;
+﻿using clsEntidades;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -103,5 +104,46 @@ namespace clsDAC
                 }
             }
         }
+
+        public List<clsGrupoServicio> buscarGrupoServicio(string texto)
+        {
+            var lista = new List<clsGrupoServicio>();
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand("buscarGrupoServicio", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@Texto", SqlDbType.VarChar, 100).Value = texto;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            var obj = new clsGrupoServicio();
+                            obj.Id_GrupoServicio = Convert.ToInt32(dr["Id_GrupoServicio"]);
+
+                            obj.Id_Salon = Convert.ToInt32(dr["Id_Salon"]);
+                            obj.NombreSalon = dr["NombreSalon"].ToString();
+
+                            obj.Id_Profesor = Convert.ToInt32(dr["Id_Profesor"]);
+                            obj.NombreProfesor = dr["NombreProfesor"].ToString();
+
+                            obj.Id_ServicioAdicional = Convert.ToInt32(dr["Id_ServicioAdicional"]);
+                            obj.NombreServicio = dr["NombreServicio"].ToString();
+
+                            obj.Periodo = Convert.ToInt16(dr["Periodo"]);
+
+                            lista.Add(obj);
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+
     }
 }

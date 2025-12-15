@@ -14,278 +14,63 @@ namespace ProyectoNido
         {
             if (!IsPostBack)
             {
-                CargarCombos();
                 CargarGrid();
-                this.btn_Agregar.Enabled = false;
-                this.btn_Eliminar.Enabled = false;
+                ModoNuevo();
+            }
+            else
+            {
+                RestaurarSeleccionVisual();
             }
         }
+        // ========================= BOTONES CRUD =========================
 
-        private void CargarCombos()
-        {
-            try
-            {
-                Service1Client xdb = new Service1Client();
-
-                // ==== Grupo Servicio ====
-                var listaGrupo = xdb.GetGrupoServicio().ToList();
-                this.ddl_GrupoServicio.DataSource = listaGrupo;
-                // Texto que muestra el combo (ajusta si tu entidad tiene otra propiedad descriptiva)
-                this.ddl_GrupoServicio.DataTextField = "Periodo";           // o "NombreGrupo" si lo tuvieras
-                this.ddl_GrupoServicio.DataValueField = "Id_GrupoServicio";
-                this.ddl_GrupoServicio.DataBind();
-                this.ddl_GrupoServicio.Items.Insert(0, new ListItem("--Seleccione--", "0"));
-
-                // ==== Alumno ====
-                var listaAlumno = xdb.GetAlumno().ToList();
-                this.ddl_Alumno.DataSource = listaAlumno;
-                this.ddl_Alumno.DataTextField = "NombreCompleto";           // propiedad típica para mostrar nombre
-                this.ddl_Alumno.DataValueField = "Id_Alumno";
-                this.ddl_Alumno.DataBind();
-                this.ddl_Alumno.Items.Insert(0, new ListItem("--Seleccione--", "0"));
-            }
-            catch (Exception ex)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                    $"alert('Error al cargar combos: {ex.Message}');", true);
-            }
-        }
-
-        private void CargarGrid()
-        {
-            try
-            {
-                Service1Client xdb = new Service1Client();
-                List<clsServicioAlumno> lista = xdb.GetServicioAlumno().ToList();
-
-                gvServicioAlumno.DataSource = lista;
-                gvServicioAlumno.DataBind();
-            }
-            catch (Exception ex)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                    $"alert('Error al cargar Servicio Alumno: {ex.Message}');", true);
-            }
-        }
+        // ===================== CRUD =====================
 
         protected void btn_Agregar_Click(object sender, EventArgs e)
         {
+            if (!Validar()) return;
+
             try
             {
-                if (ddl_GrupoServicio.SelectedValue == "0" ||
-                    ddl_Alumno.SelectedValue == "0")
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        "alert('Debe seleccionar Grupo de Servicio y Alumno.');", true);
-                    return;
-                }
+                clsServicioAlumno_v obj = ObtenerDatosFormulario(false);
 
-                if (string.IsNullOrWhiteSpace(txt_FechaInicio.Text))
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        "alert('Debe ingresar la Fecha de Inicio.');", true);
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txt_Monto.Text))
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        "alert('Debe ingresar el Monto.');", true);
-                    return;
-                }
-
-                // ==== Parseo de datos ====
-                int idGrupo = int.Parse(ddl_GrupoServicio.SelectedValue);
-                int idAlumno = int.Parse(ddl_Alumno.SelectedValue);
-
-                DateTime fechaInicio;
-                if (!DateTime.TryParse(txt_FechaInicio.Text.Trim(), out fechaInicio))
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        "alert('Fecha Inicio no válida (use formato dd/mm/yyyy).');", true);
-                    return;
-                }
-
-                DateTime? fechaFinal = null;
-                if (!string.IsNullOrWhiteSpace(txt_FechaFinal.Text))
-                {
-                    DateTime temp;
-                    if (!DateTime.TryParse(txt_FechaFinal.Text.Trim(), out temp))
-                    {
-                        ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                            "alert('Fecha Final no válida.');", true);
-                        return;
-                    }
-                    fechaFinal = temp;
-                }
-
-                DateTime? fechaPago = null;
-                if (!string.IsNullOrWhiteSpace(txt_FechaPago.Text))
-                {
-                    DateTime temp;
-                    if (!DateTime.TryParse(txt_FechaPago.Text.Trim(), out temp))
-                    {
-                        ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                            "alert('Fecha de Pago no válida.');", true);
-                        return;
-                    }
-                    fechaPago = temp;
-                }
-
-                TimeSpan? horaInicio = null;
-                if (!string.IsNullOrWhiteSpace(txt_HoraInicio.Text))
-                {
-                    TimeSpan temp;
-                    if (!TimeSpan.TryParse(txt_HoraInicio.Text.Trim(), out temp))
-                    {
-                        ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                            "alert('Hora Inicio no válida (use formato HH:mm).');", true);
-                        return;
-                    }
-                    horaInicio = temp;
-                }
-
-                TimeSpan? horaFinal = null;
-                if (!string.IsNullOrWhiteSpace(txt_HoraFinal.Text))
-                {
-                    TimeSpan temp;
-                    if (!TimeSpan.TryParse(txt_HoraFinal.Text.Trim(), out temp))
-                    {
-                        ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                            "alert('Hora Final no válida (use formato HH:mm).');", true);
-                        return;
-                    }
-                    horaFinal = temp;
-                }
-
-                decimal monto;
-                if (!decimal.TryParse(txt_Monto.Text.Trim(), out monto))
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        "alert('Monto no válido.');", true);
-                    return;
-                }
-
-                // ==== Llamar al servicio ====
                 Service1Client xdb = new Service1Client();
-                clsServicioAlumno ser = new clsServicioAlumno();
+                string msg = xdb.InsertarServicioAlumno(obj);
 
-                ser.Id_GrupoServicio = idGrupo;
-                ser.Id_Alumno = idAlumno;
-                ser.FechaInicio = fechaInicio;
-                ser.FechaFinal = fechaFinal;
-                ser.FechaPago = fechaPago;
-                ser.HoraInicio = horaInicio;
-                ser.HoraFinal = horaFinal;
-                ser.Monto = monto;
-
-                xdb.InsServicioAlumno(ser);
-
-                LimpiarCampos();
+                Alert(msg);
+                Limpiar();
                 CargarGrid();
-
-                ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                    "alert('Servicio Alumno agregado correctamente.');", true);
-            }
-            catch (System.ServiceModel.FaultException fex)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                    $"alert('Error: {fex.Message}');", true);
             }
             catch (Exception ex)
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                    $"alert('Error inesperado: {ex.Message}');", true);
+                Alert("Error al agregar: " + ex.Message);
             }
         }
 
         protected void btn_Modificar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txt_IdServicioAlumno.Text))
+            {
+                Alert("Debe consultar un registro primero.");
+                return;
+            }
+
+            if (!Validar()) return;
+
             try
             {
-                if (string.IsNullOrWhiteSpace(txt_IdServicioAlumno.Text))
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        "alert('Debe seleccionar un registro para modificar.');", true);
-                    return;
-                }
-
-                if (ddl_GrupoServicio.SelectedValue == "0" ||
-                    ddl_Alumno.SelectedValue == "0")
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        "alert('Debe seleccionar Grupo de Servicio y Alumno.');", true);
-                    return;
-                }
+                clsServicioAlumno_v obj = ObtenerDatosFormulario(true);
 
                 Service1Client xdb = new Service1Client();
-                clsServicioAlumno ser = new clsServicioAlumno();
+                string msg = xdb.ModificarServicioAlumno(obj);
 
-                ser.Id_ServicioAlumno = int.Parse(txt_IdServicioAlumno.Text.Trim());
-                ser.Id_GrupoServicio = int.Parse(ddl_GrupoServicio.SelectedValue);
-                ser.Id_Alumno = int.Parse(ddl_Alumno.SelectedValue);
-
-                DateTime fechaInicio;
-                if (!DateTime.TryParse(txt_FechaInicio.Text.Trim(), out fechaInicio))
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        "alert('Fecha Inicio no válida.');", true);
-                    return;
-                }
-                ser.FechaInicio = fechaInicio;
-
-                DateTime tempDate;
-                if (!string.IsNullOrWhiteSpace(txt_FechaFinal.Text) &&
-                    DateTime.TryParse(txt_FechaFinal.Text.Trim(), out tempDate))
-                    ser.FechaFinal = tempDate;
-                else
-                    ser.FechaFinal = null;
-
-                if (!string.IsNullOrWhiteSpace(txt_FechaPago.Text) &&
-                    DateTime.TryParse(txt_FechaPago.Text.Trim(), out tempDate))
-                    ser.FechaPago = tempDate;
-                else
-                    ser.FechaPago = null;
-
-                TimeSpan tempTime;
-                if (!string.IsNullOrWhiteSpace(txt_HoraInicio.Text) &&
-                    TimeSpan.TryParse(txt_HoraInicio.Text.Trim(), out tempTime))
-                    ser.HoraInicio = tempTime;
-                else
-                    ser.HoraInicio = null;
-
-                if (!string.IsNullOrWhiteSpace(txt_HoraFinal.Text) &&
-                    TimeSpan.TryParse(txt_HoraFinal.Text.Trim(), out tempTime))
-                    ser.HoraFinal = tempTime;
-                else
-                    ser.HoraFinal = null;
-
-                decimal monto;
-                if (!decimal.TryParse(txt_Monto.Text.Trim(), out monto))
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        "alert('Monto no válido.');", true);
-                    return;
-                }
-                ser.Monto = monto;
-
-                xdb.ModServicioAlumno(ser);
-
-                LimpiarCampos();
+                Alert(msg);
+                Limpiar();
                 CargarGrid();
-
-                ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                    "alert('Servicio Alumno modificado correctamente.');", true);
-            }
-            catch (System.ServiceModel.FaultException fex)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                    $"alert('Error: {fex.Message}');", true);
             }
             catch (Exception ex)
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                    $"alert('Error inesperado: {ex.Message}');", true);
+                Alert("Error al modificar: " + ex.Message);
             }
         }
 
@@ -295,122 +80,403 @@ namespace ProyectoNido
             {
                 if (string.IsNullOrWhiteSpace(txt_IdServicioAlumno.Text))
                 {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        "alert('Debe seleccionar un registro para eliminar.');", true);
+                    Alert("Debe consultar un registro primero.");
                     return;
                 }
 
-                int id = int.Parse(txt_IdServicioAlumno.Text.Trim());
+                int id = int.Parse(txt_IdServicioAlumno.Text);
+
                 Service1Client xdb = new Service1Client();
-                xdb.DelServicioAlumno(id);
+                string msg = xdb.EliminarServicioAlumno(id);
 
-                LimpiarCampos();
+                Alert(msg);
+                Limpiar();
                 CargarGrid();
-
-                ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                    "alert('Servicio Alumno eliminado correctamente.');", true);
-            }
-            catch (System.ServiceModel.FaultException fex)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                    $"alert('Error: {fex.Message}');", true);
             }
             catch (Exception ex)
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                    $"alert('Error inesperado: {ex.Message}');", true);
+                Alert("Error al eliminar: " + ex.Message);
             }
         }
 
         protected void btn_Limpiar_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
+            Limpiar();
         }
 
-        private void LimpiarCampos()
+        // ===================== GRID =====================
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            this.btn_Agregar.Enabled = true;
-            this.btn_Modificar.Enabled = false;
-            this.btn_Eliminar.Enabled = false;
-
-            txt_IdServicioAlumno.Text = string.Empty;
-            ddl_GrupoServicio.SelectedIndex = 0;
-            ddl_Alumno.SelectedIndex = 0;
-
-            txt_FechaInicio.Text = string.Empty;
-            txt_FechaFinal.Text = string.Empty;
-            txt_FechaPago.Text = string.Empty;
-            txt_HoraInicio.Text = string.Empty;
-            txt_HoraFinal.Text = string.Empty;
-            txt_Monto.Text = string.Empty;
-        }
-
-        protected void gvServicioAlumno_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            int id = Convert.ToInt32(e.CommandArgument);
-            Service1Client xdb = new Service1Client();
-
-            if (e.CommandName == "Consultar")
-            {
-                try
-                {
-                    var lista = xdb.GetServicioAlumno().ToList();
-                    var ser = lista.FirstOrDefault(s => s.Id_ServicioAlumno == id);
-
-                    if (ser != null)
-                    {
-                        this.btn_Agregar.Enabled = false;
-                        this.btn_Modificar.Enabled = true;
-                        this.btn_Eliminar.Enabled = true;
-
-                        txt_IdServicioAlumno.Text = ser.Id_ServicioAlumno.ToString();
-                        ddl_GrupoServicio.SelectedValue = ser.Id_GrupoServicio.ToString();
-                        ddl_Alumno.SelectedValue = ser.Id_Alumno.ToString();
-
-                        // Formatear fechas solo si tienen valor (evita llamar ToString(string) en Nullable<T>)
-                        txt_FechaInicio.Text = (ser.FechaInicio != null && ser.FechaInicio.HasValue)
-                            ? ser.FechaInicio.Value.ToString("dd/MM/yyyy")
-                            : "";
-                        txt_FechaFinal.Text = ser.FechaFinal.HasValue ? ser.FechaFinal.Value.ToString("dd/MM/yyyy") : "";
-                        txt_FechaPago.Text = ser.FechaPago.HasValue ? ser.FechaPago.Value.ToString("dd/MM/yyyy") : "";
-
-                        // Horas (TimeSpan?) también formateadas si tienen valor
-                        txt_HoraInicio.Text = ser.HoraInicio.HasValue ? ser.HoraInicio.Value.ToString(@"hh\:mm") : "";
-                        txt_HoraFinal.Text = ser.HoraFinal.HasValue ? ser.HoraFinal.Value.ToString(@"hh\:mm") : "";
-
-                        // Monto puede ser nullable; formatear solo si tiene valor
-                        txt_Monto.Text = ser.Monto != null && ser.Monto.HasValue
-                            ? ser.Monto.Value.ToString("0.00")
-                            : "";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        $"alert('Error al consultar: {ex.Message}');", true);
-                }
-            }
-            else if (e.CommandName == "Eliminar")
-            {
-                try
-                {
-                    xdb.DelServicioAlumno(id);
-                    CargarGrid();
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        "alert('Servicio Alumno eliminado correctamente.');", true);
-                }
-                catch (Exception ex)
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                        $"alert('Error al eliminar: {ex.Message}');", true);
-                }
-            }
+            CargarGrid(txtBuscar.Text.Trim());
         }
 
         protected void gvServicioAlumno_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvServicioAlumno.PageIndex = e.NewPageIndex;
-            CargarGrid();
+            CargarGrid(txtBuscar.Text.Trim());
+        }
+
+        protected void gvServicioAlumno_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                int id = Convert.ToInt32(e.CommandArgument);
+
+                if (e.CommandName == "Consultar")
+                {
+                    Service1Client xdb = new Service1Client();
+                    var obj = xdb.GetServicioAlumno().FirstOrDefault(x => x.Id_ServicioAlumno == id);
+
+                    if (obj == null)
+                    {
+                        Alert("Registro no encontrado.");
+                        return;
+                    }
+
+                    // cargar a formulario
+                    txt_IdServicioAlumno.Text = obj.Id_ServicioAlumno.ToString();
+
+                    hdnIdGrupoServicio.Value = obj.Id_GrupoServicio.ToString();
+                    // mostramos algo amigable (salón + servicio + periodo)
+                    txt_GrupoServicioSeleccionado.Text = (obj.NombreSalon ?? "") + " | " + (obj.NombreServicio ?? "") + " | " + obj.Periodo.ToString();
+
+                    hdnIdAlumno.Value = obj.Id_Alumno.ToString();
+                    txt_AlumnoSeleccionado.Text = obj.NombreAlumno;
+
+                    txt_FechaInicio.Text = obj.FechaInicio.ToString("yyyy-MM-dd");
+                    txt_FechaFinal.Text = obj.FechaFinal.HasValue ? obj.FechaFinal.Value.ToString("yyyy-MM-dd") : "";
+                    txt_FechaPago.Text = obj.FechaPago.HasValue ? obj.FechaPago.Value.ToString("yyyy-MM-dd") : "";
+
+                    txt_HoraInicio.Text = obj.HoraInicio.HasValue ? obj.HoraInicio.Value.ToString(@"hh\:mm") : "";
+                    txt_HoraFinal.Text = obj.HoraFinal.HasValue ? obj.HoraFinal.Value.ToString(@"hh\:mm") : "";
+
+                    txt_Monto.Text = obj.Monto.ToString("0.00");
+
+                    ModoEdicion();
+                }
+                else if (e.CommandName == "Eliminar")
+                {
+                    Service1Client xdb = new Service1Client();
+                    string msg = xdb.EliminarServicioAlumno(id);
+
+                    Alert(msg);
+                    Limpiar();
+                    CargarGrid(txtBuscar.Text.Trim());
+                }
+            }
+            catch (Exception ex)
+            {
+                Alert("Error en la grilla: " + ex.Message);
+            }
+        }
+
+        // ===================== MODALES =====================
+
+        // ---- Buscar Alumno (dentro modal) ----
+        protected void btnBuscarAlumnoModal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Service1Client xdb = new Service1Client();
+                var lista = xdb.buscarAlumno(txtBuscarAlumno.Text.Trim()).ToList();
+
+                gvAlumno.DataSource = lista;
+                gvAlumno.DataBind();
+
+                // reabrir modal (postback)
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "showModalAlumno",
+                    "var m = new bootstrap.Modal(document.getElementById('modalAlumno')); m.show();", true);
+            }
+            catch (Exception ex)
+            {
+                Alert("Error al buscar alumno: " + ex.Message);
+            }
+        }
+
+        protected void gvAlumno_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName != "seleccionar") return;
+
+            int index = Convert.ToInt32(e.CommandArgument);
+            int id = Convert.ToInt32(gvAlumno.DataKeys[index].Value);
+
+            string nombre = gvAlumno.Rows[index].Cells[0].Text;
+
+            hdnIdAlumno.Value = id.ToString();
+            txt_AlumnoSeleccionado.Text = nombre;
+
+            // cerrar modal
+            ScriptManager.RegisterStartupScript(this, this.GetType(),
+                "hideModalAlumno", "bootstrap.Modal.getInstance(document.getElementById('modalAlumno')).hide();", true);
+        }
+
+        // ---- Buscar Grupo Servicio (dentro modal) ----
+        protected void btnBuscarGrupoServicioModal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Service1Client xdb = new Service1Client();
+                var lista = xdb.buscarGrupoServicio(txtBuscarGrupoServicio.Text.Trim()).ToList();
+
+                gvGrupoServicioModal.DataSource = lista;
+                gvGrupoServicioModal.DataBind();
+
+                // reabrir modal (postback)
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "showModalGrupoServicio",
+                    "var m = new bootstrap.Modal(document.getElementById('modalGrupoServicio')); m.show();", true);
+            }
+            catch (Exception ex)
+            {
+                Alert("Error al buscar Grupo Servicio: " + ex.Message);
+            }
+        }
+
+        protected void gvGrupoServicioModal_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName != "seleccionar") return;
+
+            int index = Convert.ToInt32(e.CommandArgument);
+            int id = Convert.ToInt32(gvGrupoServicioModal.DataKeys[index].Value);
+
+            // ojo: el orden de celdas depende de tus BoundField
+            string salon = gvGrupoServicioModal.Rows[index].Cells[0].Text;
+            string profesor = gvGrupoServicioModal.Rows[index].Cells[1].Text;
+            string servicio = gvGrupoServicioModal.Rows[index].Cells[2].Text;
+            string periodo = gvGrupoServicioModal.Rows[index].Cells[3].Text;
+
+            hdnIdGrupoServicio.Value = id.ToString();
+            txt_GrupoServicioSeleccionado.Text = salon + " | " + servicio + " | " + periodo;
+
+            // cerrar modal
+            ScriptManager.RegisterStartupScript(this, this.GetType(),
+                "hideModalGrupoServicio", "bootstrap.Modal.getInstance(document.getElementById('modalGrupoServicio')).hide();", true);
+        }
+
+        // ===================== UTILITARIOS =====================
+
+        private void Alert(string mensaje)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(),
+                "alert", "alert('" + mensaje.Replace("'", "\\'") + "');", true);
+        }
+
+        private void ModoNuevo()
+        {
+            btn_Agregar.Enabled = true;
+            btn_Modificar.Enabled = false;
+            btn_Eliminar.Enabled = false;
+        }
+
+        private void ModoEdicion()
+        {
+            btn_Agregar.Enabled = false;
+            btn_Modificar.Enabled = true;
+            btn_Eliminar.Enabled = true;
+        }
+
+        private void Limpiar()
+        {
+            txt_IdServicioAlumno.Text = "";
+
+            hdnIdGrupoServicio.Value = "";
+            txt_GrupoServicioSeleccionado.Text = "";
+
+            hdnIdAlumno.Value = "";
+            txt_AlumnoSeleccionado.Text = "";
+
+            txt_FechaInicio.Text = "";
+            txt_FechaFinal.Text = "";
+            txt_FechaPago.Text = "";
+
+            txt_HoraInicio.Text = "";
+            txt_HoraFinal.Text = "";
+
+            txt_Monto.Text = "";
+
+            ModoNuevo();
+        }
+
+        private void CargarGrid(string filtro = "")
+        {
+            try
+            {
+                Service1Client xdb = new Service1Client();
+                var lista = xdb.GetServicioAlumno().ToList();
+
+                if (!string.IsNullOrWhiteSpace(filtro))
+                {
+                    string f = filtro.Trim().ToLower();
+
+                    lista = lista.Where(x =>
+                        ((x.NombreAlumno ?? "").ToLower().Contains(f)) ||
+                        ((x.NombreSalon ?? "").ToLower().Contains(f)) ||
+                        ((x.NombreServicio ?? "").ToLower().Contains(f)) ||
+                        (x.Periodo.ToString().Contains(f))
+                    ).ToList();
+                }
+
+                lblMensaje.Text = (lista.Count == 0) ? "No se encontraron resultados." : "";
+
+                gvServicioAlumno.DataSource = lista;
+                gvServicioAlumno.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Alert("Error al cargar Servicio Alumno: " + ex.Message);
+            }
+        }
+
+        private bool Validar()
+        {
+            if (string.IsNullOrWhiteSpace(hdnIdGrupoServicio.Value))
+            {
+                Alert("Seleccione un Grupo Servicio.");
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(hdnIdAlumno.Value))
+            {
+                Alert("Seleccione un Alumno.");
+                return false;
+            }
+
+            DateTime fi;
+            if (!DateTime.TryParse(txt_FechaInicio.Text.Trim(), out fi))
+            {
+                Alert("Ingrese una Fecha Inicio válida.");
+                return false;
+            }
+
+            if (!string.IsNullOrWhiteSpace(txt_FechaFinal.Text))
+            {
+                DateTime ff;
+                if (!DateTime.TryParse(txt_FechaFinal.Text.Trim(), out ff))
+                {
+                    Alert("Ingrese una Fecha Final válida o deje vacío.");
+                    return false;
+                }
+                if (ff.Date < fi.Date)
+                {
+                    Alert("La Fecha Final no puede ser menor que la Fecha Inicio.");
+                    return false;
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(txt_FechaPago.Text))
+            {
+                DateTime fp;
+                if (!DateTime.TryParse(txt_FechaPago.Text.Trim(), out fp))
+                {
+                    Alert("Ingrese una Fecha Pago válida o deje vacío.");
+                    return false;
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(txt_HoraInicio.Text))
+            {
+                TimeSpan hi;
+                if (!TimeSpan.TryParse(txt_HoraInicio.Text.Trim(), out hi))
+                {
+                    Alert("Hora Inicio inválida. Use HH:mm o deje vacío.");
+                    return false;
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(txt_HoraFinal.Text))
+            {
+                TimeSpan hf;
+                if (!TimeSpan.TryParse(txt_HoraFinal.Text.Trim(), out hf))
+                {
+                    Alert("Hora Final inválida. Use HH:mm o deje vacío.");
+                    return false;
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(txt_HoraInicio.Text) && !string.IsNullOrWhiteSpace(txt_HoraFinal.Text))
+            {
+                TimeSpan hi = TimeSpan.Parse(txt_HoraInicio.Text.Trim());
+                TimeSpan hf = TimeSpan.Parse(txt_HoraFinal.Text.Trim());
+                if (hf <= hi)
+                {
+                    Alert("Hora Final debe ser mayor que Hora Inicio.");
+                    return false;
+                }
+            }
+
+            decimal monto;
+            if (!decimal.TryParse(txt_Monto.Text.Trim(), out monto))
+            {
+                Alert("Ingrese un monto válido.");
+                return false;
+            }
+            if (monto < 0)
+            {
+                Alert("El monto no puede ser negativo.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private clsServicioAlumno_v ObtenerDatosFormulario(bool incluirId)
+        {
+            clsServicioAlumno_v obj = new clsServicioAlumno_v();
+
+            if (incluirId)
+                obj.Id_ServicioAlumno = int.Parse(txt_IdServicioAlumno.Text);
+
+            obj.Id_GrupoServicio = int.Parse(hdnIdGrupoServicio.Value);
+            obj.Id_Alumno = int.Parse(hdnIdAlumno.Value);
+
+            obj.FechaInicio = DateTime.Parse(txt_FechaInicio.Text.Trim()).Date;
+
+            if (!string.IsNullOrWhiteSpace(txt_FechaFinal.Text))
+                obj.FechaFinal = DateTime.Parse(txt_FechaFinal.Text.Trim()).Date;
+
+            if (!string.IsNullOrWhiteSpace(txt_FechaPago.Text))
+                obj.FechaPago = DateTime.Parse(txt_FechaPago.Text.Trim()).Date;
+
+            if (!string.IsNullOrWhiteSpace(txt_HoraInicio.Text))
+                obj.HoraInicio = TimeSpan.Parse(txt_HoraInicio.Text.Trim());
+
+            if (!string.IsNullOrWhiteSpace(txt_HoraFinal.Text))
+                obj.HoraFinal = TimeSpan.Parse(txt_HoraFinal.Text.Trim());
+
+            obj.Monto = decimal.Parse(txt_Monto.Text.Trim());
+
+            return obj;
+        }
+
+        private void RestaurarSeleccionVisual()
+        {
+            try
+            {
+                Service1Client xdb = new Service1Client();
+
+                // Alumno
+                if (!string.IsNullOrWhiteSpace(hdnIdAlumno.Value) &&
+                    string.IsNullOrWhiteSpace(txt_AlumnoSeleccionado.Text))
+                {
+                    int idAlumno = int.Parse(hdnIdAlumno.Value);
+                    var al = xdb.buscarAlumno("").FirstOrDefault(a => a.Id_Alumno == idAlumno);
+                    if (al != null)
+                        txt_AlumnoSeleccionado.Text = al.NombreCompleto;
+                }
+
+                // GrupoServicio (texto armado salón|servicio|periodo)
+                if (!string.IsNullOrWhiteSpace(hdnIdGrupoServicio.Value) &&
+                    string.IsNullOrWhiteSpace(txt_GrupoServicioSeleccionado.Text))
+                {
+                    int idGs = int.Parse(hdnIdGrupoServicio.Value);
+                    var gs = xdb.buscarGrupoServicio("").FirstOrDefault(g => g.Id_GrupoServicio == idGs);
+                    if (gs != null)
+                        txt_GrupoServicioSeleccionado.Text = gs.NombreSalon + " | " + gs.NombreServicio + " | " + gs.Periodo;
+                }
+            }
+            catch
+            {
+                // No hacemos alert aquí para no molestar; solo intentamos restaurar.
+            }
         }
     }
 }

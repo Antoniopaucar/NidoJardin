@@ -31,35 +31,6 @@ namespace ProyectoNido
 
         }
 
-
-        //private void CargarGrid(string filtro = "")
-        //{
-        //    try
-        //    {
-        //        Service1Client xdb = new Service1Client();
-        //        List<clsGrupoServicio> lista = xdb.GetGrupoServicio().ToList();
-
-        //        if (!string.IsNullOrEmpty(filtro))
-        //        {
-        //            if (byte.TryParse(filtro, out byte periodo))
-        //            {
-        //                lista = lista.Where(g => g.Periodo == periodo).ToList();
-        //            }
-        //        }
-
-        //        lblMensaje.Text = lista.Count == 0
-        //            ? "No se encontraron resultados."
-        //            : "";
-
-        //        gvGrupoServicio.DataSource = lista;
-        //        gvGrupoServicio.DataBind();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ClientScript.RegisterStartupScript(this.GetType(), "alert", $"alert('Error al cargar Grupo Servicio: {ex.Message}');", true);
-        //    }
-        //}
-
         protected void btn_Agregar_Click(object sender, EventArgs e)
         {
             if (!short.TryParse(txt_Periodo.Text.Trim(), out short periodo))
@@ -90,43 +61,7 @@ namespace ProyectoNido
             {
                 Alert("Error al agregar: " + ex.Message);
             }
-            //try
-            //{
-            //    Service1Client xdb = new Service1Client();
 
-            //    // Validaciones básicas
-            //    if (string.IsNullOrWhiteSpace(hdnIdSalon.Value) ||
-            //        string.IsNullOrWhiteSpace(hdnIdProfesor.Value) ||
-            //        string.IsNullOrWhiteSpace(hdnIdServicio.Value) ||
-            //        string.IsNullOrWhiteSpace(txt_Periodo.Text))
-            //    {
-            //        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert",
-            //            "alert('Complete todos los campos.');", true);
-            //        return;
-            //    }
-
-            //    // Crear entidad GrupoServicio
-            //    clsGrupoServicio obj = new clsGrupoServicio()
-            //    {
-            //        Id_Salon = int.Parse(hdnIdSalon.Value),
-            //        Id_Profesor = int.Parse(hdnIdProfesor.Value),
-            //        Id_ServicioAdicional = int.Parse(hdnIdServicio.Value),
-            //        Periodo = (byte)int.Parse(txt_Periodo.Text)
-            //    };
-
-            //    // Llamar al método WCF
-            //    string mensaje = xdb.InsertarGrupoServicio(obj);
-
-            //    ScriptManager.RegisterStartupScript(this, this.GetType(),
-            //        "ok", $"alert('{mensaje}');", true);
-
-            //    Limpiar();
-            //}
-            //catch (Exception ex)
-            //{
-            //    ScriptManager.RegisterStartupScript(this, this.GetType(),
-            //        "err", $"alert('Error: {ex.Message}');", true);
-            //}
         }
 
         protected void btn_Modificar_Click(object sender, EventArgs e)
@@ -166,37 +101,7 @@ namespace ProyectoNido
             {
                 Alert("Error al modificar: " + ex.Message);
             }
-            //try
-            //{
-            //    if (string.IsNullOrEmpty(txt_IdGrupoServicio.Text))
-            //    {
-            //        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert",
-            //            "alert('Debe seleccionar un Grupo Servicio primero.');", true);
-            //        return;
-            //    }
-
-            //    clsGrupoServicio obj = new clsGrupoServicio()
-            //    {
-            //        Id_GrupoServicio = int.Parse(txt_IdGrupoServicio.Text),
-            //        Id_Salon = int.Parse(hdnIdSalon.Value),
-            //        Id_Profesor = int.Parse(hdnIdProfesor.Value),
-            //        Id_ServicioAdicional = int.Parse(hdnIdServicio.Value),
-            //        Periodo = (byte)int.Parse(txt_Periodo.Text)
-            //    };
-
-            //    Service1Client xdb = new Service1Client();
-            //    string mensaje = xdb.ModificarGrupoServicio(obj);
-
-            //    ScriptManager.RegisterStartupScript(this, this.GetType(),
-            //        "ok", $"alert('{mensaje}');", true);
-
-            //    Limpiar();
-            //}
-            //catch (Exception ex)
-            //{
-            //    ScriptManager.RegisterStartupScript(this, this.GetType(),
-            //        "err", $"alert('Error: {ex.Message}');", true);
-            //}
+ 
         }
 
         protected void btn_Eliminar_Click(object sender, EventArgs e)
@@ -317,15 +222,7 @@ namespace ProyectoNido
 
             ScriptManager.RegisterStartupScript(this, this.GetType(),
                 "hideModal", "bootstrap.Modal.getInstance(document.getElementById('modalProfesor')).hide();", true);
-            //if (e.CommandName == "seleccionar")
-            //{
-            //    int index = Convert.ToInt32(e.CommandArgument);
-            //    int id = Convert.ToInt32(gvProfesor.DataKeys[index].Value);
-            //    string nombre = gvProfesor.Rows[index].Cells[0].Text;
 
-            //    hdnIdProfesor.Value = id.ToString();
-            //    txt_ProfesorSeleccionado.Text = nombre;
-            //}
         }
 
         // SALÓN

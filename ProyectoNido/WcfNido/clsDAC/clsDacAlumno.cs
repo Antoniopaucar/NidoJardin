@@ -363,5 +363,35 @@ namespace clsDAC
             return lista;
         }
 
+        public List<clsAlumnoCombo> buscarAlumno(string texto)
+        {
+            var lista = new List<clsAlumnoCombo>();
+
+            using (SqlConnection cn = clsConexion.getInstance().GetSqlConnection())
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand("buscarAlumno", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@Texto", SqlDbType.VarChar, 100).Value = texto;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new clsAlumnoCombo
+                            {
+                                Id_Alumno = Convert.ToInt32(dr["Id_Alumno"]),
+                                NombreCompleto = dr["NombreCompleto"].ToString(),
+                                Documento = dr["Documento"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            return lista;
+        }
+
+
     }
 }

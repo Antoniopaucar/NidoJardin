@@ -762,6 +762,19 @@ namespace WcfNido
             }
         }
 
+        public List<clsAlumnoCombo> buscarAlumno(string texto)
+        {
+            try
+            {
+                clsBLAlumno bl = new clsBLAlumno();
+                return bl.buscarAlumno(texto);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException("Error al buscar alumno: " + ex.Message);
+            }
+        }
+
         //---------------------------- ACTUALIZAR DATOS DOCENTE ---------------------------------
         //public void ActualizarDatosDocente(int idUsuario, string nombres, string apPaterno, string apMaterno,
         //    string dni, DateTime? fechaNacimiento, string sexo, string direccion, string email,
@@ -1008,11 +1021,11 @@ namespace WcfNido
 
         //----------------------------- SERVICIO ALUMNO ---------------------------------------
 
-        public List<clsServicioAlumno> GetServicioAlumno()
-        {
-            clsBLServicioAlumno bl = new clsBLServicioAlumno();
-            return bl.listar_ServicioAlumno();
-        }
+        //public List<clsServicioAlumno> GetServicioAlumno()
+        //{
+        //    clsBLServicioAlumno bl = new clsBLServicioAlumno();
+        //    return bl.listar_ServicioAlumno();
+        //}
 
         public void DelServicioAlumno(int Codigo)
         {
@@ -1031,6 +1044,72 @@ namespace WcfNido
             clsBLServicioAlumno bl = new clsBLServicioAlumno();
             bl.modificar_ServicioAlumno(servicioAlumno);
         }
+
+        //----------------------------- SERVICIO ADICIONAL_V ---------------------------------------
+        // ==========================
+        // LISTAR
+        // ==========================
+        public List<clsServicioAlumno_v> GetServicioAlumno()
+        {
+            try
+            {
+                clsBLServicioAlumno_v bl = new clsBLServicioAlumno_v();
+                return bl.listar_servicioAlumno();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException("Error al listar ServicioAlumno: " + ex.Message);
+            }
+        }
+
+        // ==========================
+        // INSERTAR
+        // ==========================
+        public string InsertarServicioAlumno(clsServicioAlumno_v obj)
+        {
+            try
+            {
+                clsBLServicioAlumno_v bl = new clsBLServicioAlumno_v();
+                return bl.insertar_servicioAlumno(obj); // "OK" o mensaje (aforo, duplicado, etc.)
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException("Error al insertar ServicioAlumno: " + ex.Message);
+            }
+        }
+
+        // ==========================
+        // MODIFICAR
+        // ==========================
+        public string ModificarServicioAlumno(clsServicioAlumno_v obj)
+        {
+            try
+            {
+                clsBLServicioAlumno_v bl = new clsBLServicioAlumno_v();
+                return bl.modificar_servicioAlumno(obj);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException("Error al modificar ServicioAlumno: " + ex.Message);
+            }
+        }
+
+        // ==========================
+        // ELIMINAR
+        // ==========================
+        public string EliminarServicioAlumno(int id)
+        {
+            try
+            {
+                clsBLServicioAlumno_v bl = new clsBLServicioAlumno_v();
+                return bl.eliminar_servicioAlumno(id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException("Error al eliminar ServicioAlumno: " + ex.Message);
+            }
+        }
+
 
         //----------------------------- GRUPO SERVICIO ---------------------------------------
         public List<clsGrupoServicio> GetGrupoServicio()
@@ -1078,6 +1157,18 @@ namespace WcfNido
             catch (Exception ex)
             {
                 throw new FaultException(ex.Message);
+            }
+        }
+        public List<clsGrupoServicio> buscarGrupoServicio(string texto)
+        {
+            try
+            {
+                clsBLGrupoServicio_v bl = new clsBLGrupoServicio_v();
+                return bl.buscarGrupoServicio(texto);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException("Error al buscar GrupoServicio: " + ex.Message);
             }
         }
 

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/clsEntidades" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/clsEntidades" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfclsMatriculaDetalle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsMatriculaDetalle" nillable="true" type="tns:clsMatriculaDetalle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsMatriculaDetalle" nillable="true" type="tns:ArrayOfclsMatriculaDetalle" />
   <xs:complexType name="clsMatriculaDetalle">
     <xs:sequence>
       <xs:element minOccurs="0" name="Adicional" type="xs:decimal" />
@@ -54,12 +60,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsServicioAdicional" nillable="true" type="tns:clsServicioAdicional" />
-  <xs:complexType name="ArrayOfclsServicioAlumno">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsServicioAlumno" nillable="true" type="tns:clsServicioAlumno" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfclsServicioAlumno" nillable="true" type="tns:ArrayOfclsServicioAlumno" />
   <xs:complexType name="clsServicioAlumno">
     <xs:sequence>
       <xs:element minOccurs="0" name="FechaFinal" nillable="true" type="xs:dateTime" />
@@ -76,6 +76,33 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsServicioAlumno" nillable="true" type="tns:clsServicioAlumno" />
+  <xs:complexType name="ArrayOfclsServicioAlumno_v">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsServicioAlumno_v" nillable="true" type="tns:clsServicioAlumno_v" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsServicioAlumno_v" nillable="true" type="tns:ArrayOfclsServicioAlumno_v" />
+  <xs:complexType name="clsServicioAlumno_v">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aforo" type="xs:int" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaFinal" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaInicio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaPago" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HoraFinal" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="HoraInicio" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="Id_Alumno" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_GrupoServicio" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_ServicioAlumno" type="xs:int" />
+      <xs:element minOccurs="0" name="Monto" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NombreAlumno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreProfesor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreSalon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreServicio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Periodo" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsServicioAlumno_v" nillable="true" type="tns:clsServicioAlumno_v" />
   <xs:complexType name="ArrayOfclsGrupoServicio">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="clsGrupoServicio" nillable="true" type="tns:clsGrupoServicio" />
@@ -278,12 +305,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsResumenCuotas" nillable="true" type="tns:clsResumenCuotas" />
-  <xs:complexType name="ArrayOfclsMatriculaDetalle">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsMatriculaDetalle" nillable="true" type="tns:clsMatriculaDetalle" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfclsMatriculaDetalle" nillable="true" type="tns:ArrayOfclsMatriculaDetalle" />
   <xs:complexType name="clsLogin">
     <xs:sequence>
       <xs:element minOccurs="0" name="Exito" type="xs:boolean" />
@@ -476,6 +497,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="clsProfesorCombo" nillable="true" type="tns:clsProfesorCombo" />
+  <xs:complexType name="ArrayOfclsAlumnoCombo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsAlumnoCombo" nillable="true" type="tns:clsAlumnoCombo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsAlumnoCombo" nillable="true" type="tns:ArrayOfclsAlumnoCombo" />
+  <xs:complexType name="clsAlumnoCombo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Documento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Alumno" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreCompleto" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsAlumnoCombo" nillable="true" type="tns:clsAlumnoCombo" />
   <xs:complexType name="ArrayOfclsTipoDocumento">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="clsTipoDocumento" nillable="true" type="tns:clsTipoDocumento" />

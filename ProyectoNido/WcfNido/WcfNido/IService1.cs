@@ -1,4 +1,5 @@
-﻿using clsEntidades;
+﻿using clsBL;
+using clsEntidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -217,6 +218,9 @@ namespace WcfNido
         [OperationContract]
         List<clsAlumno> listarAlumnos_Combo();
 
+        [OperationContract]
+        List<clsAlumnoCombo> buscarAlumno(string texto);
+
         //------------------------ TIPO DOCUMENTO ----------------------------------------------
 
         [OperationContract]
@@ -349,8 +353,8 @@ namespace WcfNido
 
 
         //-------------------------------- Servicio_Alumno --------------------------------
-        [OperationContract]
-        List<clsServicioAlumno> GetServicioAlumno();
+        //[OperationContract]
+        //List<clsServicioAlumno> GetServicioAlumno();
 
         [OperationContract]
         void DelServicioAlumno(int Codigo);
@@ -360,6 +364,23 @@ namespace WcfNido
 
         [OperationContract]
         void ModServicioAlumno(clsServicioAlumno servicioAlumno);
+
+        //------------------------------ ---------- SERVICIO_ALUMNO_V --------------------------------
+        // ===== LISTAR (vista) =====
+        [OperationContract]
+        List<clsServicioAlumno_v> GetServicioAlumno();
+
+        // ===== CRUD (usando clsServicioAlumno_v) =====
+        [OperationContract]
+        string InsertarServicioAlumno(clsServicioAlumno_v obj);
+
+        [OperationContract]
+        string ModificarServicioAlumno(clsServicioAlumno_v obj);
+
+        [OperationContract]
+        string EliminarServicioAlumno(int id);
+
+
 
         //------------------------ GRUPO SERVICIO_V -------------------------------------
 
@@ -374,6 +395,8 @@ namespace WcfNido
 
         [OperationContract]
         string EliminarGrupoServicio(int id);
+        [OperationContract]
+        List<clsGrupoServicio> buscarGrupoServicio(string texto);
 
         //------------------------ OBTENER ROLES POR IDs -------------------------------------
         [OperationContract]

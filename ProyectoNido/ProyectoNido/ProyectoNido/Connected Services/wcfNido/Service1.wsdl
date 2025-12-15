@@ -9,6 +9,12 @@
       <xsd:import schemaLocation="http://localhost:58221/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/WcfNido" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IService1_MatriculaDetalle_ListarPorMatricula_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ListarPorMatricula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MatriculaDetalle_ListarPorMatricula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ListarPorMatriculaResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_MatriculaDetalle_Obtener_InputMessage">
     <wsdl:part name="parameters" element="tns:MatriculaDetalle_Obtener" />
   </wsdl:message>
@@ -111,12 +117,6 @@
   <wsdl:message name="IService1_BuscarServicioAdicional_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuscarServicioAdicionalResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetServicioAlumno_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetServicioAlumno" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetServicioAlumno_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetServicioAlumnoResponse" />
-  </wsdl:message>
   <wsdl:message name="IService1_DelServicioAlumno_InputMessage">
     <wsdl:part name="parameters" element="tns:DelServicioAlumno" />
   </wsdl:message>
@@ -134,6 +134,30 @@
   </wsdl:message>
   <wsdl:message name="IService1_ModServicioAlumno_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModServicioAlumnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetServicioAlumno_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicioAlumno" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetServicioAlumno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicioAlumnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertarServicioAlumno_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarServicioAlumno" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertarServicioAlumno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarServicioAlumnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ModificarServicioAlumno_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarServicioAlumno" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ModificarServicioAlumno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarServicioAlumnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarServicioAlumno_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarServicioAlumno" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EliminarServicioAlumno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarServicioAlumnoResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetGrupoServicio_InputMessage">
     <wsdl:part name="parameters" element="tns:GetGrupoServicio" />
@@ -158,6 +182,12 @@
   </wsdl:message>
   <wsdl:message name="IService1_EliminarGrupoServicio_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarGrupoServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarGrupoServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarGrupoServicio" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarGrupoServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarGrupoServicioResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_ObtenerRolesPorIds_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerRolesPorIds" />
@@ -639,6 +669,12 @@
   <wsdl:message name="IService1_listarAlumnos_Combo_OutputMessage">
     <wsdl:part name="parameters" element="tns:listarAlumnos_ComboResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_buscarAlumno_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarAlumno" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarAlumno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarAlumnoResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetTipoDocumento_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTipoDocumento" />
   </wsdl:message>
@@ -729,13 +765,11 @@
   <wsdl:message name="IService1_Matricula_CambiarEstado_OutputMessage">
     <wsdl:part name="parameters" element="tns:Matricula_CambiarEstadoResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_MatriculaDetalle_ListarPorMatricula_InputMessage">
-    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ListarPorMatricula" />
-  </wsdl:message>
-  <wsdl:message name="IService1_MatriculaDetalle_ListarPorMatricula_OutputMessage">
-    <wsdl:part name="parameters" element="tns:MatriculaDetalle_ListarPorMatriculaResponse" />
-  </wsdl:message>
   <wsdl:portType name="IService1">
+    <wsdl:operation name="MatriculaDetalle_ListarPorMatricula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatricula" message="tns:IService1_MatriculaDetalle_ListarPorMatricula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatriculaResponse" message="tns:IService1_MatriculaDetalle_ListarPorMatricula_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="MatriculaDetalle_Obtener">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_Obtener" message="tns:IService1_MatriculaDetalle_Obtener_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ObtenerResponse" message="tns:IService1_MatriculaDetalle_Obtener_OutputMessage" />
@@ -804,10 +838,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/BuscarServicioAdicional" message="tns:IService1_BuscarServicioAdicional_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/BuscarServicioAdicionalResponse" message="tns:IService1_BuscarServicioAdicional_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetServicioAlumno">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetServicioAlumno" message="tns:IService1_GetServicioAlumno_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetServicioAlumnoResponse" message="tns:IService1_GetServicioAlumno_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="DelServicioAlumno">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DelServicioAlumno" message="tns:IService1_DelServicioAlumno_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DelServicioAlumnoResponse" message="tns:IService1_DelServicioAlumno_OutputMessage" />
@@ -819,6 +849,22 @@
     <wsdl:operation name="ModServicioAlumno">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ModServicioAlumno" message="tns:IService1_ModServicioAlumno_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ModServicioAlumnoResponse" message="tns:IService1_ModServicioAlumno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServicioAlumno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetServicioAlumno" message="tns:IService1_GetServicioAlumno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetServicioAlumnoResponse" message="tns:IService1_GetServicioAlumno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarServicioAlumno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertarServicioAlumno" message="tns:IService1_InsertarServicioAlumno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertarServicioAlumnoResponse" message="tns:IService1_InsertarServicioAlumno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarServicioAlumno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ModificarServicioAlumno" message="tns:IService1_ModificarServicioAlumno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ModificarServicioAlumnoResponse" message="tns:IService1_ModificarServicioAlumno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarServicioAlumno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EliminarServicioAlumno" message="tns:IService1_EliminarServicioAlumno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EliminarServicioAlumnoResponse" message="tns:IService1_EliminarServicioAlumno_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetGrupoServicio">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGrupoServicio" message="tns:IService1_GetGrupoServicio_InputMessage" />
@@ -835,6 +881,10 @@
     <wsdl:operation name="EliminarGrupoServicio">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/EliminarGrupoServicio" message="tns:IService1_EliminarGrupoServicio_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/EliminarGrupoServicioResponse" message="tns:IService1_EliminarGrupoServicio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarGrupoServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarGrupoServicio" message="tns:IService1_buscarGrupoServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarGrupoServicioResponse" message="tns:IService1_buscarGrupoServicio_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerRolesPorIds">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ObtenerRolesPorIds" message="tns:IService1_ObtenerRolesPorIds_InputMessage" />
@@ -1156,6 +1206,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/listarAlumnos_Combo" message="tns:IService1_listarAlumnos_Combo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/listarAlumnos_ComboResponse" message="tns:IService1_listarAlumnos_Combo_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="buscarAlumno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarAlumno" message="tns:IService1_buscarAlumno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarAlumnoResponse" message="tns:IService1_buscarAlumno_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetTipoDocumento">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTipoDocumento" message="tns:IService1_GetTipoDocumento_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTipoDocumentoResponse" message="tns:IService1_GetTipoDocumento_OutputMessage" />
@@ -1216,13 +1270,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Matricula_CambiarEstado" message="tns:IService1_Matricula_CambiarEstado_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Matricula_CambiarEstadoResponse" message="tns:IService1_Matricula_CambiarEstado_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="MatriculaDetalle_ListarPorMatricula">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatricula" message="tns:IService1_MatriculaDetalle_ListarPorMatricula_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatriculaResponse" message="tns:IService1_MatriculaDetalle_ListarPorMatricula_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MatriculaDetalle_ListarPorMatricula">
+      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatricula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="MatriculaDetalle_Obtener">
       <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_Obtener" style="document" />
       <wsdl:input>
@@ -1376,15 +1435,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetServicioAlumno">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetServicioAlumno" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="DelServicioAlumno">
       <soap:operation soapAction="http://tempuri.org/IService1/DelServicioAlumno" style="document" />
       <wsdl:input>
@@ -1405,6 +1455,42 @@
     </wsdl:operation>
     <wsdl:operation name="ModServicioAlumno">
       <soap:operation soapAction="http://tempuri.org/IService1/ModServicioAlumno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicioAlumno">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetServicioAlumno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarServicioAlumno">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertarServicioAlumno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarServicioAlumno">
+      <soap:operation soapAction="http://tempuri.org/IService1/ModificarServicioAlumno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarServicioAlumno">
+      <soap:operation soapAction="http://tempuri.org/IService1/EliminarServicioAlumno" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1441,6 +1527,15 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarGrupoServicio">
       <soap:operation soapAction="http://tempuri.org/IService1/EliminarGrupoServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarGrupoServicio">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarGrupoServicio" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2168,6 +2263,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="buscarAlumno">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarAlumno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetTipoDocumento">
       <soap:operation soapAction="http://tempuri.org/IService1/GetTipoDocumento" style="document" />
       <wsdl:input>
@@ -2296,15 +2400,6 @@
     </wsdl:operation>
     <wsdl:operation name="Matricula_CambiarEstado">
       <soap:operation soapAction="http://tempuri.org/IService1/Matricula_CambiarEstado" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="MatriculaDetalle_ListarPorMatricula">
-      <soap:operation soapAction="http://tempuri.org/IService1/MatriculaDetalle_ListarPorMatricula" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

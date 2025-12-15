@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsAlumno.cs" />
+    <Compile Include="clsAlumnoCombo.cs" />
     <Compile Include="clsApoderado.cs" />
     <Compile Include="clsArchivoBase.cs" />
     <Compile Include="clsComunicado.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="clsSalonCombo.cs" />
     <Compile Include="clsServicioAdicional.cs" />
     <Compile Include="clsServicioAlumno.cs" />
+    <Compile Include="clsServicioAlumno_v.cs" />
     <Compile Include="clsTarifario.cs" />
     <Compile Include="clsTipoDocumento.cs" />
     <Compile Include="clsUsuario.cs" />
