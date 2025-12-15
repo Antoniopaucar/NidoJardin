@@ -171,6 +171,9 @@
     <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsAlumnoCombo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\wcfNido\ProyectoNido.wcfNido.clsServicioAlumno.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\wcfNido\Service1.disco" />
     <None Include="Connected Services\wcfNido\configuration91.svcinfo" />
     <None Include="Connected Services\wcfNido\configuration.svcinfo" />
